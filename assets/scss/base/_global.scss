@@ -1,0 +1,49 @@
+@use "../abstracts/variables" as *;
+// ==========================================================
+// Global
+// ==========================================================
+
+:root {
+
+    /*
+     * CONFERP Global
+     */
+
+    --conferp-global-dark: #{$conferp-global-dark};
+
+
+    /*
+     * Institution
+     */
+
+    --institution-primary: #{$institution-primary};
+    --institution-secondary: #{$institution-secondary};
+
+
+    /*
+     * Layout
+     *
+     * Os valores serão refinados conforme o Figma.
+     */
+
+    --conferp-container-width: 1320px;
+
+    --conferp-utility-height: 42px;
+    --conferp-header-height: 88px;
+    --conferp-navigation-height: 44px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: $body-bg;
+    color: $body-color;
+}
+
+main {
+    display: block;
+}
+

@@ -1,0 +1,110 @@
+@use "sass:color";
+// ==========================================================
+// CONFERP
+// Design Tokens
+// ==========================================================
+
+
+// ----------------------------------------------------------
+// CONFERP Global
+//
+// Identidade pertencente ao Conselho Federal.
+// Utility Bar e Subfooter utilizam esta identidade.
+// ----------------------------------------------------------
+
+$conferp-global-dark: #182447;
+
+
+// ----------------------------------------------------------
+// Instituição
+//
+// Valores padrão do CONFERP.
+// Poderão futuramente receber variações institucionais.
+// ----------------------------------------------------------
+
+$institution-primary: #205584;
+$institution-secondary: #4d9bd5;
+
+
+// ----------------------------------------------------------
+// Neutral colors
+// ----------------------------------------------------------
+
+$white: #ffffff;
+$black: #000000;
+
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+
+
+// ----------------------------------------------------------
+// Bootstrap Theme
+// ----------------------------------------------------------
+
+$primary: $institution-primary;
+$secondary: $institution-secondary;
+$dark: $conferp-global-dark;
+
+
+// ----------------------------------------------------------
+// Body
+// ----------------------------------------------------------
+
+$body-bg: $white;
+$body-color: $gray-900;
+
+
+// ----------------------------------------------------------
+// Typography
+// ----------------------------------------------------------
+
+$font-family-sans-serif:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+$font-size-base: 1rem;
+$line-height-base: 1.5;
+
+
+// ----------------------------------------------------------
+// Links
+// ----------------------------------------------------------
+
+$link-color: $primary;
+$link-decoration: none;
+
+$link-hover-color: color.adjust($primary, $lightness: -10%);
+$link-hover-decoration: none;
+
+
+// ----------------------------------------------------------
+// Borders
+// ----------------------------------------------------------
+
+$border-radius: .25rem;
+$border-radius-sm: .2rem;
+$border-radius-lg: .375rem;
+
+
+// ----------------------------------------------------------
+// Grid / Container
+// ----------------------------------------------------------
+
+$grid-columns: 12;
+$grid-gutter-width: 1.5rem;
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px
+);

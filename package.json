@@ -1,0 +1,22 @@
+{
+  "name": "conferp-theme",
+  "version": "1.0.0",
+  "description": "Tema WordPress institucional do CONFERP",
+  "private": true,
+  "scripts": {
+    "sync:bootstrap-js": "node -e \"require('fs').mkdirSync('assets/js',{recursive:true});require('fs').copyFileSync('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js','assets/js/bootstrap.bundle.min.js')\"",
+    "prewatch": "npm run sync:bootstrap-js",
+    "watch": "sass --watch --load-path=node_modules --quiet-deps --silence-deprecation=import assets/scss/theme.scss:assets/css/theme.css --style=expanded --source-map",
+    "prebuild": "npm run sync:bootstrap-js",
+    "build": "sass --load-path=node_modules --quiet-deps --silence-deprecation=import assets/scss/theme.scss:assets/css/theme.css --style=compressed --no-source-map"
+  },
+  "dependencies": {
+    "bootstrap": "5.3.8"
+  },
+  "devDependencies": {
+    "sass": "1.104.0"
+  },
+  "volta": {
+    "node": "22.23.2"
+  }
+}
