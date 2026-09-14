@@ -12777,17 +12777,17 @@ textarea:focus-visible,
 }
 .conferp-utility-bar__container {
   display: grid;
-  grid-template-columns: minmax(280px, 1fr) auto minmax(280px, 1fr);
+  grid-template-columns: minmax(300px, 1fr) auto minmax(300px, 1fr);
   align-items: center;
   width: 100%;
   min-height: 54px;
-  padding-right: 1.25rem;
-  padding-left: 1.25rem;
+  padding-right: 0.875rem;
+  padding-left: 0.875rem;
 }
 .conferp-utility-bar__brand {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.875rem;
   justify-self: start;
   min-width: 0;
 }
@@ -12798,16 +12798,18 @@ textarea:focus-visible,
   flex: 0 0 auto;
   color: #ffffff;
   text-decoration: none;
-}
-.conferp-utility-bar__federal-logo-icon {
-  display: block;
-  width: 48px;
-  height: 48px;
-  flex: 0 0 48px;
-  color: inherit;
+  transition: opacity 0.2s ease;
 }
 .conferp-utility-bar__federal-logo:hover, .conferp-utility-bar__federal-logo:focus-visible {
   color: #ffffff;
+  opacity: 0.9;
+}
+.conferp-utility-bar__federal-logo-image {
+  display: block;
+  width: 58px;
+  height: 42px;
+  flex: 0 0 58px;
+  object-fit: contain;
 }
 .conferp-utility-bar__regional-selector {
   width: 170px;
@@ -12816,7 +12818,7 @@ textarea:focus-visible,
 .conferp-utility-bar__regional-selector .form-select {
   width: 100%;
   min-height: 30px;
-  padding: 0.25rem 2.25rem 0.25rem 0.875rem;
+  padding: 0.3rem 2.25rem 0.3rem 0.875rem;
   border: 0;
   border-radius: 999px;
   background-color: #ffffff;
@@ -12834,14 +12836,14 @@ textarea:focus-visible,
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.25rem;
   justify-self: center;
   min-width: 0;
 }
 .conferp-utility-bar__link {
   display: inline-flex;
   align-items: center;
-  gap: 0.3125rem;
+  gap: 0.375rem;
   color: #ffffff;
   text-decoration: none;
   white-space: nowrap;
@@ -12855,15 +12857,16 @@ textarea:focus-visible,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 14px;
-  height: 14px;
-  flex: 0 0 14px;
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
   color: #ffffff;
 }
 .conferp-utility-bar__link-icon svg {
   display: block;
   width: 100%;
   height: 100%;
+  overflow: visible;
   color: inherit;
 }
 .conferp-utility-bar__link-icon--transparency {
@@ -12873,21 +12876,21 @@ textarea:focus-visible,
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 1.25rem;
+  gap: 1rem;
   justify-self: end;
   min-width: 0;
 }
 .conferp-utility-bar__accessibility {
   display: flex;
   align-items: center;
-  gap: 0.375rem;
+  gap: 0.4rem;
   flex: 0 0 auto;
 }
 .conferp-utility-bar__separator {
   display: block;
   width: 1px;
-  height: 20px;
-  margin: 0 0.125rem;
+  height: 21px;
+  margin: 0 0.2rem;
   background-color: rgba(255, 255, 255, 0.55);
   flex: 0 0 1px;
 }
@@ -12901,14 +12904,14 @@ textarea:focus-visible,
   align-items: center;
   justify-content: center;
   min-width: 136px;
-  padding: 0.375rem 1.125rem;
+  padding: 0.4rem 1.125rem;
   border: 0;
   border-radius: 999px;
   background-color: #4d9bd5;
   color: #ffffff;
   font-size: 0.75rem;
   font-weight: 400;
-  line-height: 1.4;
+  line-height: 1.2;
   text-decoration: none;
   white-space: nowrap;
   transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
@@ -12920,17 +12923,22 @@ textarea:focus-visible,
 @media (max-width: 1199.98px) {
   .conferp-utility-bar__container {
     grid-template-columns: auto 1fr auto;
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
   }
   .conferp-utility-bar__brand {
-    gap: 0.75rem;
+    gap: 0.625rem;
+  }
+  .conferp-utility-bar__federal-logo-image {
+    width: 54px;
+    height: 40px;
+    flex-basis: 54px;
   }
   .conferp-utility-bar__regional-selector {
     width: 155px;
   }
   .conferp-utility-bar__federal-links {
-    gap: 0.75rem;
+    gap: 0.875rem;
   }
   .conferp-utility-bar__actions {
     gap: 0.75rem;
@@ -12946,8 +12954,8 @@ textarea:focus-visible,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 24px;
-  min-height: 24px;
+  width: 30px;
+  height: 30px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -12964,16 +12972,33 @@ textarea:focus-visible,
 }
 .conferp-accessibility-control__icon {
   display: block;
-  width: 18px;
-  height: 18px;
-  flex: 0 0 18px;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  overflow: visible;
   color: inherit;
+}
+.conferp-accessibility-control__icon--vlibras {
+  width: 23px;
+  height: 23px;
+  flex-basis: 23px;
+}
+.conferp-accessibility-control__icon--universal-access {
+  width: 22px;
+  height: 22px;
+  flex-basis: 22px;
+}
+.conferp-accessibility-control__icon--contrast {
+  width: 22px;
+  height: 22px;
+  flex-basis: 22px;
 }
 .conferp-accessibility-control--text {
   width: auto;
+  height: 30px;
   min-width: auto;
-  padding: 0 0.125rem;
-  font-size: 0.8125rem;
+  padding: 0 0.15rem;
+  font-size: 0.875rem;
   font-weight: 500;
   white-space: nowrap;
 }

@@ -32,17 +32,17 @@
         display: grid;
 
         grid-template-columns:
-            minmax(280px, 1fr)
+            minmax(300px, 1fr)
             auto
-            minmax(280px, 1fr);
+            minmax(300px, 1fr);
 
         align-items: center;
 
         width: 100%;
         min-height: 54px;
 
-        padding-right: 1.25rem;
-        padding-left: 1.25rem;
+        padding-right: .875rem;
+        padding-left: .875rem;
     }
 
 
@@ -57,7 +57,7 @@
 
         align-items: center;
 
-        gap: 1rem;
+        gap: .875rem;
 
         justify-self: start;
 
@@ -66,7 +66,7 @@
 
 
     // ======================================================
-    // Federal logo
+    // CONFERP Federal Logo
     // ======================================================
 
     &__federal-logo {
@@ -82,25 +82,30 @@
 
         text-decoration: none;
 
-
-        &-icon {
-
-            display: block;
-
-            width: 48px;
-            height: 48px;
-
-            flex: 0 0 48px;
-
-            color: inherit;
-        }
+        transition:
+            opacity .2s ease;
 
 
         &:hover,
         &:focus-visible {
 
             color: $white;
+
+            opacity: .9;
         }
+    }
+
+
+    &__federal-logo-image {
+
+        display: block;
+
+        width: 58px;
+        height: 42px;
+
+        flex: 0 0 58px;
+
+        object-fit: contain;
     }
 
 
@@ -122,9 +127,9 @@
             min-height: 30px;
 
             padding:
-                .25rem
+                .3rem
                 2.25rem
-                .25rem
+                .3rem
                 .875rem;
 
             border: 0;
@@ -168,7 +173,7 @@
         align-items: center;
         justify-content: center;
 
-        gap: 1rem;
+        gap: 1.25rem;
 
         justify-self: center;
 
@@ -182,7 +187,7 @@
 
         align-items: center;
 
-        gap: .3125rem;
+        gap: .375rem;
 
         color: $white;
 
@@ -206,7 +211,7 @@
 
 
     // ======================================================
-    // Federal link icons
+    // Institutional link icons
     // ======================================================
 
     &__link-icon {
@@ -216,10 +221,10 @@
         align-items: center;
         justify-content: center;
 
-        width: 14px;
-        height: 14px;
+        width: 19px;
+        height: 19px;
 
-        flex: 0 0 14px;
+        flex: 0 0 19px;
 
         color: $white;
 
@@ -230,6 +235,8 @@
 
             width: 100%;
             height: 100%;
+
+            overflow: visible;
 
             color: inherit;
         }
@@ -254,7 +261,7 @@
         align-items: center;
         justify-content: flex-end;
 
-        gap: 1.25rem;
+        gap: 1rem;
 
         justify-self: end;
 
@@ -272,7 +279,7 @@
 
         align-items: center;
 
-        gap: .375rem;
+        gap: .4rem;
 
         flex: 0 0 auto;
     }
@@ -283,11 +290,11 @@
         display: block;
 
         width: 1px;
-        height: 20px;
+        height: 21px;
 
         margin:
             0
-            .125rem;
+            .2rem;
 
         background-color:
             rgba($white, .55);
@@ -320,7 +327,7 @@
         min-width: 136px;
 
         padding:
-            .375rem
+            .4rem
             1.125rem;
 
         border: 0;
@@ -335,7 +342,7 @@
         font-size: .75rem;
         font-weight: 400;
 
-        line-height: 1.4;
+        line-height: 1.2;
 
         text-decoration: none;
 
@@ -372,14 +379,23 @@
                 1fr
                 auto;
 
-            padding-right: 1rem;
-            padding-left: 1rem;
+            padding-right: .75rem;
+            padding-left: .75rem;
         }
 
 
         &__brand {
 
-            gap: .75rem;
+            gap: .625rem;
+        }
+
+
+        &__federal-logo-image {
+
+            width: 54px;
+            height: 40px;
+
+            flex-basis: 54px;
         }
 
 
@@ -391,7 +407,7 @@
 
         &__federal-links {
 
-            gap: .75rem;
+            gap: .875rem;
         }
 
 
@@ -417,9 +433,9 @@
 // Accessibility Controls
 // ==========================================================
 //
-// Estes controles são utilizados pela Utility Bar desktop.
-// No mobile reutilizaremos a mesma lógica de acessibilidade
-// através do botão sticky/painel.
+// Estes controles são usados na Utility Bar desktop.
+// No mobile teremos um botão sticky separado utilizando
+// accessibility.svg.
 //
 // ==========================================================
 
@@ -430,8 +446,8 @@
     align-items: center;
     justify-content: center;
 
-    min-width: 24px;
-    min-height: 24px;
+    width: 30px;
+    height: 30px;
 
     padding: 0;
 
@@ -465,19 +481,60 @@
 
 
     // ------------------------------------------------------
-    // SVG icon
+    // SVG
     // ------------------------------------------------------
 
     &__icon {
 
         display: block;
 
-        width: 18px;
-        height: 18px;
+        width: 22px;
+        height: 22px;
 
-        flex: 0 0 18px;
+        flex: 0 0 22px;
+
+        overflow: visible;
 
         color: inherit;
+    }
+
+
+    // ------------------------------------------------------
+    // VLibras
+    // ------------------------------------------------------
+
+    &__icon--vlibras {
+
+        width: 23px;
+        height: 23px;
+
+        flex-basis: 23px;
+    }
+
+
+    // ------------------------------------------------------
+    // Página de acessibilidade
+    // ------------------------------------------------------
+
+    &__icon--universal-access {
+
+        width: 22px;
+        height: 22px;
+
+        flex-basis: 22px;
+    }
+
+
+    // ------------------------------------------------------
+    // Contraste
+    // ------------------------------------------------------
+
+    &__icon--contrast {
+
+        width: 22px;
+        height: 22px;
+
+        flex-basis: 22px;
     }
 
 
@@ -488,14 +545,15 @@
     &--text {
 
         width: auto;
+        height: 30px;
 
         min-width: auto;
 
         padding:
             0
-            .125rem;
+            .15rem;
 
-        font-size: .8125rem;
+        font-size: .875rem;
         font-weight: 500;
 
         white-space: nowrap;
