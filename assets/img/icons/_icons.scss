@@ -1,0 +1,33 @@
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-block;
+  flex: 0 0 auto;
+  color: currentColor;
+  vertical-align: -0.125em;
+}
+
+.icon--sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.icon--lg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon-button {
+  width: 2.875rem;
+  height: 2.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+}
+
+.icon-button .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}

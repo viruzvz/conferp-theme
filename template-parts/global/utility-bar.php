@@ -17,13 +17,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  * CONRERPs.
  *
  * Estes links fazem parte da estrutura global do tema.
- * Posteriormente podemos mover esta configuração para
- * um arquivo específico em /inc/.
+ * Posteriormente esta configuração poderá ser movida
+ * para um arquivo específico em /inc/.
  */
 $conferp_regionals = array(
 	'' => 'Acesse seu CONRERP',
 
-	// Atualizar com os endereços oficiais definitivos.
+	// Atualizar posteriormente com os endereços oficiais definitivos.
 	'https://www.conrerp1.org.br/' => 'CONRERP 1ª Região',
 	'https://www.conrerp2.org.br/' => 'CONRERP 2ª Região',
 	'https://www.conrerp3.org.br/' => 'CONRERP 3ª Região',
@@ -31,7 +31,6 @@ $conferp_regionals = array(
 	'https://www.conrerp5.org.br/' => 'CONRERP 5ª Região',
 	'https://www.conrerp6.org.br/' => 'CONRERP 6ª Região',
 );
-
 ?>
 
 <div class="conferp-utility-bar">
@@ -52,12 +51,14 @@ $conferp_regionals = array(
 				aria-label="<?php esc_attr_e( 'Acessar o site do CONFERP', 'conferp' ); ?>"
 			>
 
-				<img
-					src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/global/conferp-symbol-white.svg' ); ?>"
-					alt="<?php esc_attr_e( 'CONFERP', 'conferp' ); ?>"
-					width="48"
-					height="48"
-				>
+				<?php
+				conferp_icon(
+					'utility-symbol',
+					array(
+						'class' => 'conferp-utility-bar__federal-logo-icon',
+					)
+				);
+				?>
 
 			</a>
 
@@ -102,7 +103,7 @@ $conferp_regionals = array(
 
 		<!-- ==================================================
 			CENTER
-			CONFERP institutional links
+			CONFERP Institutional Links
 		================================================== -->
 
 		<nav
@@ -110,22 +111,19 @@ $conferp_regionals = array(
 			aria-label="<?php esc_attr_e( 'Links institucionais do CONFERP', 'conferp' ); ?>"
 		>
 
+
+			<!-- Ouvidoria -->
+
 			<a
 				href="https://www.conferp.org.br/ouvidoria/"
 				class="conferp-utility-bar__link"
 			>
 
-				<span
-					class="conferp-utility-bar__link-icon"
-					aria-hidden="true"
-				>
+				<span class="conferp-utility-bar__link-icon">
 
-					<svg
-						viewBox="0 0 24 24"
-						focusable="false"
-					>
-						<path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm3 6h10v2H7Zm0-4h10v2H7Zm0 8h6v2H7Z"/>
-					</svg>
+					<?php
+					conferp_icon( 'chat' );
+					?>
 
 				</span>
 
@@ -136,22 +134,23 @@ $conferp_regionals = array(
 			</a>
 
 
+			<!-- Transparência -->
+
 			<a
 				href="https://www.conferp.org.br/transparencia/"
 				class="conferp-utility-bar__link"
 			>
 
 				<span
-					class="conferp-utility-bar__link-icon conferp-utility-bar__link-icon--highlight"
-					aria-hidden="true"
+					class="
+						conferp-utility-bar__link-icon
+						conferp-utility-bar__link-icon--transparency
+					"
 				>
 
-					<svg
-						viewBox="0 0 24 24"
-						focusable="false"
-					>
-						<path d="M11 17h2v-6h-2Zm1-16a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 1Zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8Zm-1-10h2V7h-2Z"/>
-					</svg>
+					<?php
+					conferp_icon( 'transparency' );
+					?>
 
 				</span>
 
@@ -179,19 +178,25 @@ $conferp_regionals = array(
 			>
 
 
-				<!-- Libras -->
+				<!-- VLibras -->
 
-				<a
-					href="#"
-					class="conferp-accessibility-control conferp-accessibility-control--libras"
-					aria-label="<?php esc_attr_e( 'Acessibilidade em Libras', 'conferp' ); ?>"
+				<button
+					type="button"
+					class="conferp-accessibility-control"
+					data-conferp-vlibras
+					aria-label="<?php esc_attr_e( 'Ativar VLibras', 'conferp' ); ?>"
 				>
 
-					<span aria-hidden="true">
-						🖐
-					</span>
+					<?php
+					conferp_icon(
+						'vlibras',
+						array(
+							'class' => 'conferp-accessibility-control__icon',
+						)
+					);
+					?>
 
-				</a>
+				</button>
 
 
 				<span
@@ -208,14 +213,14 @@ $conferp_regionals = array(
 					aria-label="<?php esc_attr_e( 'Informações de acessibilidade', 'conferp' ); ?>"
 				>
 
-					<svg
-						viewBox="0 0 24 24"
-						focusable="false"
-						aria-hidden="true"
-					>
-						<circle cx="12" cy="4" r="2"/>
-						<path d="M4 7h16v2h-6v13h-4V9H4Z"/>
-					</svg>
+					<?php
+					conferp_icon(
+						'accessibility',
+						array(
+							'class' => 'conferp-accessibility-control__icon',
+						)
+					);
+					?>
 
 				</a>
 
@@ -226,7 +231,7 @@ $conferp_regionals = array(
 				></span>
 
 
-				<!-- Contrast -->
+				<!-- High contrast -->
 
 				<button
 					type="button"
@@ -236,13 +241,14 @@ $conferp_regionals = array(
 					aria-pressed="false"
 				>
 
-					<svg
-						viewBox="0 0 24 24"
-						focusable="false"
-						aria-hidden="true"
-					>
-						<path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 18V4a8 8 0 0 1 0 16Z"/>
-					</svg>
+					<?php
+					conferp_icon(
+						'universal-access',
+						array(
+							'class' => 'conferp-accessibility-control__icon',
+						)
+					);
+					?>
 
 				</button>
 
@@ -257,7 +263,10 @@ $conferp_regionals = array(
 
 				<button
 					type="button"
-					class="conferp-accessibility-control conferp-accessibility-control--text"
+					class="
+						conferp-accessibility-control
+						conferp-accessibility-control--text
+					"
 					data-conferp-font-increase
 					aria-label="<?php esc_attr_e( 'Aumentar tamanho do texto', 'conferp' ); ?>"
 				>
@@ -269,7 +278,10 @@ $conferp_regionals = array(
 
 				<button
 					type="button"
-					class="conferp-accessibility-control conferp-accessibility-control--text"
+					class="
+						conferp-accessibility-control
+						conferp-accessibility-control--text
+					"
 					data-conferp-font-decrease
 					aria-label="<?php esc_attr_e( 'Diminuir tamanho do texto', 'conferp' ); ?>"
 				>
@@ -279,7 +291,9 @@ $conferp_regionals = array(
 			</div>
 
 
-			<!-- Registered area -->
+			<!-- ==================================================
+				Registered Area
+			================================================== -->
 
 			<div class="conferp-utility-bar__registered">
 

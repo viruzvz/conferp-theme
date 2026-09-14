@@ -12781,8 +12781,8 @@ textarea:focus-visible,
   align-items: center;
   width: 100%;
   min-height: 54px;
-  padding-left: 1.25rem;
   padding-right: 1.25rem;
+  padding-left: 1.25rem;
 }
 .conferp-utility-bar__brand {
   display: flex;
@@ -12799,10 +12799,12 @@ textarea:focus-visible,
   color: #ffffff;
   text-decoration: none;
 }
-.conferp-utility-bar__federal-logo img {
+.conferp-utility-bar__federal-logo-icon {
   display: block;
   width: 48px;
-  height: auto;
+  height: 48px;
+  flex: 0 0 48px;
+  color: inherit;
 }
 .conferp-utility-bar__federal-logo:hover, .conferp-utility-bar__federal-logo:focus-visible {
   color: #ffffff;
@@ -12856,14 +12858,15 @@ textarea:focus-visible,
   width: 14px;
   height: 14px;
   flex: 0 0 14px;
+  color: #ffffff;
 }
 .conferp-utility-bar__link-icon svg {
   display: block;
   width: 100%;
   height: 100%;
-  fill: currentColor;
+  color: inherit;
 }
-.conferp-utility-bar__link-icon--highlight {
+.conferp-utility-bar__link-icon--transparency {
   color: #dba840;
 }
 .conferp-utility-bar__actions {
@@ -12911,19 +12914,14 @@ textarea:focus-visible,
   transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
 }
 .conferp-utility-bar__registered-button:hover, .conferp-utility-bar__registered-button:focus-visible {
-  /*
-   * Não usamos darken() porque está depreciado
-   * no Dart Sass atual.
-   *
-   * O primary já faz parte da identidade visual
-   * e funciona bem como hover.
-   */
   background-color: #205584;
   color: #ffffff;
 }
 @media (max-width: 1199.98px) {
   .conferp-utility-bar__container {
     grid-template-columns: auto 1fr auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
   }
   .conferp-utility-bar__brand {
     gap: 0.75rem;
@@ -12939,9 +12937,45 @@ textarea:focus-visible,
   }
   .conferp-utility-bar__registered-button {
     min-width: 120px;
-    padding-left: 0.875rem;
     padding-right: 0.875rem;
+    padding-left: 0.875rem;
   }
+}
+
+.conferp-accessibility-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #ffffff;
+  font: inherit;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
+}
+.conferp-accessibility-control:hover, .conferp-accessibility-control:focus-visible {
+  color: #ffffff;
+  opacity: 0.75;
+}
+.conferp-accessibility-control__icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  color: inherit;
+}
+.conferp-accessibility-control--text {
+  width: auto;
+  min-width: auto;
+  padding: 0 0.125rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 /* ==========================================================

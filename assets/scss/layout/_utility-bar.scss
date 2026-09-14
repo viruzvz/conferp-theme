@@ -3,14 +3,8 @@
 // CONFERP Global
 // ==========================================================
 //
-// Este componente pertence à identidade federal do CONFERP.
-//
-// Deve permanecer igual em:
-// - CONFERP
-// - CONRERP 1
-// - CONRERP 2
-// - CONRERP 3
-// - etc.
+// Componente institucional global compartilhado entre
+// CONFERP e todos os CONRERPs.
 //
 // ==========================================================
 
@@ -47,14 +41,14 @@
         width: 100%;
         min-height: 54px;
 
-        padding-left: 1.25rem;
         padding-right: 1.25rem;
+        padding-left: 1.25rem;
     }
 
 
     // ======================================================
     // LEFT
-    // Brand + regional selector
+    // Brand + Regional selector
     // ======================================================
 
     &__brand {
@@ -71,6 +65,10 @@
     }
 
 
+    // ======================================================
+    // Federal logo
+    // ======================================================
+
     &__federal-logo {
 
         display: inline-flex;
@@ -85,12 +83,16 @@
         text-decoration: none;
 
 
-        img {
+        &-icon {
 
             display: block;
 
             width: 48px;
-            height: auto;
+            height: 48px;
+
+            flex: 0 0 48px;
+
+            color: inherit;
         }
 
 
@@ -203,6 +205,10 @@
     }
 
 
+    // ======================================================
+    // Federal link icons
+    // ======================================================
+
     &__link-icon {
 
         display: inline-flex;
@@ -215,6 +221,8 @@
 
         flex: 0 0 14px;
 
+        color: $white;
+
 
         svg {
 
@@ -223,11 +231,11 @@
             width: 100%;
             height: 100%;
 
-            fill: currentColor;
+            color: inherit;
         }
 
 
-        &--highlight {
+        &--transparency {
 
             color: #dba840;
         }
@@ -236,7 +244,7 @@
 
     // ======================================================
     // RIGHT
-    // Accessibility + Registered area
+    // Accessibility + Registered Area
     // ======================================================
 
     &__actions {
@@ -342,14 +350,6 @@
         &:hover,
         &:focus-visible {
 
-            /*
-             * Não usamos darken() porque está depreciado
-             * no Dart Sass atual.
-             *
-             * O primary já faz parte da identidade visual
-             * e funciona bem como hover.
-             */
-
             background-color:
                 $institution-primary;
 
@@ -371,6 +371,9 @@
                 auto
                 1fr
                 auto;
+
+            padding-right: 1rem;
+            padding-left: 1rem;
         }
 
 
@@ -402,9 +405,99 @@
 
             min-width: 120px;
 
-            padding-left: .875rem;
             padding-right: .875rem;
+            padding-left: .875rem;
         }
     }
 
+}
+
+
+// ==========================================================
+// Accessibility Controls
+// ==========================================================
+//
+// Estes controles são utilizados pela Utility Bar desktop.
+// No mobile reutilizaremos a mesma lógica de acessibilidade
+// através do botão sticky/painel.
+//
+// ==========================================================
+
+.conferp-accessibility-control {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 24px;
+    min-height: 24px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: $white;
+
+    font: inherit;
+
+    line-height: 1;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        color .2s ease,
+        opacity .2s ease,
+        background-color .2s ease;
+
+
+    &:hover,
+    &:focus-visible {
+
+        color: $white;
+
+        opacity: .75;
+    }
+
+
+    // ------------------------------------------------------
+    // SVG icon
+    // ------------------------------------------------------
+
+    &__icon {
+
+        display: block;
+
+        width: 18px;
+        height: 18px;
+
+        flex: 0 0 18px;
+
+        color: inherit;
+    }
+
+
+    // ------------------------------------------------------
+    // A+ / A-
+    // ------------------------------------------------------
+
+    &--text {
+
+        width: auto;
+
+        min-width: auto;
+
+        padding:
+            0
+            .125rem;
+
+        font-size: .8125rem;
+        font-weight: 500;
+
+        white-space: nowrap;
+    }
 }
