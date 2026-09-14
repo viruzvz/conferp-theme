@@ -1,0 +1,72 @@
+/*!
+ * Theme: CONFERP
+ * Author: Carlos Neri
+ * URI: https://vzproducoes.com.br
+ */
+
+
+/* ==========================================================
+   ABSTRACTS
+========================================================== */
+
+@import "abstracts/functions";
+@import "abstracts/variables";
+@import "abstracts/bootstrap";
+
+
+/* ==========================================================
+   BOOTSTRAP 5
+========================================================== */
+
+@import "bootstrap/scss/bootstrap";
+
+
+/* ==========================================================
+   MIXINS
+========================================================== */
+
+@import "abstracts/mixins";
+
+
+/* ==========================================================
+   BASE
+========================================================== */
+
+@import "base/reset";
+@import "base/typography";
+@import "base/global";
+@import "base/accessibility";
+
+
+/* ==========================================================
+   COMPONENTS
+========================================================== */
+
+@import "components/buttons";
+@import "components/forms";
+@import "components/icons";
+
+
+/* ==========================================================
+   LAYOUT
+========================================================== */
+
+@import "layout/utility-bar";
+@import "layout/header";
+@import "layout/navigation";
+@import "layout/footer";
+@import "layout/subfooter";
+
+
+/* ==========================================================
+   PAGES
+========================================================== */
+
+@import "pages/page";
+
+
+/* ==========================================================
+   UTILITIES
+========================================================== */
+
+@import "utilities/helpers";

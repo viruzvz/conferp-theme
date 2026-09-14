@@ -1,0 +1,175 @@
+// ==========================================================
+// Accessibility
+// ==========================================================
+
+
+// ----------------------------------------------------------
+// Global font scale
+// ----------------------------------------------------------
+
+:root {
+    --conferp-font-scale: 1;
+}
+
+
+/*
+ * Todo o tema deve preferencialmente trabalhar com rem.
+ *
+ * Dessa forma A+ / A- consegue alterar o conteúdo de forma
+ * consistente sem quebrar a estrutura da página.
+ */
+
+html {
+    font-size:
+        calc(100% * var(--conferp-font-scale));
+}
+
+
+// ----------------------------------------------------------
+// High contrast
+// ----------------------------------------------------------
+
+html.conferp-high-contrast {
+
+    --conferp-global-dark: #000000;
+    --institution-primary: #000000;
+    --institution-secondary: #ffff00;
+
+    background-color: #000000;
+
+    body,
+    main {
+
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+
+    a {
+
+        color: #ffff00;
+
+        text-decoration: underline;
+        text-decoration-thickness: .125em;
+        text-underline-offset: .15em;
+    }
+
+
+    button,
+    input,
+    select,
+    textarea {
+
+        border-color: #ffffff;
+
+        background-color: #000000;
+
+        color: #ffffff;
+    }
+
+
+    img,
+    video,
+    iframe {
+
+        // Imagens permanecem intactas.
+        // Não utilizamos filter/invert global.
+    }
+
+
+    :focus-visible {
+
+        outline: 3px solid #ffff00;
+        outline-offset: 3px;
+    }
+}
+
+
+// ----------------------------------------------------------
+// Keyboard focus
+// ----------------------------------------------------------
+
+a,
+button,
+input,
+select,
+textarea,
+[tabindex] {
+
+    &:focus-visible {
+
+        outline: 3px solid $institution-secondary;
+        outline-offset: 3px;
+    }
+}
+
+
+// ----------------------------------------------------------
+// Screen reader
+// ----------------------------------------------------------
+
+.screen-reader-text {
+
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+
+    border: 0;
+
+
+    &:focus {
+
+        position: fixed;
+        z-index: 100000;
+
+        top: 10px;
+        left: 10px;
+
+        width: auto;
+        height: auto;
+
+        padding: .75rem 1rem;
+        margin: 0;
+
+        overflow: visible;
+
+        clip: auto;
+
+        white-space: normal;
+
+        background-color: $white;
+        color: $black;
+
+        font-weight: 700;
+    }
+}
+
+
+// ----------------------------------------------------------
+// Reduced motion
+// ----------------------------------------------------------
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        scroll-behavior: auto !important;
+
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .01ms !important;
+    }
+}

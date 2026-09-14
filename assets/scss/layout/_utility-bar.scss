@@ -1,0 +1,410 @@
+// ==========================================================
+// Utility Bar
+// CONFERP Global
+// ==========================================================
+//
+// Este componente pertence à identidade federal do CONFERP.
+//
+// Deve permanecer igual em:
+// - CONFERP
+// - CONRERP 1
+// - CONRERP 2
+// - CONRERP 3
+// - etc.
+//
+// ==========================================================
+
+
+.conferp-utility-bar {
+
+    position: relative;
+
+    z-index: 1030;
+
+    width: 100%;
+
+    background-color: $conferp-global-dark;
+    color: $white;
+
+    font-size: .8125rem;
+
+
+    // ======================================================
+    // Container
+    // ======================================================
+
+    &__container {
+
+        display: grid;
+
+        grid-template-columns:
+            minmax(280px, 1fr)
+            auto
+            minmax(280px, 1fr);
+
+        align-items: center;
+
+        width: 100%;
+        min-height: 54px;
+
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+
+    // ======================================================
+    // LEFT
+    // Brand + regional selector
+    // ======================================================
+
+    &__brand {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 1rem;
+
+        justify-self: start;
+
+        min-width: 0;
+    }
+
+
+    &__federal-logo {
+
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        flex: 0 0 auto;
+
+        color: $white;
+
+        text-decoration: none;
+
+
+        img {
+
+            display: block;
+
+            width: 48px;
+            height: auto;
+        }
+
+
+        &:hover,
+        &:focus-visible {
+
+            color: $white;
+        }
+    }
+
+
+    // ======================================================
+    // Regional selector
+    // ======================================================
+
+    &__regional-selector {
+
+        width: 170px;
+
+        flex: 0 0 auto;
+
+
+        .form-select {
+
+            width: 100%;
+
+            min-height: 30px;
+
+            padding:
+                .25rem
+                2.25rem
+                .25rem
+                .875rem;
+
+            border: 0;
+
+            border-radius: 999px;
+
+            background-color: $white;
+
+            color: $gray-600;
+
+            font-size: .75rem;
+
+            line-height: 1.2;
+
+            box-shadow: none;
+
+            cursor: pointer;
+
+
+            &:focus {
+
+                border-color: transparent;
+
+                box-shadow:
+                    0 0 0 .1875rem
+                    rgba($institution-secondary, .35);
+            }
+        }
+    }
+
+
+    // ======================================================
+    // CENTER
+    // Federal links
+    // ======================================================
+
+    &__federal-links {
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 1rem;
+
+        justify-self: center;
+
+        min-width: 0;
+    }
+
+
+    &__link {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: .3125rem;
+
+        color: $white;
+
+        text-decoration: none;
+
+        white-space: nowrap;
+
+        transition:
+            opacity .2s ease,
+            color .2s ease;
+
+
+        &:hover,
+        &:focus-visible {
+
+            color: $white;
+
+            opacity: .8;
+        }
+    }
+
+
+    &__link-icon {
+
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 14px;
+        height: 14px;
+
+        flex: 0 0 14px;
+
+
+        svg {
+
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            fill: currentColor;
+        }
+
+
+        &--highlight {
+
+            color: #dba840;
+        }
+    }
+
+
+    // ======================================================
+    // RIGHT
+    // Accessibility + Registered area
+    // ======================================================
+
+    &__actions {
+
+        display: flex;
+
+        align-items: center;
+        justify-content: flex-end;
+
+        gap: 1.25rem;
+
+        justify-self: end;
+
+        min-width: 0;
+    }
+
+
+    // ======================================================
+    // Accessibility
+    // ======================================================
+
+    &__accessibility {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: .375rem;
+
+        flex: 0 0 auto;
+    }
+
+
+    &__separator {
+
+        display: block;
+
+        width: 1px;
+        height: 20px;
+
+        margin:
+            0
+            .125rem;
+
+        background-color:
+            rgba($white, .55);
+
+        flex: 0 0 1px;
+    }
+
+
+    // ======================================================
+    // Registered Area
+    // ======================================================
+
+    &__registered {
+
+        display: flex;
+
+        align-items: center;
+
+        flex: 0 0 auto;
+    }
+
+
+    &__registered-button {
+
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        min-width: 136px;
+
+        padding:
+            .375rem
+            1.125rem;
+
+        border: 0;
+
+        border-radius: 999px;
+
+        background-color:
+            $institution-secondary;
+
+        color: $white;
+
+        font-size: .75rem;
+        font-weight: 400;
+
+        line-height: 1.4;
+
+        text-decoration: none;
+
+        white-space: nowrap;
+
+        transition:
+            background-color .2s ease,
+            color .2s ease,
+            opacity .2s ease;
+
+
+        &:hover,
+        &:focus-visible {
+
+            /*
+             * Não usamos darken() porque está depreciado
+             * no Dart Sass atual.
+             *
+             * O primary já faz parte da identidade visual
+             * e funciona bem como hover.
+             */
+
+            background-color:
+                $institution-primary;
+
+            color: $white;
+        }
+    }
+
+
+    // ======================================================
+    // Bootstrap XL
+    // < 1200px
+    // ======================================================
+
+    @include media-breakpoint-down(xl) {
+
+        &__container {
+
+            grid-template-columns:
+                auto
+                1fr
+                auto;
+        }
+
+
+        &__brand {
+
+            gap: .75rem;
+        }
+
+
+        &__regional-selector {
+
+            width: 155px;
+        }
+
+
+        &__federal-links {
+
+            gap: .75rem;
+        }
+
+
+        &__actions {
+
+            gap: .75rem;
+        }
+
+
+        &__registered-button {
+
+            min-width: 120px;
+
+            padding-left: .875rem;
+            padding-right: .875rem;
+        }
+    }
+
+}
