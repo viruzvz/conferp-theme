@@ -6,6 +6,13 @@
 // Componente institucional global compartilhado entre
 // CONFERP e todos os CONRERPs.
 //
+// Breakpoints Bootstrap 5:
+//
+// >= 1200px  Desktop completo
+// 992-1199px Desktop compacto
+// < 992px    Layout responsivo / iconográfico
+// < 576px    Mobile compacto
+//
 // ==========================================================
 
 
@@ -48,7 +55,6 @@
 
     // ======================================================
     // LEFT
-    // Brand + Regional selector
     // ======================================================
 
     &__brand {
@@ -57,7 +63,7 @@
 
         align-items: center;
 
-        gap: .875rem;
+        gap: .75rem;
 
         justify-self: start;
 
@@ -66,7 +72,7 @@
 
 
     // ======================================================
-    // CONFERP Federal Logo
+    // CONFERP Logo
     // ======================================================
 
     &__federal-logo {
@@ -128,9 +134,9 @@
 
             padding:
                 .3rem
-                2.25rem
+                1.9rem
                 .3rem
-                .875rem;
+                .75rem;
 
             border: 0;
 
@@ -211,7 +217,7 @@
 
 
     // ======================================================
-    // Institutional link icons
+    // Federal link icons
     // ======================================================
 
     &__link-icon {
@@ -251,7 +257,6 @@
 
     // ======================================================
     // RIGHT
-    // Accessibility + Registered Area
     // ======================================================
 
     &__actions {
@@ -366,8 +371,21 @@
 
 
     // ======================================================
+    // Mobile quick links
+    // Hidden on desktop
+    // ======================================================
+
+    &__mobile-links {
+
+        display: none;
+    }
+
+
+    // ======================================================
     // Bootstrap XL
     // < 1200px
+    //
+    // Ainda é desktop, porém mais compacto.
     // ======================================================
 
     @include media-breakpoint-down(xl) {
@@ -375,9 +393,9 @@
         &__container {
 
             grid-template-columns:
+                minmax(260px, 1fr)
                 auto
-                1fr
-                auto;
+                minmax(260px, 1fr);
 
             padding-right: .75rem;
             padding-left: .75rem;
@@ -386,7 +404,7 @@
 
         &__brand {
 
-            gap: .625rem;
+            gap: .5rem;
         }
 
 
@@ -401,7 +419,7 @@
 
         &__regional-selector {
 
-            width: 155px;
+            width: 165px;
         }
 
 
@@ -413,7 +431,13 @@
 
         &__actions {
 
-            gap: .75rem;
+            gap: .625rem;
+        }
+
+
+        &__accessibility {
+
+            gap: .25rem;
         }
 
 
@@ -426,16 +450,347 @@
         }
     }
 
+
+    // ======================================================
+    // Bootstrap LG
+    // < 992px
+    //
+    // A partir daqui entra o layout responsivo do Figma.
+    //
+    // Desktop:
+    // Ouvidoria / Transparência / Acessibilidade / Registrado
+    //
+    // tornam-se:
+    //
+    // Transparência / Ouvidoria / Registrado
+    //
+    // em formato iconográfico.
+    // ======================================================
+
+    @include media-breakpoint-down(lg) {
+
+        // --------------------------------------------------
+        // Container
+        // --------------------------------------------------
+
+        &__container {
+
+            display: grid;
+
+            grid-template-columns:
+                auto
+                minmax(0, 1fr)
+                auto;
+
+            align-items: center;
+
+            gap: .75rem;
+
+            min-height: 64px;
+
+            padding:
+                .375rem
+                .75rem;
+        }
+
+
+        // --------------------------------------------------
+        // Brand
+        //
+        // Logo e select passam a participar diretamente
+        // da grid principal.
+        // --------------------------------------------------
+
+        &__brand {
+
+            display: contents;
+        }
+
+
+        // --------------------------------------------------
+        // CONFERP Logo
+        // --------------------------------------------------
+
+        &__federal-logo {
+
+            grid-column: 1;
+
+            justify-self: start;
+        }
+
+
+        &__federal-logo-image {
+
+            width: 58px;
+            height: 52px;
+
+            flex-basis: 58px;
+        }
+
+
+        // --------------------------------------------------
+        // Regional selector
+        // --------------------------------------------------
+
+        &__regional-selector {
+
+            grid-column: 2;
+
+            width: 100%;
+            max-width: 200px;
+
+            justify-self: start;
+
+
+            .form-select {
+
+                width: 100%;
+
+                min-height: 40px;
+
+                padding:
+                    .4rem
+                    2rem
+                    .4rem
+                    .875rem;
+
+                border:
+                    1px solid
+                    $gray-400;
+
+                border-radius: 999px;
+
+                font-size: .8125rem;
+
+                line-height: 1.2;
+            }
+        }
+
+
+        // --------------------------------------------------
+        // Desktop federal links
+        // --------------------------------------------------
+
+        &__federal-links {
+
+            display: none;
+        }
+
+
+        // --------------------------------------------------
+        // Right side
+        // --------------------------------------------------
+
+        &__actions {
+
+            grid-column: 3;
+
+            justify-self: end;
+
+            gap: 0;
+        }
+
+
+        // --------------------------------------------------
+        // Desktop accessibility
+        // --------------------------------------------------
+
+        &__accessibility {
+
+            display: none;
+        }
+
+
+        // --------------------------------------------------
+        // Desktop registered button
+        // --------------------------------------------------
+
+        &__registered {
+
+            display: none;
+        }
+
+
+        // --------------------------------------------------
+        // Mobile quick links
+        // --------------------------------------------------
+
+        &__mobile-links {
+
+            display: flex;
+
+            align-items: center;
+            justify-content: flex-end;
+
+            gap: .75rem;
+        }
+
+
+        &__mobile-link {
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            width: 34px;
+            height: 34px;
+
+            padding: 0;
+
+            flex: 0 0 34px;
+
+            color: $white;
+
+            text-decoration: none;
+
+            transition:
+                opacity .2s ease,
+                transform .2s ease;
+
+
+            &:hover,
+            &:focus-visible {
+
+                color: $white;
+
+                opacity: .8;
+            }
+
+
+            &--transparency {
+
+                color: #dba840;
+
+
+                &:hover,
+                &:focus-visible {
+
+                    color: #dba840;
+                }
+            }
+        }
+
+
+        // --------------------------------------------------
+        // Mobile SVG
+        // --------------------------------------------------
+
+        &__mobile-icon {
+
+            display: block;
+
+            width: 24px;
+            height: 24px;
+
+            color: inherit;
+
+            overflow: visible;
+        }
+    }
+
+
+    // ======================================================
+    // Bootstrap SM
+    // < 576px
+    //
+    // Mesmo layout, apenas mais compacto.
+    // ======================================================
+
+    @include media-breakpoint-down(sm) {
+
+        // --------------------------------------------------
+        // Container
+        // --------------------------------------------------
+
+        &__container {
+
+            gap: .375rem;
+
+            min-height: 58px;
+
+            padding-right: .5rem;
+            padding-left: .5rem;
+        }
+
+
+        // --------------------------------------------------
+        // Logo
+        // --------------------------------------------------
+
+        &__federal-logo-image {
+
+            width: 50px;
+            height: 46px;
+
+            flex-basis: 50px;
+        }
+
+
+        // --------------------------------------------------
+        // Selector
+        // --------------------------------------------------
+
+        &__regional-selector {
+
+            width: 100%;
+            max-width: 175px;
+
+            min-width: 0;
+
+
+            .form-select {
+
+                min-height: 38px;
+
+                padding:
+                    .375rem
+                    1.75rem
+                    .375rem
+                    .7rem;
+
+                font-size: .75rem;
+            }
+        }
+
+
+        // --------------------------------------------------
+        // Mobile quick links
+        // --------------------------------------------------
+
+        &__mobile-links {
+
+            gap: .35rem;
+        }
+
+
+        &__mobile-link {
+
+            width: 28px;
+            height: 28px;
+
+            flex-basis: 28px;
+        }
+
+
+        &__mobile-icon {
+
+            width: 21px;
+            height: 21px;
+        }
+    }
 }
 
 
 // ==========================================================
 // Accessibility Controls
+// Desktop
 // ==========================================================
 //
-// Estes controles são usados na Utility Bar desktop.
-// No mobile teremos um botão sticky separado utilizando
-// accessibility.svg.
+// No layout < LG estes controles saem da Utility Bar.
+//
+// O accessibility.svg ficará reservado para o componente
+// sticky de acessibilidade no mobile.
 //
 // ==========================================================
 
@@ -513,7 +868,7 @@
 
 
     // ------------------------------------------------------
-    // Página de acessibilidade
+    // Accessibility Page
     // ------------------------------------------------------
 
     &__icon--universal-access {
@@ -526,7 +881,7 @@
 
 
     // ------------------------------------------------------
-    // Contraste
+    // Contrast
     // ------------------------------------------------------
 
     &__icon--contrast {

@@ -26,20 +26,21 @@ function conferp_icon( $icon, $args = array() ) {
 	/**
 	 * Available theme icons.
 	 */
-    $icons = array(
-        'accessibility'    => 'accessibility.svg',
-        'back-to-top'      => 'back-to-top.svg',
-        'chat'             => 'chat.svg',
-        'contrast'         => 'menu.svg',
-        'email'            => 'utility-symbol.svg',
-        'facebook'         => 'facebook.svg',
-        'instagram'        => 'instagram.svg',
-        'linkedin'         => 'linkedin.svg',
-        'transparency'     => 'transparency.svg',
-        'universal-access' => 'universal-access.svg',
-        'vlibras'          => 'vlibras.svg',
-        'youtube'          => 'youtube.svg',
-    );
+	$icons = array(
+		'accessibility'    => 'accessibility.svg',
+		'back-to-top'      => 'back-to-top.svg',
+		'chat'             => 'chat.svg',
+		'contrast'         => 'menu.svg',
+		'email'            => 'utility-symbol.svg',
+		'facebook'         => 'facebook.svg',
+		'instagram'        => 'instagram.svg',
+		'linkedin'         => 'linkedin.svg',
+		'registered-area'  => 'registered-area.svg',
+		'transparency'     => 'transparency.svg',
+		'universal-access' => 'universal-access.svg',
+		'vlibras'          => 'vlibras.svg',
+		'youtube'          => 'youtube.svg',
+	);
 
 
 	/**

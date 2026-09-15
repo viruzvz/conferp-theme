@@ -47,7 +47,7 @@
   --bs-warning: #ffc107;
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
-  --bs-dark: #182447;
+  --bs-dark: #1E284B;
   --bs-primary-rgb: 32, 85, 132;
   --bs-secondary-rgb: 77, 155, 213;
   --bs-success-rgb: 25, 135, 84;
@@ -55,7 +55,7 @@
   --bs-warning-rgb: 255, 193, 7;
   --bs-danger-rgb: 220, 53, 69;
   --bs-light-rgb: 248, 249, 250;
-  --bs-dark-rgb: 24, 36, 71;
+  --bs-dark-rgb: 30, 40, 75;
   --bs-primary-text-emphasis: rgb(5.0196078431%, 13.3333333333%, 20.7058823529%);
   --bs-secondary-text-emphasis: rgb(12.0784313725%, 24.3137254902%, 33.4117647059%);
   --bs-success-text-emphasis: rgb(3.9215686275%, 21.1764705882%, 13.1764705882%);
@@ -2043,13 +2043,13 @@ progress {
 
 .table-dark {
   --bs-table-color: #ffffff;
-  --bs-table-bg: #182447;
-  --bs-table-border-color: rgb(27.5294117647%, 31.2941176471%, 42.2745098039%);
-  --bs-table-striped-bg: rgb(13.9411764706%, 18.4117647059%, 31.4509803922%);
+  --bs-table-bg: #1E284B;
+  --bs-table-border-color: #4b536f;
+  --bs-table-striped-bg: rgb(16.1764705882%, 19.9019607843%, 32.9411764706%);
   --bs-table-striped-color: #ffffff;
-  --bs-table-active-bg: rgb(18.4705882353%, 22.7058823529%, 35.0588235294%);
+  --bs-table-active-bg: rgb(20.5882352941%, 24.1176470588%, 36.4705882353%);
   --bs-table-active-color: #ffffff;
-  --bs-table-hover-bg: rgb(16.2058823529%, 20.5588235294%, 33.2549019608%);
+  --bs-table-hover-bg: rgb(18.3823529412%, 22.0098039216%, 34.7058823529%);
   --bs-table-hover-color: #ffffff;
   color: var(--bs-table-color);
   border-color: var(--bs-table-border-color);
@@ -3099,19 +3099,19 @@ textarea.form-control-lg {
 
 .btn-dark {
   --bs-btn-color: #ffffff;
-  --bs-btn-bg: #182447;
-  --bs-btn-border-color: #182447;
+  --bs-btn-bg: #1E284B;
+  --bs-btn-border-color: #1E284B;
   --bs-btn-hover-color: #ffffff;
-  --bs-btn-hover-bg: rgb(23%, 27%, 38.6666666667%);
-  --bs-btn-hover-border-color: rgb(18.4705882353%, 22.7058823529%, 35.0588235294%);
-  --bs-btn-focus-shadow-rgb: 59, 69, 99;
+  --bs-btn-hover-bg: rgb(25%, 28.3333333333%, 40%);
+  --bs-btn-hover-border-color: rgb(20.5882352941%, 24.1176470588%, 36.4705882353%);
+  --bs-btn-focus-shadow-rgb: 64, 72, 102;
   --bs-btn-active-color: #ffffff;
-  --bs-btn-active-bg: rgb(27.5294117647%, 31.2941176471%, 42.2745098039%);
-  --bs-btn-active-border-color: rgb(18.4705882353%, 22.7058823529%, 35.0588235294%);
+  --bs-btn-active-bg: #4b536f;
+  --bs-btn-active-border-color: rgb(20.5882352941%, 24.1176470588%, 36.4705882353%);
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #ffffff;
-  --bs-btn-disabled-bg: #182447;
-  --bs-btn-disabled-border-color: #182447;
+  --bs-btn-disabled-bg: #1E284B;
+  --bs-btn-disabled-border-color: #1E284B;
 }
 
 .btn-outline-primary {
@@ -3234,19 +3234,19 @@ textarea.form-control-lg {
 }
 
 .btn-outline-dark {
-  --bs-btn-color: #182447;
-  --bs-btn-border-color: #182447;
+  --bs-btn-color: #1E284B;
+  --bs-btn-border-color: #1E284B;
   --bs-btn-hover-color: #ffffff;
-  --bs-btn-hover-bg: #182447;
-  --bs-btn-hover-border-color: #182447;
-  --bs-btn-focus-shadow-rgb: 24, 36, 71;
+  --bs-btn-hover-bg: #1E284B;
+  --bs-btn-hover-border-color: #1E284B;
+  --bs-btn-focus-shadow-rgb: 30, 40, 75;
   --bs-btn-active-color: #ffffff;
-  --bs-btn-active-bg: #182447;
-  --bs-btn-active-border-color: #182447;
+  --bs-btn-active-bg: #1E284B;
+  --bs-btn-active-border-color: #1E284B;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #182447;
+  --bs-btn-disabled-color: #1E284B;
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #182447;
+  --bs-btn-disabled-border-color: #1E284B;
   --bs-gradient: none;
 }
 
@@ -6870,8 +6870,8 @@ textarea.form-control-lg {
   text-decoration-color: RGBA(var(--bs-dark-rgb), var(--bs-link-underline-opacity, 1)) !important;
 }
 .link-dark:hover, .link-dark:focus {
-  color: RGBA(19, 29, 57, var(--bs-link-opacity, 1)) !important;
-  text-decoration-color: RGBA(19, 29, 57, var(--bs-link-underline-opacity, 1)) !important;
+  color: RGBA(24, 32, 60, var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(24, 32, 60, var(--bs-link-underline-opacity, 1)) !important;
 }
 
 .link-body-emphasis {
@@ -12638,7 +12638,7 @@ p:last-child {
   /*
    * CONFERP Global
    */
-  --conferp-global-dark: #182447;
+  --conferp-global-dark: #1E284B;
   /*
    * Institution
    */
@@ -12771,7 +12771,7 @@ textarea:focus-visible,
   position: relative;
   z-index: 1030;
   width: 100%;
-  background-color: #182447;
+  background-color: #1E284B;
   color: #ffffff;
   font-size: 0.8125rem;
 }
@@ -12787,7 +12787,7 @@ textarea:focus-visible,
 .conferp-utility-bar__brand {
   display: flex;
   align-items: center;
-  gap: 0.875rem;
+  gap: 0.75rem;
   justify-self: start;
   min-width: 0;
 }
@@ -12818,7 +12818,7 @@ textarea:focus-visible,
 .conferp-utility-bar__regional-selector .form-select {
   width: 100%;
   min-height: 30px;
-  padding: 0.3rem 2.25rem 0.3rem 0.875rem;
+  padding: 0.3rem 1.9rem 0.3rem 0.75rem;
   border: 0;
   border-radius: 999px;
   background-color: #ffffff;
@@ -12920,14 +12920,17 @@ textarea:focus-visible,
   background-color: #205584;
   color: #ffffff;
 }
+.conferp-utility-bar__mobile-links {
+  display: none;
+}
 @media (max-width: 1199.98px) {
   .conferp-utility-bar__container {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: minmax(260px, 1fr) auto minmax(260px, 1fr);
     padding-right: 0.75rem;
     padding-left: 0.75rem;
   }
   .conferp-utility-bar__brand {
-    gap: 0.625rem;
+    gap: 0.5rem;
   }
   .conferp-utility-bar__federal-logo-image {
     width: 54px;
@@ -12935,18 +12938,142 @@ textarea:focus-visible,
     flex-basis: 54px;
   }
   .conferp-utility-bar__regional-selector {
-    width: 155px;
+    width: 165px;
   }
   .conferp-utility-bar__federal-links {
     gap: 0.875rem;
   }
   .conferp-utility-bar__actions {
-    gap: 0.75rem;
+    gap: 0.625rem;
+  }
+  .conferp-utility-bar__accessibility {
+    gap: 0.25rem;
   }
   .conferp-utility-bar__registered-button {
     min-width: 120px;
     padding-right: 0.875rem;
     padding-left: 0.875rem;
+  }
+}
+@media (max-width: 991.98px) {
+  .conferp-utility-bar__container {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 64px;
+    padding: 0.375rem 0.75rem;
+  }
+  .conferp-utility-bar__brand {
+    display: contents;
+  }
+  .conferp-utility-bar__federal-logo {
+    grid-column: 1;
+    justify-self: start;
+  }
+  .conferp-utility-bar__federal-logo-image {
+    width: 58px;
+    height: 52px;
+    flex-basis: 58px;
+  }
+  .conferp-utility-bar__regional-selector {
+    grid-column: 2;
+    width: 100%;
+    max-width: 200px;
+    justify-self: start;
+  }
+  .conferp-utility-bar__regional-selector .form-select {
+    width: 100%;
+    min-height: 40px;
+    padding: 0.4rem 2rem 0.4rem 0.875rem;
+    border: 1px solid #ced4da;
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    line-height: 1.2;
+  }
+  .conferp-utility-bar__federal-links {
+    display: none;
+  }
+  .conferp-utility-bar__actions {
+    grid-column: 3;
+    justify-self: end;
+    gap: 0;
+  }
+  .conferp-utility-bar__accessibility {
+    display: none;
+  }
+  .conferp-utility-bar__registered {
+    display: none;
+  }
+  .conferp-utility-bar__mobile-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }
+  .conferp-utility-bar__mobile-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    flex: 0 0 34px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .conferp-utility-bar__mobile-link:hover, .conferp-utility-bar__mobile-link:focus-visible {
+    color: #ffffff;
+    opacity: 0.8;
+  }
+  .conferp-utility-bar__mobile-link--transparency {
+    color: #dba840;
+  }
+  .conferp-utility-bar__mobile-link--transparency:hover, .conferp-utility-bar__mobile-link--transparency:focus-visible {
+    color: #dba840;
+  }
+  .conferp-utility-bar__mobile-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    color: inherit;
+    overflow: visible;
+  }
+}
+@media (max-width: 575.98px) {
+  .conferp-utility-bar__container {
+    gap: 0.375rem;
+    min-height: 58px;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  .conferp-utility-bar__federal-logo-image {
+    width: 50px;
+    height: 46px;
+    flex-basis: 50px;
+  }
+  .conferp-utility-bar__regional-selector {
+    width: 100%;
+    max-width: 175px;
+    min-width: 0;
+  }
+  .conferp-utility-bar__regional-selector .form-select {
+    min-height: 38px;
+    padding: 0.375rem 1.75rem 0.375rem 0.7rem;
+    font-size: 0.75rem;
+  }
+  .conferp-utility-bar__mobile-links {
+    gap: 0.35rem;
+  }
+  .conferp-utility-bar__mobile-link {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+  }
+  .conferp-utility-bar__mobile-icon {
+    width: 21px;
+    height: 21px;
   }
 }
 

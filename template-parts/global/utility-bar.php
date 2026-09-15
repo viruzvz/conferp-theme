@@ -16,12 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * CONRERPs.
  *
- * Estes links pertencem à estrutura global do tema.
+ * Estrutura global do Sistema CONFERP/CONRERPs.
+ * Os endereços poderão ser atualizados nas futuras
+ * versões do tema distribuídas aos Conselhos Regionais.
  */
 $conferp_regionals = array(
 	'' => 'Acesse seu CONRERP',
 
-	// Atualizar posteriormente com os endereços oficiais.
+	// Atualizar com os endereços oficiais definitivos.
 	'https://www.conrerp1.org.br/' => 'CONRERP 1ª Região',
 	'https://www.conrerp2.org.br/' => 'CONRERP 2ª Região',
 	'https://www.conrerp3.org.br/' => 'CONRERP 3ª Região',
@@ -38,7 +40,7 @@ $conferp_regionals = array(
 
 		<!-- ==================================================
 			LEFT
-			CONFERP + Regional selector
+			CONFERP + Seletor dos CONRERPs
 		================================================== -->
 
 		<div class="conferp-utility-bar__brand">
@@ -70,7 +72,6 @@ $conferp_regionals = array(
 					<?php esc_html_e( 'Acesse seu CONRERP', 'conferp' ); ?>
 				</label>
 
-
 				<select
 					id="conferp-regional-selector"
 					class="form-select"
@@ -100,8 +101,8 @@ $conferp_regionals = array(
 
 
 		<!-- ==================================================
-			CENTER
-			Links institucionais CONFERP
+			CENTER — DESKTOP
+			Links institucionais do CONFERP
 		================================================== -->
 
 		<nav
@@ -118,9 +119,7 @@ $conferp_regionals = array(
 			>
 
 				<span class="conferp-utility-bar__link-icon">
-
 					<?php conferp_icon( 'chat' ); ?>
-
 				</span>
 
 				<span>
@@ -143,9 +142,7 @@ $conferp_regionals = array(
 						conferp-utility-bar__link-icon--transparency
 					"
 				>
-
 					<?php conferp_icon( 'transparency' ); ?>
-
 				</span>
 
 				<span>
@@ -159,11 +156,14 @@ $conferp_regionals = array(
 
 		<!-- ==================================================
 			RIGHT
-			Acessibilidade + Área do Registrado
 		================================================== -->
 
 		<div class="conferp-utility-bar__actions">
 
+
+			<!-- ==================================================
+				ACESSIBILIDADE — DESKTOP
+			================================================== -->
 
 			<div
 				class="conferp-utility-bar__accessibility"
@@ -172,9 +172,7 @@ $conferp_regionals = array(
 			>
 
 
-				<!-- ==================================================
-					VLibras
-				================================================== -->
+				<!-- VLibras -->
 
 				<button
 					type="button"
@@ -204,9 +202,7 @@ $conferp_regionals = array(
 				></span>
 
 
-				<!-- ==================================================
-					Página de acessibilidade
-				================================================== -->
+				<!-- Página de Acessibilidade -->
 
 				<a
 					href="<?php echo esc_url( home_url( '/acessibilidade/' ) ); ?>"
@@ -235,9 +231,7 @@ $conferp_regionals = array(
 				></span>
 
 
-				<!-- ==================================================
-					Alto contraste
-				================================================== -->
+				<!-- Alto Contraste -->
 
 				<button
 					type="button"
@@ -268,9 +262,7 @@ $conferp_regionals = array(
 				></span>
 
 
-				<!-- ==================================================
-					Aumentar fonte
-				================================================== -->
+				<!-- Aumentar fonte -->
 
 				<button
 					type="button"
@@ -285,9 +277,7 @@ $conferp_regionals = array(
 				</button>
 
 
-				<!-- ==================================================
-					Diminuir fonte
-				================================================== -->
+				<!-- Diminuir fonte -->
 
 				<button
 					type="button"
@@ -305,7 +295,7 @@ $conferp_regionals = array(
 
 
 			<!-- ==================================================
-				Área do Registrado
+				ÁREA DO REGISTRADO — DESKTOP
 			================================================== -->
 
 			<div class="conferp-utility-bar__registered">
@@ -318,6 +308,81 @@ $conferp_regionals = array(
 				</a>
 
 			</div>
+
+
+			<!-- ==================================================
+				ATALHOS — MOBILE
+			================================================== -->
+
+			<nav
+				class="conferp-utility-bar__mobile-links"
+				aria-label="<?php esc_attr_e( 'Acesso rápido', 'conferp' ); ?>"
+			>
+
+
+				<!-- Transparência -->
+
+				<a
+					href="https://www.conferp.org.br/transparencia/"
+					class="
+						conferp-utility-bar__mobile-link
+						conferp-utility-bar__mobile-link--transparency
+					"
+					aria-label="<?php esc_attr_e( 'Transparência CONFERP', 'conferp' ); ?>"
+				>
+
+					<?php
+					conferp_icon(
+						'transparency',
+						array(
+							'class' => 'conferp-utility-bar__mobile-icon',
+						)
+					);
+					?>
+
+				</a>
+
+
+				<!-- Ouvidoria -->
+
+				<a
+					href="https://www.conferp.org.br/ouvidoria/"
+					class="conferp-utility-bar__mobile-link"
+					aria-label="<?php esc_attr_e( 'Ouvidoria', 'conferp' ); ?>"
+				>
+
+					<?php
+					conferp_icon(
+						'chat',
+						array(
+							'class' => 'conferp-utility-bar__mobile-icon',
+						)
+					);
+					?>
+
+				</a>
+
+
+				<!-- Área do Registrado -->
+
+				<a
+					href="#"
+					class="conferp-utility-bar__mobile-link"
+					aria-label="<?php esc_attr_e( 'Área do Registrado', 'conferp' ); ?>"
+				>
+
+					<?php
+					conferp_icon(
+						'registered-area',
+						array(
+							'class' => 'conferp-utility-bar__mobile-icon',
+						)
+					);
+					?>
+
+				</a>
+
+			</nav>
 
 		</div>
 
