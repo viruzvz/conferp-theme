@@ -36,6 +36,7 @@ function conferp_icon( $icon, $args = array() ) {
 		'instagram'        => 'instagram.svg',
 		'linkedin'         => 'linkedin.svg',
 		'registered-area'  => 'registered-area.svg',
+		'search'           => 'search.svg',
 		'transparency'     => 'transparency.svg',
 		'universal-access' => 'universal-access.svg',
 		'vlibras'          => 'vlibras.svg',

@@ -1,4 +1,827 @@
-// ==========================================================
-// Institutional Footer
-// CONFERP / CONRERP
-// ==========================================================
+/**
+ * Site Footer
+ *
+ * Institutional footer for CONFERP / CONRERPs.
+ *
+ * Responsive structure:
+ *
+ * >= 1400px   → 6 columns
+ * < 1400px    → compact desktop
+ * < 1200px    → 3 columns
+ * < 992px     → 2 columns
+ * < 576px     → 1 column with section separators
+ */
+
+
+/* ==========================================================
+   Site Footer
+   ========================================================== */
+
+.site-footer {
+	width: 100%;
+
+	padding-top: $spacer * 2;
+	padding-bottom: $spacer * 2;
+
+	color: #fff;
+	background-color: #1c4772;
+
+	font-family: "Montserrat", Arial, sans-serif;
+
+	overflow: hidden;
+
+
+	/* ======================================================
+	   Main Layout
+	   ====================================================== */
+
+	&__inner {
+		display: grid;
+
+		grid-template-columns:
+			minmax(250px, 1.45fr)
+			minmax(110px, 0.7fr)
+			minmax(110px, 0.7fr)
+			minmax(180px, 1fr)
+			minmax(170px, 0.9fr)
+			minmax(120px, 0.65fr);
+
+		align-items: stretch;
+
+		column-gap: clamp(1rem, 2vw, 2rem);
+		row-gap: 2rem;
+
+		width: 100%;
+		max-width: 100%;
+
+		margin: 0;
+
+		box-sizing: border-box;
+	}
+
+
+	/* ======================================================
+	   Institutional Branding
+	   ====================================================== */
+
+	&__branding {
+		display: flex;
+		align-items: center;
+
+		min-width: 0;
+		height: 100%;
+	}
+
+	&__branding-link {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+
+		width: 100%;
+		min-width: 0;
+
+		color: #fff;
+
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			color: #fff;
+
+			text-decoration: none;
+		}
+
+		&:focus-visible {
+			outline: 2px solid #fff;
+			outline-offset: 4px;
+
+			border-radius: 0.25rem;
+		}
+	}
+
+
+	/* ======================================================
+	   Footer Logo
+	   ====================================================== */
+
+	&__logo {
+		display: flex;
+		align-items: center;
+
+		flex: 0 0 auto;
+
+		min-width: 0;
+	}
+
+	&__logo-image {
+		display: block;
+
+		width: 125px;
+		height: auto;
+
+		max-width: 100%;
+
+		object-fit: contain;
+	}
+
+
+	/* ======================================================
+	   Institution Name
+	   ====================================================== */
+
+	&__institution-name {
+		display: block;
+
+		max-width: 230px;
+
+		margin-left: 1rem;
+
+		color: #fff;
+
+		font-family: "Montserrat", Arial, sans-serif;
+		font-size: 1rem;
+		font-weight: 800;
+		line-height: 1.05;
+
+		text-transform: uppercase;
+	}
+
+
+	/* ======================================================
+	   Footer Columns
+	   ====================================================== */
+
+	&__column {
+		min-width: 0;
+	}
+
+
+	/* ======================================================
+	   Column Titles
+	   ====================================================== */
+
+	&__title {
+		margin: 0 0 0.75rem;
+		padding: 0;
+
+		color: #fff;
+
+		font-family: "Montserrat", Arial, sans-serif;
+		font-size: 1rem;
+		font-weight: 500;
+		line-height: 1.25;
+	}
+
+
+	/* ======================================================
+	   Navigation Links
+	   ====================================================== */
+
+	&__links {
+		margin: 0;
+		padding: 0;
+
+		list-style: none;
+
+		li {
+			margin: 0 0 0.45rem;
+			padding: 0;
+
+			list-style: none;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		a {
+			display: inline-block;
+
+			max-width: 100%;
+
+			color: rgba(#fff, 0.78);
+
+			font-family: inherit;
+			font-size: 0.8125rem;
+			font-weight: 400;
+			line-height: 1.35;
+
+			text-decoration: none;
+
+			overflow-wrap: break-word;
+
+			transition:
+				color 0.2s ease,
+				opacity 0.2s ease;
+
+			&:hover,
+			&:focus-visible {
+				color: #fff;
+
+				text-decoration: underline;
+				text-underline-offset: 0.2rem;
+			}
+
+			&:focus-visible {
+				outline: 2px solid #fff;
+				outline-offset: 3px;
+
+				border-radius: 0.125rem;
+			}
+		}
+	}
+
+
+	/* ======================================================
+	   Contact
+	   ====================================================== */
+
+	&__contact {
+		min-width: 0;
+
+		color: rgba(#fff, 0.78);
+	}
+
+	&__contact-link {
+		display: inline-block;
+
+		max-width: 100%;
+
+		margin-bottom: 0.45rem;
+
+		color: rgba(#fff, 0.78);
+
+		font-size: 0.8125rem;
+		font-weight: 400;
+		line-height: 1.35;
+
+		text-decoration: none;
+
+		overflow-wrap: anywhere;
+
+		transition: color 0.2s ease;
+
+		&:hover,
+		&:focus-visible {
+			color: #fff;
+
+			text-decoration: underline;
+			text-underline-offset: 0.2rem;
+		}
+
+		&:focus-visible {
+			outline: 2px solid #fff;
+			outline-offset: 3px;
+
+			border-radius: 0.125rem;
+		}
+	}
+
+	&__contact-item {
+		margin: 0 0 0.45rem;
+
+		color: rgba(#fff, 0.78);
+
+		font-size: 0.8125rem;
+		font-weight: 400;
+		line-height: 1.35;
+
+		overflow-wrap: break-word;
+	}
+
+	&__address {
+		max-width: 100%;
+
+		margin: 0;
+
+		color: rgba(#fff, 0.78);
+
+		font-family: inherit;
+		font-size: 0.8125rem;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 1.35;
+
+		overflow-wrap: break-word;
+	}
+
+
+	/* ======================================================
+	   Social Networks
+	   ====================================================== */
+
+	&__social {
+		min-width: 0;
+	}
+
+	&__social-links {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+
+		gap: 0.65rem;
+
+		width: 100%;
+	}
+
+	&__social-link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 26px;
+		height: 26px;
+
+		flex: 0 0 26px;
+
+		padding: 0;
+
+		color: #fff;
+
+		text-decoration: none;
+
+		transition:
+			opacity 0.2s ease,
+			transform 0.2s ease;
+
+		&:hover,
+		&:focus-visible {
+			color: #fff;
+
+			opacity: 0.75;
+		}
+
+		&:focus-visible {
+			outline: 2px solid #fff;
+			outline-offset: 3px;
+
+			border-radius: 0.25rem;
+		}
+	}
+
+	&__social-icon {
+		display: block;
+
+		width: 22px;
+		height: 22px;
+
+		flex: 0 0 22px;
+
+		color: currentColor;
+
+		overflow: visible;
+	}
+}
+
+
+/* ==========================================================
+   Intermediate Desktop
+   < 1400px
+   ========================================================== */
+
+@include media-breakpoint-down(xxl) {
+
+	.site-footer {
+
+		&__inner {
+			grid-template-columns:
+				minmax(220px, 1.25fr)
+				minmax(100px, 0.65fr)
+				minmax(105px, 0.7fr)
+				minmax(165px, 0.9fr)
+				minmax(155px, 0.85fr)
+				minmax(100px, 0.55fr);
+
+			column-gap: clamp(0.75rem, 1.25vw, 1.25rem);
+		}
+
+		&__logo-image {
+			width: 105px;
+		}
+
+		&__institution-name {
+			max-width: 190px;
+
+			margin-left: 0.75rem;
+
+			font-size: 0.8125rem;
+			line-height: 1.05;
+		}
+
+		&__title {
+			font-size: 0.9375rem;
+		}
+
+		&__links {
+
+			a {
+				font-size: 0.75rem;
+			}
+		}
+
+		&__contact-link,
+		&__contact-item,
+		&__address {
+			font-size: 0.75rem;
+		}
+
+		&__social-links {
+			gap: 0.5rem;
+		}
+
+		&__social-link {
+			width: 24px;
+			height: 24px;
+
+			flex-basis: 24px;
+		}
+
+		&__social-icon {
+			width: 20px;
+			height: 20px;
+
+			flex-basis: 20px;
+		}
+	}
+}
+
+
+/* ==========================================================
+   Compact Desktop
+   < 1200px
+   ========================================================== */
+
+@include media-breakpoint-down(xl) {
+
+	.site-footer {
+
+		&__inner {
+			grid-template-columns:
+				repeat(3, minmax(0, 1fr));
+
+			column-gap: 2rem;
+			row-gap: 2rem;
+		}
+
+
+		/* ==================================================
+		   Branding
+		   ================================================== */
+
+		&__branding {
+			grid-column: 1 / -1;
+
+			height: auto;
+		}
+
+		&__branding-link {
+			width: auto;
+		}
+
+		&__logo-image {
+			width: 110px;
+		}
+
+		&__institution-name {
+			max-width: 230px;
+
+			margin-left: 0.875rem;
+
+			font-size: 0.875rem;
+		}
+
+
+		/* ==================================================
+		   Typography
+		   ================================================== */
+
+		&__title {
+			font-size: 0.9375rem;
+		}
+
+		&__links {
+
+			a {
+				font-size: 0.8125rem;
+			}
+		}
+
+		&__contact-link,
+		&__contact-item,
+		&__address {
+			font-size: 0.8125rem;
+		}
+
+
+		/* ==================================================
+		   Social
+		   ================================================== */
+
+		&__social {
+			grid-column: auto;
+		}
+
+		&__social-link {
+			width: 26px;
+			height: 26px;
+
+			flex-basis: 26px;
+		}
+
+		&__social-icon {
+			width: 22px;
+			height: 22px;
+
+			flex-basis: 22px;
+		}
+	}
+}
+
+
+/* ==========================================================
+   Tablet
+   < 992px
+   ========================================================== */
+
+@include media-breakpoint-down(lg) {
+
+	.site-footer {
+		padding-top: $spacer * 2;
+		padding-bottom: $spacer * 2;
+
+
+		&__inner {
+			grid-template-columns:
+				repeat(2, minmax(0, 1fr));
+
+			column-gap: 2.5rem;
+			row-gap: 2rem;
+		}
+
+
+		/* ==================================================
+		   Branding
+		   ================================================== */
+
+		&__branding {
+			grid-column: 1 / -1;
+
+			height: auto;
+		}
+
+		&__branding-link {
+			justify-content: flex-start;
+
+			width: auto;
+		}
+
+		&__logo-image {
+			width: 110px;
+		}
+
+		&__institution-name {
+			max-width: 260px;
+
+			margin-left: 1rem;
+
+			font-size: 0.9375rem;
+		}
+
+
+		/* ==================================================
+		   Social
+		   ================================================== */
+
+		&__social {
+			grid-column: auto;
+		}
+	}
+}
+
+
+/* ==========================================================
+   Small Mobile
+   < 576px
+   ========================================================== */
+
+@include media-breakpoint-down(sm) {
+
+	.site-footer {
+		padding-top: 1.25rem;
+		padding-bottom: 2.5rem;
+
+
+		/* ==================================================
+		   Main Layout
+		   ================================================== */
+
+		&__inner {
+			display: grid;
+
+			grid-template-columns: 1fr;
+
+			gap: 0;
+
+			width: 100%;
+		}
+
+
+		/* ==================================================
+		   Branding
+		   ================================================== */
+
+		&__branding {
+			grid-column: auto;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: 100%;
+			height: auto;
+
+			padding: 0.25rem 0 1.25rem;
+
+			border-bottom: 1px solid rgba(#fff, 0.22);
+		}
+
+		&__branding-link {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: auto;
+			max-width: 100%;
+
+			margin: 0 auto;
+
+			text-align: left;
+		}
+
+		&__logo {
+			flex: 0 0 auto;
+		}
+
+		&__logo-image {
+			width: 82px;
+			height: auto;
+
+			max-width: 100%;
+		}
+
+		&__institution-name {
+			max-width: 180px;
+
+			margin-left: 0.65rem;
+
+			font-size: 0.6875rem;
+			font-weight: 800;
+			line-height: 1.05;
+
+			text-align: left;
+		}
+
+
+		/* ==================================================
+		   Content Sections
+		   ================================================== */
+
+		&__column {
+			width: 100%;
+			min-width: 0;
+
+			padding: 1rem 0;
+
+			border-bottom: 1px solid rgba(#fff, 0.22);
+
+			text-align: left;
+		}
+
+
+		/**
+		 * Last content block does not need another
+		 * separator below it.
+		 */
+
+		&__column:last-child {
+			border-bottom: 0;
+		}
+
+
+		/* ==================================================
+		   Titles
+		   ================================================== */
+
+		&__title {
+			margin: 0 0 0.625rem;
+			padding: 0;
+
+			font-size: 0.9375rem;
+			font-weight: 500;
+			line-height: 1.25;
+
+			text-align: left;
+		}
+
+
+		/* ==================================================
+		   Navigation Links
+		   ================================================== */
+
+		&__links {
+			margin: 0;
+			padding: 0;
+
+			text-align: left;
+
+			li {
+				margin: 0 0 0.45rem;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+			a {
+				font-size: 0.8125rem;
+				font-weight: 400;
+				line-height: 1.35;
+
+				text-align: left;
+			}
+		}
+
+
+		/* ==================================================
+		   Contact
+		   ================================================== */
+
+		&__contact {
+			text-align: left;
+		}
+
+		&__contact-link {
+			margin-bottom: 0.35rem;
+
+			font-size: 0.8125rem;
+			line-height: 1.4;
+		}
+
+		&__contact-item {
+			margin-bottom: 0.35rem;
+
+			font-size: 0.8125rem;
+			line-height: 1.4;
+		}
+
+		&__address {
+			max-width: 100%;
+
+			font-size: 0.8125rem;
+			line-height: 1.4;
+
+			text-align: left;
+		}
+
+
+		/* ==================================================
+		   Social Networks
+		   ================================================== */
+
+		&__social {
+			grid-column: auto;
+
+			padding-top: 1.25rem;
+			padding-bottom: 0;
+
+			border-bottom: 0;
+
+			text-align: left;
+		}
+
+		&__social-links {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			flex-wrap: wrap;
+
+			gap: 0.65rem;
+
+			width: 100%;
+		}
+
+		&__social-link {
+			width: 26px;
+			height: 26px;
+
+			flex: 0 0 26px;
+		}
+
+		&__social-icon {
+			width: 22px;
+			height: 22px;
+
+			flex: 0 0 22px;
+		}
+	}
+}

@@ -1,4 +1,389 @@
-// ==========================================================
-// Institutional Header
-// CONFERP / CONRERP
-// ==========================================================
+/**
+ * Site Header
+ *
+ * Institutional header for CONFERP / CONRERPs.
+ *
+ * Structure:
+ *
+ * .site-header
+ * └── .site-header__main
+ *     └── .container-fluid
+ *         └── .site-header__inner
+ *             └── .site-branding
+ *                 ├── .site-branding__identity
+ *                 │   ├── .site-branding__logo
+ *                 │   └── .site-branding__institution
+ *                 └── .site-branding__social
+ */
+
+
+/* ==========================================================
+   Site Header
+   ========================================================== */
+
+.site-header {
+	position: relative;
+	z-index: 1020;
+	width: 100%;
+
+	&__main {
+		width: 100%;
+		background-color: #f2f6ff;
+	}
+
+	&__inner {
+		width: 100%;
+		min-height: 108px;
+		display: flex;
+		align-items: center;
+
+		padding-top: $spacer;
+		padding-bottom: $spacer;
+	}
+
+	&__navigation {
+		display: block;
+		width: 100%;
+	}
+
+	&__mobile-navigation {
+		display: none;
+	}
+}
+
+
+/* ==========================================================
+   Institutional Branding
+   ========================================================== */
+
+.site-branding {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+	min-width: 0;
+
+
+	/* ======================================================
+	   Identity
+	   ====================================================== */
+
+	&__identity {
+		display: flex;
+		align-items: center;
+
+		min-width: 0;
+	}
+
+
+	/* ======================================================
+	   Logo
+	   ====================================================== */
+
+	&__logo {
+		display: flex;
+		align-items: center;
+
+		flex: 0 0 auto;
+	}
+
+	&__logo-link {
+		display: inline-flex;
+		align-items: center;
+
+		text-decoration: none;
+	}
+
+	&__logo-image {
+		display: block;
+
+		width: auto;
+		max-width: 144px;
+		height: 102px;
+
+		object-fit: contain;
+	}
+
+
+	/* ======================================================
+	   Institution Name
+	   ====================================================== */
+
+	&__institution {
+		display: flex;
+		align-items: center;
+
+		max-width: 390px;
+		margin-left: 1.25rem;
+	}
+
+	&__institution-name {
+		display: block;
+
+		margin: 0;
+
+		color: #1c4772;
+
+		font-family: "Montserrat", Arial, sans-serif;
+		font-size: 1.125rem;
+		font-weight: 800;
+		line-height: 1.05;
+
+		text-transform: uppercase;
+	}
+
+
+	/* ======================================================
+	   Social Networks
+	   ====================================================== */
+
+	&__social {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+
+		gap: 0.75rem;
+
+		flex: 0 0 auto;
+
+		margin-left: 2rem;
+	}
+
+	&__social-link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 32px;
+		height: 32px;
+
+		padding: 0;
+		border: 0;
+
+		color: #1c4772;
+		background-color: transparent;
+
+		text-decoration: none;
+
+		transition:
+			opacity 0.2s ease,
+			transform 0.2s ease;
+
+		&:hover,
+		&:focus-visible {
+			color: #1c4772;
+			opacity: 0.7;
+		}
+
+		&:focus-visible {
+			outline: 2px solid currentColor;
+			outline-offset: 3px;
+			border-radius: 0.25rem;
+		}
+	}
+
+	&__social-icon {
+		display: block;
+
+		width: 22px;
+		height: 22px;
+
+		flex: 0 0 22px;
+
+		color: currentColor;
+
+		overflow: visible;
+
+		svg {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__social-icon--email {
+		width: 24px;
+		height: 24px;
+
+		flex-basis: 24px;
+	}
+
+
+	/* ======================================================
+	   Social Separator
+	   ====================================================== */
+
+	&__social-separator {
+		display: block;
+
+		width: 1px;
+		height: 24px;
+
+		margin-right: 0.25rem;
+		margin-left: 0.25rem;
+
+		background-color: rgba(#1c4772, 0.35);
+	}
+}
+
+
+/* ==========================================================
+   Large Desktop
+   < 1200px
+   ========================================================== */
+
+@include media-breakpoint-down(xl) {
+
+	.site-header {
+
+		&__inner {
+			min-height: 100px;
+
+			padding-right: 1.25rem;
+			padding-left: 1.25rem;
+		}
+	}
+
+
+	.site-branding {
+
+		&__logo-image {
+			max-width: 155px;
+			height: 66px;
+		}
+
+		&__institution {
+			max-width: 340px;
+			margin-left: 1rem;
+		}
+
+		&__institution-name {
+			font-size: 1rem;
+		}
+
+		&__social {
+			gap: 0.55rem;
+			margin-left: 1.25rem;
+		}
+
+		&__social-link {
+			width: 30px;
+			height: 30px;
+		}
+
+		&__social-icon {
+			width: 20px;
+			height: 20px;
+
+			flex-basis: 20px;
+		}
+	}
+}
+
+
+/* ==========================================================
+   Tablet / Mobile
+   < 992px
+   ========================================================== */
+
+@include media-breakpoint-down(lg) {
+
+	.site-header {
+
+		/**
+		 * Desktop institutional header.
+		 */
+		&__main {
+			display: none;
+		}
+
+		/**
+		 * Desktop navigation.
+		 */
+		&__navigation {
+			display: none;
+		}
+
+		/**
+		 * Complete responsive header.
+		 */
+		&__mobile-navigation {
+			display: block;
+
+			width: 100%;
+		}
+	}
+
+
+	.site-branding {
+
+		&__identity {
+			width: 100%;
+		}
+
+		&__logo-image {
+			max-width: 115px;
+			height: 54px;
+		}
+
+		&__institution {
+			max-width: 310px;
+			margin-left: 0.75rem;
+		}
+
+		&__institution-name {
+			font-size: 0.8125rem;
+			line-height: 1.1;
+		}
+
+		/**
+		 * Social networks are not displayed in the
+		 * compact header.
+		 *
+		 * They may later be exposed through the
+		 * mobile navigation/footer when necessary.
+		 */
+		&__social {
+			display: none;
+		}
+	}
+}
+
+
+/* ==========================================================
+   Small Mobile
+   < 576px
+   ========================================================== */
+
+@include media-breakpoint-down(sm) {
+
+	.site-header {
+
+		&__inner {
+			min-height: 68px;
+
+			padding-right: 0.5rem;
+			padding-left: 0.5rem;
+		}
+	}
+
+
+	.site-branding {
+
+		&__logo-image {
+			max-width: 92px;
+			height: 46px;
+		}
+
+		&__institution {
+			max-width: 210px;
+			margin-left: 0.5rem;
+		}
+
+		&__institution-name {
+			font-size: 0.6875rem;
+			line-height: 1.1;
+		}
+	}
+}

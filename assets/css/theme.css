@@ -13130,6 +13130,1661 @@ textarea:focus-visible,
   white-space: nowrap;
 }
 
+/**
+ * Site Header
+ *
+ * Institutional header for CONFERP / CONRERPs.
+ *
+ * Structure:
+ *
+ * .site-header
+ * └── .site-header__main
+ *     └── .container-fluid
+ *         └── .site-header__inner
+ *             └── .site-branding
+ *                 ├── .site-branding__identity
+ *                 │   ├── .site-branding__logo
+ *                 │   └── .site-branding__institution
+ *                 └── .site-branding__social
+ */
+/* ==========================================================
+   Site Header
+   ========================================================== */
+.site-header {
+  position: relative;
+  z-index: 1020;
+  width: 100%;
+}
+.site-header__main {
+  width: 100%;
+  background-color: #f2f6ff;
+}
+.site-header__inner {
+  width: 100%;
+  min-height: 108px;
+  display: flex;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.site-header__navigation {
+  display: block;
+  width: 100%;
+}
+.site-header__mobile-navigation {
+  display: none;
+}
+
+/* ==========================================================
+   Institutional Branding
+   ========================================================== */
+.site-branding {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 0;
+  /* ======================================================
+     Identity
+     ====================================================== */
+}
+.site-branding__identity {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+.site-branding {
+  /* ======================================================
+     Logo
+     ====================================================== */
+}
+.site-branding__logo {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+.site-branding__logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+.site-branding__logo-image {
+  display: block;
+  width: auto;
+  max-width: 144px;
+  height: 102px;
+  object-fit: contain;
+}
+.site-branding {
+  /* ======================================================
+     Institution Name
+     ====================================================== */
+}
+.site-branding__institution {
+  display: flex;
+  align-items: center;
+  max-width: 390px;
+  margin-left: 1.25rem;
+}
+.site-branding__institution-name {
+  display: block;
+  margin: 0;
+  color: #1c4772;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.site-branding {
+  /* ======================================================
+     Social Networks
+     ====================================================== */
+}
+.site-branding__social {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  flex: 0 0 auto;
+  margin-left: 2rem;
+}
+.site-branding__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  color: #1c4772;
+  background-color: transparent;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.site-branding__social-link:hover, .site-branding__social-link:focus-visible {
+  color: #1c4772;
+  opacity: 0.7;
+}
+.site-branding__social-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+}
+.site-branding__social-icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  color: currentColor;
+  overflow: visible;
+}
+.site-branding__social-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.site-branding__social-icon--email {
+  width: 24px;
+  height: 24px;
+  flex-basis: 24px;
+}
+.site-branding {
+  /* ======================================================
+     Social Separator
+     ====================================================== */
+}
+.site-branding__social-separator {
+  display: block;
+  width: 1px;
+  height: 24px;
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+  background-color: rgba(28, 71, 114, 0.35);
+}
+
+/* ==========================================================
+   Large Desktop
+   < 1200px
+   ========================================================== */
+@media (max-width: 1199.98px) {
+  .site-header__inner {
+    min-height: 100px;
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+  }
+  .site-branding__logo-image {
+    max-width: 155px;
+    height: 66px;
+  }
+  .site-branding__institution {
+    max-width: 340px;
+    margin-left: 1rem;
+  }
+  .site-branding__institution-name {
+    font-size: 1rem;
+  }
+  .site-branding__social {
+    gap: 0.55rem;
+    margin-left: 1.25rem;
+  }
+  .site-branding__social-link {
+    width: 30px;
+    height: 30px;
+  }
+  .site-branding__social-icon {
+    width: 20px;
+    height: 20px;
+    flex-basis: 20px;
+  }
+}
+/* ==========================================================
+   Tablet / Mobile
+   < 992px
+   ========================================================== */
+@media (max-width: 991.98px) {
+  .site-header {
+    /**
+     * Desktop institutional header.
+     */
+  }
+  .site-header__main {
+    display: none;
+  }
+  .site-header {
+    /**
+     * Desktop navigation.
+     */
+  }
+  .site-header__navigation {
+    display: none;
+  }
+  .site-header {
+    /**
+     * Complete responsive header.
+     */
+  }
+  .site-header__mobile-navigation {
+    display: block;
+    width: 100%;
+  }
+  .site-branding__identity {
+    width: 100%;
+  }
+  .site-branding__logo-image {
+    max-width: 115px;
+    height: 54px;
+  }
+  .site-branding__institution {
+    max-width: 310px;
+    margin-left: 0.75rem;
+  }
+  .site-branding__institution-name {
+    font-size: 0.8125rem;
+    line-height: 1.1;
+  }
+  .site-branding {
+    /**
+     * Social networks are not displayed in the
+     * compact header.
+     *
+     * They may later be exposed through the
+     * mobile navigation/footer when necessary.
+     */
+  }
+  .site-branding__social {
+    display: none;
+  }
+}
+/* ==========================================================
+   Small Mobile
+   < 576px
+   ========================================================== */
+@media (max-width: 575.98px) {
+  .site-header__inner {
+    min-height: 68px;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  .site-branding__logo-image {
+    max-width: 92px;
+    height: 46px;
+  }
+  .site-branding__institution {
+    max-width: 210px;
+    margin-left: 0.5rem;
+  }
+  .site-branding__institution-name {
+    font-size: 0.6875rem;
+    line-height: 1.1;
+  }
+}
+/**
+ * Primary Navigation
+ *
+ * Desktop institutional navigation.
+ *
+ * WordPress structure:
+ *
+ * .primary-navigation
+ * └── .container
+ *     └── .primary-navigation__menu
+ *         └── .menu-item
+ *             ├── a
+ *             └── .sub-menu
+ */
+/* ==========================================================
+   Primary Navigation
+   ========================================================== */
+.primary-navigation {
+  position: relative;
+  z-index: 1020;
+  width: 100%;
+  background-color: #1c4772;
+  /* ======================================================
+     Main Menu
+     ====================================================== */
+}
+.primary-navigation__menu {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* ==================================================
+     First Level
+     ================================================== */
+}
+.primary-navigation__menu > .menu-item {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.primary-navigation__menu > .menu-item > a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0.75rem 0.85rem;
+  color: #fff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+.primary-navigation__menu > .menu-item > a:hover, .primary-navigation__menu > .menu-item > a:focus-visible {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.primary-navigation__menu > .menu-item > a:focus-visible {
+  z-index: 2;
+  outline: 2px solid #fff;
+  outline-offset: -4px;
+}
+.primary-navigation__menu {
+  /* ==================================================
+     Items with Children
+     ================================================== */
+}
+.primary-navigation__menu > .menu-item-has-children > a {
+  gap: 0.45rem;
+  /**
+   * Dropdown indicator.
+   *
+   * CSS instead of another SVG because this is
+   * a structural navigation indicator.
+   */
+}
+.primary-navigation__menu > .menu-item-has-children > a::after {
+  content: "";
+  display: block;
+  width: 0.4rem;
+  height: 0.4rem;
+  flex: 0 0 0.4rem;
+  margin-top: -0.2rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+.primary-navigation__menu > .menu-item-has-children {
+  /**
+   * Open dropdown.
+   */
+}
+.primary-navigation__menu > .menu-item-has-children:hover > a, .primary-navigation__menu > .menu-item-has-children:focus-within > a {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.primary-navigation__menu > .menu-item-has-children:hover > a::after, .primary-navigation__menu > .menu-item-has-children:focus-within > a::after {
+  margin-top: 0.2rem;
+  transform: rotate(225deg);
+}
+.primary-navigation__menu > .menu-item-has-children:hover > .sub-menu, .primary-navigation__menu > .menu-item-has-children:focus-within > .sub-menu {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.primary-navigation {
+  /* ======================================================
+     Dropdown
+     ====================================================== */
+}
+.primary-navigation .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1030;
+  visibility: hidden;
+  width: max-content;
+  min-width: 240px;
+  max-width: 320px;
+  margin: 0;
+  padding: 0.5rem 0;
+  list-style: none;
+  background-color: #fff;
+  border: 1px solid rgba(28, 71, 114, 0.12);
+  border-top: 0;
+  border-radius: 0 0 0.375rem 0.375rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  transform: translateY(0.5rem);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+  /* ==================================================
+     Dropdown Item
+     ================================================== */
+}
+.primary-navigation .sub-menu .menu-item {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.primary-navigation .sub-menu .menu-item a {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 1.25rem;
+  color: #1c4772;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: normal;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.primary-navigation .sub-menu .menu-item a:hover, .primary-navigation .sub-menu .menu-item a:focus-visible {
+  color: #1c4772;
+  background-color: #f2f6ff;
+}
+.primary-navigation .sub-menu .menu-item a:focus-visible {
+  outline: 2px solid #1c4772;
+  outline-offset: -3px;
+}
+.primary-navigation {
+  /* ======================================================
+     Current Page
+     ====================================================== */
+}
+.primary-navigation .current-menu-item > a,
+.primary-navigation .current-menu-ancestor > a,
+.primary-navigation .current-menu-parent > a {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+.primary-navigation {
+  /**
+   * Current item inside dropdown.
+   */
+}
+.primary-navigation .sub-menu .current-menu-item > a {
+  color: #1c4772;
+  background-color: #f2f6ff;
+  font-weight: 700;
+}
+.primary-navigation {
+  /* ======================================================
+     Empty Menu - Administrators Only
+     ====================================================== */
+}
+.primary-navigation__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.8125rem;
+  text-align: center;
+}
+.primary-navigation__empty a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.primary-navigation__empty a:hover, .primary-navigation__empty a:focus-visible {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ==========================================================
+   Compact Desktop
+   992px — 1199px
+   ========================================================== */
+@media (max-width: 1199.98px) {
+  .primary-navigation__menu > .menu-item > a {
+    min-height: 50px;
+    padding-right: 0.55rem;
+    padding-left: 0.55rem;
+    font-size: 0.6875rem;
+  }
+  .primary-navigation__menu > .menu-item-has-children > a {
+    gap: 0.3rem;
+  }
+}
+/* ==========================================================
+   Responsive
+   < 992px
+
+   Desktop navigation is disabled by _header.scss.
+   Mobile navigation will be handled separately.
+   ========================================================== */
+@media (max-width: 991.98px) {
+  .primary-navigation {
+    display: none;
+  }
+}
+/**
+ * Mobile Navigation
+ *
+ * Responsive institutional header and navigation.
+ *
+ * Breakpoint:
+ * Bootstrap LG (< 992px)
+ */
+/* ==========================================================
+   Mobile Navigation
+   ========================================================== */
+.mobile-navigation {
+  display: none;
+  width: 100%;
+  font-family: "Montserrat", Arial, sans-serif;
+  background-color: #f2f6ff;
+  /* ======================================================
+     Mobile Header
+     ====================================================== */
+}
+.mobile-navigation__header {
+  width: 100%;
+  background-color: #f2f6ff;
+}
+.mobile-navigation__header-inner {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  width: 100%;
+  min-height: 92px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.mobile-navigation {
+  /* ======================================================
+     Menu Toggle
+     ====================================================== */
+}
+.mobile-navigation__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: #1e284b;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+  transition: opacity 0.2s ease;
+}
+.mobile-navigation__toggle:hover {
+  opacity: 0.75;
+}
+.mobile-navigation__toggle:focus-visible {
+  outline: 2px solid #1e284b;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+.mobile-navigation {
+  /* ======================================================
+     Hamburger
+     ====================================================== */
+}
+.mobile-navigation__toggle-icon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  gap: 5px;
+}
+.mobile-navigation__toggle-icon span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 999px;
+  transform-origin: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.mobile-navigation {
+  /* ======================================================
+     Hamburger → Close
+     ====================================================== */
+}
+.mobile-navigation__toggle[aria-expanded=true] .mobile-navigation__toggle-icon span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.mobile-navigation__toggle[aria-expanded=true] .mobile-navigation__toggle-icon span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-navigation__toggle[aria-expanded=true] .mobile-navigation__toggle-icon span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+.mobile-navigation {
+  /* ======================================================
+     Institutional Branding
+     ====================================================== */
+}
+.mobile-navigation__branding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  color: #1c4772;
+  text-decoration: none;
+}
+.mobile-navigation__branding:hover, .mobile-navigation__branding:focus {
+  color: #1c4772;
+  text-decoration: none;
+}
+.mobile-navigation__branding:focus-visible {
+  outline: 2px solid #1c4772;
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+}
+.mobile-navigation {
+  /* ======================================================
+     Logo
+     ====================================================== */
+}
+.mobile-navigation__logo {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+.mobile-navigation__logo-image {
+  display: block;
+  width: 86px;
+  height: 62px;
+  max-width: none;
+  object-fit: contain;
+}
+.mobile-navigation {
+  /* ======================================================
+     Institution Name
+     ====================================================== */
+}
+.mobile-navigation__institution-name {
+  display: block;
+  max-width: 190px;
+  margin-left: 0.75rem;
+  color: #1c4772;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: left;
+  text-transform: uppercase;
+}
+.mobile-navigation {
+  /* ======================================================
+     Search Toggle
+     ====================================================== */
+}
+.mobile-navigation__search-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: #1e284b;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+  transition: opacity 0.2s ease;
+}
+.mobile-navigation__search-toggle:hover {
+  opacity: 0.75;
+}
+.mobile-navigation__search-toggle:focus-visible {
+  outline: 2px solid #1e284b;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+.mobile-navigation {
+  /* ======================================================
+  Search Icon
+  ====================================================== */
+}
+.mobile-navigation__search-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  color: currentColor;
+  overflow: visible;
+}
+.mobile-navigation {
+  /* ======================================================
+     Mobile Menu Panel
+     ====================================================== */
+}
+.mobile-navigation__panel {
+  position: relative;
+  z-index: 1030;
+  width: 100%;
+  background-color: #1c4772;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12);
+}
+.mobile-navigation__panel[hidden] {
+  display: none;
+}
+.mobile-navigation {
+  /* ======================================================
+     Mobile Menu
+     ====================================================== */
+}
+.mobile-navigation__menu {
+  width: 100%;
+  margin: 0;
+  padding: 0.5rem 0;
+  list-style: none;
+}
+.mobile-navigation__menu > .menu-item {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  list-style: none;
+}
+.mobile-navigation__menu > .menu-item:last-child {
+  border-bottom: 0;
+}
+.mobile-navigation__menu > .menu-item > a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.mobile-navigation__menu > .menu-item > a:hover, .mobile-navigation__menu > .menu-item > a:focus-visible {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.mobile-navigation__menu > .menu-item > a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -3px;
+}
+.mobile-navigation__menu {
+  /* ==================================================
+     Items With Submenu
+     ================================================== */
+}
+.mobile-navigation__menu > .menu-item-has-children > a {
+  padding-right: 3.25rem;
+}
+.mobile-navigation__menu {
+  /* ==================================================
+     Current Page
+     ================================================== */
+}
+.mobile-navigation__menu .current-menu-item > a,
+.mobile-navigation__menu .current-menu-ancestor > a,
+.mobile-navigation__menu .current-menu-parent > a {
+  background-color: rgba(255, 255, 255, 0.1);
+  font-weight: 700;
+}
+.mobile-navigation {
+  /* ======================================================
+     Submenu Toggle
+     ====================================================== */
+}
+.mobile-navigation__submenu-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+  background-color: transparent;
+  cursor: pointer;
+  appearance: none;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+.mobile-navigation__submenu-toggle:hover, .mobile-navigation__submenu-toggle:focus-visible {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.mobile-navigation__submenu-toggle:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -3px;
+}
+.mobile-navigation {
+  /* ======================================================
+     Submenu Toggle Icon
+     ====================================================== */
+}
+.mobile-navigation__submenu-toggle-icon {
+  position: relative;
+  display: block;
+  width: 14px;
+  height: 14px;
+}
+.mobile-navigation__submenu-toggle-icon::before, .mobile-navigation__submenu-toggle-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.mobile-navigation__submenu-toggle-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.mobile-navigation {
+  /* ======================================================
+     Open Submenu Toggle
+     ====================================================== */
+}
+.mobile-navigation .menu-item-has-children.is-open > .mobile-navigation__submenu-toggle .mobile-navigation__submenu-toggle-icon::after {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(0);
+}
+.mobile-navigation {
+  /* ======================================================
+     Mobile Submenu
+     ====================================================== */
+}
+.mobile-navigation .sub-menu {
+  display: none;
+  width: 100%;
+  margin: 0;
+  padding: 0.25rem 0;
+  list-style: none;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+.mobile-navigation .sub-menu .menu-item {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mobile-navigation .sub-menu .menu-item a {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 1rem 0.7rem 1.75rem;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.35;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.mobile-navigation .sub-menu .menu-item a:hover, .mobile-navigation .sub-menu .menu-item a:focus-visible {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.mobile-navigation .sub-menu .menu-item a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -3px;
+}
+.mobile-navigation {
+  /* ======================================================
+     Open Submenu
+     ====================================================== */
+}
+.mobile-navigation .menu-item-has-children.is-open > .sub-menu {
+  display: block;
+}
+.mobile-navigation {
+  /* ======================================================
+     Empty Menu
+     ====================================================== */
+}
+.mobile-navigation__empty {
+  padding: 1rem;
+  color: #fff;
+  font-size: 0.8125rem;
+  text-align: center;
+}
+.mobile-navigation__empty a {
+  color: #fff;
+  font-weight: 700;
+}
+.mobile-navigation {
+  /* ======================================================
+     Search Panel
+     ====================================================== */
+}
+.mobile-navigation__search-panel {
+  position: relative;
+  z-index: 1030;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(28, 71, 114, 0.15);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+}
+.mobile-navigation__search-panel[hidden] {
+  display: none;
+}
+.mobile-navigation {
+  /* ======================================================
+     WordPress Search Form
+     ====================================================== */
+}
+.mobile-navigation__search .search-form {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  margin: 0;
+}
+.mobile-navigation__search .search-field {
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid rgba(28, 71, 114, 0.35);
+  border-radius: 0.375rem 0 0 0.375rem;
+  color: #1e284b;
+  background-color: #fff;
+  font-family: inherit;
+  font-size: 0.875rem;
+  outline: 0;
+}
+.mobile-navigation__search .search-field:focus {
+  border-color: #1c4772;
+  box-shadow: 0 0 0 0.1875rem rgba(28, 71, 114, 0.15);
+}
+.mobile-navigation__search .search-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.625rem 1rem;
+  border: 1px solid #1c4772;
+  border-radius: 0 0.375rem 0.375rem 0;
+  color: #fff;
+  background-color: #1c4772;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+.mobile-navigation__search .search-submit:hover {
+  opacity: 0.9;
+}
+.mobile-navigation__search .search-submit:focus-visible {
+  outline: 2px solid #1c4772;
+  outline-offset: 2px;
+}
+
+/* ==========================================================
+   Responsive Header
+   < 992px
+   ========================================================== */
+@media (max-width: 991.98px) {
+  .mobile-navigation {
+    display: block;
+  }
+}
+/* ==========================================================
+   Small Mobile
+   < 576px
+   ========================================================== */
+@media (max-width: 575.98px) {
+  .mobile-navigation__header-inner {
+    grid-template-columns: 38px minmax(0, 1fr) 38px;
+    min-height: 82px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .mobile-navigation {
+    /* Menu */
+  }
+  .mobile-navigation__toggle {
+    width: 38px;
+    height: 38px;
+  }
+  .mobile-navigation__toggle-icon {
+    width: 21px;
+    height: 21px;
+    gap: 4px;
+  }
+  .mobile-navigation {
+    /* Branding */
+  }
+  .mobile-navigation__branding {
+    padding-right: 0.35rem;
+    padding-left: 0.35rem;
+  }
+  .mobile-navigation__logo-image {
+    width: 72px;
+    height: 52px;
+  }
+  .mobile-navigation__institution-name {
+    max-width: 160px;
+    margin-left: 0.5rem;
+    font-size: 0.625rem;
+    line-height: 1.15;
+  }
+  .mobile-navigation {
+    /* Search */
+  }
+  .mobile-navigation__search-toggle {
+    width: 38px;
+    height: 38px;
+  }
+  .mobile-navigation__search-icon {
+    width: 22px;
+    height: 22px;
+    flex-basis: 22px;
+  }
+}
+/**
+ * Site Footer
+ *
+ * Institutional footer for CONFERP / CONRERPs.
+ *
+ * Responsive structure:
+ *
+ * >= 1400px   → 6 columns
+ * < 1400px    → compact desktop
+ * < 1200px    → 3 columns
+ * < 992px     → 2 columns
+ * < 576px     → 1 column with section separators
+ */
+/* ==========================================================
+   Site Footer
+   ========================================================== */
+.site-footer {
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: #fff;
+  background-color: #1c4772;
+  font-family: "Montserrat", Arial, sans-serif;
+  overflow: hidden;
+  /* ======================================================
+     Main Layout
+     ====================================================== */
+}
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: minmax(250px, 1.45fr) minmax(110px, 0.7fr) minmax(110px, 0.7fr) minmax(180px, 1fr) minmax(170px, 0.9fr) minmax(120px, 0.65fr);
+  align-items: stretch;
+  column-gap: clamp(1rem, 2vw, 2rem);
+  row-gap: 2rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+.site-footer {
+  /* ======================================================
+     Institutional Branding
+     ====================================================== */
+}
+.site-footer__branding {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  height: 100%;
+}
+.site-footer__branding-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-width: 0;
+  color: #fff;
+  text-decoration: none;
+}
+.site-footer__branding-link:hover, .site-footer__branding-link:focus {
+  color: #fff;
+  text-decoration: none;
+}
+.site-footer__branding-link:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+  border-radius: 0.25rem;
+}
+.site-footer {
+  /* ======================================================
+     Footer Logo
+     ====================================================== */
+}
+.site-footer__logo {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+.site-footer__logo-image {
+  display: block;
+  width: 125px;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+.site-footer {
+  /* ======================================================
+     Institution Name
+     ====================================================== */
+}
+.site-footer__institution-name {
+  display: block;
+  max-width: 230px;
+  margin-left: 1rem;
+  color: #fff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.site-footer {
+  /* ======================================================
+     Footer Columns
+     ====================================================== */
+}
+.site-footer__column {
+  min-width: 0;
+}
+.site-footer {
+  /* ======================================================
+     Column Titles
+     ====================================================== */
+}
+.site-footer__title {
+  margin: 0 0 0.75rem;
+  padding: 0;
+  color: #fff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+.site-footer {
+  /* ======================================================
+     Navigation Links
+     ====================================================== */
+}
+.site-footer__links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.site-footer__links li {
+  margin: 0 0 0.45rem;
+  padding: 0;
+  list-style: none;
+}
+.site-footer__links li:last-child {
+  margin-bottom: 0;
+}
+.site-footer__links a {
+  display: inline-block;
+  max-width: 100%;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.35;
+  text-decoration: none;
+  overflow-wrap: break-word;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+.site-footer__links a:hover, .site-footer__links a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+.site-footer__links a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  border-radius: 0.125rem;
+}
+.site-footer {
+  /* ======================================================
+     Contact
+     ====================================================== */
+}
+.site-footer__contact {
+  min-width: 0;
+  color: rgba(255, 255, 255, 0.78);
+}
+.site-footer__contact-link {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 0.45rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.35;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: color 0.2s ease;
+}
+.site-footer__contact-link:hover, .site-footer__contact-link:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+.site-footer__contact-link:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  border-radius: 0.125rem;
+}
+.site-footer__contact-item {
+  margin: 0 0 0.45rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.35;
+  overflow-wrap: break-word;
+}
+.site-footer__address {
+  max-width: 100%;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.35;
+  overflow-wrap: break-word;
+}
+.site-footer {
+  /* ======================================================
+     Social Networks
+     ====================================================== */
+}
+.site-footer__social {
+  min-width: 0;
+}
+.site-footer__social-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  width: 100%;
+}
+.site-footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  padding: 0;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.site-footer__social-link:hover, .site-footer__social-link:focus-visible {
+  color: #fff;
+  opacity: 0.75;
+}
+.site-footer__social-link:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+}
+.site-footer__social-icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  color: currentColor;
+  overflow: visible;
+}
+
+/* ==========================================================
+   Intermediate Desktop
+   < 1400px
+   ========================================================== */
+@media (max-width: 1399.98px) {
+  .site-footer__inner {
+    grid-template-columns: minmax(220px, 1.25fr) minmax(100px, 0.65fr) minmax(105px, 0.7fr) minmax(165px, 0.9fr) minmax(155px, 0.85fr) minmax(100px, 0.55fr);
+    column-gap: clamp(0.75rem, 1.25vw, 1.25rem);
+  }
+  .site-footer__logo-image {
+    width: 105px;
+  }
+  .site-footer__institution-name {
+    max-width: 190px;
+    margin-left: 0.75rem;
+    font-size: 0.8125rem;
+    line-height: 1.05;
+  }
+  .site-footer__title {
+    font-size: 0.9375rem;
+  }
+  .site-footer__links a {
+    font-size: 0.75rem;
+  }
+  .site-footer__contact-link, .site-footer__contact-item, .site-footer__address {
+    font-size: 0.75rem;
+  }
+  .site-footer__social-links {
+    gap: 0.5rem;
+  }
+  .site-footer__social-link {
+    width: 24px;
+    height: 24px;
+    flex-basis: 24px;
+  }
+  .site-footer__social-icon {
+    width: 20px;
+    height: 20px;
+    flex-basis: 20px;
+  }
+}
+/* ==========================================================
+   Compact Desktop
+   < 1200px
+   ========================================================== */
+@media (max-width: 1199.98px) {
+  .site-footer__inner {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 2rem;
+    row-gap: 2rem;
+  }
+  .site-footer {
+    /* ==================================================
+       Branding
+       ================================================== */
+  }
+  .site-footer__branding {
+    grid-column: 1/-1;
+    height: auto;
+  }
+  .site-footer__branding-link {
+    width: auto;
+  }
+  .site-footer__logo-image {
+    width: 110px;
+  }
+  .site-footer__institution-name {
+    max-width: 230px;
+    margin-left: 0.875rem;
+    font-size: 0.875rem;
+  }
+  .site-footer {
+    /* ==================================================
+       Typography
+       ================================================== */
+  }
+  .site-footer__title {
+    font-size: 0.9375rem;
+  }
+  .site-footer__links a {
+    font-size: 0.8125rem;
+  }
+  .site-footer__contact-link, .site-footer__contact-item, .site-footer__address {
+    font-size: 0.8125rem;
+  }
+  .site-footer {
+    /* ==================================================
+       Social
+       ================================================== */
+  }
+  .site-footer__social {
+    grid-column: auto;
+  }
+  .site-footer__social-link {
+    width: 26px;
+    height: 26px;
+    flex-basis: 26px;
+  }
+  .site-footer__social-icon {
+    width: 22px;
+    height: 22px;
+    flex-basis: 22px;
+  }
+}
+/* ==========================================================
+   Tablet
+   < 992px
+   ========================================================== */
+@media (max-width: 991.98px) {
+  .site-footer {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .site-footer__inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2.5rem;
+    row-gap: 2rem;
+  }
+  .site-footer {
+    /* ==================================================
+       Branding
+       ================================================== */
+  }
+  .site-footer__branding {
+    grid-column: 1/-1;
+    height: auto;
+  }
+  .site-footer__branding-link {
+    justify-content: flex-start;
+    width: auto;
+  }
+  .site-footer__logo-image {
+    width: 110px;
+  }
+  .site-footer__institution-name {
+    max-width: 260px;
+    margin-left: 1rem;
+    font-size: 0.9375rem;
+  }
+  .site-footer {
+    /* ==================================================
+       Social
+       ================================================== */
+  }
+  .site-footer__social {
+    grid-column: auto;
+  }
+}
+/* ==========================================================
+   Small Mobile
+   < 576px
+   ========================================================== */
+@media (max-width: 575.98px) {
+  .site-footer {
+    padding-top: 1.25rem;
+    padding-bottom: 2.5rem;
+    /* ==================================================
+       Main Layout
+       ================================================== */
+  }
+  .site-footer__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    width: 100%;
+  }
+  .site-footer {
+    /* ==================================================
+       Branding
+       ================================================== */
+  }
+  .site-footer__branding {
+    grid-column: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    padding: 0.25rem 0 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  }
+  .site-footer__branding-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .site-footer__logo {
+    flex: 0 0 auto;
+  }
+  .site-footer__logo-image {
+    width: 82px;
+    height: auto;
+    max-width: 100%;
+  }
+  .site-footer__institution-name {
+    max-width: 180px;
+    margin-left: 0.65rem;
+    font-size: 0.6875rem;
+    font-weight: 800;
+    line-height: 1.05;
+    text-align: left;
+  }
+  .site-footer {
+    /* ==================================================
+       Content Sections
+       ================================================== */
+  }
+  .site-footer__column {
+    width: 100%;
+    min-width: 0;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+    text-align: left;
+  }
+  .site-footer {
+    /**
+     * Last content block does not need another
+     * separator below it.
+     */
+  }
+  .site-footer__column:last-child {
+    border-bottom: 0;
+  }
+  .site-footer {
+    /* ==================================================
+       Titles
+       ================================================== */
+  }
+  .site-footer__title {
+    margin: 0 0 0.625rem;
+    padding: 0;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1.25;
+    text-align: left;
+  }
+  .site-footer {
+    /* ==================================================
+       Navigation Links
+       ================================================== */
+  }
+  .site-footer__links {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+  .site-footer__links li {
+    margin: 0 0 0.45rem;
+  }
+  .site-footer__links li:last-child {
+    margin-bottom: 0;
+  }
+  .site-footer__links a {
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1.35;
+    text-align: left;
+  }
+  .site-footer {
+    /* ==================================================
+       Contact
+       ================================================== */
+  }
+  .site-footer__contact {
+    text-align: left;
+  }
+  .site-footer__contact-link {
+    margin-bottom: 0.35rem;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+  }
+  .site-footer__contact-item {
+    margin-bottom: 0.35rem;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+  }
+  .site-footer__address {
+    max-width: 100%;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    text-align: left;
+  }
+  .site-footer {
+    /* ==================================================
+       Social Networks
+       ================================================== */
+  }
+  .site-footer__social {
+    grid-column: auto;
+    padding-top: 1.25rem;
+    padding-bottom: 0;
+    border-bottom: 0;
+    text-align: left;
+  }
+  .site-footer__social-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    width: 100%;
+  }
+  .site-footer__social-link {
+    width: 26px;
+    height: 26px;
+    flex: 0 0 26px;
+  }
+  .site-footer__social-icon {
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+  }
+}
 /* ==========================================================
    PAGES
 ========================================================== */

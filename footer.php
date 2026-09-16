@@ -6,26 +6,23 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
+
+/**
+ * Institutional Footer.
+ */
+get_template_part(
+	'template-parts/footer/site-footer'
+);
+
+
+/**
+ * Global CONFERP Subfooter.
+ */
+get_template_part(
+	'template-parts/global/subfooter'
+);
 ?>
-
-<footer
-    id="colophon"
-    class="site-footer"
->
-
-    <?php
-    get_template_part(
-        'template-parts/footer/footer-main'
-    );
-    ?>
-
-    <?php
-    get_template_part(
-        'template-parts/footer/subfooter'
-    );
-    ?>
-
-</footer>
 
 <?php wp_footer(); ?>
 

@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+
 /**
  * Enqueue theme assets.
  *
@@ -18,18 +19,25 @@ function conferp_enqueue_assets() {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
 
-	$theme_css_path = get_template_directory() . '/assets/css/theme.css';
-	$theme_js_path  = get_template_directory() . '/assets/js/theme.js';
-	$utility_bar_js_path = get_template_directory() . '/assets/js/utility-bar.js';
-	$accessibility_js_path = get_template_directory() . '/assets/js/accessibility.js';
+	/**
+	 * Asset paths used for cache busting.
+	 */
+	$theme_css_path           = get_template_directory() . '/assets/css/theme.css';
+	$theme_js_path            = get_template_directory() . '/assets/js/theme.js';
+	$utility_bar_js_path      = get_template_directory() . '/assets/js/utility-bar.js';
+	$accessibility_js_path    = get_template_directory() . '/assets/js/accessibility.js';
+	$mobile_navigation_js_path = get_template_directory() . '/assets/js/mobile-navigation.js';
 
 
 	/**
-	 * Main stylesheet.
+	 * ======================================================
+	 * Main Stylesheet
+	 * ======================================================
 	 *
 	 * Bootstrap + CONFERP styles are compiled
 	 * through Sass into theme.css.
 	 */
+
 	wp_enqueue_style(
 		'conferp',
 		get_template_directory_uri() . '/assets/css/theme.css',
@@ -38,6 +46,13 @@ function conferp_enqueue_assets() {
 			? filemtime( $theme_css_path )
 			: $theme_version
 	);
+
+
+	/**
+	 * ======================================================
+	 * Accessibility
+	 * ======================================================
+	 */
 
 	wp_enqueue_script(
 		'conferp-accessibility',
@@ -49,6 +64,13 @@ function conferp_enqueue_assets() {
 		true
 	);
 
+
+	/**
+	 * ======================================================
+	 * Utility Bar
+	 * ======================================================
+	 */
+
 	wp_enqueue_script(
 		'conferp-utility-bar',
 		get_template_directory_uri() . '/assets/js/utility-bar.js',
@@ -59,11 +81,32 @@ function conferp_enqueue_assets() {
 		true
 	);
 
+
 	/**
-	 * Bootstrap 5 Bundle.
+	 * ======================================================
+	 * Mobile Navigation
+	 * ======================================================
+	 */
+
+	wp_enqueue_script(
+		'conferp-mobile-navigation',
+		get_template_directory_uri() . '/assets/js/mobile-navigation.js',
+		array(),
+		file_exists( $mobile_navigation_js_path )
+			? filemtime( $mobile_navigation_js_path )
+			: $theme_version,
+		true
+	);
+
+
+	/**
+	 * ======================================================
+	 * Bootstrap 5 Bundle
+	 * ======================================================
 	 *
 	 * Includes Popper.
 	 */
+
 	wp_enqueue_script(
 		'bootstrap',
 		get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js',
@@ -74,8 +117,11 @@ function conferp_enqueue_assets() {
 
 
 	/**
-	 * CONFERP theme JavaScript.
+	 * ======================================================
+	 * CONFERP Theme JavaScript
+	 * ======================================================
 	 */
+
 	wp_enqueue_script(
 		'conferp',
 		get_template_directory_uri() . '/assets/js/theme.js',
