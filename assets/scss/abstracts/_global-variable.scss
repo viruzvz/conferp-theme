@@ -1,0 +1,43 @@
+/**
+ * CONFERP Global Variables
+ *
+ * IMPORTANT:
+ *
+ * These variables belong to the Federal CONFERP global layer.
+ * They must NOT inherit institutional colors from CONRERP
+ * installations.
+ *
+ * Global components:
+ *
+ * - Utility Bar
+ * - Global Subfooter
+ */
+
+
+/* ==========================================================
+   Federal Colors
+   ========================================================== */
+
+$conferp-global-dark: #1e284b;
+$conferp-global-subfooter: #10182f;
+
+$conferp-global-white: #fff;
+$conferp-global-text: #fff;
+
+$conferp-global-transparency: #dba840;
+
+
+/* ==========================================================
+   Federal UI
+   ========================================================== */
+
+$conferp-global-selector-background: #fff;
+$conferp-global-selector-text: #6c757d;
+$conferp-global-selector-border: #adb5bd;
+
+
+/* ==========================================================
+   Federal Typography
+   ========================================================== */
+
+$conferp-global-font-family: "Montserrat", Arial, sans-serif;

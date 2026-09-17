@@ -290,3 +290,65 @@ function conferp_icon( $icon, $args = array() ) {
 		$allowed_svg
 	);
 }
+
+
+/**
+ * ==========================================================
+ * Navigation Helpers
+ * ==========================================================
+ */
+
+
+/**
+ * Get the menu assigned to a registered theme location.
+ *
+ * Useful when the template needs information about the
+ * assigned menu itself, such as its name.
+ *
+ * The footer uses this helper so the menu name can become
+ * the visible title of the footer column.
+ *
+ * Example:
+ *
+ * Theme location:
+ * footer_1
+ *
+ * Assigned menu:
+ * "Acesse"
+ *
+ * Visible footer title:
+ * "Acesse"
+ *
+ * Another CONRERP could assign a menu named:
+ * "Serviços"
+ *
+ * without changing the theme template.
+ *
+ * @param string $location Registered menu location.
+ *
+ * @return WP_Term|null
+ */
+function conferp_get_menu_by_location( $location ) {
+
+	$locations = get_nav_menu_locations();
+
+	if (
+		empty( $location ) ||
+		empty( $locations[ $location ] )
+	) {
+		return null;
+	}
+
+
+	$menu = wp_get_nav_menu_object(
+		$locations[ $location ]
+	);
+
+
+	if ( ! $menu instanceof WP_Term ) {
+		return null;
+	}
+
+
+	return $menu;
+}

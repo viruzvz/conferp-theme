@@ -1,23 +1,13 @@
 <?php
 /**
- * Site Footer
+ * Site Footer.
  *
- * Rodapé institucional da instalação atual.
+ * Institutional footer for the current CONFERP / CONRERP
+ * installation.
  *
- * Este componente pode representar:
- *
- * - CONFERP;
- * - CONRERP 1ª Região;
- * - CONRERP 2ª Região;
- * - CONRERP 3ª Região;
- * - etc.
- *
- * A identidade e os dados deste componente pertencem
- * à instituição responsável pela instalação atual.
- *
- * O Subfooter Federal NÃO pertence a este componente.
- * Ele é carregado separadamente pelo footer.php através
- * de template-parts/global/subfooter.php.
+ * Footer navigation columns are managed through WordPress
+ * menu locations. Contact information and social networks
+ * are managed through the Theme Customizer.
  *
  * @package Conferp_Theme
  */
@@ -27,7 +17,7 @@ defined( 'ABSPATH' ) || exit;
 
 /**
  * ==========================================================
- * Institutional Data
+ * Institutional data
  * ==========================================================
  */
 
@@ -39,9 +29,25 @@ $institution_name = get_theme_mod(
 
 /**
  * ==========================================================
- * Contact Data
+ * Footer navigation menus
  * ==========================================================
  */
+
+$footer_menu_1 = conferp_get_menu_by_location( 'footer_1' );
+$footer_menu_2 = conferp_get_menu_by_location( 'footer_2' );
+$footer_menu_3 = conferp_get_menu_by_location( 'footer_3' );
+
+
+/**
+ * ==========================================================
+ * Contact information
+ * ==========================================================
+ */
+
+$contact_title = get_theme_mod(
+	'conferp_footer_contact_title',
+	'Contatos'
+);
 
 $contact_email = get_theme_mod(
 	'conferp_contact_email',
@@ -61,41 +67,68 @@ $contact_address = get_theme_mod(
 
 /**
  * ==========================================================
- * Social Networks
+ * Social networks
  * ==========================================================
  */
 
-$facebook_url = get_theme_mod(
-	'conferp_social_facebook',
-	''
+$social_title = get_theme_mod(
+	'conferp_footer_social_title',
+	'Veja também'
 );
 
-$linkedin_url = get_theme_mod(
-	'conferp_social_linkedin',
-	''
+$social_links = array(
+	'facebook' => array(
+		'url'   => get_theme_mod( 'conferp_social_facebook', '' ),
+		'label' => __( 'Facebook', 'conferp' ),
+	),
+	'linkedin' => array(
+		'url'   => get_theme_mod( 'conferp_social_linkedin', '' ),
+		'label' => __( 'LinkedIn', 'conferp' ),
+	),
+	'instagram' => array(
+		'url'   => get_theme_mod( 'conferp_social_instagram', '' ),
+		'label' => __( 'Instagram', 'conferp' ),
+	),
+	'youtube' => array(
+		'url'   => get_theme_mod( 'conferp_social_youtube', '' ),
+		'label' => __( 'YouTube', 'conferp' ),
+	),
 );
 
-$instagram_url = get_theme_mod(
-	'conferp_social_instagram',
-	''
-);
 
-$youtube_url = get_theme_mod(
-	'conferp_social_youtube',
-	''
-);
+/**
+ * Check if at least one social network exists.
+ */
+$has_social_links = false;
 
-$has_social_links =
-	! empty( $facebook_url ) ||
-	! empty( $linkedin_url ) ||
-	! empty( $instagram_url ) ||
-	! empty( $youtube_url );
+foreach ( $social_links as $social ) {
+
+	if ( ! empty( $social['url'] ) ) {
+		$has_social_links = true;
+		break;
+	}
+}
+
+
+/**
+ * ==========================================================
+ * Footer logo
+ * ==========================================================
+ *
+ * Use the WordPress Custom Logo when available.
+ *
+ * If no custom logo has been configured, use the official
+ * white CONFERP symbol bundled with the theme.
+ */
+
+$custom_logo_id = get_theme_mod( 'custom_logo' );
 
 ?>
 
 <footer
 	id="colophon"
 	class="site-footer"
+	role="contentinfo"
 >
 
 	<div class="container-fluid">
@@ -104,33 +137,29 @@ $has_social_links =
 
 
 			<!-- ==================================================
-				Institutional Branding
-			================================================== -->
+			     Institutional Branding
+			     ================================================== -->
 
 			<div class="site-footer__branding">
 
 				<a
-					href="<?php echo esc_url( home_url( '/' ) ); ?>"
 					class="site-footer__branding-link"
+					href="<?php echo esc_url( home_url( '/' ) ); ?>"
 					rel="home"
 				>
 
 					<span class="site-footer__logo">
 
-						<?php if ( has_custom_logo() ) : ?>
+						<?php if ( $custom_logo_id ) : ?>
 
 							<?php
-							$custom_logo_id = get_theme_mod(
-								'custom_logo'
-							);
-
 							echo wp_get_attachment_image(
 								$custom_logo_id,
 								'full',
 								false,
 								array(
 									'class' => 'site-footer__logo-image',
-									'alt'   => get_bloginfo( 'name' ),
+									'alt'   => '',
 								)
 							);
 							?>
@@ -140,7 +169,8 @@ $has_social_links =
 							<img
 								class="site-footer__logo-image"
 								src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/global/conferp-symbol-white.svg' ); ?>"
-								alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
+								alt=""
+								aria-hidden="true"
 							>
 
 						<?php endif; ?>
@@ -151,9 +181,7 @@ $has_social_links =
 					<?php if ( ! empty( $institution_name ) ) : ?>
 
 						<span class="site-footer__institution-name">
-
 							<?php echo esc_html( $institution_name ); ?>
-
 						</span>
 
 					<?php endif; ?>
@@ -164,299 +192,246 @@ $has_social_links =
 
 
 			<!-- ==================================================
-				Acesse
-			================================================== -->
+			     Footer Menu — Column 1
+			     ================================================== -->
 
-			<nav
-				class="site-footer__column"
-				aria-labelledby="site-footer-access-title"
-			>
+			<?php if ( $footer_menu_1 ) : ?>
 
-				<h2
-					id="site-footer-access-title"
-					class="site-footer__title"
+				<nav
+					class="site-footer__column site-footer__navigation"
+					aria-labelledby="site-footer-menu-1-title"
 				>
-					<?php esc_html_e( 'Acesse', 'conferp' ); ?>
-				</h2>
 
-				<ul class="site-footer__links">
-
-					<li>
-						<a href="<?php echo esc_url( home_url( '/mapa-do-site/' ) ); ?>">
-							<?php esc_html_e( 'Site map', 'conferp' ); ?>
-						</a>
-					</li>
-
-					<li>
-						<a href="<?php echo esc_url( home_url( '/regionais/' ) ); ?>">
-							<?php esc_html_e( 'Regionais', 'conferp' ); ?>
-						</a>
-					</li>
-
-					<li>
-						<a href="<?php echo esc_url( home_url( '/transparencia/' ) ); ?>">
-							<?php esc_html_e( 'Transparência', 'conferp' ); ?>
-						</a>
-					</li>
-
-					<li>
-						<a href="<?php echo esc_url( home_url( '/area-do-registrado/' ) ); ?>">
-							<?php esc_html_e( 'Área do Registrado', 'conferp' ); ?>
-						</a>
-					</li>
-
-				</ul>
-
-			</nav>
-
-
-			<!-- ==================================================
-				Quick Links
-			================================================== -->
-
-			<nav
-				class="site-footer__column"
-				aria-labelledby="site-footer-quick-links-title"
-			>
-
-				<h2
-					id="site-footer-quick-links-title"
-					class="site-footer__title"
-				>
-					<?php esc_html_e( 'Links rápidos', 'conferp' ); ?>
-				</h2>
-
-				<ul class="site-footer__links">
-
-					<li>
-						<a href="<?php echo esc_url( home_url( '/quem-somos/' ) ); ?>">
-							<?php esc_html_e( 'Quem somos', 'conferp' ); ?>
-						</a>
-					</li>
-
-					<li>
-						<a href="<?php echo esc_url( home_url( '/legislacao/' ) ); ?>">
-							<?php esc_html_e( 'Legislação', 'conferp' ); ?>
-						</a>
-					</li>
-
-					<li>
-						<a href="<?php echo esc_url( home_url( '/noticias/' ) ); ?>">
-							<?php esc_html_e( 'Notícias', 'conferp' ); ?>
-						</a>
-					</li>
-
-				</ul>
-
-			</nav>
-
-
-			<!-- ==================================================
-				Policies
-			================================================== -->
-
-			<nav
-				class="site-footer__column"
-				aria-labelledby="site-footer-policies-title"
-			>
-
-				<h2
-					id="site-footer-policies-title"
-					class="site-footer__title"
-				>
-					<?php esc_html_e( 'Políticas', 'conferp' ); ?>
-				</h2>
-
-				<ul class="site-footer__links">
-
-					<li>
-						<a href="<?php echo esc_url( home_url( '/politica-de-privacidade/' ) ); ?>">
-							<?php esc_html_e( 'Política de Privacidade', 'conferp' ); ?>
-						</a>
-					</li>
-
-					<li>
-						<a href="<?php echo esc_url( home_url( '/politica-de-cookies/' ) ); ?>">
-							<?php esc_html_e( 'Política de Cookies', 'conferp' ); ?>
-						</a>
-					</li>
-
-					<li>
-						<a href="<?php echo esc_url( home_url( '/lgpd/' ) ); ?>">
-							<?php esc_html_e( 'Lei de proteção de dados (LGPD)', 'conferp' ); ?>
-						</a>
-					</li>
-
-					<li>
-						<a href="<?php echo esc_url( home_url( '/acessibilidade/' ) ); ?>">
-							<?php esc_html_e( 'Acessibilidade', 'conferp' ); ?>
-						</a>
-					</li>
-
-				</ul>
-
-			</nav>
-
-
-			<!-- ==================================================
-				Contact
-			================================================== -->
-
-			<div class="site-footer__column site-footer__contact">
-
-				<h2 class="site-footer__title">
-					<?php esc_html_e( 'Contatos', 'conferp' ); ?>
-				</h2>
-
-
-				<?php if ( ! empty( $contact_email ) ) : ?>
-
-					<a
-						class="site-footer__contact-link"
-						href="<?php echo esc_url( 'mailto:' . antispambot( $contact_email ) ); ?>"
+					<h2
+						id="site-footer-menu-1-title"
+						class="site-footer__title"
 					>
-						<?php echo esc_html( antispambot( $contact_email ) ); ?>
-					</a>
-
-				<?php endif; ?>
-
-
-				<?php if ( ! empty( $contact_phone ) ) : ?>
-
-					<p class="site-footer__contact-item">
-						<?php echo esc_html( $contact_phone ); ?>
-					</p>
-
-				<?php endif; ?>
-
-
-				<?php if ( ! empty( $contact_address ) ) : ?>
-
-					<address class="site-footer__address">
-						<?php echo nl2br( esc_html( $contact_address ) ); ?>
-					</address>
-
-				<?php endif; ?>
-
-			</div>
-
-
-			<!-- ==================================================
-				Social Networks
-			================================================== -->
-
-			<?php if ( $has_social_links ) : ?>
-
-				<div class="site-footer__column site-footer__social">
-
-					<h2 class="site-footer__title">
-						<?php esc_html_e( 'Veja também', 'conferp' ); ?>
+						<?php echo esc_html( $footer_menu_1->name ); ?>
 					</h2>
 
 
-					<nav
-						class="site-footer__social-links"
-						aria-label="<?php esc_attr_e( 'Redes sociais', 'conferp' ); ?>"
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'footer_1',
+							'container'      => false,
+							'menu_class'     => 'site-footer__links',
+							'menu_id'        => 'site-footer-menu-1',
+							'fallback_cb'    => false,
+							'depth'          => 1,
+						)
+					);
+					?>
+
+				</nav>
+
+			<?php endif; ?>
+
+
+			<!-- ==================================================
+			     Footer Menu — Column 2
+			     ================================================== -->
+
+			<?php if ( $footer_menu_2 ) : ?>
+
+				<nav
+					class="site-footer__column site-footer__navigation"
+					aria-labelledby="site-footer-menu-2-title"
+				>
+
+					<h2
+						id="site-footer-menu-2-title"
+						class="site-footer__title"
 					>
+						<?php echo esc_html( $footer_menu_2->name ); ?>
+					</h2>
 
 
-						<?php if ( ! empty( $facebook_url ) ) : ?>
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'footer_2',
+							'container'      => false,
+							'menu_class'     => 'site-footer__links',
+							'menu_id'        => 'site-footer-menu-2',
+							'fallback_cb'    => false,
+							'depth'          => 1,
+						)
+					);
+					?>
+
+				</nav>
+
+			<?php endif; ?>
+
+
+			<!-- ==================================================
+			     Footer Menu — Column 3
+			     ================================================== -->
+
+			<?php if ( $footer_menu_3 ) : ?>
+
+				<nav
+					class="site-footer__column site-footer__navigation"
+					aria-labelledby="site-footer-menu-3-title"
+				>
+
+					<h2
+						id="site-footer-menu-3-title"
+						class="site-footer__title"
+					>
+						<?php echo esc_html( $footer_menu_3->name ); ?>
+					</h2>
+
+
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'footer_3',
+							'container'      => false,
+							'menu_class'     => 'site-footer__links',
+							'menu_id'        => 'site-footer-menu-3',
+							'fallback_cb'    => false,
+							'depth'          => 1,
+						)
+					);
+					?>
+
+				</nav>
+
+			<?php endif; ?>
+
+
+			<!-- ==================================================
+			     Institutional Contact
+			     ================================================== -->
+
+			<?php if ( $contact_email || $contact_phone || $contact_address ) : ?>
+
+				<div class="site-footer__column site-footer__contact">
+
+					<?php if ( ! empty( $contact_title ) ) : ?>
+
+						<h2 class="site-footer__title">
+							<?php echo esc_html( $contact_title ); ?>
+						</h2>
+
+					<?php endif; ?>
+
+
+					<?php if ( ! empty( $contact_email ) ) : ?>
+
+						<a
+							class="site-footer__contact-link"
+							href="mailto:<?php echo esc_attr( antispambot( $contact_email ) ); ?>"
+						>
+							<?php echo esc_html( antispambot( $contact_email ) ); ?>
+						</a>
+
+					<?php endif; ?>
+
+
+					<?php if ( ! empty( $contact_phone ) ) : ?>
+
+						<?php
+						/**
+						 * Generate a telephone-safe version while keeping
+						 * the formatted version visible to the user.
+						 */
+						$phone_href = preg_replace(
+							'/[^0-9+]/',
+							'',
+							$contact_phone
+						);
+						?>
+
+						<p class="site-footer__contact-item">
 
 							<a
-								href="<?php echo esc_url( $facebook_url ); ?>"
-								class="site-footer__social-link"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="<?php esc_attr_e( 'Facebook', 'conferp' ); ?>"
+								class="site-footer__contact-link"
+								href="tel:<?php echo esc_attr( $phone_href ); ?>"
 							>
-								<?php
-								conferp_icon(
-									'facebook',
-									array(
-										'class' => 'site-footer__social-icon',
-									)
-								);
-								?>
+								<?php echo esc_html( $contact_phone ); ?>
 							</a>
 
-						<?php endif; ?>
+						</p>
+
+					<?php endif; ?>
 
 
-						<?php if ( ! empty( $linkedin_url ) ) : ?>
+					<?php if ( ! empty( $contact_address ) ) : ?>
 
-							<a
-								href="<?php echo esc_url( $linkedin_url ); ?>"
-								class="site-footer__social-link"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="<?php esc_attr_e( 'LinkedIn', 'conferp' ); ?>"
-							>
-								<?php
-								conferp_icon(
-									'linkedin',
-									array(
-										'class' => 'site-footer__social-icon',
-									)
-								);
-								?>
-							</a>
+						<address class="site-footer__address">
+							<?php
+							echo nl2br(
+								esc_html( $contact_address )
+							);
+							?>
+						</address>
 
-						<?php endif; ?>
-
-
-						<?php if ( ! empty( $instagram_url ) ) : ?>
-
-							<a
-								href="<?php echo esc_url( $instagram_url ); ?>"
-								class="site-footer__social-link"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="<?php esc_attr_e( 'Instagram', 'conferp' ); ?>"
-							>
-								<?php
-								conferp_icon(
-									'instagram',
-									array(
-										'class' => 'site-footer__social-icon',
-									)
-								);
-								?>
-							</a>
-
-						<?php endif; ?>
-
-
-						<?php if ( ! empty( $youtube_url ) ) : ?>
-
-							<a
-								href="<?php echo esc_url( $youtube_url ); ?>"
-								class="site-footer__social-link"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="<?php esc_attr_e( 'YouTube', 'conferp' ); ?>"
-							>
-								<?php
-								conferp_icon(
-									'youtube',
-									array(
-										'class' => 'site-footer__social-icon',
-									)
-								);
-								?>
-							</a>
-
-						<?php endif; ?>
-
-
-					</nav>
+					<?php endif; ?>
 
 				</div>
 
 			<?php endif; ?>
 
 
-		</div>
+			<!-- ==================================================
+			     Social Networks
+			     ================================================== -->
 
-	</div>
+			<?php if ( $has_social_links ) : ?>
 
-</footer>
+				<div class="site-footer__column site-footer__social">
+
+					<?php if ( ! empty( $social_title ) ) : ?>
+
+						<h2 class="site-footer__title">
+							<?php echo esc_html( $social_title ); ?>
+						</h2>
+
+					<?php endif; ?>
+
+
+					<div class="site-footer__social-links">
+
+						<?php foreach ( $social_links as $icon => $social ) : ?>
+
+							<?php if ( empty( $social['url'] ) ) : ?>
+								<?php continue; ?>
+							<?php endif; ?>
+
+
+							<a
+								class="site-footer__social-link"
+								href="<?php echo esc_url( $social['url'] ); ?>"
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label="<?php echo esc_attr( $social['label'] ); ?>"
+							>
+
+								<?php
+								conferp_icon(
+									$icon,
+									array(
+										'class' => 'site-footer__social-icon',
+									)
+								);
+								?>
+
+							</a>
+
+						<?php endforeach; ?>
+
+					</div>
+
+				</div>
+
+			<?php endif; ?>
+
+
+		</div><!-- .site-footer__inner -->
+
+	</div><!-- .container-fluid -->
+
+</footer><!-- #colophon -->

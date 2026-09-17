@@ -103,6 +103,37 @@ function conferp_customize_register( $wp_customize ) {
 
 
 	/**
+	 * Footer Contact Title.
+	 */
+
+	$wp_customize->add_setting(
+		'conferp_footer_contact_title',
+		array(
+			'default'           => 'Contatos',
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => 'refresh',
+		)
+	);
+
+
+	$wp_customize->add_control(
+		'conferp_footer_contact_title',
+		array(
+			'type'        => 'text',
+			'section'     => 'conferp_social',
+			'label'       => __( 'Título de contato no rodapé', 'conferp' ),
+			'description' => __(
+				'Título exibido acima dos dados institucionais de contato no rodapé.',
+				'conferp'
+			),
+			'input_attrs' => array(
+				'placeholder' => __( 'Contatos', 'conferp' ),
+			),
+		)
+	);
+
+
+	/**
 	 * Institutional E-mail.
 	 */
 
@@ -201,6 +232,37 @@ function conferp_customize_register( $wp_customize ) {
 	 * Social Networks
 	 * ======================================================
 	 */
+
+
+	/**
+	 * Footer Social Title.
+	 */
+
+	$wp_customize->add_setting(
+		'conferp_footer_social_title',
+		array(
+			'default'           => 'Veja também',
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => 'refresh',
+		)
+	);
+
+
+	$wp_customize->add_control(
+		'conferp_footer_social_title',
+		array(
+			'type'        => 'text',
+			'section'     => 'conferp_social',
+			'label'       => __( 'Título das redes sociais no rodapé', 'conferp' ),
+			'description' => __(
+				'Título exibido acima dos ícones das redes sociais no rodapé.',
+				'conferp'
+			),
+			'input_attrs' => array(
+				'placeholder' => __( 'Veja também', 'conferp' ),
+			),
+		)
+	);
 
 
 	/**
@@ -327,4 +389,5 @@ function conferp_customize_register( $wp_customize ) {
 	);
 
 }
+
 add_action( 'customize_register', 'conferp_customize_register' );
