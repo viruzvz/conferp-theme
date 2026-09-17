@@ -1,4 +1,3 @@
-@use "../abstracts/global-variables" as global;
 // ==========================================================
 // Utility Bar
 // CONFERP Global
@@ -26,7 +25,7 @@
     width: 100%;
 
     background-color: $conferp-global-dark;
-    color: $white;
+    color: $conferp-global-white;
 
     font-size: .8125rem;
 
@@ -85,7 +84,7 @@
 
         flex: 0 0 auto;
 
-        color: $white;
+        color: $conferp-global-white;
 
         text-decoration: none;
 
@@ -96,7 +95,7 @@
         &:hover,
         &:focus-visible {
 
-            color: $white;
+            color: $conferp-global-white;
 
             opacity: .9;
         }
@@ -143,9 +142,9 @@
 
             border-radius: 999px;
 
-            background-color: $white;
+            background-color: $conferp-global-white;
 
-            color: $gray-600;
+            color: $conferp-global-selector-text;
 
             font-size: .75rem;
 
@@ -162,7 +161,7 @@
 
                 box-shadow:
                     0 0 0 .1875rem
-                    rgba($institution-secondary, .35);
+                    rgba($conferp-global-accent, .35);
             }
         }
     }
@@ -196,7 +195,7 @@
 
         gap: .375rem;
 
-        color: $white;
+        color: $conferp-global-white;
 
         text-decoration: none;
 
@@ -210,7 +209,7 @@
         &:hover,
         &:focus-visible {
 
-            color: $white;
+            color: $conferp-global-white;
 
             opacity: .8;
         }
@@ -233,7 +232,7 @@
 
         flex: 0 0 19px;
 
-        color: $white;
+        color: $conferp-global-white;
 
 
         svg {
@@ -251,7 +250,7 @@
 
         &--transparency {
 
-            color: #dba840;
+            color: $conferp-global-transparency;
         }
     }
 
@@ -303,7 +302,7 @@
             .2rem;
 
         background-color:
-            rgba($white, .55);
+            rgba($conferp-global-white, .55);
 
         flex: 0 0 1px;
     }
@@ -341,9 +340,9 @@
         border-radius: 999px;
 
         background-color:
-            $institution-secondary;
+            $conferp-global-accent;
 
-        color: $white;
+        color: $conferp-global-white;
 
         font-size: .75rem;
         font-weight: 400;
@@ -364,9 +363,9 @@
         &:focus-visible {
 
             background-color:
-                $institution-primary;
+                $conferp-global-accent-hover;
 
-            color: $white;
+            color: $conferp-global-white;
         }
     }
 
@@ -557,7 +556,7 @@
 
                 border:
                     1px solid
-                    $gray-400;
+                    $conferp-global-selector-border;
 
                 border-radius: 999px;
 
@@ -641,7 +640,7 @@
 
             flex: 0 0 34px;
 
-            color: $white;
+            color: $conferp-global-white;
 
             text-decoration: none;
 
@@ -653,7 +652,7 @@
             &:hover,
             &:focus-visible {
 
-                color: $white;
+                color: $conferp-global-white;
 
                 opacity: .8;
             }
@@ -661,13 +660,13 @@
 
             &--transparency {
 
-                color: #dba840;
+                color: $conferp-global-transparency;
 
 
                 &:hover,
                 &:focus-visible {
 
-                    color: #dba840;
+                    color: $conferp-global-transparency;
                 }
             }
         }
@@ -811,7 +810,7 @@
 
     background: transparent;
 
-    color: $white;
+    color: $conferp-global-white;
 
     font: inherit;
 
@@ -830,7 +829,7 @@
     &:hover,
     &:focus-visible {
 
-        color: $white;
+        color: $conferp-global-white;
 
         opacity: .75;
     }

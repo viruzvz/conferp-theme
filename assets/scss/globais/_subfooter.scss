@@ -1,0 +1,394 @@
+// ==========================================================
+// Global Subfooter
+// CONFERP Federal
+// ==========================================================
+//
+// Federal component shared between CONFERP and all CONRERPs.
+//
+// IMPORTANT:
+//
+// This component belongs exclusively to the Federal Global
+// layer and must not depend on institutional variables.
+//
+// Federal logo and CONRERP selector follow exactly the same
+// visual dimensions used by the Utility Bar.
+//
+// Breakpoints Bootstrap 5:
+//
+// >= 992px  Horizontal layout
+// < 992px   Centered stacked layout
+// < 576px   Compact mobile layout
+//
+// ==========================================================
+
+
+.conferp-subfooter {
+
+	width: 100%;
+
+	background-color: $conferp-global-subfooter;
+	color: $conferp-global-text;
+
+	font-family: $conferp-global-font-family;
+
+
+	// ======================================================
+	// Container
+	// ======================================================
+
+	&__inner {
+
+		display: grid;
+
+		grid-template-columns:
+			auto
+			minmax(0, 1fr)
+			auto;
+
+		align-items: center;
+
+		gap: 2rem;
+
+		width: 100%;
+
+		min-height: 54px;
+
+		padding:
+			.375rem
+			.875rem;
+	}
+
+
+	// ======================================================
+	// Federal Brand
+	// Logo + CONRERP Selector
+	// ======================================================
+
+	&__brand {
+
+		display: flex;
+
+		align-items: center;
+
+		gap: $conferp-global-brand-gap;
+
+		min-width: 0;
+
+		flex-shrink: 0;
+	}
+
+
+	// ======================================================
+	// Federal CONFERP Logo
+	//
+	// Same dimensions used by Utility Bar.
+	// ======================================================
+
+	&__federal-logo {
+
+		display: inline-flex;
+
+		align-items: center;
+		justify-content: center;
+
+		flex: 0 0 auto;
+
+		color: $conferp-global-white;
+
+		line-height: 0;
+
+		text-decoration: none;
+
+		transition:
+			opacity .2s ease;
+
+
+		&:hover,
+		&:focus-visible {
+
+			color: $conferp-global-white;
+
+			opacity: .9;
+		}
+	}
+
+
+	&__federal-logo-image {
+
+		display: block;
+
+		width: $conferp-global-logo-width;
+		height: $conferp-global-logo-height;
+
+		flex:
+			0
+			0
+			$conferp-global-logo-width;
+
+		object-fit: contain;
+	}
+
+
+	// ======================================================
+	// CONRERP Regional Selector
+	//
+	// Same dimensions and visual pattern used by Utility Bar.
+	// ======================================================
+
+	&__regional-selector {
+
+		width: $conferp-global-selector-width;
+
+		flex: 0 0 auto;
+
+
+		.form-select {
+
+			width: 100%;
+
+			min-height: $conferp-global-selector-min-height;
+
+			padding:
+				$conferp-global-selector-padding-y
+				$conferp-global-selector-padding-right
+				$conferp-global-selector-padding-y
+				$conferp-global-selector-padding-left;
+
+			border: 0;
+
+			border-radius: $conferp-global-selector-radius;
+
+			background-color:
+				$conferp-global-selector-background;
+
+			color:
+				$conferp-global-selector-text;
+
+			font-family:
+				$conferp-global-font-family;
+
+			font-size:
+				$conferp-global-selector-font-size;
+
+			line-height:
+				$conferp-global-selector-line-height;
+
+			box-shadow: none;
+
+			cursor: pointer;
+
+
+			&:focus {
+
+				border-color: transparent;
+
+				box-shadow:
+					0
+					0
+					0
+					.1875rem
+					rgba(
+						$conferp-global-accent,
+						.35
+					);
+			}
+		}
+	}
+
+
+	// ======================================================
+	// Federal Address
+	// ======================================================
+
+	&__address {
+
+		min-width: 0;
+
+		color: $conferp-global-text;
+
+		font-size: .8125rem;
+		font-weight: 400;
+		line-height: 1.4;
+
+		text-align: center;
+
+
+		p {
+
+			margin: 0;
+		}
+	}
+
+
+	// ======================================================
+	// Copyright
+	// ======================================================
+
+	&__copyright {
+
+		justify-self: end;
+
+		color: $conferp-global-text;
+
+		font-size: .8125rem;
+		font-weight: 400;
+		line-height: 1.4;
+
+		white-space: nowrap;
+
+		text-align: right;
+
+
+		p {
+
+			margin: 0;
+		}
+	}
+
+
+	// ======================================================
+	// < 1200px
+	// Desktop compact
+	// ======================================================
+
+	@include media-breakpoint-down(xl) {
+
+		&__inner {
+
+			gap: 1.25rem;
+
+			padding-right: .75rem;
+			padding-left: .75rem;
+		}
+
+
+		&__regional-selector {
+
+			width:
+				$conferp-global-selector-width-compact;
+		}
+
+
+		&__address,
+		&__copyright {
+
+			font-size: .75rem;
+		}
+	}
+
+
+	// ======================================================
+	// < 992px
+	// Responsive / Tablet
+	// ======================================================
+
+	@include media-breakpoint-down(lg) {
+
+		&__inner {
+
+			display: flex;
+
+			flex-direction: column;
+
+			align-items: center;
+			justify-content: center;
+
+			gap: .75rem;
+
+			min-height: 0;
+
+			padding:
+				1rem
+				1rem;
+
+			text-align: center;
+		}
+
+
+		&__brand {
+
+			justify-content: center;
+
+			gap: $conferp-global-brand-gap;
+
+			width: 100%;
+		}
+
+
+		&__regional-selector {
+
+			width: 100%;
+
+			max-width:
+				$conferp-global-selector-width-responsive;
+		}
+
+
+		&__address {
+
+			max-width: 430px;
+
+			text-align: center;
+		}
+
+
+		&__copyright {
+
+			justify-self: auto;
+
+			white-space: normal;
+
+			text-align: center;
+		}
+	}
+
+
+	// ======================================================
+	// < 576px
+	// Mobile
+	// ======================================================
+
+	@include media-breakpoint-down(sm) {
+
+		&__inner {
+
+			gap: .75rem;
+
+			padding:
+				1rem
+				.75rem;
+		}
+
+
+		&__brand {
+
+			justify-content: center;
+
+			gap: $conferp-global-brand-gap;
+		}
+
+
+		&__regional-selector {
+
+			width:
+				$conferp-global-selector-width-mobile;
+
+			max-width:
+				$conferp-global-selector-width-mobile;
+
+			flex:
+				0
+				0
+				$conferp-global-selector-width-mobile;
+		}
+
+
+		&__address,
+		&__copyright {
+
+			font-size: .8125rem;
+
+			line-height: 1.45;
+		}
+	}
+}

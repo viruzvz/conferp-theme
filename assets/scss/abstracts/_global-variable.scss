@@ -3,9 +3,11 @@
  *
  * IMPORTANT:
  *
- * These variables belong to the Federal CONFERP global layer.
- * They must NOT inherit institutional colors from CONRERP
- * installations.
+ * These variables belong exclusively to the Federal CONFERP
+ * global layer.
+ *
+ * They must NOT inherit institutional colors, dimensions or
+ * visual settings from CONRERP installations.
  *
  * Global components:
  *
@@ -28,12 +30,11 @@ $conferp-global-transparency: #dba840;
 
 
 /* ==========================================================
-   Federal UI
+   Federal Accent Colors
    ========================================================== */
 
-$conferp-global-selector-background: #fff;
-$conferp-global-selector-text: #6c757d;
-$conferp-global-selector-border: #adb5bd;
+$conferp-global-accent: #4d9bd5;
+$conferp-global-accent-hover: #205584;
 
 
 /* ==========================================================
@@ -41,3 +42,60 @@ $conferp-global-selector-border: #adb5bd;
    ========================================================== */
 
 $conferp-global-font-family: "Montserrat", Arial, sans-serif;
+
+
+/* ==========================================================
+   Federal Logo
+   ==========================================================
+ *
+ * Shared dimensions between:
+ *
+ * - Utility Bar
+ * - Global Subfooter
+ */
+
+$conferp-global-logo-width: 58px;
+$conferp-global-logo-height: 42px;
+
+
+/* ==========================================================
+   Federal Regional Selector
+   ==========================================================
+ *
+ * Shared visual dimensions between:
+ *
+ * - Utility Bar
+ * - Global Subfooter
+ */
+
+$conferp-global-selector-width: 170px;
+$conferp-global-selector-width-compact: 165px;
+$conferp-global-selector-width-mobile: 175px;
+$conferp-global-selector-width-responsive: 200px;
+
+$conferp-global-selector-min-height: 30px;
+
+$conferp-global-selector-padding-y: .3rem;
+$conferp-global-selector-padding-right: 1.9rem;
+$conferp-global-selector-padding-left: .75rem;
+
+$conferp-global-selector-radius: 999px;
+
+$conferp-global-selector-font-size: .75rem;
+$conferp-global-selector-line-height: 1.2;
+
+$conferp-global-selector-background: #fff;
+$conferp-global-selector-text: #6c757d;
+$conferp-global-selector-border: #adb5bd;
+
+
+/* ==========================================================
+   Federal Component Spacing
+   ==========================================================
+ *
+ * Shared spacing used by the Federal identity group:
+ *
+ * [ CONFERP Logo ] [ Regional Selector ]
+ */
+
+$conferp-global-brand-gap: .75rem;

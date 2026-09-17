@@ -17,8 +17,13 @@ defined( 'ABSPATH' ) || exit;
 function conferp_theme_setup() {
 
 	/*
-	 * Make theme available for translation.
+	 * ======================================================
+	 * Translations
+	 * ======================================================
+	 *
+	 * Make the theme available for translation.
 	 */
+
 	load_theme_textdomain(
 		'conferp',
 		get_template_directory() . '/languages'
@@ -26,20 +31,40 @@ function conferp_theme_setup() {
 
 
 	/*
-	 * Let WordPress manage the document title.
+	 * ======================================================
+	 * Document Title
+	 * ======================================================
+	 *
+	 * Let WordPress manage the document <title>.
+	 *
+	 * SEO plugins can safely filter and manage the title
+	 * without the theme generating a duplicate <title> tag.
 	 */
+
 	add_theme_support( 'title-tag' );
 
 
 	/*
-	 * Enable featured images.
+	 * ======================================================
+	 * Featured Images
+	 * ======================================================
 	 */
+
 	add_theme_support( 'post-thumbnails' );
 
 
 	/*
-	 * Enable custom logo.
+	 * ======================================================
+	 * Institutional Custom Logo
+	 * ======================================================
+	 *
+	 * Each CONFERP / CONRERP installation can configure
+	 * its own institutional logo.
+	 *
+	 * This does not affect the fixed Federal CONFERP
+	 * identity used by global theme components.
 	 */
+
 	add_theme_support(
 		'custom-logo',
 		array(
@@ -52,8 +77,11 @@ function conferp_theme_setup() {
 
 
 	/*
-	 * Enable HTML5 markup.
+	 * ======================================================
+	 * HTML5
+	 * ======================================================
 	 */
+
 	add_theme_support(
 		'html5',
 		array(
@@ -69,20 +97,32 @@ function conferp_theme_setup() {
 
 
 	/*
-	 * Enable automatic feed links.
+	 * ======================================================
+	 * Feed Links
+	 * ======================================================
+	 *
+	 * WordPress automatically adds RSS feed links
+	 * to the document <head>.
 	 */
+
 	add_theme_support( 'automatic-feed-links' );
 
 
 	/*
-	 * Gutenberg responsive embeds.
+	 * ======================================================
+	 * Responsive Embeds
+	 * ======================================================
 	 */
+
 	add_theme_support( 'responsive-embeds' );
 
 
 	/*
-	 * Gutenberg wide/full alignment.
+	 * ======================================================
+	 * Gutenberg Wide / Full Alignment
+	 * ======================================================
 	 */
+
 	add_theme_support( 'align-wide' );
 
 
@@ -104,6 +144,7 @@ function conferp_theme_setup() {
 	 * The assigned menu name will be used as the
 	 * visible title of each footer column.
 	 */
+
 	register_nav_menus(
 		array(
 			'primary'  => __( 'Menu Principal', 'conferp' ),
@@ -114,4 +155,7 @@ function conferp_theme_setup() {
 	);
 }
 
-add_action( 'after_setup_theme', 'conferp_theme_setup' );
+add_action(
+	'after_setup_theme',
+	'conferp_theme_setup'
+);

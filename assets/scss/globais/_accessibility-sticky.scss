@@ -1,0 +1,333 @@
+// ==========================================================
+// Global Accessibility Sticky
+// CONFERP Federal
+// ==========================================================
+//
+// Floating accessibility control displayed only when the
+// institutional desktop navigation collapses.
+//
+// Breakpoint:
+//
+// >= 992px  Hidden
+// <  992px  Visible
+//
+// The expanded panel provides:
+//
+// - VLibras
+// - Accessibility page
+// - High contrast
+// - Font increase
+// - Font decrease
+//
+// ==========================================================
+
+
+.conferp-accessibility-sticky {
+
+	position: fixed;
+
+	top: 50%;
+	right: 0;
+
+	z-index: 1040;
+
+	display: none;
+
+	align-items: center;
+
+	transform: translateY(-50%);
+
+	font-family: $conferp-global-font-family;
+
+
+	// ======================================================
+	// Controls Panel
+	// ======================================================
+
+	&__panel {
+
+		display: flex;
+		align-items: center;
+
+		max-width: 0;
+
+		overflow: hidden;
+
+		background-color: $conferp-global-dark;
+
+		opacity: 0;
+
+		visibility: hidden;
+
+		transform: translateX(1rem);
+
+		transition:
+			max-width .3s ease,
+			opacity .2s ease,
+			transform .3s ease,
+			visibility .3s ease;
+	}
+
+
+	// ======================================================
+	// Open State
+	// ======================================================
+
+	&.is-open {
+
+		.conferp-accessibility-sticky__panel {
+
+			max-width: 300px;
+
+			opacity: 1;
+
+			visibility: visible;
+
+			transform: translateX(0);
+		}
+	}
+
+
+	// ======================================================
+	// Main Trigger
+	// ======================================================
+
+	&__trigger {
+
+		display: flex;
+
+		align-items: center;
+		justify-content: center;
+
+		width: 58px;
+		height: 58px;
+
+		flex: 0 0 58px;
+
+		padding: 0;
+
+		border: 0;
+
+		border-radius:
+			999px
+			0
+			0
+			999px;
+
+		background-color: $conferp-global-dark;
+
+		color: $conferp-global-white;
+
+		box-shadow:
+			0
+			5px
+			10px
+			rgba(0, 0, 0, .28);
+
+		cursor: pointer;
+
+		transition:
+			background-color .2s ease,
+			box-shadow .2s ease;
+
+
+		&:hover {
+
+			background-color:
+				$conferp-global-accent-hover;
+		}
+
+
+		&:focus-visible {
+
+			outline:
+				2px
+				solid
+				$conferp-global-white;
+
+			outline-offset: -4px;
+		}
+	}
+
+
+	// ======================================================
+	// Main Trigger Icon
+	// ======================================================
+	//
+	// The icon intentionally occupies most of the trigger
+	// area to reproduce the visual reference of the
+	// accessibility floating button.
+	// ======================================================
+
+	&__trigger-icon {
+
+		display: block;
+
+		width: 46px;
+		height: 46px;
+
+		flex-shrink: 0;
+
+		color: currentColor;
+	}
+
+
+	// ======================================================
+	// Accessibility Controls
+	// ======================================================
+
+	&__control {
+
+		display: flex;
+
+		align-items: center;
+		justify-content: center;
+
+		width: 44px;
+		height: 58px;
+
+		flex: 0 0 44px;
+
+		padding: 0;
+
+		border: 0;
+
+		border-right:
+			1px
+			solid
+			rgba($conferp-global-white, .18);
+
+		background: transparent;
+
+		color: $conferp-global-white;
+
+		font-family: $conferp-global-font-family;
+
+		text-decoration: none;
+
+		cursor: pointer;
+
+		transition:
+			background-color .2s ease,
+			color .2s ease;
+
+
+		&:hover,
+		&:focus-visible {
+
+			background-color:
+				rgba($conferp-global-white, .12);
+
+			color:
+				$conferp-global-white;
+		}
+
+
+		&:focus-visible {
+
+			outline:
+				2px
+				solid
+				$conferp-global-white;
+
+			outline-offset: -3px;
+		}
+
+
+		&:last-child {
+
+			border-right: 0;
+		}
+
+
+		&--text {
+
+			font-size: .8125rem;
+
+			font-weight: 700;
+		}
+	}
+
+
+	// ======================================================
+	// Accessibility Control Icons
+	// ======================================================
+
+	&__control-icon {
+
+		display: block;
+
+		width: 21px;
+		height: 21px;
+
+		color: currentColor;
+	}
+
+
+	// ======================================================
+	// < 992px
+	// Collapsed Header / Tablet / Mobile
+	// ======================================================
+	//
+	// The sticky replaces the desktop accessibility controls
+	// when the institutional header changes to its mobile
+	// structure at the Bootstrap LG breakpoint.
+	// ======================================================
+
+	@include media-breakpoint-down(lg) {
+
+		display: flex;
+	}
+
+
+	// ======================================================
+	// < 576px
+	// Mobile
+	// ======================================================
+
+	@include media-breakpoint-down(sm) {
+
+		// --------------------------------------------------
+		// Trigger
+		// --------------------------------------------------
+
+		&__trigger {
+
+			width: 54px;
+			height: 54px;
+
+			flex-basis: 54px;
+		}
+
+
+		// --------------------------------------------------
+		// Main Accessibility Icon
+		// --------------------------------------------------
+
+		&__trigger-icon {
+
+			width: 32px;
+			height: 32px;
+		}
+
+
+		// --------------------------------------------------
+		// Expanded Controls
+		// --------------------------------------------------
+
+		&__control {
+
+			width: 40px;
+			height: 54px;
+
+			flex-basis: 40px;
+		}
+
+
+		&__control-icon {
+
+			width: 19px;
+			height: 19px;
+		}
+	}
+}

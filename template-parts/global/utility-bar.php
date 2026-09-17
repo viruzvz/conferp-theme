@@ -16,21 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * CONRERPs.
  *
- * Estrutura global do Sistema CONFERP/CONRERPs.
- * Os endereços poderão ser atualizados nas futuras
- * versões do tema distribuídas aos Conselhos Regionais.
+ * Single source of truth shared with the Global Subfooter.
  */
-$conferp_regionals = array(
-	'' => 'Acesse seu CONRERP',
-
-	// Atualizar com os endereços oficiais definitivos.
-	'https://www.conrerp1.org.br/' => 'CONRERP 1ª Região',
-	'https://www.conrerp2.org.br/' => 'CONRERP 2ª Região',
-	'https://www.conrerp3.org.br/' => 'CONRERP 3ª Região',
-	'https://www.conrerp4.org.br/' => 'CONRERP 4ª Região',
-	'https://www.conrerp5.org.br/' => 'CONRERP 5ª Região',
-	'https://www.conrerp6.org.br/' => 'CONRERP 6ª Região',
-);
+$conferp_regionals = conferp_get_regionals();
 ?>
 
 <div class="conferp-utility-bar">

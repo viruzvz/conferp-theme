@@ -2,17 +2,20 @@
 /**
  * Header
  *
- * Estrutura principal do cabeçalho do tema.
+ * Main document header structure.
  *
- * A Utility Bar é um componente global do Sistema
- * CONFERP/CONRERPs e permanece fora do cabeçalho
- * institucional dinâmico.
+ * The Utility Bar belongs to the Federal Global layer
+ * shared across CONFERP and all CONRERP installations.
+ *
+ * The institutional header remains independent and can
+ * represent either CONFERP or a CONRERP installation.
  *
  * @package Conferp_Theme
  */
 
 defined( 'ABSPATH' ) || exit;
 ?>
+
 <!doctype html>
 
 <html <?php language_attributes(); ?>>
@@ -41,11 +44,11 @@ defined( 'ABSPATH' ) || exit;
  * Global Utility Bar
  * ==========================================================
  *
- * Componente federal global.
+ * Federal global component shared across CONFERP
+ * and all CONRERP installations.
  *
- * Compartilhado pelo CONFERP e por todos os CONRERPs.
- * Sua identidade e estrutura não dependem da instalação
- * regional do WordPress.
+ * Its identity and structure are independent from
+ * institutional theme customization.
  */
 get_template_part(
 	'template-parts/global/utility-bar'
@@ -67,17 +70,17 @@ get_template_part(
  * Institutional Site Header
  * ==========================================================
  *
- * Cabeçalho da instituição atual.
+ * Header of the current institution.
  *
- * Este componente poderá representar tanto o CONFERP
- * quanto qualquer CONRERP que utilize o tema.
+ * This component may represent either CONFERP or any
+ * CONRERP installation using the theme.
  *
- * Internamente será responsável por:
+ * Internally responsible for:
  *
- * - Branding institucional;
- * - Redes sociais;
- * - Navegação principal;
- * - Navegação mobile.
+ * - Institutional branding;
+ * - Social networks;
+ * - Primary navigation;
+ * - Mobile navigation.
  */
 get_template_part(
 	'template-parts/header/site-header'

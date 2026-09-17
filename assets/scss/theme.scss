@@ -4,15 +4,14 @@
  * URI: https://vzproducoes.com.br
  */
 
-
 /* ==========================================================
    ABSTRACTS
 ========================================================== */
 
 @import "abstracts/functions";
+@import "abstracts/global-variable";
 @import "abstracts/variables";
 @import "abstracts/bootstrap";
-
 
 /* ==========================================================
    BOOTSTRAP 5
@@ -20,13 +19,11 @@
 
 @import "bootstrap/scss/bootstrap";
 
-
 /* ==========================================================
    MIXINS
 ========================================================== */
 
 @import "abstracts/mixins";
-
 
 /* ==========================================================
    BASE
@@ -37,7 +34,6 @@
 @import "base/global";
 @import "base/accessibility";
 
-
 /* ==========================================================
    COMPONENTS
 ========================================================== */
@@ -46,25 +42,33 @@
 @import "components/forms";
 @import "components/icons";
 
-
 /* ==========================================================
-   LAYOUT
+   GLOBAL / FEDERAL
+
+   Componentes fixos do CONFERP compartilhados por todas as
+   instalações. Não devem depender da identidade institucional
+   configurável de cada CONRERP.
 ========================================================== */
 
-@import "layout/utility-bar";
+@import "globais/utility-bar";
+@import "globais/accessibility-sticky";
+@import "globais/back-to-top";
+@import "globais/subfooter";
+
+/* ==========================================================
+   LAYOUT / INSTITUTIONAL
+========================================================== */
+
 @import "layout/header";
 @import "layout/navigation";
 @import "layout/mobile-navigation";
 @import "layout/footer";
-@import "layout/subfooter";
-
 
 /* ==========================================================
    PAGES
 ========================================================== */
 
 @import "pages/page";
-
 
 /* ==========================================================
    UTILITIES

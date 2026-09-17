@@ -352,3 +352,31 @@ function conferp_get_menu_by_location( $location ) {
 
 	return $menu;
 }
+
+/**
+ * ==========================================================
+ * CONFERP Federal Global Helpers
+ * ==========================================================
+ */
+
+
+/**
+ * Get the official CONRERP regional selector options.
+ *
+ * This is the single source of truth used by the Federal
+ * Utility Bar and Federal Global Subfooter.
+ *
+ * @return array<string,string>
+ */
+function conferp_get_regionals() {
+
+	return array(
+		''                            => 'Acesse seu CONRERP',
+		'https://www.conrerp1.org.br/' => 'CONRERP 1ª Região',
+		'https://www.conrerp2.org.br/' => 'CONRERP 2ª Região',
+		'https://www.conrerp3.org.br/' => 'CONRERP 3ª Região',
+		'https://www.conrerp4.org.br/' => 'CONRERP 4ª Região',
+		'https://www.conrerp5.org.br/' => 'CONRERP 5ª Região',
+		'https://www.conrerp6.org.br/' => 'CONRERP 6ª Região',
+	);
+}
