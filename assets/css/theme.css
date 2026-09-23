@@ -13065,6 +13065,65 @@ textarea:focus-visible,
 /* ==========================================================
    COMPONENTS
 ========================================================== */
+/**
+ * Buttons
+ *
+ * Institutional button components shared by the theme
+ * and page builders.
+ *
+ * These components consume institutional design tokens
+ * and may therefore vary between CONFERP / CONRERP
+ * installations.
+ */
+.btn-conferp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: auto;
+  min-height: 30px;
+  padding: 0.4375rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 25px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-conferp:hover, .btn-conferp:focus, .btn-conferp:active {
+  text-decoration: none;
+}
+.btn-conferp:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+.btn-conferp:disabled, .btn-conferp.disabled {
+  opacity: 0.65;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.btn-conferp-primary {
+  background-color: #5292cd;
+  border-color: #1c4772;
+  color: #ffffff;
+}
+.btn-conferp-primary:hover, .btn-conferp-primary:focus-visible {
+  background-color: #1c4772;
+  border-color: #1c4772;
+  color: #ffffff;
+}
+.btn-conferp-primary:active {
+  background-color: #1c4772;
+  border-color: #1c4772;
+  color: #ffffff;
+}
+
 /* ==========================================================
    GLOBAL / FEDERAL
 

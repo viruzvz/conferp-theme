@@ -1,3 +1,90 @@
-// ==========================================================
-// Buttons
-// ==========================================================
+/**
+ * Buttons
+ *
+ * Institutional button components shared by the theme
+ * and page builders.
+ *
+ * These components consume institutional design tokens
+ * and may therefore vary between CONFERP / CONRERP
+ * installations.
+ */
+
+// ----------------------------------------------------------
+// Base
+// ----------------------------------------------------------
+
+.btn-conferp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+
+    width: auto;
+    min-height: 30px;
+
+    padding:
+        $button-padding-y
+        $button-padding-x;
+
+    border:
+        $button-border-width
+        solid
+        transparent;
+
+    border-radius: $button-border-radius;
+
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: $button-font-size;
+    font-weight: $button-font-weight;
+    line-height: $button-line-height;
+
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition: $button-transition;
+
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: none;
+    }
+
+    &:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 3px;
+    }
+
+    &:disabled,
+    &.disabled {
+        opacity: .65;
+        pointer-events: none;
+        cursor: not-allowed;
+    }
+}
+
+
+// ----------------------------------------------------------
+// Primary
+// ----------------------------------------------------------
+
+.btn-conferp-primary {
+    background-color: $button-primary-bg;
+    border-color: $button-primary-border;
+    color: $button-primary-color;
+
+    &:hover,
+    &:focus-visible {
+        background-color: $button-primary-hover-bg;
+        border-color: $button-primary-hover-border;
+        color: $button-primary-hover-color;
+    }
+
+    &:active {
+        background-color: $button-primary-hover-bg;
+        border-color: $button-primary-hover-border;
+        color: $button-primary-hover-color;
+    }
+}
