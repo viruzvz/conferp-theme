@@ -22,11 +22,12 @@ function conferp_enqueue_assets() {
 	/**
 	 * Asset paths used for cache busting.
 	 */
-	$theme_css_path           = get_template_directory() . '/assets/css/theme.css';
-	$theme_js_path            = get_template_directory() . '/assets/js/theme.js';
-	$utility_bar_js_path      = get_template_directory() . '/assets/js/utility-bar.js';
-	$accessibility_js_path    = get_template_directory() . '/assets/js/accessibility.js';
-	$mobile_navigation_js_path = get_template_directory() . '/assets/js/mobile-navigation.js';
+	$theme_css_path             = get_template_directory() . '/assets/css/theme.css';
+	$theme_js_path              = get_template_directory() . '/assets/js/theme.js';
+	$utility_bar_js_path        = get_template_directory() . '/assets/js/utility-bar.js';
+	$accessibility_js_path      = get_template_directory() . '/assets/js/accessibility.js';
+	$mobile_navigation_js_path  = get_template_directory() . '/assets/js/mobile-navigation.js';
+	$hero_carousel_js_path      = get_template_directory() . '/assets/js/hero-carousel.js';
 
 
 	/**
@@ -94,6 +95,29 @@ function conferp_enqueue_assets() {
 		array(),
 		file_exists( $mobile_navigation_js_path )
 			? filemtime( $mobile_navigation_js_path )
+			: $theme_version,
+		true
+	);
+
+
+	/**
+	 * ======================================================
+	 * Hero Carousel
+	 * ======================================================
+	 *
+	 * Controls the institutional Hero Carousel built with
+	 * Elementor containers.
+	 *
+	 * Elementor manages the content while the theme manages
+	 * carousel behavior, navigation and accessibility.
+	 */
+
+	wp_enqueue_script(
+		'conferp-hero-carousel',
+		get_template_directory_uri() . '/assets/js/hero-carousel.js',
+		array(),
+		file_exists( $hero_carousel_js_path )
+			? filemtime( $hero_carousel_js_path )
 			: $theme_version,
 		true
 	);

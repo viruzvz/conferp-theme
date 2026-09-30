@@ -1,90 +1,158 @@
 /**
- * Buttons
+ * CONFERP Buttons
  *
- * Institutional button components shared by the theme
- * and page builders.
+ * Institutional button system.
  *
- * These components consume institutional design tokens
- * and may therefore vary between CONFERP / CONRERP
- * installations.
+ * The base component defines shared geometry and typography.
+ * Modifier classes define semantic visual variations.
+ *
+ * Elementor may provide the HTML button structure, but the
+ * institutional visual language is controlled by the theme.
  */
 
-// ----------------------------------------------------------
-// Base
-// ----------------------------------------------------------
 
-.btn-conferp {
+// ==========================================================
+// Base button
+// ==========================================================
+
+.btn-conferp,
+.elementor-button {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
-    gap: .5rem;
 
     width: auto;
+
     min-height: 30px;
 
-    padding:
-        $button-padding-y
-        $button-padding-x;
+    padding: 7px 16px;
 
-    border:
-        $button-border-width
-        solid
-        transparent;
-
-    border-radius: $button-border-radius;
+    border: 1px solid transparent;
+    border-radius: 25px;
 
     font-family: "Montserrat", Arial, sans-serif;
-    font-size: $button-font-size;
-    font-weight: $button-font-weight;
-    line-height: $button-line-height;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
 
     text-align: center;
     text-decoration: none;
-    white-space: nowrap;
 
     cursor: pointer;
 
-    transition: $button-transition;
+    box-shadow: none;
 
-    &:hover,
-    &:focus,
-    &:active {
-        text-decoration: none;
-    }
-
-    &:focus-visible {
-        outline: 2px solid currentColor;
-        outline-offset: 3px;
-    }
-
-    &:disabled,
-    &.disabled {
-        opacity: .65;
-        pointer-events: none;
-        cursor: not-allowed;
-    }
+    transition:
+        background-color .2s ease,
+        border-color .2s ease,
+        color .2s ease;
 }
 
 
-// ----------------------------------------------------------
+// ==========================================================
 // Primary
-// ----------------------------------------------------------
+// ==========================================================
 
-.btn-conferp-primary {
-    background-color: $button-primary-bg;
-    border-color: $button-primary-border;
-    color: $button-primary-color;
+.btn-conferp-primary,
+.elementor-button {
+    border-color: $institution-primary;
 
-    &:hover,
-    &:focus-visible {
-        background-color: $button-primary-hover-bg;
-        border-color: $button-primary-hover-border;
-        color: $button-primary-hover-color;
-    }
+    background-color: #5292cd;
+    color: #fff;
+}
 
-    &:active {
-        background-color: $button-primary-hover-bg;
-        border-color: $button-primary-hover-border;
-        color: $button-primary-hover-color;
+.btn-conferp-primary:hover,
+.btn-conferp-primary:focus-visible,
+.elementor-button:hover,
+.elementor-button:focus-visible {
+    border-color: $institution-primary;
+
+    background-color: $institution-primary;
+    color: #fff;
+
+    text-decoration: none;
+}
+
+
+// ==========================================================
+// Outline
+// ==========================================================
+
+.btn-conferp-outline {
+    border-color: $institution-primary;
+
+    background-color: transparent;
+    color: $institution-primary;
+}
+
+.btn-conferp-outline:hover,
+.btn-conferp-outline:focus-visible {
+    border-color: $institution-primary;
+
+    background-color: $institution-primary;
+    color: #fff;
+
+    text-decoration: none;
+}
+
+
+// ==========================================================
+// Focus
+// ==========================================================
+
+.btn-conferp:focus-visible,
+.elementor-button:focus-visible {
+    outline: 3px solid rgba(77, 155, 213, .35);
+    outline-offset: 3px;
+}
+
+
+// ==========================================================
+// Disabled
+// ==========================================================
+
+.btn-conferp:disabled,
+.btn-conferp.is-disabled,
+.elementor-button:disabled {
+    opacity: .55;
+
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+
+// ==========================================================
+// Optional sizes
+// ==========================================================
+
+.btn-conferp-sm {
+    min-height: 28px;
+
+    padding: 6px 14px;
+
+    font-size: 13px;
+}
+
+.btn-conferp-lg {
+    min-height: 42px;
+
+    padding: 10px 22px;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+
+// ==========================================================
+// Reduced Motion
+// ==========================================================
+
+@media (prefers-reduced-motion: reduce) {
+
+    .btn-conferp,
+    .elementor-button {
+        transition: none;
     }
 }
