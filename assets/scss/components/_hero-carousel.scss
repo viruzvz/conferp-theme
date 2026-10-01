@@ -1,115 +1,154 @@
 /**
- * CONFERP Hero Carousel
+ * Hero Carousel
  *
- * Elementor structure:
+ * CONFERP institutional homepage hero.
+ *
+ * Estrutura Elementor:
  *
  * .hero-carousel
- * ├── .hero-carousel__slide
- * │   └── .hero-carousel__inner
- * │       ├── .hero-carousel__content
- * │       └── .hero-carousel__media
- * │
  * └── .hero-carousel__slide
  *     └── .hero-carousel__inner
  *         ├── .hero-carousel__content
+ *         │   ├── Heading
+ *         │   ├── Text Editor
+ *         │   └── Button
  *         └── .hero-carousel__media
+ *             └── Image
  *
- * Strategy:
+ * Desktop:
+ * - conteúdo centralizado no grid institucional
+ * - conteúdo ocupa 62% do container
+ * - imagem ocupa 38% + full-bleed à direita
+ * - altura uniforme entre slides
  *
- * - Hero occupies 100% of the available viewport.
- * - Slide occupies 100% of the Hero.
- * - Inner creates the horizontal composition.
- * - Content follows the Bootstrap 1320px alignment.
- * - Media reaches the right edge.
- * - Image is clipped inside the media area.
- * - Carousel uses fade.
- * - Elementor and front-end share the same geometry.
+ * < LG:
+ * - mantém o layout mobile aprovado
+ * - imagem ocupa o fundo do Hero
+ * - overlay claro preserva contraste
+ * - conteúdo permanece sobre a imagem
+ * - altura fixa de 465px
  */
 
 
-// ==========================================================
-// Configuration
-// ==========================================================
-
-$hero-container-width: 1320px;
-$hero-height: 330px;
-
-$hero-content-max-width: 540px;
-
-$hero-desktop-gutter: 24px;
-$hero-mobile-gutter: 16px;
-
-
-// ==========================================================
-// Hero Root
-//
-// IMPORTANT:
-//
-// This is the final clipping boundary.
-//
-// Nothing inside the Hero is allowed to increase the
-// horizontal width of the document.
-// ==========================================================
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero-carousel {
     position: relative;
 
+    /*
+     * O Hero precisa respeitar rigorosamente a largura
+     * disponível no documento. O min-width: 0 é importante
+     * porque este container também é um item flex do Elementor:
+     * sem ele, o cálculo full-bleed da mídia pode aumentar a
+     * largura intrínseca do Hero no Chromium.
+     */
     width: 100% !important;
     max-width: 100% !important;
+    min-width: 0 !important;
 
     margin: 0 !important;
     padding: 0 !important;
 
-    overflow-x: clip;
-    overflow-y: hidden;
-
     box-sizing: border-box;
+
+    /*
+     * Mantém o full-bleed visual limitado à própria viewport
+     * do Hero sem criar um novo scroll container horizontal.
+     */
+    overflow-x: clip !important;
+    overflow-y: visible;
 
     background-color: $institution-background-light;
 }
 
 
-// ==========================================================
-// Slide
-// ==========================================================
+/* =========================================================
+   SLIDE
+   ========================================================= */
 
 .hero-carousel__slide {
     position: relative;
 
     width: 100% !important;
     max-width: 100% !important;
+    min-width: 0 !important;
 
-    min-width: 0;
-    min-height: $hero-height;
+    box-sizing: border-box;
+
+    /*
+     * Altura uniforme entre os slides.
+     *
+     * mínimo: 330px
+     * máximo: 400px
+     */
+    min-height: 330px !important;
+    height: clamp(330px, 20vw, 400px) !important;
+    max-height: 400px !important;
 
     margin: 0 !important;
     padding: 0 !important;
 
     overflow: hidden;
-
-    box-sizing: border-box;
-
-    background-color: $institution-background-light;
 }
 
 
-// ==========================================================
-// Inner
-//
-// This is NOT a carousel track.
-//
-// It controls only the visual composition:
-//
-// [ CONTENT ][ MEDIA ]
-//
-// The geometry is shared by front-end and Elementor.
-// ==========================================================
+/* =========================================================
+   CAROUSEL INICIALIZADO
+   ========================================================= */
+
+.hero-carousel.is-initialized {
+
+    .hero-carousel__slide {
+        position: absolute;
+
+        top: 0;
+        right: 0;
+        bottom: auto;
+        left: 0;
+
+        width: 100% !important;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        transition:
+            opacity .45s ease,
+            visibility .45s ease;
+    }
+
+    .hero-carousel__slide.is-active {
+        position: relative;
+
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+}
+
+
+/* =========================================================
+   INNER / GRID INSTITUCIONAL
+   ========================================================= */
 
 .hero-carousel__inner {
     position: relative;
 
-    display: flex !important;
+    /*
+     * Permite que o item flex encolha dentro dos 1320px
+     * sem usar a largura intrínseca da mídia full-bleed
+     * para ampliar o documento.
+     */
+    min-width: 0 !important;
 
+    display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
 
@@ -117,126 +156,117 @@ $hero-mobile-gutter: 16px;
     justify-content: flex-start !important;
 
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 1320px !important;
 
-    min-width: 0;
-    min-height: $hero-height;
+    height: 100% !important;
+    min-height: inherit;
 
-    margin: 0 !important;
+    margin: 0 auto !important;
     padding: 0 !important;
 
-    overflow: hidden;
+    gap: 0 !important;
 
-    box-sizing: border-box;
-
-    transform: none !important;
+    /*
+     * A mídia ultrapassa o container somente no desktop
+     * para alcançar a extremidade direita da viewport.
+     */
+    overflow: visible;
 }
 
 
-// ==========================================================
-// Content
-//
-// Content starts at the same horizontal position as a
-// centered Bootstrap container with max-width 1320px.
-//
-// The content column itself remains 50% of the Hero.
-//
-// box-sizing is essential here:
-// padding must remain INSIDE the 50% width.
-// ==========================================================
+/* =========================================================
+   CONTENT
+   ========================================================= */
 
 .hero-carousel__content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
 
     display: flex !important;
 
-    flex: 0 0 50% !important;
-
-    min-width: 0;
+    /*
+     * Mais espaço para título e descrição.
+     */
+    flex: 0 0 62% !important;
 
     flex-direction: column !important;
 
     align-items: flex-start !important;
     justify-content: center !important;
 
-    width: 50% !important;
-    max-width: 50% !important;
+    width: 62% !important;
+    max-width: 62% !important;
 
-    min-height: $hero-height;
+    min-width: 0;
+
+    height: 100%;
 
     margin: 0 !important;
 
-    padding-top: 30px !important;
-    padding-right: 48px !important;
-    padding-bottom: 48px !important;
-
-    padding-left: max(
-        calc((100vw - #{$hero-container-width}) / 2),
-        #{$hero-desktop-gutter}
-    ) !important;
+    /*
+     * Corredor menor entre texto e imagem.
+     */
+    padding: 24px 36px 24px 0 !important;
 
     box-sizing: border-box;
 }
 
 
-// ==========================================================
-// Heading
-// ==========================================================
+/* =========================================================
+   HEADING
+   ========================================================= */
 
 .hero-carousel__content {
 
     .elementor-widget-heading {
         width: 100%;
-        max-width: $hero-content-max-width;
 
-        margin: 0 0 18px;
+        /*
+         * Maior área horizontal para reduzir
+         * quebras prematuras do título.
+         */
+        max-width: 740px;
+
+        margin: 0 0 18px !important;
+        padding: 0 !important;
     }
 
-
     .elementor-heading-title {
-        margin: 0;
+        margin: 0 !important;
+        padding: 0 !important;
 
         color: $institution-primary;
 
-        font-family:
-            "Montserrat",
-            Arial,
-            sans-serif;
-
+        font-family: "Montserrat", Arial, sans-serif;
         font-size: 42px;
         font-weight: 700;
-
         line-height: 1.08;
 
-        letter-spacing: -0.02em;
-
+        letter-spacing: -.02em;
         text-align: left;
     }
 }
 
 
-// ==========================================================
-// Description
-// ==========================================================
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
 
 .hero-carousel__content {
 
     .elementor-widget-text-editor {
         width: 100%;
-        max-width: $hero-content-max-width;
+        max-width: 740px;
 
-        margin: 0 0 28px;
+        margin: 0 0 22px !important;
+        padding: 0 !important;
 
         color: $body-color;
-
         text-align: left;
     }
 
-
     .elementor-widget-text-editor p {
         margin-top: 0;
-
 
         &:last-child {
             margin-bottom: 0;
@@ -245,9 +275,9 @@ $hero-mobile-gutter: 16px;
 }
 
 
-// ==========================================================
-// Hero CTA
-// ==========================================================
+/* =========================================================
+   BUTTON WIDGET
+   ========================================================= */
 
 .hero-carousel__content {
 
@@ -255,18 +285,39 @@ $hero-mobile-gutter: 16px;
         width: auto !important;
         max-width: 100%;
 
-        margin: 0;
+        margin: 0 !important;
+        padding: 0 !important;
 
         align-self: flex-start !important;
+
+        background: transparent !important;
+        border: 0 !important;
+        box-shadow: none !important;
     }
 
+    .elementor-widget-button > .elementor-widget-container {
+        width: auto !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        background: transparent !important;
+        border: 0 !important;
+        box-shadow: none !important;
+    }
 
     .elementor-button-wrapper {
         width: auto !important;
 
+        margin: 0 !important;
+        padding: 0 !important;
+
+        background: transparent !important;
+        border: 0 !important;
+        box-shadow: none !important;
+
         text-align: left;
     }
-
 
     .elementor-button {
         display: inline-flex;
@@ -276,89 +327,74 @@ $hero-mobile-gutter: 16px;
 
         width: auto;
 
-        min-height: 42px;
+        /*
+         * CTA do Hero.
+         * Sobrescreve a altura/padding do botão global
+         * definido em components/_buttons.scss.
+         */
+        min-height: 38px !important;
 
-        padding:
-            10px
-            22px !important;
+        margin: 0 !important;
+        padding: 10px 20px !important;
 
-        border:
-            1px
-            solid
-            $institution-primary !important;
-
+        border: 0 !important;
         border-radius: 25px !important;
 
-        background-color: #5292cd !important;
+        background: #5292cd !important;
 
         color: #fff !important;
 
-        font-family:
-            "Montserrat",
-            Arial,
-            sans-serif;
-
+        font-family: "Montserrat", Arial, sans-serif;
         font-size: 14px;
         font-weight: 600;
-
-        line-height: 1.2;
+        line-height: 1;
 
         text-align: center;
-
         text-decoration: none !important;
 
-        box-shadow: none;
+        box-shadow: none !important;
+
+        appearance: none;
 
         transition:
             background-color .2s ease,
-            border-color .2s ease,
             color .2s ease;
     }
 
-
     .elementor-button:hover,
     .elementor-button:focus-visible {
-        border-color:
-            $institution-primary !important;
+        border: 0 !important;
 
-        background-color:
-            $institution-primary !important;
+        background: $institution-primary !important;
 
         color: #fff !important;
 
         text-decoration: none !important;
+
+        box-shadow: none !important;
     }
 
-
     .elementor-button:focus-visible {
-        outline:
-            3px
-            solid
-            rgba(77, 155, 213, .35);
-
+        outline: 3px solid rgba(77, 155, 213, .35);
         outline-offset: 3px;
     }
 }
 
 
-// ==========================================================
-// Media
-//
-// Media occupies the right half of the Hero.
-//
-// min-width: 0 prevents the intrinsic width of the image
-// from increasing the Flexbox column.
-//
-// The Figma artwork already contains:
-//
-// - ellipse;
-// - blue accent;
-// - photograph.
-//
-// No pseudo-element.
-// No clip-path.
-// No CSS-generated ellipse.
-// ==========================================================
+/* =========================================================
+   MEDIA — DESKTOP
+   =========================================================
+ *
+ * IMPORTANTE:
+ * O item flex permanece com 38% do container de 1320px.
+ *
+ * O full-bleed NÃO participa mais do cálculo do Flexbox.
+ * Somente o widget da imagem é expandido visualmente até
+ * a borda direita da viewport.
+ *
+ * Isso preserva o layout aprovado e evita que Chrome/Edge
+ * aumentem a largura intrínseca da página.
+ */
 
 .hero-carousel__media {
     position: relative;
@@ -366,77 +402,76 @@ $hero-mobile-gutter: 16px;
 
     display: flex !important;
 
-    flex: 0 0 50% !important;
-
-    min-width: 0;
+    flex: 0 0 38% !important;
 
     align-items: stretch !important;
     justify-content: flex-end !important;
 
-    width: 50% !important;
-    max-width: 50% !important;
+    width: 38% !important;
+    max-width: 38% !important;
+    min-width: 0 !important;
 
-    height: $hero-height;
-    min-height: $hero-height;
+    height: 100% !important;
+    min-height: 100% !important;
 
     margin: 0 !important;
     padding: 0 !important;
 
-    overflow: hidden;
+    /*
+     * O widget filho pode ultrapassar os 38%.
+     * Quem limita o desenho à viewport é o próprio slide.
+     */
+    overflow: visible;
 
     box-sizing: border-box;
 }
 
 
-// ==========================================================
-// Elementor Image Widget
-//
-// The widget itself is constrained to the media column.
-//
-// The actual image can preserve its intrinsic proportion,
-// but any excess is clipped by the media container.
-// ==========================================================
+/* =========================================================
+   IMAGE — FULL-BLEED VISUAL
+   ========================================================= */
 
 .hero-carousel__media {
 
+    /*
+     * O widget sai do fluxo de dimensionamento do Flexbox.
+     *
+     * Sua largura é:
+     * 100% da área de mídia (38%)
+     * +
+     * a distância entre o container de 1320px
+     * e a extremidade direita da viewport.
+     *
+     * Como está absolute, essa largura adicional não aumenta
+     * scrollWidth do .hero-carousel__inner.
+     */
     .elementor-widget-image {
-        position: relative;
+        display: flex;
 
-        display: flex !important;
-
-        flex: 1 1 auto;
-
-        align-items: stretch !important;
-        justify-content: flex-end !important;
+        align-items: stretch;
+        justify-content: flex-end;
 
         width: 100% !important;
-        max-width: 100% !important;
-
-        min-width: 0;
+        max-width: none !important;
+        min-width: 0 !important;
 
         height: 100% !important;
 
         margin: 0 !important;
         padding: 0 !important;
 
-        overflow: hidden;
-
-        box-sizing: border-box;
+        overflow: hidden !important;
     }
 
 
     .elementor-widget-container {
-        display: flex !important;
+        display: flex;
 
-        flex: 1 1 auto;
-
-        align-items: stretch !important;
-        justify-content: flex-end !important;
+        align-items: stretch;
+        justify-content: flex-end;
 
         width: 100% !important;
-        max-width: 100% !important;
-
-        min-width: 0;
+        max-width: none !important;
 
         height: 100% !important;
 
@@ -444,18 +479,14 @@ $hero-mobile-gutter: 16px;
         padding: 0 !important;
 
         overflow: hidden;
-
-        box-sizing: border-box;
     }
 
 
     .elementor-widget-image img {
         display: block;
 
-        flex: 0 0 auto;
-
-        width: auto;
-        max-width: none;
+        width: 100%;
+        max-width: 100%;
 
         height: 100%;
 
@@ -471,127 +502,139 @@ $hero-mobile-gutter: 16px;
 }
 
 
-// ==========================================================
-// Carousel State
-//
-// Only the SLIDE receives carousel positioning.
-//
-// The following are never repositioned:
-//
-// - __inner
-// - __content
-// - __media
-//
-// This preserves the Elementor geometry on the front-end.
-// ==========================================================
+/* =========================================================
+   FULL-BLEED — DESKTOP LARGO (SEM vw)
+   =========================================================
+ *
+ * O item .hero-carousel__media continua ocupando exatamente
+ * 38% dos 1320px no Flexbox.
+ *
+ * Apenas o widget visual é retirado do fluxo e ancorado
+ * diretamente no .hero-carousel__slide:
+ *
+ * esquerda = centro da viewport - 660px + 62% de 1320px
+ * direita  = 0
+ *
+ * Não existe 100vw/100dvw neste cálculo. Portanto a largura
+ * da scrollbar vertical do Chromium não entra na geometria.
+ */
 
-.hero-carousel.is-initialized {
+@media (min-width: 1400px) {
 
-    > .hero-carousel__slide {
-        position: absolute !important;
-
-        top: 0;
-        right: 0;
-        bottom: auto;
-        left: 0;
-
-        z-index: 1;
-
-        width: 100% !important;
-        max-width: 100% !important;
-
-        min-width: 0;
-
-        margin: 0 !important;
-        padding: 0 !important;
-
-        opacity: 0;
-        visibility: hidden;
-
-        pointer-events: none;
-
-        overflow: hidden;
-
-        box-sizing: border-box;
-
-        transition:
-            opacity .45s ease,
-            visibility .45s ease;
+    .hero-carousel,
+    .hero-carousel__slide {
+        overflow-x: clip !important;
     }
 
+    .hero-carousel__slide {
+        position: relative;
+    }
 
-    > .hero-carousel__slide.is-active {
-        position: relative !important;
+    /*
+     * Faz o absolute do widget procurar o próximo ancestral
+     * posicionado: .hero-carousel__slide.
+     */
+    .hero-carousel__inner,
+    .hero-carousel__media {
+        position: static !important;
+    }
 
-        top: auto;
-        right: auto;
-        bottom: auto;
-        left: auto;
+    .hero-carousel__media {
+        flex: 0 0 38% !important;
 
-        z-index: 2;
+        width: 38% !important;
+        max-width: 38% !important;
+        min-width: 0 !important;
 
+        overflow: visible !important;
+    }
+
+    .hero-carousel__media .elementor-widget-image {
+        position: absolute !important;
+
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+
+        /*
+         * 50% localiza o centro real do slide.
+         * 660px volta ao início do container de 1320px.
+         * 818.4px = 62% de 1320px.
+         */
+        left: calc(50% - 660px + 818.4px) !important;
+
+        width: auto !important;
+        max-width: none !important;
+        min-width: 0 !important;
+
+        height: 100% !important;
+
+        overflow: hidden !important;
+    }
+
+    .hero-carousel__media .elementor-widget-container {
+        width: 100% !important;
+        max-width: none !important;
+        height: 100% !important;
+
+        overflow: hidden !important;
+    }
+
+    .hero-carousel__media .elementor-widget-image img {
         width: 100% !important;
         max-width: 100% !important;
+        height: 100% !important;
 
-        min-width: 0;
-
-        margin: 0 !important;
-        padding: 0 !important;
-
-        opacity: 1;
-        visibility: visible;
-
-        pointer-events: auto;
+        object-fit: contain;
+        object-position: right center;
     }
 }
 
 
-// ==========================================================
-// Pagination
-// ==========================================================
+/* =========================================================
+   PAGINATION
+   ========================================================= */
 
 .hero-carousel__pagination {
     position: absolute;
-    z-index: 20;
+    z-index: 10;
 
-    bottom: 20px;
-
+    /*
+     * Mantém os dots alinhados ao início
+     * do container institucional.
+     */
     left: max(
-        calc((100vw - #{$hero-container-width}) / 2),
-        #{$hero-desktop-gutter}
+        0px,
+        calc((100vw - 1320px) / 2)
     );
 
-    display: flex;
+    bottom: 14px;
 
+    display: flex;
     align-items: center;
 
-    gap: 10px;
+    gap: 8px;
 
     margin: 0;
     padding: 0;
 }
 
 
-// ==========================================================
-// Pagination Dot
-// ==========================================================
-
 .hero-carousel__dot {
     display: block;
 
-    width: 40px;
-    height: 5px;
+    width: 34px;
+    height: 4px;
 
     margin: 0;
     padding: 0;
 
     border: 0;
-
     border-radius: 999px;
 
     background-color: #5292cd;
 
-    opacity: .55;
+    opacity: .65;
 
     cursor: pointer;
 
@@ -603,37 +646,28 @@ $hero-mobile-gutter: 16px;
 
 
 .hero-carousel__dot:hover {
-    opacity: .8;
+    opacity: 1;
 }
 
 
 .hero-carousel__dot.is-active {
-    width: 42px;
+    width: 38px;
 
-    background-color:
-        $institution-secondary;
+    background-color: $institution-secondary;
 
     opacity: 1;
 }
 
 
 .hero-carousel__dot:focus-visible {
-    outline:
-        3px
-        solid
-        rgba(77, 155, 213, .35);
-
+    outline: 3px solid rgba(77, 155, 213, .35);
     outline-offset: 4px;
 }
 
 
-// ==========================================================
-// Elementor Internal Containers
-//
-// Only remove unwanted internal spacing.
-//
-// Do not change their structural layout here.
-// ==========================================================
+/* =========================================================
+   ELEMENTOR WRAPPERS
+   ========================================================= */
 
 .hero-carousel,
 .hero-carousel__slide,
@@ -642,220 +676,476 @@ $hero-mobile-gutter: 16px;
 .hero-carousel__media {
 
     > .e-con-inner {
-        max-width: 100% !important;
-
         margin: 0 !important;
         padding: 0 !important;
-
-        box-sizing: border-box;
     }
 }
 
 
-// ==========================================================
-// Tablet
-//
-// Bootstrap LG
-// < 992px
-// ==========================================================
+/* =========================================================
+   DESKTOP / TABLET INTERMEDIÁRIO
+   992px até 1399.98px
+   =========================================================
+ *
+ * Nesta faixa não existe área externa suficiente para
+ * utilizar o cálculo full-bleed do desktop largo.
+ *
+ * Mantemos 62 / 38 dentro da largura disponível.
+ */
 
-@include media-breakpoint-down(lg) {
+@media (min-width: 992px) and (max-width: 1399.98px) {
 
-    .hero-carousel__slide,
     .hero-carousel__inner {
-        min-height: 310px;
+        width: calc(100% - 48px) !important;
+        max-width: 1320px !important;
+
+        margin: 0 auto !important;
     }
 
 
     .hero-carousel__content {
-        flex: 0 0 52% !important;
+        flex: 0 0 62% !important;
 
-        width: 52% !important;
-        max-width: 52% !important;
-
-        min-width: 0;
-        min-height: 310px;
+        width: 62% !important;
+        max-width: 62% !important;
 
         padding:
             24px
-            40px
-            40px
-            24px !important;
+            28px
+            24px
+            0 !important;
     }
 
 
     .hero-carousel__content {
 
-        .elementor-heading-title {
-            font-size: 34px;
+        .elementor-widget-heading,
+        .elementor-widget-text-editor {
+            max-width: 100%;
+        }
 
-            line-height: 1.1;
+
+        .elementor-heading-title {
+            font-size: 38px;
         }
     }
 
 
     .hero-carousel__media {
-        flex: 0 0 48% !important;
+        flex: 0 0 38% !important;
 
-        width: 48% !important;
-        max-width: 48% !important;
+        width: 38% !important;
+        max-width: 38% !important;
 
         min-width: 0;
 
-        height: 310px;
-        min-height: 310px;
+        margin: 0 !important;
+    }
+
+
+    .hero-carousel__media .elementor-widget-image {
+        width: 100% !important;
     }
 
 
     .hero-carousel__pagination {
-        bottom: 16px;
         left: 24px;
     }
 }
 
 
-// ==========================================================
-// Mobile
-//
-// Bootstrap MD
-// < 768px
-// ==========================================================
+/* =========================================================
+   RESPONSIVO
+   < 992px
+   =========================================================
+ *
+ * BLOCO MOBILE APROVADO.
+ *
+ * A partir de LG:
+ * - não empilha
+ * - imagem fica atrás do conteúdo
+ * - Hero mantém 465px
+ * - imagem não ultrapassa o Hero
+ * - conteúdo permanece totalmente opaco
+ */
 
-@include media-breakpoint-down(md) {
+@include media-breakpoint-down(lg) {
 
-    .hero-carousel__slide,
-    .hero-carousel__inner {
-        min-height: 0;
+    .hero-carousel__slide {
+        position: relative;
+
+        min-height: 465px !important;
+        height: 465px !important;
+        max-height: 465px !important;
+
+        overflow: hidden;
+
+        background-color: $institution-background-light;
     }
 
 
-    .hero-carousel__inner {
-        flex-direction: column !important;
+    .hero-carousel.is-initialized {
+
+        .hero-carousel__slide {
+            position: absolute;
+        }
+
+        .hero-carousel__slide.is-active {
+            position: relative;
+        }
     }
 
 
-    .hero-carousel__content {
-        flex: 0 0 auto !important;
+    /* =====================================================
+       INNER
+       ===================================================== */
+
+    .hero-carousel__inner {
+        position: relative;
+
+        display: block !important;
 
         width: 100% !important;
         max-width: 100% !important;
 
-        min-width: 0;
-        min-height: 0;
+        height: 100% !important;
+        min-height: 100% !important;
 
-        padding:
-            30px
-            $hero-mobile-gutter
-            48px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        overflow: hidden;
+
+        opacity: 1 !important;
+    }
+
+
+    /* =====================================================
+       IMAGEM DE FUNDO
+       ===================================================== */
+
+    .hero-carousel__media {
+        position: absolute !important;
+
+        z-index: 1;
+
+        inset: 0;
+
+        display: block !important;
+
+        width: 100% !important;
+        max-width: none !important;
+
+        height: 100% !important;
+        min-height: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        overflow: hidden;
+
+        opacity: 1 !important;
+
+        pointer-events: none;
+    }
+
+
+    .hero-carousel__media {
+
+        .elementor-widget-image {
+            position: relative !important;
+
+            top: auto;
+            right: auto;
+            bottom: auto;
+            left: auto;
+
+            width: 100% !important;
+            max-width: none !important;
+
+            height: 100% !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            opacity: 1 !important;
+        }
+
+
+        .elementor-widget-container {
+            width: 100% !important;
+            height: 100% !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            opacity: 1 !important;
+        }
+
+
+        /*
+         * Somente a fotografia recebe transparência.
+         */
+        .elementor-widget-image img {
+            display: block;
+
+            width: 100% !important;
+            max-width: none !important;
+
+            height: 100% !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            object-fit: cover;
+            object-position: center center;
+
+            opacity: .18 !important;
+        }
+    }
+
+
+    /* =====================================================
+       OVERLAY
+       ===================================================== */
+
+    .hero-carousel__inner::after {
+        content: "";
+
+        position: absolute;
+        z-index: 2;
+
+        inset: 0;
+
+        background-color: rgba(242, 246, 255, .42);
+
+        opacity: 1;
+
+        pointer-events: none;
+    }
+
+
+    /* =====================================================
+       CONTENT
+       ===================================================== */
+
+    .hero-carousel__content {
+        position: relative;
+        z-index: 3;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        align-items: flex-start !important;
+        justify-content: center !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        height: 100% !important;
+        min-height: 100% !important;
+
+        margin: 0 !important;
+
+        padding: 30px 24px 58px !important;
+
+        opacity: 1 !important;
     }
 
 
     .hero-carousel__content {
 
+        .elementor-widget-heading,
+        .elementor-widget-text-editor,
+        .elementor-widget-button,
+        .elementor-widget-container,
+        .elementor-heading-title,
+        .elementor-button-wrapper,
+        .elementor-button {
+            opacity: 1 !important;
+        }
+
+
+        /* Heading */
+
         .elementor-widget-heading {
+            position: relative;
+            z-index: 3;
+
+            width: 100%;
+            max-width: 620px;
+
+            margin: 0 0 18px !important;
+            padding: 0 !important;
+        }
+
+
+        .elementor-heading-title {
+            margin: 0 !important;
+
+            color: $institution-primary !important;
+
+            font-size: 34px;
+            line-height: 1.1;
+
+            letter-spacing: -.01em;
+        }
+
+
+        /* Texto */
+
+        .elementor-widget-text-editor {
+            position: relative;
+            z-index: 3;
+
+            width: 100%;
+            max-width: 620px;
+
+            margin: 0 0 24px !important;
+            padding: 0 !important;
+
+            color: $body-color !important;
+        }
+
+
+        .elementor-widget-text-editor p {
+            color: inherit !important;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+
+        /* Botão */
+
+        .elementor-widget-button {
+            position: relative;
+            z-index: 3;
+
+            width: auto !important;
+            max-width: 100%;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            background: transparent !important;
+            border: 0 !important;
+        }
+
+
+        .elementor-button-wrapper {
+            margin: 0 !important;
+            padding: 0 !important;
+
+            background: transparent !important;
+            border: 0 !important;
+        }
+
+
+        .elementor-button {
+            position: relative;
+            z-index: 3;
+
+            opacity: 1 !important;
+
+            background-color: #5292cd !important;
+            color: #fff !important;
+
+            border: 0 !important;
+            box-shadow: none !important;
+        }
+    }
+
+
+    /* =====================================================
+       PAGINAÇÃO
+       ===================================================== */
+
+    .hero-carousel__pagination {
+        position: absolute;
+        z-index: 4;
+
+        left: 24px;
+        bottom: 22px;
+
+        display: flex;
+
+        gap: 8px;
+
+        opacity: 1 !important;
+    }
+
+
+    .hero-carousel__dot {
+        width: 32px;
+        height: 4px;
+
+        opacity: .65;
+    }
+
+
+    .hero-carousel__dot.is-active {
+        width: 36px;
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   < 768px
+   ========================================================= */
+
+@include media-breakpoint-down(md) {
+
+    .hero-carousel__content {
+        padding: 30px 16px 58px !important;
+    }
+
+
+    .hero-carousel__content {
+
+        .elementor-widget-heading,
+        .elementor-widget-text-editor {
             max-width: 100%;
         }
 
 
         .elementor-heading-title {
             font-size: 30px;
-
             line-height: 1.12;
-
-            letter-spacing: -0.01em;
-        }
-    }
-
-
-    .hero-carousel__content {
-
-        .elementor-widget-text-editor {
-            max-width: 100%;
-        }
-    }
-
-
-    .hero-carousel__content {
-
-        .elementor-button {
-            min-height: 40px;
-
-            padding:
-                9px
-                20px !important;
-        }
-    }
-
-
-    .hero-carousel__media {
-        flex: 0 0 auto !important;
-
-        width: 100% !important;
-        max-width: 100% !important;
-
-        min-width: 0;
-
-        height: auto;
-        min-height: 0;
-    }
-
-
-    .hero-carousel__media {
-
-        .elementor-widget-image,
-        .elementor-widget-container {
-            width: 100% !important;
-            max-width: 100% !important;
-
-            min-width: 0;
-
-            height: auto !important;
-        }
-
-
-        .elementor-widget-image img {
-            width: 100%;
-            max-width: 100%;
-
-            height: auto;
-
-            object-fit: initial;
-            object-position: right center;
         }
     }
 
 
     .hero-carousel__pagination {
-        bottom: 16px;
-        left: $hero-mobile-gutter;
-    }
-
-
-    .hero-carousel__dot {
-        width: 32px;
-    }
-
-
-    .hero-carousel__dot.is-active {
-        width: 36px;
+        left: 16px;
+        bottom: 22px;
     }
 }
 
 
-// ==========================================================
-// Small Mobile
-//
-// Bootstrap SM
-// < 576px
-// ==========================================================
+/* =========================================================
+   SMALL MOBILE
+   < 576px
+   ========================================================= */
 
 @include media-breakpoint-down(sm) {
+
+    .hero-carousel__slide {
+        min-height: 465px !important;
+        height: 465px !important;
+        max-height: 465px !important;
+    }
+
 
     .hero-carousel__content {
         padding:
             24px
-            $hero-mobile-gutter
-            46px !important;
+            14px
+            56px !important;
     }
 
 
@@ -863,111 +1153,35 @@ $hero-mobile-gutter: 16px;
 
         .elementor-heading-title {
             font-size: 28px;
+            line-height: 1.1;
         }
-    }
-}
 
-
-// ==========================================================
-// Reduced Motion
-// ==========================================================
-
-@media (prefers-reduced-motion: reduce) {
-
-    .hero-carousel.is-initialized {
-
-        > .hero-carousel__slide {
-            transition: none;
+        .elementor-widget-heading {
+            margin-bottom: 18px !important;
         }
-    }
 
-
-    .hero-carousel__dot,
-    .hero-carousel__content .elementor-button {
-        transition: none;
-    }
-}
-
-
-// ==========================================================
-// Elementor Editor
-//
-// The editor uses the SAME geometry as the front-end.
-//
-// The carousel itself is not initialized in Elementor.
-//
-// Here we only:
-//
-// - allow the editor canvas to show each slide;
-// - keep slides in normal flow;
-// - hide generated pagination if it exists.
-//
-// IMPORTANT:
-//
-// Do NOT force:
-// - opacity;
-// - visibility;
-// - pointer-events;
-// - display on the slide.
-//
-// This allows Elementor's Navigator eye control to continue
-// working normally.
-// ==========================================================
-
-body.elementor-editor-active,
-body.elementor-editor-preview {
-
-    .hero-carousel {
-        /*
-         * Elementor needs to display its editing controls.
-         *
-         * Horizontal geometry is still constrained by
-         * width/max-width and the slide/inner boundaries.
-         */
-        overflow: visible !important;
-    }
-
-
-    .hero-carousel__slide,
-    .hero-carousel__slide.is-active {
-        position: relative;
-
-        top: auto;
-        right: auto;
-        bottom: auto;
-        left: auto;
-
-        z-index: auto;
-
-        width: 100%;
-        max-width: 100%;
-
-        min-width: 0;
-
-        margin: 0;
-        padding: 0;
-
-        transform: none;
+        .elementor-widget-text-editor {
+            margin-bottom: 22px !important;
+        }
     }
 
 
     .hero-carousel__pagination {
-        display: none !important;
+        left: 14px;
+        bottom: 20px;
     }
 }
 
 
-// ==========================================================
-// Elementor Editor - Mobile
-// ==========================================================
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 
-@include media-breakpoint-down(md) {
+@media (prefers-reduced-motion: reduce) {
 
-    body.elementor-editor-active,
-    body.elementor-editor-preview {
-
-        .hero-carousel__inner {
-            flex-direction: column !important;
-        }
+    .hero-carousel__slide,
+    .hero-carousel__dot,
+    .hero-carousel__content .elementor-button {
+        transition: none !important;
     }
 }

@@ -1,34 +1,34 @@
 /**
  * CONFERP Buttons
  *
- * Institutional button system.
+ * Supports:
  *
- * The base component defines shared geometry and typography.
- * Modifier classes define semantic visual variations.
+ * 1. Native theme button:
+ *    <a class="btn-conferp btn-conferp-primary">
  *
- * Elementor may provide the HTML button structure, but the
- * institutional visual language is controlled by the theme.
+ * 2. Elementor Button widget:
+ *    <div class="btn-conferp btn-conferp-primary elementor-widget-button">
+ *        ...
+ *        <a class="elementor-button">
+ *    </div>
  */
 
 
-// ==========================================================
-// Base button
-// ==========================================================
+/* ==========================================================
+   Native Theme Button
+   ========================================================== */
 
-.btn-conferp,
-.elementor-button {
+.btn-conferp:not(.elementor-widget-button) {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
     width: auto;
-
     min-height: 30px;
 
     padding: 7px 16px;
 
-    border: 1px solid transparent;
+    border: 0;
     border-radius: 25px;
 
     font-family: "Montserrat", Arial, sans-serif;
@@ -42,101 +42,187 @@
     cursor: pointer;
 
     box-shadow: none;
+    appearance: none;
 
     transition:
         background-color .2s ease,
-        border-color .2s ease,
         color .2s ease;
 }
 
 
-// ==========================================================
-// Primary
-// ==========================================================
+/* ==========================================================
+   Native Primary
+   ========================================================== */
 
-.btn-conferp-primary,
-.elementor-button {
-    border-color: $institution-primary;
-
+.btn-conferp-primary:not(.elementor-widget-button) {
+    border: 0;
     background-color: #5292cd;
     color: #fff;
 }
 
-.btn-conferp-primary:hover,
-.btn-conferp-primary:focus-visible,
-.elementor-button:hover,
-.elementor-button:focus-visible {
-    border-color: $institution-primary;
-
+.btn-conferp-primary:not(.elementor-widget-button):hover,
+.btn-conferp-primary:not(.elementor-widget-button):focus-visible {
     background-color: $institution-primary;
     color: #fff;
-
     text-decoration: none;
 }
 
 
-// ==========================================================
-// Outline
-// ==========================================================
+/* ==========================================================
+   Native Outline
+   ========================================================== */
 
-.btn-conferp-outline {
-    border-color: $institution-primary;
-
+.btn-conferp-outline:not(.elementor-widget-button) {
+    border: 1px solid $institution-primary;
     background-color: transparent;
     color: $institution-primary;
 }
 
-.btn-conferp-outline:hover,
-.btn-conferp-outline:focus-visible {
-    border-color: $institution-primary;
-
+.btn-conferp-outline:not(.elementor-widget-button):hover,
+.btn-conferp-outline:not(.elementor-widget-button):focus-visible {
     background-color: $institution-primary;
     color: #fff;
-
-    text-decoration: none;
 }
 
 
-// ==========================================================
-// Focus
-// ==========================================================
+/* ==========================================================
+   Elementor Button Widget
 
-.btn-conferp:focus-visible,
-.elementor-button:focus-visible {
+   btn-conferp / btn-conferp-primary are applied to the
+   Elementor widget itself.
+
+   The widget and its wrappers remain transparent.
+   Only the actual <a class="elementor-button"> is styled.
+   ========================================================== */
+
+.elementor-widget-button.btn-conferp,
+.elementor-widget-button.btn-conferp-primary,
+.elementor-widget-button.btn-conferp-outline {
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+
+/* Elementor wrappers */
+
+.elementor-widget-button.btn-conferp {
+    > .elementor-widget-container {
+        background: transparent !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+
+    .elementor-button-wrapper {
+        background: transparent !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+}
+
+
+/* Actual Elementor button */
+
+.elementor-widget-button.btn-conferp {
+    .elementor-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        width: auto;
+        min-height: 30px;
+
+        padding: 7px 16px;
+
+        border: 0 !important;
+        border-radius: 25px;
+
+        font-family: "Montserrat", Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1;
+
+        text-align: center;
+        text-decoration: none;
+
+        cursor: pointer;
+
+        box-shadow: none !important;
+        appearance: none;
+
+        transition:
+            background-color .2s ease,
+            color .2s ease;
+    }
+}
+
+
+/* ==========================================================
+   Elementor Primary
+   ========================================================== */
+
+.elementor-widget-button.btn-conferp-primary {
+    .elementor-button {
+        border: 0 !important;
+        background-color: #5292cd !important;
+        color: #fff !important;
+    }
+
+    .elementor-button:hover,
+    .elementor-button:focus-visible {
+        border: 0 !important;
+        background-color: $institution-primary !important;
+        color: #fff !important;
+        text-decoration: none;
+    }
+}
+
+
+/* ==========================================================
+   Elementor Outline
+   ========================================================== */
+
+.elementor-widget-button.btn-conferp-outline {
+    .elementor-button {
+        border: 1px solid $institution-primary !important;
+        background-color: transparent !important;
+        color: $institution-primary !important;
+    }
+
+    .elementor-button:hover,
+    .elementor-button:focus-visible {
+        background-color: $institution-primary !important;
+        color: #fff !important;
+    }
+}
+
+
+/* ==========================================================
+   Focus
+   ========================================================== */
+
+.btn-conferp:not(.elementor-widget-button):focus-visible,
+.elementor-widget-button.btn-conferp .elementor-button:focus-visible {
     outline: 3px solid rgba(77, 155, 213, .35);
     outline-offset: 3px;
 }
 
 
-// ==========================================================
-// Disabled
-// ==========================================================
+/* ==========================================================
+   Sizes - Native
+   ========================================================== */
 
-.btn-conferp:disabled,
-.btn-conferp.is-disabled,
-.elementor-button:disabled {
-    opacity: .55;
-
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-
-// ==========================================================
-// Optional sizes
-// ==========================================================
-
-.btn-conferp-sm {
+.btn-conferp-sm:not(.elementor-widget-button) {
     min-height: 28px;
-
     padding: 6px 14px;
-
     font-size: 13px;
 }
 
-.btn-conferp-lg {
+.btn-conferp-lg:not(.elementor-widget-button) {
     min-height: 42px;
-
     padding: 10px 22px;
 
     font-size: 14px;
@@ -145,14 +231,49 @@
 }
 
 
-// ==========================================================
-// Reduced Motion
-// ==========================================================
+/* ==========================================================
+   Sizes - Elementor
+   ========================================================== */
+
+.elementor-widget-button.btn-conferp-sm {
+    .elementor-button {
+        min-height: 28px;
+        padding: 6px 14px;
+        font-size: 13px;
+    }
+}
+
+.elementor-widget-button.btn-conferp-lg {
+    .elementor-button {
+        min-height: 42px;
+        padding: 10px 22px;
+
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+}
+
+
+/* ==========================================================
+   Disabled
+   ========================================================== */
+
+.btn-conferp.is-disabled,
+.btn-conferp:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+
+/* ==========================================================
+   Reduced Motion
+   ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-
     .btn-conferp,
-    .elementor-button {
+    .elementor-widget-button.btn-conferp .elementor-button {
         transition: none;
     }
 }

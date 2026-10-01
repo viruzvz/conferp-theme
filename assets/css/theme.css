@@ -12720,42 +12720,75 @@ main {
   display: block;
 }
 
-:root {
+/**
+ * Accessibility
+ *
+ * Recursos globais de acessibilidade do tema CONFERP.
+ *
+ * Controlado por assets/js/accessibility.js.
+ *
+ * Recursos:
+ * - ajuste de tamanho de fonte
+ * - alto contraste
+ * - tratamento dos componentes institucionais
+ * - tratamento dos componentes globais
+ * - compatibilidade com Elementor
+ * - Hero Carousel
+ */
+/* =========================================================
+   FONT SIZE
+   ========================================================= */
+/*
+ * accessibility.js controla:
+ *
+ * --conferp-font-scale
+ *
+ * Exemplos:
+ * 0.90
+ * 1
+ * 1.10
+ * 1.20
+ */
+html {
   --conferp-font-scale: 1;
 }
 
 /*
- * The theme should preferably use rem units.
+ * Aplicamos a escala na raiz.
  *
- * This allows A+ / A- controls to resize content
- * consistently without changing individual components.
+ * Os elementos que utilizam rem acompanham automaticamente
+ * a alteração.
  */
 html {
   font-size: calc(100% * var(--conferp-font-scale));
 }
 
+/* =========================================================
+   HIGH CONTRAST
+   ========================================================= */
 html.conferp-high-contrast {
-  background-color: #000;
-}
-html.conferp-high-contrast body,
-html.conferp-high-contrast main,
-html.conferp-high-contrast #page,
-html.conferp-high-contrast .site,
-html.conferp-high-contrast .site-content,
-html.conferp-high-contrast .content-area,
-html.conferp-high-contrast .site-main {
   background-color: #000 !important;
   color: #fff !important;
 }
+html.conferp-high-contrast body {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+html.conferp-high-contrast {
+  /* =====================================================
+     TEXTO
+     ===================================================== */
+}
+html.conferp-high-contrast body,
 html.conferp-high-contrast p,
+html.conferp-high-contrast span,
 html.conferp-high-contrast li,
 html.conferp-high-contrast dt,
 html.conferp-high-contrast dd,
-html.conferp-high-contrast blockquote,
-html.conferp-high-contrast figcaption,
 html.conferp-high-contrast address,
-html.conferp-high-contrast label {
-  color: #fff;
+html.conferp-high-contrast blockquote,
+html.conferp-high-contrast figcaption {
+  color: #fff !important;
 }
 html.conferp-high-contrast h1, html.conferp-high-contrast .h1,
 html.conferp-high-contrast h2,
@@ -12770,196 +12803,45 @@ html.conferp-high-contrast h6,
 html.conferp-high-contrast .h6 {
   color: #fff !important;
 }
-html.conferp-high-contrast a:not(.conferp-utility-bar__federal-logo,
-.conferp-subfooter__federal-logo) {
+html.conferp-high-contrast {
+  /* =====================================================
+     LINKS
+     ===================================================== */
+}
+html.conferp-high-contrast a {
   color: #ff0 !important;
   text-decoration: underline;
-  text-decoration-thickness: 0.125em;
-  text-underline-offset: 0.15em;
 }
-html.conferp-high-contrast .site-header,
-html.conferp-high-contrast .site-header__main,
-html.conferp-high-contrast .site-header__inner {
-  background-color: #000 !important;
+html.conferp-high-contrast a:hover,
+html.conferp-high-contrast a:focus {
   color: #fff !important;
-}
-html.conferp-high-contrast .site-branding__institution-name {
-  color: #fff !important;
-}
-html.conferp-high-contrast .site-branding__social-link {
-  background-color: transparent !important;
-  color: #ff0 !important;
-  text-decoration: none !important;
-}
-html.conferp-high-contrast .site-branding__social-link:hover, html.conferp-high-contrast .site-branding__social-link:focus-visible {
-  background-color: #ff0 !important;
-  color: #000 !important;
-}
-html.conferp-high-contrast .site-branding__social-separator {
-  background-color: rgba(255, 255, 255, 0.65) !important;
-}
-html.conferp-high-contrast .primary-navigation {
-  background-color: #000 !important;
-  color: #fff !important;
-}
-html.conferp-high-contrast .primary-navigation__menu {
-  background-color: #000 !important;
-}
-html.conferp-high-contrast .primary-navigation__menu > .menu-item > a {
-  background-color: #000 !important;
-  color: #ff0 !important;
   text-decoration: underline;
-  text-decoration-thickness: 0.125em;
-  text-underline-offset: 0.15em;
 }
-html.conferp-high-contrast .primary-navigation__menu > .menu-item > a:hover, html.conferp-high-contrast .primary-navigation__menu > .menu-item > a:focus-visible {
-  background-color: #ff0 !important;
-  color: #000 !important;
-  text-decoration: none;
+html.conferp-high-contrast {
+  /* =====================================================
+     FOCUS
+     ===================================================== */
 }
-html.conferp-high-contrast .primary-navigation__menu > .current-menu-item > a,
-html.conferp-high-contrast .primary-navigation__menu > .current-menu-ancestor > a,
-html.conferp-high-contrast .primary-navigation__menu > .current-menu-parent > a {
-  background-color: #fff !important;
-  color: #000 !important;
-  text-decoration: none;
+html.conferp-high-contrast a:focus-visible,
+html.conferp-high-contrast button:focus-visible,
+html.conferp-high-contrast input:focus-visible,
+html.conferp-high-contrast select:focus-visible,
+html.conferp-high-contrast textarea:focus-visible,
+html.conferp-high-contrast [tabindex]:focus-visible {
+  outline: 3px solid #ff0 !important;
+  outline-offset: 3px;
 }
-html.conferp-high-contrast .primary-navigation .sub-menu {
-  border: 1px solid #fff !important;
-  border-top: 0 !important;
-  background-color: #000 !important;
-  box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.12);
-}
-html.conferp-high-contrast .primary-navigation .sub-menu .menu-item a {
-  background-color: #000 !important;
-  color: #ff0 !important;
-  text-decoration: underline;
-  text-decoration-thickness: 0.125em;
-  text-underline-offset: 0.15em;
-}
-html.conferp-high-contrast .primary-navigation .sub-menu .menu-item a:hover, html.conferp-high-contrast .primary-navigation .sub-menu .menu-item a:focus-visible {
-  background-color: #ff0 !important;
-  color: #000 !important;
-  text-decoration: none;
-}
-html.conferp-high-contrast .primary-navigation .sub-menu .current-menu-item > a,
-html.conferp-high-contrast .primary-navigation .sub-menu .current-menu-ancestor > a,
-html.conferp-high-contrast .primary-navigation .sub-menu .current-menu-parent > a {
-  background-color: #fff !important;
-  color: #000 !important;
-  font-weight: 700;
-  text-decoration: none;
-}
-html.conferp-high-contrast .primary-navigation__empty {
-  background-color: #000 !important;
-  color: #fff !important;
-}
-html.conferp-high-contrast .primary-navigation__empty a {
-  color: #ff0 !important;
-}
-html.conferp-high-contrast .site-footer,
-html.conferp-high-contrast .site-footer__inner,
-html.conferp-high-contrast .site-footer__branding,
-html.conferp-high-contrast .site-footer__column {
-  background-color: #000 !important;
-  color: #fff !important;
-}
-html.conferp-high-contrast .site-footer {
-  border-top: 1px solid #fff;
-}
-html.conferp-high-contrast .site-footer__column {
-  border-color: rgba(255, 255, 255, 0.55) !important;
-}
-html.conferp-high-contrast .site-footer__title,
-html.conferp-high-contrast .site-footer__institution-name,
-html.conferp-high-contrast .site-footer p,
-html.conferp-high-contrast .site-footer address {
-  color: #fff !important;
-}
-html.conferp-high-contrast .site-footer a {
-  color: #ff0 !important;
-}
-html.conferp-high-contrast .conferp-utility-bar,
-html.conferp-high-contrast .conferp-subfooter {
-  background-color: #000 !important;
-  color: #fff !important;
-}
-html.conferp-high-contrast .conferp-utility-bar__container,
-html.conferp-high-contrast .conferp-subfooter__inner {
-  background-color: #000 !important;
-}
-html.conferp-high-contrast .conferp-utility-bar__federal-logo,
-html.conferp-high-contrast .conferp-subfooter__federal-logo {
-  color: #fff !important;
-  text-decoration: none !important;
-}
-html.conferp-high-contrast .conferp-utility-bar__regional-selector .form-select,
-html.conferp-high-contrast .conferp-subfooter__regional-selector .form-select {
-  border: 2px solid #fff !important;
-  background-color: #000 !important;
-  color: #fff !important;
-}
-html.conferp-high-contrast .conferp-utility-bar__link,
-html.conferp-high-contrast .conferp-utility-bar__mobile-link {
-  color: #ff0 !important;
-}
-html.conferp-high-contrast .conferp-accessibility-control,
-html.conferp-high-contrast .conferp-accessibility-sticky__control,
-html.conferp-high-contrast .conferp-accessibility-sticky__trigger {
-  border-color: #fff !important;
-  background-color: #000 !important;
-  color: #fff !important;
-  text-decoration: none !important;
-}
-html.conferp-high-contrast .conferp-accessibility-control:hover,
-html.conferp-high-contrast .conferp-accessibility-control:focus-visible,
-html.conferp-high-contrast .conferp-accessibility-sticky__control:hover,
-html.conferp-high-contrast .conferp-accessibility-sticky__control:focus-visible,
-html.conferp-high-contrast .conferp-accessibility-sticky__trigger:hover,
-html.conferp-high-contrast .conferp-accessibility-sticky__trigger:focus-visible {
-  background-color: #ff0 !important;
-  color: #000 !important;
-}
-html.conferp-high-contrast .conferp-accessibility-sticky__panel {
-  border: 1px solid #fff;
-  background-color: #000 !important;
-}
-html.conferp-high-contrast .conferp-utility-bar__registered-button {
-  border: 2px solid #ff0 !important;
-  background-color: #000 !important;
-  color: #ff0 !important;
-  text-decoration: underline !important;
-}
-html.conferp-high-contrast .conferp-utility-bar__registered-button:hover,
-html.conferp-high-contrast .conferp-utility-bar__registered-button:focus-visible {
-  background-color: #ff0 !important;
-  color: #000 !important;
-  text-decoration: none !important;
-}
-html.conferp-high-contrast button,
-html.conferp-high-contrast .btn,
-html.conferp-high-contrast input[type=button],
-html.conferp-high-contrast input[type=submit],
-html.conferp-high-contrast input[type=reset] {
-  border-color: #fff;
-  background-color: #000;
-  color: #fff;
-}
-html.conferp-high-contrast button:hover,
-html.conferp-high-contrast .btn:hover,
-html.conferp-high-contrast input[type=button]:hover,
-html.conferp-high-contrast input[type=submit]:hover,
-html.conferp-high-contrast input[type=reset]:hover {
-  border-color: #ff0;
-  background-color: #ff0;
-  color: #000;
+html.conferp-high-contrast {
+  /* =====================================================
+     FORMULÁRIOS
+     ===================================================== */
 }
 html.conferp-high-contrast input,
-html.conferp-high-contrast select,
-html.conferp-high-contrast textarea {
-  border: 2px solid #fff !important;
+html.conferp-high-contrast textarea,
+html.conferp-high-contrast select {
   background-color: #000 !important;
   color: #fff !important;
+  border-color: #fff !important;
 }
 html.conferp-high-contrast input::placeholder,
 html.conferp-high-contrast textarea::placeholder {
@@ -12970,88 +12852,518 @@ html.conferp-high-contrast option {
   background-color: #000;
   color: #fff;
 }
-html.conferp-high-contrast table,
-html.conferp-high-contrast thead,
-html.conferp-high-contrast tbody,
-html.conferp-high-contrast tfoot,
-html.conferp-high-contrast tr,
-html.conferp-high-contrast th,
-html.conferp-high-contrast td {
-  border-color: #fff !important;
+html.conferp-high-contrast {
+  /* =====================================================
+     BOTÕES GENÉRICOS
+     ===================================================== */
+}
+html.conferp-high-contrast button,
+html.conferp-high-contrast input[type=button],
+html.conferp-high-contrast input[type=submit],
+html.conferp-high-contrast input[type=reset] {
+  background-color: #000 !important;
+  color: #ff0 !important;
+  border-color: #ff0 !important;
+}
+html.conferp-high-contrast button:hover,
+html.conferp-high-contrast button:focus,
+html.conferp-high-contrast input[type=button]:hover,
+html.conferp-high-contrast input[type=button]:focus,
+html.conferp-high-contrast input[type=submit]:hover,
+html.conferp-high-contrast input[type=submit]:focus,
+html.conferp-high-contrast input[type=reset]:hover,
+html.conferp-high-contrast input[type=reset]:focus {
+  background-color: #ff0 !important;
+  color: #000 !important;
+  border-color: #ff0 !important;
+}
+html.conferp-high-contrast {
+  /* =====================================================
+     ELEMENTOR
+     ===================================================== */
+}
+html.conferp-high-contrast .elementor {
+  color: #fff;
+}
+html.conferp-high-contrast .elementor-widget-text-editor,
+html.conferp-high-contrast .elementor-widget-text-editor p {
+  color: #fff !important;
+}
+html.conferp-high-contrast .elementor-heading-title {
+  color: #fff !important;
+}
+html.conferp-high-contrast {
+  /*
+   * Não forçamos background preto indiscriminadamente
+   * em todos os containers Elementor.
+   *
+   * Isso preserva imagens, componentes e estruturas
+   * que possuem tratamento próprio.
+   */
+  /* =====================================================
+     HEADER INSTITUCIONAL
+     ===================================================== */
+}
+html.conferp-high-contrast .site-header,
+html.conferp-high-contrast .site-header__desktop,
+html.conferp-high-contrast .site-header__mobile,
+html.conferp-high-contrast .site-branding {
   background-color: #000 !important;
   color: #fff !important;
 }
-html.conferp-high-contrast .elementor,
-html.conferp-high-contrast .elementor-section,
-html.conferp-high-contrast .elementor-container,
-html.conferp-high-contrast .elementor-widget-wrap,
-html.conferp-high-contrast .e-con {
-  color: #fff;
+html.conferp-high-contrast .site-header a {
+  color: #ff0 !important;
 }
-html.conferp-high-contrast .elementor-widget-heading .elementor-heading-title {
+html.conferp-high-contrast {
+  /* =====================================================
+     NAVEGAÇÃO
+     ===================================================== */
+}
+html.conferp-high-contrast .main-navigation,
+html.conferp-high-contrast .site-navigation,
+html.conferp-high-contrast .mobile-navigation {
+  background-color: #000 !important;
   color: #fff !important;
 }
-html.conferp-high-contrast .elementor-widget-text-editor {
+html.conferp-high-contrast .main-navigation a,
+html.conferp-high-contrast .site-navigation a,
+html.conferp-high-contrast .mobile-navigation a {
+  color: #ff0 !important;
+}
+html.conferp-high-contrast .main-navigation a:hover,
+html.conferp-high-contrast .main-navigation a:focus,
+html.conferp-high-contrast .site-navigation a:hover,
+html.conferp-high-contrast .site-navigation a:focus,
+html.conferp-high-contrast .mobile-navigation a:hover,
+html.conferp-high-contrast .mobile-navigation a:focus {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+html.conferp-high-contrast {
+  /* =====================================================
+     UTILITY BAR
+     ===================================================== */
+}
+html.conferp-high-contrast .conferp-utility-bar {
+  background-color: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+html.conferp-high-contrast .conferp-utility-bar a {
+  color: #ff0 !important;
+}
+html.conferp-high-contrast .conferp-utility-bar select {
+  background-color: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+html.conferp-high-contrast {
+  /* =====================================================
+     FOOTER INSTITUCIONAL
+     ===================================================== */
+}
+html.conferp-high-contrast .site-footer {
+  background-color: #000 !important;
   color: #fff !important;
 }
-html.conferp-high-contrast .elementor-widget-text-editor p,
-html.conferp-high-contrast .elementor-widget-text-editor li {
+html.conferp-high-contrast .site-footer h1, html.conferp-high-contrast .site-footer .h1,
+html.conferp-high-contrast .site-footer h2,
+html.conferp-high-contrast .site-footer .h2,
+html.conferp-high-contrast .site-footer h3,
+html.conferp-high-contrast .site-footer .h3,
+html.conferp-high-contrast .site-footer h4,
+html.conferp-high-contrast .site-footer .h4,
+html.conferp-high-contrast .site-footer h5,
+html.conferp-high-contrast .site-footer .h5,
+html.conferp-high-contrast .site-footer h6,
+html.conferp-high-contrast .site-footer .h6 {
   color: #fff !important;
+}
+html.conferp-high-contrast .site-footer p,
+html.conferp-high-contrast .site-footer li,
+html.conferp-high-contrast .site-footer address {
+  color: #fff !important;
+}
+html.conferp-high-contrast .site-footer a {
+  color: #ff0 !important;
+}
+html.conferp-high-contrast .site-footer a:hover,
+html.conferp-high-contrast .site-footer a:focus {
+  color: #fff !important;
+}
+html.conferp-high-contrast {
+  /* =====================================================
+     SUBFOOTER GLOBAL
+     ===================================================== */
+}
+html.conferp-high-contrast .conferp-subfooter {
+  background-color: #000 !important;
+  color: #fff !important;
+  border-top: 1px solid #fff;
+}
+html.conferp-high-contrast .conferp-subfooter a {
+  color: #ff0 !important;
+}
+html.conferp-high-contrast .conferp-subfooter select {
+  background-color: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+html.conferp-high-contrast {
+  /* =====================================================
+     ACCESSIBILITY STICKY
+     ===================================================== */
+}
+html.conferp-high-contrast .conferp-accessibility-sticky {
+  background-color: #000 !important;
+  color: #ff0 !important;
+  border-color: #ff0 !important;
+}
+html.conferp-high-contrast .conferp-accessibility-sticky svg {
+  color: #ff0 !important;
+  fill: currentColor;
+}
+html.conferp-high-contrast {
+  /* =====================================================
+     BACK TO TOP
+     ===================================================== */
+}
+html.conferp-high-contrast .conferp-back-to-top {
+  background-color: #000 !important;
+  color: #ff0 !important;
+  border: 2px solid #ff0 !important;
+}
+html.conferp-high-contrast .conferp-back-to-top:hover,
+html.conferp-high-contrast .conferp-back-to-top:focus {
+  background-color: #ff0 !important;
+  color: #000 !important;
+}
+html.conferp-high-contrast {
+  /* =====================================================
+     IMAGENS
+     ===================================================== */
+  /*
+   * Imagens comuns continuam visíveis.
+   *
+   * Não aplicamos invert() globalmente porque isso
+   * destruiria fotografias e identidade visual.
+   */
 }
 html.conferp-high-contrast img,
 html.conferp-high-contrast picture,
-html.conferp-high-contrast video,
-html.conferp-high-contrast iframe,
-html.conferp-high-contrast canvas {
-  filter: none;
-}
-html.conferp-high-contrast hr {
-  border-color: #fff !important;
+html.conferp-high-contrast video {
   opacity: 1;
 }
-html.conferp-high-contrast :focus-visible {
-  outline: 3px solid #ff0 !important;
-  outline-offset: 3px !important;
+html.conferp-high-contrast {
+  /* =====================================================
+     HERO CAROUSEL
+     ===================================================== */
+  /*
+   * O Hero possui tratamento próprio para impedir que
+   * as regras genéricas do Elementor criem o problema
+   * visto anteriormente:
+   *
+   * fundo claro + texto branco.
+   */
 }
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible,
-[tabindex]:focus-visible {
-  outline: 3px solid #4d9bd5;
+html.conferp-high-contrast .hero-carousel,
+html.conferp-high-contrast .hero-carousel__slide,
+html.conferp-high-contrast .hero-carousel__inner {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+html.conferp-high-contrast {
+  /* -----------------------------------------------------
+     HERO CONTENT
+     ----------------------------------------------------- */
+}
+html.conferp-high-contrast .hero-carousel__content {
+  position: relative;
+  background: transparent !important;
+  color: #fff !important;
+  opacity: 1 !important;
+}
+html.conferp-high-contrast .hero-carousel__content .elementor-widget-heading,
+html.conferp-high-contrast .hero-carousel__content .elementor-widget-text-editor,
+html.conferp-high-contrast .hero-carousel__content .elementor-widget-button,
+html.conferp-high-contrast .hero-carousel__content .elementor-widget-container,
+html.conferp-high-contrast .hero-carousel__content .elementor-heading-title,
+html.conferp-high-contrast .hero-carousel__content .elementor-button-wrapper {
+  opacity: 1 !important;
+}
+html.conferp-high-contrast {
+  /* -----------------------------------------------------
+     HERO HEADING
+     ----------------------------------------------------- */
+}
+html.conferp-high-contrast .hero-carousel__content .elementor-heading-title {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+html.conferp-high-contrast {
+  /* -----------------------------------------------------
+     HERO TEXT
+     ----------------------------------------------------- */
+}
+html.conferp-high-contrast .hero-carousel__content .elementor-widget-text-editor,
+html.conferp-high-contrast .hero-carousel__content .elementor-widget-text-editor p {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+html.conferp-high-contrast {
+  /* -----------------------------------------------------
+     HERO BUTTON WRAPPERS
+     ----------------------------------------------------- */
+}
+html.conferp-high-contrast .hero-carousel__content .elementor-widget-button {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+html.conferp-high-contrast .hero-carousel__content .elementor-widget-button > .elementor-widget-container {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+html.conferp-high-contrast .hero-carousel__content .elementor-button-wrapper {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+html.conferp-high-contrast {
+  /* -----------------------------------------------------
+     HERO BUTTON
+     ----------------------------------------------------- */
+}
+html.conferp-high-contrast .hero-carousel__content .elementor-button {
+  background-color: #000 !important;
+  color: #ff0 !important;
+  border: 2px solid #ff0 !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  text-decoration: none !important;
+}
+html.conferp-high-contrast .hero-carousel__content .elementor-button:hover,
+html.conferp-high-contrast .hero-carousel__content .elementor-button:focus-visible {
+  background-color: #ff0 !important;
+  color: #000 !important;
+  border-color: #ff0 !important;
+  text-decoration: none !important;
+}
+html.conferp-high-contrast .hero-carousel__content .elementor-button:focus-visible {
+  outline: 3px solid #fff !important;
   outline-offset: 3px;
 }
-
-.screen-reader-text {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+html.conferp-high-contrast {
+  /* -----------------------------------------------------
+     HERO MEDIA
+     ----------------------------------------------------- */
+  /*
+   * O container da imagem continua opaco.
+   *
+   * Alteramos somente a fotografia.
+   */
 }
-.screen-reader-text:focus {
-  position: fixed;
-  z-index: 100000;
-  top: 10px;
-  left: 10px;
-  width: auto;
-  height: auto;
-  padding: 0.75rem 1rem;
-  margin: 0;
-  overflow: visible;
-  clip: auto;
-  white-space: normal;
-  background-color: #ffffff;
-  color: #000000;
-  font-weight: 700;
+html.conferp-high-contrast .hero-carousel__media {
+  background-color: #000 !important;
+  opacity: 1 !important;
+}
+html.conferp-high-contrast .hero-carousel__media .elementor-widget-image,
+html.conferp-high-contrast .hero-carousel__media .elementor-widget-container {
+  background: transparent !important;
+  opacity: 1 !important;
+}
+html.conferp-high-contrast .hero-carousel__media img {
+  opacity: 0.45 !important;
+  filter: grayscale(100%) contrast(120%);
+}
+html.conferp-high-contrast {
+  /* -----------------------------------------------------
+     HERO PAGINATION
+     ----------------------------------------------------- */
+}
+html.conferp-high-contrast .hero-carousel__pagination {
+  opacity: 1 !important;
+}
+html.conferp-high-contrast .hero-carousel__dot {
+  background-color: #fff !important;
+  opacity: 1 !important;
+  border: 0 !important;
+}
+html.conferp-high-contrast .hero-carousel__dot.is-active {
+  background-color: #ff0 !important;
+  opacity: 1 !important;
+}
+html.conferp-high-contrast .hero-carousel__dot:hover {
+  opacity: 0.85 !important;
+}
+html.conferp-high-contrast .hero-carousel__dot:focus-visible {
+  outline: 3px solid #ff0 !important;
+  outline-offset: 4px;
+}
+html.conferp-high-contrast {
+  /* =====================================================
+     HERO — MOBILE
+     ===================================================== */
+}
+@media (max-width: 767.98px) {
+  html.conferp-high-contrast {
+    /*
+     * O mobile usa a fotografia atrás do conteúdo.
+     *
+     * No contraste:
+     *
+     * imagem
+     * ↓
+     * overlay preto
+     * ↓
+     * texto / botão
+     */
+  }
+  html.conferp-high-contrast .hero-carousel,
+  html.conferp-high-contrast .hero-carousel__slide,
+  html.conferp-high-contrast .hero-carousel__inner {
+    background-color: #000 !important;
+  }
+  html.conferp-high-contrast {
+    /* -------------------------------------------------
+       MEDIA
+       ------------------------------------------------- */
+  }
+  html.conferp-high-contrast .hero-carousel__media {
+    z-index: 1;
+    background-color: #000 !important;
+    opacity: 1 !important;
+  }
+  html.conferp-high-contrast .hero-carousel__media .elementor-widget-image,
+  html.conferp-high-contrast .hero-carousel__media .elementor-widget-container {
+    opacity: 1 !important;
+  }
+  html.conferp-high-contrast {
+    /*
+     * SOMENTE a fotografia recebe transparência.
+     */
+  }
+  html.conferp-high-contrast .hero-carousel__media .elementor-widget-image img {
+    opacity: 0.3 !important;
+    filter: grayscale(100%) contrast(120%);
+  }
+  html.conferp-high-contrast {
+    /* -------------------------------------------------
+       OVERLAY
+       ------------------------------------------------- */
+    /*
+     * Substitui o overlay claro utilizado no modo
+     * normal por uma camada escura.
+     */
+  }
+  html.conferp-high-contrast .hero-carousel__inner::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72) !important;
+    opacity: 1 !important;
+    pointer-events: none;
+  }
+  html.conferp-high-contrast {
+    /* -------------------------------------------------
+       CONTENT
+       ------------------------------------------------- */
+  }
+  html.conferp-high-contrast .hero-carousel__content {
+    position: relative;
+    z-index: 3;
+    background: transparent !important;
+    color: #fff !important;
+    opacity: 1 !important;
+  }
+  html.conferp-high-contrast {
+    /*
+     * Forçamos os elementos internos para 100%
+     * de opacidade.
+     */
+  }
+  html.conferp-high-contrast .hero-carousel__content .elementor-widget-heading,
+  html.conferp-high-contrast .hero-carousel__content .elementor-widget-text-editor,
+  html.conferp-high-contrast .hero-carousel__content .elementor-widget-button,
+  html.conferp-high-contrast .hero-carousel__content .elementor-widget-container,
+  html.conferp-high-contrast .hero-carousel__content .elementor-heading-title,
+  html.conferp-high-contrast .hero-carousel__content .elementor-button-wrapper,
+  html.conferp-high-contrast .hero-carousel__content .elementor-button {
+    opacity: 1 !important;
+  }
+  html.conferp-high-contrast {
+    /* -------------------------------------------------
+       HEADING
+       ------------------------------------------------- */
+  }
+  html.conferp-high-contrast .hero-carousel__content .elementor-heading-title {
+    color: #fff !important;
+  }
+  html.conferp-high-contrast {
+    /* -------------------------------------------------
+       TEXT
+       ------------------------------------------------- */
+  }
+  html.conferp-high-contrast .hero-carousel__content .elementor-widget-text-editor,
+  html.conferp-high-contrast .hero-carousel__content .elementor-widget-text-editor p {
+    color: #fff !important;
+  }
+  html.conferp-high-contrast {
+    /* -------------------------------------------------
+       BUTTON WRAPPERS
+       ------------------------------------------------- */
+  }
+  html.conferp-high-contrast .hero-carousel__content .elementor-widget-button,
+  html.conferp-high-contrast .hero-carousel__content .elementor-widget-button > .elementor-widget-container,
+  html.conferp-high-contrast .hero-carousel__content .elementor-button-wrapper {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+  html.conferp-high-contrast {
+    /* -------------------------------------------------
+       BUTTON
+       ------------------------------------------------- */
+  }
+  html.conferp-high-contrast .hero-carousel__content .elementor-button {
+    background-color: #000 !important;
+    color: #ff0 !important;
+    border: 2px solid #ff0 !important;
+    box-shadow: none !important;
+  }
+  html.conferp-high-contrast .hero-carousel__content .elementor-button:hover,
+  html.conferp-high-contrast .hero-carousel__content .elementor-button:focus-visible {
+    background-color: #ff0 !important;
+    color: #000 !important;
+    border-color: #ff0 !important;
+  }
+  html.conferp-high-contrast {
+    /* -------------------------------------------------
+       PAGINATION
+       ------------------------------------------------- */
+  }
+  html.conferp-high-contrast .hero-carousel__pagination {
+    z-index: 4;
+    opacity: 1 !important;
+  }
+  html.conferp-high-contrast .hero-carousel__dot {
+    background-color: #fff !important;
+    opacity: 1 !important;
+  }
+  html.conferp-high-contrast .hero-carousel__dot.is-active {
+    background-color: #ff0 !important;
+    opacity: 1 !important;
+  }
 }
 
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -13068,23 +13380,28 @@ textarea:focus-visible,
 /**
  * CONFERP Buttons
  *
- * Institutional button system.
+ * Supports:
  *
- * The base component defines shared geometry and typography.
- * Modifier classes define semantic visual variations.
+ * 1. Native theme button:
+ *    <a class="btn-conferp btn-conferp-primary">
  *
- * Elementor may provide the HTML button structure, but the
- * institutional visual language is controlled by the theme.
+ * 2. Elementor Button widget:
+ *    <div class="btn-conferp btn-conferp-primary elementor-widget-button">
+ *        ...
+ *        <a class="elementor-button">
+ *    </div>
  */
-.btn-conferp,
-.elementor-button {
+/* ==========================================================
+   Native Theme Button
+   ========================================================== */
+.btn-conferp:not(.elementor-widget-button) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: auto;
   min-height: 30px;
   padding: 7px 16px;
-  border: 1px solid transparent;
+  border: 0;
   border-radius: 25px;
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 14px;
@@ -13094,61 +13411,144 @@ textarea:focus-visible,
   text-decoration: none;
   cursor: pointer;
   box-shadow: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  appearance: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.btn-conferp-primary,
-.elementor-button {
-  border-color: #205584;
+/* ==========================================================
+   Native Primary
+   ========================================================== */
+.btn-conferp-primary:not(.elementor-widget-button) {
+  border: 0;
   background-color: #5292cd;
   color: #fff;
 }
 
-.btn-conferp-primary:hover,
-.btn-conferp-primary:focus-visible,
-.elementor-button:hover,
-.elementor-button:focus-visible {
-  border-color: #205584;
+.btn-conferp-primary:not(.elementor-widget-button):hover,
+.btn-conferp-primary:not(.elementor-widget-button):focus-visible {
   background-color: #205584;
   color: #fff;
   text-decoration: none;
 }
 
-.btn-conferp-outline {
-  border-color: #205584;
+/* ==========================================================
+   Native Outline
+   ========================================================== */
+.btn-conferp-outline:not(.elementor-widget-button) {
+  border: 1px solid #205584;
   background-color: transparent;
   color: #205584;
 }
 
-.btn-conferp-outline:hover,
-.btn-conferp-outline:focus-visible {
-  border-color: #205584;
+.btn-conferp-outline:not(.elementor-widget-button):hover,
+.btn-conferp-outline:not(.elementor-widget-button):focus-visible {
   background-color: #205584;
   color: #fff;
+}
+
+/* ==========================================================
+   Elementor Button Widget
+
+   btn-conferp / btn-conferp-primary are applied to the
+   Elementor widget itself.
+
+   The widget and its wrappers remain transparent.
+   Only the actual <a class="elementor-button"> is styled.
+   ========================================================== */
+.elementor-widget-button.btn-conferp,
+.elementor-widget-button.btn-conferp-primary,
+.elementor-widget-button.btn-conferp-outline {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Elementor wrappers */
+.elementor-widget-button.btn-conferp > .elementor-widget-container {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.elementor-widget-button.btn-conferp .elementor-button-wrapper {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Actual Elementor button */
+.elementor-widget-button.btn-conferp .elementor-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-height: 30px;
+  padding: 7px 16px;
+  border: 0 !important;
+  border-radius: 25px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: none !important;
+  appearance: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ==========================================================
+   Elementor Primary
+   ========================================================== */
+.elementor-widget-button.btn-conferp-primary .elementor-button {
+  border: 0 !important;
+  background-color: #5292cd !important;
+  color: #fff !important;
+}
+.elementor-widget-button.btn-conferp-primary .elementor-button:hover,
+.elementor-widget-button.btn-conferp-primary .elementor-button:focus-visible {
+  border: 0 !important;
+  background-color: #205584 !important;
+  color: #fff !important;
   text-decoration: none;
 }
 
-.btn-conferp:focus-visible,
-.elementor-button:focus-visible {
+/* ==========================================================
+   Elementor Outline
+   ========================================================== */
+.elementor-widget-button.btn-conferp-outline .elementor-button {
+  border: 1px solid #205584 !important;
+  background-color: transparent !important;
+  color: #205584 !important;
+}
+.elementor-widget-button.btn-conferp-outline .elementor-button:hover,
+.elementor-widget-button.btn-conferp-outline .elementor-button:focus-visible {
+  background-color: #205584 !important;
+  color: #fff !important;
+}
+
+/* ==========================================================
+   Focus
+   ========================================================== */
+.btn-conferp:not(.elementor-widget-button):focus-visible,
+.elementor-widget-button.btn-conferp .elementor-button:focus-visible {
   outline: 3px solid rgba(77, 155, 213, 0.35);
   outline-offset: 3px;
 }
 
-.btn-conferp:disabled,
-.btn-conferp.is-disabled,
-.elementor-button:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-.btn-conferp-sm {
+/* ==========================================================
+   Sizes - Native
+   ========================================================== */
+.btn-conferp-sm:not(.elementor-widget-button) {
   min-height: 28px;
   padding: 6px 14px;
   font-size: 13px;
 }
 
-.btn-conferp-lg {
+.btn-conferp-lg:not(.elementor-widget-button) {
   min-height: 42px;
   padding: 10px 22px;
   font-size: 14px;
@@ -13156,109 +13556,220 @@ textarea:focus-visible,
   line-height: 1.2;
 }
 
+/* ==========================================================
+   Sizes - Elementor
+   ========================================================== */
+.elementor-widget-button.btn-conferp-sm .elementor-button {
+  min-height: 28px;
+  padding: 6px 14px;
+  font-size: 13px;
+}
+
+.elementor-widget-button.btn-conferp-lg .elementor-button {
+  min-height: 42px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* ==========================================================
+   Disabled
+   ========================================================== */
+.btn-conferp.is-disabled,
+.btn-conferp:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ==========================================================
+   Reduced Motion
+   ========================================================== */
 @media (prefers-reduced-motion: reduce) {
   .btn-conferp,
-  .elementor-button {
+  .elementor-widget-button.btn-conferp .elementor-button {
     transition: none;
   }
 }
 /**
- * CONFERP Hero Carousel
+ * Hero Carousel
  *
- * Elementor structure:
+ * CONFERP institutional homepage hero.
+ *
+ * Estrutura Elementor:
  *
  * .hero-carousel
- * ├── .hero-carousel__slide
- * │   └── .hero-carousel__inner
- * │       ├── .hero-carousel__content
- * │       └── .hero-carousel__media
- * │
  * └── .hero-carousel__slide
  *     └── .hero-carousel__inner
  *         ├── .hero-carousel__content
+ *         │   ├── Heading
+ *         │   ├── Text Editor
+ *         │   └── Button
  *         └── .hero-carousel__media
+ *             └── Image
  *
- * Strategy:
+ * Desktop:
+ * - conteúdo centralizado no grid institucional
+ * - conteúdo ocupa 62% do container
+ * - imagem ocupa 38% + full-bleed à direita
+ * - altura uniforme entre slides
  *
- * - Hero occupies 100% of the available viewport.
- * - Slide occupies 100% of the Hero.
- * - Inner creates the horizontal composition.
- * - Content follows the Bootstrap 1320px alignment.
- * - Media reaches the right edge.
- * - Image is clipped inside the media area.
- * - Carousel uses fade.
- * - Elementor and front-end share the same geometry.
+ * < LG:
+ * - mantém o layout mobile aprovado
+ * - imagem ocupa o fundo do Hero
+ * - overlay claro preserva contraste
+ * - conteúdo permanece sobre a imagem
+ * - altura fixa de 465px
  */
+/* =========================================================
+   HERO
+   ========================================================= */
 .hero-carousel {
   position: relative;
+  /*
+   * O Hero precisa respeitar rigorosamente a largura
+   * disponível no documento. O min-width: 0 é importante
+   * porque este container também é um item flex do Elementor:
+   * sem ele, o cálculo full-bleed da mídia pode aumentar a
+   * largura intrínseca do Hero no Chromium.
+   */
   width: 100% !important;
   max-width: 100% !important;
+  min-width: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
-  overflow-x: clip;
-  overflow-y: hidden;
   box-sizing: border-box;
+  /*
+   * Mantém o full-bleed visual limitado à própria viewport
+   * do Hero sem criar um novo scroll container horizontal.
+   */
+  overflow-x: clip !important;
+  overflow-y: visible;
   background-color: #f2f6ff;
 }
 
+/* =========================================================
+   SLIDE
+   ========================================================= */
 .hero-carousel__slide {
   position: relative;
   width: 100% !important;
   max-width: 100% !important;
-  min-width: 0;
-  min-height: 330px;
+  min-width: 0 !important;
+  box-sizing: border-box;
+  /*
+   * Altura uniforme entre os slides.
+   *
+   * mínimo: 330px
+   * máximo: 400px
+   */
+  min-height: 330px !important;
+  height: clamp(330px, 20vw, 400px) !important;
+  max-height: 400px !important;
   margin: 0 !important;
   padding: 0 !important;
   overflow: hidden;
-  box-sizing: border-box;
-  background-color: #f2f6ff;
 }
 
+/* =========================================================
+   CAROUSEL INICIALIZADO
+   ========================================================= */
+.hero-carousel.is-initialized .hero-carousel__slide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  width: 100% !important;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+.hero-carousel.is-initialized .hero-carousel__slide.is-active {
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* =========================================================
+   INNER / GRID INSTITUCIONAL
+   ========================================================= */
 .hero-carousel__inner {
   position: relative;
+  /*
+   * Permite que o item flex encolha dentro dos 1320px
+   * sem usar a largura intrínseca da mídia full-bleed
+   * para ampliar o documento.
+   */
+  min-width: 0 !important;
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
   align-items: stretch !important;
   justify-content: flex-start !important;
   width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0;
-  min-height: 330px;
-  margin: 0 !important;
+  max-width: 1320px !important;
+  height: 100% !important;
+  min-height: inherit;
+  margin: 0 auto !important;
   padding: 0 !important;
-  overflow: hidden;
-  box-sizing: border-box;
-  transform: none !important;
+  gap: 0 !important;
+  /*
+   * A mídia ultrapassa o container somente no desktop
+   * para alcançar a extremidade direita da viewport.
+   */
+  overflow: visible;
 }
 
+/* =========================================================
+   CONTENT
+   ========================================================= */
 .hero-carousel__content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   display: flex !important;
-  flex: 0 0 50% !important;
-  min-width: 0;
+  /*
+   * Mais espaço para título e descrição.
+   */
+  flex: 0 0 62% !important;
   flex-direction: column !important;
   align-items: flex-start !important;
   justify-content: center !important;
-  width: 50% !important;
-  max-width: 50% !important;
-  min-height: 330px;
+  width: 62% !important;
+  max-width: 62% !important;
+  min-width: 0;
+  height: 100%;
   margin: 0 !important;
-  padding-top: 30px !important;
-  padding-right: 48px !important;
-  padding-bottom: 48px !important;
-  padding-left: max((100vw - 1320px) / 2, 24px) !important;
+  /*
+   * Corredor menor entre texto e imagem.
+   */
+  padding: 24px 36px 24px 0 !important;
   box-sizing: border-box;
 }
 
+/* =========================================================
+   HEADING
+   ========================================================= */
 .hero-carousel__content .elementor-widget-heading {
   width: 100%;
-  max-width: 540px;
-  margin: 0 0 18px;
+  /*
+   * Maior área horizontal para reduzir
+   * quebras prematuras do título.
+   */
+  max-width: 740px;
+  margin: 0 0 18px !important;
+  padding: 0 !important;
 }
 .hero-carousel__content .elementor-heading-title {
-  margin: 0;
+  margin: 0 !important;
+  padding: 0 !important;
   color: #205584;
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 42px;
@@ -13268,10 +13779,14 @@ textarea:focus-visible,
   text-align: left;
 }
 
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
 .hero-carousel__content .elementor-widget-text-editor {
   width: 100%;
-  max-width: 540px;
-  margin: 0 0 28px;
+  max-width: 740px;
+  margin: 0 0 22px !important;
+  padding: 0 !important;
   color: #212529;
   text-align: left;
 }
@@ -13282,14 +13797,34 @@ textarea:focus-visible,
   margin-bottom: 0;
 }
 
+/* =========================================================
+   BUTTON WIDGET
+   ========================================================= */
 .hero-carousel__content .elementor-widget-button {
   width: auto !important;
   max-width: 100%;
-  margin: 0;
+  margin: 0 !important;
+  padding: 0 !important;
   align-self: flex-start !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.hero-carousel__content .elementor-widget-button > .elementor-widget-container {
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
 .hero-carousel__content .elementor-button-wrapper {
   width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
   text-align: left;
 }
 .hero-carousel__content .elementor-button {
@@ -13297,85 +13832,121 @@ textarea:focus-visible,
   align-items: center;
   justify-content: center;
   width: auto;
-  min-height: 42px;
-  padding: 10px 22px !important;
-  border: 1px solid #205584 !important;
+  /*
+   * CTA do Hero.
+   * Sobrescreve a altura/padding do botão global
+   * definido em components/_buttons.scss.
+   */
+  min-height: 38px !important;
+  margin: 0 !important;
+  padding: 10px 20px !important;
+  border: 0 !important;
   border-radius: 25px !important;
-  background-color: #5292cd !important;
+  background: #5292cd !important;
   color: #fff !important;
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 14px;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1;
   text-align: center;
   text-decoration: none !important;
-  box-shadow: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  box-shadow: none !important;
+  appearance: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 .hero-carousel__content .elementor-button:hover,
 .hero-carousel__content .elementor-button:focus-visible {
-  border-color: #205584 !important;
-  background-color: #205584 !important;
+  border: 0 !important;
+  background: #205584 !important;
   color: #fff !important;
   text-decoration: none !important;
+  box-shadow: none !important;
 }
 .hero-carousel__content .elementor-button:focus-visible {
   outline: 3px solid rgba(77, 155, 213, 0.35);
   outline-offset: 3px;
 }
 
+/* =========================================================
+   MEDIA — DESKTOP
+   =========================================================
+ *
+ * IMPORTANTE:
+ * O item flex permanece com 38% do container de 1320px.
+ *
+ * O full-bleed NÃO participa mais do cálculo do Flexbox.
+ * Somente o widget da imagem é expandido visualmente até
+ * a borda direita da viewport.
+ *
+ * Isso preserva o layout aprovado e evita que Chrome/Edge
+ * aumentem a largura intrínseca da página.
+ */
 .hero-carousel__media {
   position: relative;
   z-index: 1;
   display: flex !important;
-  flex: 0 0 50% !important;
-  min-width: 0;
+  flex: 0 0 38% !important;
   align-items: stretch !important;
   justify-content: flex-end !important;
-  width: 50% !important;
-  max-width: 50% !important;
-  height: 330px;
-  min-height: 330px;
+  width: 38% !important;
+  max-width: 38% !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  min-height: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
-  overflow: hidden;
+  /*
+   * O widget filho pode ultrapassar os 38%.
+   * Quem limita o desenho à viewport é o próprio slide.
+   */
+  overflow: visible;
   box-sizing: border-box;
 }
 
+/* =========================================================
+   IMAGE — FULL-BLEED VISUAL
+   ========================================================= */
+.hero-carousel__media {
+  /*
+   * O widget sai do fluxo de dimensionamento do Flexbox.
+   *
+   * Sua largura é:
+   * 100% da área de mídia (38%)
+   * +
+   * a distância entre o container de 1320px
+   * e a extremidade direita da viewport.
+   *
+   * Como está absolute, essa largura adicional não aumenta
+   * scrollWidth do .hero-carousel__inner.
+   */
+}
 .hero-carousel__media .elementor-widget-image {
-  position: relative;
-  display: flex !important;
-  flex: 1 1 auto;
-  align-items: stretch !important;
-  justify-content: flex-end !important;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
   width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0;
+  max-width: none !important;
+  min-width: 0 !important;
   height: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
-  overflow: hidden;
-  box-sizing: border-box;
+  overflow: hidden !important;
 }
 .hero-carousel__media .elementor-widget-container {
-  display: flex !important;
-  flex: 1 1 auto;
-  align-items: stretch !important;
-  justify-content: flex-end !important;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
   width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0;
+  max-width: none !important;
   height: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
   overflow: hidden;
-  box-sizing: border-box;
 }
 .hero-carousel__media .elementor-widget-image img {
   display: block;
-  flex: 0 0 auto;
-  width: auto;
-  max-width: none;
+  width: 100%;
+  max-width: 100%;
   height: 100%;
   margin: 0 !important;
   padding: 0 !important;
@@ -13385,74 +13956,115 @@ textarea:focus-visible,
   object-position: right center;
 }
 
-.hero-carousel.is-initialized > .hero-carousel__slide {
-  position: absolute !important;
-  top: 0;
-  right: 0;
-  bottom: auto;
-  left: 0;
-  z-index: 1;
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0;
-  margin: 0 !important;
-  padding: 0 !important;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  overflow: hidden;
-  box-sizing: border-box;
-  transition: opacity 0.45s ease, visibility 0.45s ease;
+/* =========================================================
+   FULL-BLEED — DESKTOP LARGO (SEM vw)
+   =========================================================
+ *
+ * O item .hero-carousel__media continua ocupando exatamente
+ * 38% dos 1320px no Flexbox.
+ *
+ * Apenas o widget visual é retirado do fluxo e ancorado
+ * diretamente no .hero-carousel__slide:
+ *
+ * esquerda = centro da viewport - 660px + 62% de 1320px
+ * direita  = 0
+ *
+ * Não existe 100vw/100dvw neste cálculo. Portanto a largura
+ * da scrollbar vertical do Chromium não entra na geometria.
+ */
+@media (min-width: 1400px) {
+  .hero-carousel,
+  .hero-carousel__slide {
+    overflow-x: clip !important;
+  }
+  .hero-carousel__slide {
+    position: relative;
+  }
+  /*
+   * Faz o absolute do widget procurar o próximo ancestral
+   * posicionado: .hero-carousel__slide.
+   */
+  .hero-carousel__inner,
+  .hero-carousel__media {
+    position: static !important;
+  }
+  .hero-carousel__media {
+    flex: 0 0 38% !important;
+    width: 38% !important;
+    max-width: 38% !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+  .hero-carousel__media .elementor-widget-image {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    /*
+     * 50% localiza o centro real do slide.
+     * 660px volta ao início do container de 1320px.
+     * 818.4px = 62% de 1320px.
+     */
+    left: calc(50% - 660px + 818.4px) !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+  .hero-carousel__media .elementor-widget-container {
+    width: 100% !important;
+    max-width: none !important;
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+  .hero-carousel__media .elementor-widget-image img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+    object-position: right center;
+  }
 }
-.hero-carousel.is-initialized > .hero-carousel__slide.is-active {
-  position: relative !important;
-  top: auto;
-  right: auto;
-  bottom: auto;
-  left: auto;
-  z-index: 2;
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0;
-  margin: 0 !important;
-  padding: 0 !important;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
+/* =========================================================
+   PAGINATION
+   ========================================================= */
 .hero-carousel__pagination {
   position: absolute;
-  z-index: 20;
-  bottom: 20px;
-  left: max((100vw - 1320px) / 2, 24px);
+  z-index: 10;
+  /*
+   * Mantém os dots alinhados ao início
+   * do container institucional.
+   */
+  left: max(0px, (100vw - 1320px) / 2);
+  bottom: 14px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   margin: 0;
   padding: 0;
 }
 
 .hero-carousel__dot {
   display: block;
-  width: 40px;
-  height: 5px;
+  width: 34px;
+  height: 4px;
   margin: 0;
   padding: 0;
   border: 0;
   border-radius: 999px;
   background-color: #5292cd;
-  opacity: 0.55;
+  opacity: 0.65;
   cursor: pointer;
   transition: width 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
 }
 
 .hero-carousel__dot:hover {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .hero-carousel__dot.is-active {
-  width: 42px;
+  width: 38px;
   background-color: #4d9bd5;
   opacity: 1;
 }
@@ -13462,164 +14074,341 @@ textarea:focus-visible,
   outline-offset: 4px;
 }
 
+/* =========================================================
+   ELEMENTOR WRAPPERS
+   ========================================================= */
 .hero-carousel > .e-con-inner,
 .hero-carousel__slide > .e-con-inner,
 .hero-carousel__inner > .e-con-inner,
 .hero-carousel__content > .e-con-inner,
 .hero-carousel__media > .e-con-inner {
-  max-width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
-  box-sizing: border-box;
 }
 
-@media (max-width: 991.98px) {
-  .hero-carousel__slide,
+/* =========================================================
+   DESKTOP / TABLET INTERMEDIÁRIO
+   992px até 1399.98px
+   =========================================================
+ *
+ * Nesta faixa não existe área externa suficiente para
+ * utilizar o cálculo full-bleed do desktop largo.
+ *
+ * Mantemos 62 / 38 dentro da largura disponível.
+ */
+@media (min-width: 992px) and (max-width: 1399.98px) {
   .hero-carousel__inner {
-    min-height: 310px;
+    width: calc(100% - 48px) !important;
+    max-width: 1320px !important;
+    margin: 0 auto !important;
   }
   .hero-carousel__content {
-    flex: 0 0 52% !important;
-    width: 52% !important;
-    max-width: 52% !important;
-    min-width: 0;
-    min-height: 310px;
-    padding: 24px 40px 40px 24px !important;
+    flex: 0 0 62% !important;
+    width: 62% !important;
+    max-width: 62% !important;
+    padding: 24px 28px 24px 0 !important;
+  }
+  .hero-carousel__content .elementor-widget-heading,
+  .hero-carousel__content .elementor-widget-text-editor {
+    max-width: 100%;
   }
   .hero-carousel__content .elementor-heading-title {
-    font-size: 34px;
-    line-height: 1.1;
+    font-size: 38px;
   }
   .hero-carousel__media {
-    flex: 0 0 48% !important;
-    width: 48% !important;
-    max-width: 48% !important;
+    flex: 0 0 38% !important;
+    width: 38% !important;
+    max-width: 38% !important;
     min-width: 0;
-    height: 310px;
-    min-height: 310px;
+    margin: 0 !important;
+  }
+  .hero-carousel__media .elementor-widget-image {
+    width: 100% !important;
   }
   .hero-carousel__pagination {
-    bottom: 16px;
     left: 24px;
   }
 }
-@media (max-width: 767.98px) {
-  .hero-carousel__slide,
-  .hero-carousel__inner {
-    min-height: 0;
+/* =========================================================
+   RESPONSIVO
+   < 992px
+   =========================================================
+ *
+ * BLOCO MOBILE APROVADO.
+ *
+ * A partir de LG:
+ * - não empilha
+ * - imagem fica atrás do conteúdo
+ * - Hero mantém 465px
+ * - imagem não ultrapassa o Hero
+ * - conteúdo permanece totalmente opaco
+ */
+@media (max-width: 991.98px) {
+  .hero-carousel__slide {
+    position: relative;
+    min-height: 465px !important;
+    height: 465px !important;
+    max-height: 465px !important;
+    overflow: hidden;
+    background-color: #f2f6ff;
   }
-  .hero-carousel__inner {
-    flex-direction: column !important;
+  .hero-carousel.is-initialized .hero-carousel__slide {
+    position: absolute;
   }
-  .hero-carousel__content {
-    flex: 0 0 auto !important;
+  .hero-carousel.is-initialized .hero-carousel__slide.is-active {
+    position: relative;
+  }
+  /* =====================================================
+     INNER
+     ===================================================== */
+  .hero-carousel__inner {
+    position: relative;
+    display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    min-width: 0;
-    min-height: 0;
-    padding: 30px 16px 48px !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+    opacity: 1 !important;
+  }
+  /* =====================================================
+     IMAGEM DE FUNDO
+     ===================================================== */
+  .hero-carousel__media {
+    position: absolute !important;
+    z-index: 1;
+    inset: 0;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+    opacity: 1 !important;
+    pointer-events: none;
+  }
+  .hero-carousel__media .elementor-widget-image {
+    position: relative !important;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100% !important;
+    max-width: none !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+  }
+  .hero-carousel__media .elementor-widget-container {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+  }
+  .hero-carousel__media {
+    /*
+     * Somente a fotografia recebe transparência.
+     */
+  }
+  .hero-carousel__media .elementor-widget-image img {
+    display: block;
+    width: 100% !important;
+    max-width: none !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: cover;
+    object-position: center center;
+    opacity: 0.18 !important;
+  }
+  /* =====================================================
+     OVERLAY
+     ===================================================== */
+  .hero-carousel__inner::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    background-color: rgba(242, 246, 255, 0.42);
+    opacity: 1;
+    pointer-events: none;
+  }
+  /* =====================================================
+     CONTENT
+     ===================================================== */
+  .hero-carousel__content {
+    position: relative;
+    z-index: 3;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    margin: 0 !important;
+    padding: 30px 24px 58px !important;
+    opacity: 1 !important;
+  }
+  .hero-carousel__content .elementor-widget-heading,
+  .hero-carousel__content .elementor-widget-text-editor,
+  .hero-carousel__content .elementor-widget-button,
+  .hero-carousel__content .elementor-widget-container,
+  .hero-carousel__content .elementor-heading-title,
+  .hero-carousel__content .elementor-button-wrapper,
+  .hero-carousel__content .elementor-button {
+    opacity: 1 !important;
+  }
+  .hero-carousel__content {
+    /* Heading */
   }
   .hero-carousel__content .elementor-widget-heading {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 620px;
+    margin: 0 0 18px !important;
+    padding: 0 !important;
+  }
+  .hero-carousel__content .elementor-heading-title {
+    margin: 0 !important;
+    color: #205584 !important;
+    font-size: 34px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .hero-carousel__content {
+    /* Texto */
+  }
+  .hero-carousel__content .elementor-widget-text-editor {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 620px;
+    margin: 0 0 24px !important;
+    padding: 0 !important;
+    color: #212529 !important;
+  }
+  .hero-carousel__content .elementor-widget-text-editor p {
+    color: inherit !important;
+  }
+  .hero-carousel__content .elementor-widget-text-editor p:last-child {
+    margin-bottom: 0;
+  }
+  .hero-carousel__content {
+    /* Botão */
+  }
+  .hero-carousel__content .elementor-widget-button {
+    position: relative;
+    z-index: 3;
+    width: auto !important;
+    max-width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+  }
+  .hero-carousel__content .elementor-button-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+  }
+  .hero-carousel__content .elementor-button {
+    position: relative;
+    z-index: 3;
+    opacity: 1 !important;
+    background-color: #5292cd !important;
+    color: #fff !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+  /* =====================================================
+     PAGINAÇÃO
+     ===================================================== */
+  .hero-carousel__pagination {
+    position: absolute;
+    z-index: 4;
+    left: 24px;
+    bottom: 22px;
+    display: flex;
+    gap: 8px;
+    opacity: 1 !important;
+  }
+  .hero-carousel__dot {
+    width: 32px;
+    height: 4px;
+    opacity: 0.65;
+  }
+  .hero-carousel__dot.is-active {
+    width: 36px;
+    opacity: 1;
+  }
+}
+/* =========================================================
+   MOBILE
+   < 768px
+   ========================================================= */
+@media (max-width: 767.98px) {
+  .hero-carousel__content {
+    padding: 30px 16px 58px !important;
+  }
+  .hero-carousel__content .elementor-widget-heading,
+  .hero-carousel__content .elementor-widget-text-editor {
     max-width: 100%;
   }
   .hero-carousel__content .elementor-heading-title {
     font-size: 30px;
     line-height: 1.12;
-    letter-spacing: -0.01em;
-  }
-  .hero-carousel__content .elementor-widget-text-editor {
-    max-width: 100%;
-  }
-  .hero-carousel__content .elementor-button {
-    min-height: 40px;
-    padding: 9px 20px !important;
-  }
-  .hero-carousel__media {
-    flex: 0 0 auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0;
-    height: auto;
-    min-height: 0;
-  }
-  .hero-carousel__media .elementor-widget-image,
-  .hero-carousel__media .elementor-widget-container {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0;
-    height: auto !important;
-  }
-  .hero-carousel__media .elementor-widget-image img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: initial;
-    object-position: right center;
   }
   .hero-carousel__pagination {
-    bottom: 16px;
     left: 16px;
-  }
-  .hero-carousel__dot {
-    width: 32px;
-  }
-  .hero-carousel__dot.is-active {
-    width: 36px;
+    bottom: 22px;
   }
 }
+/* =========================================================
+   SMALL MOBILE
+   < 576px
+   ========================================================= */
 @media (max-width: 575.98px) {
+  .hero-carousel__slide {
+    min-height: 465px !important;
+    height: 465px !important;
+    max-height: 465px !important;
+  }
   .hero-carousel__content {
-    padding: 24px 16px 46px !important;
+    padding: 24px 14px 56px !important;
   }
   .hero-carousel__content .elementor-heading-title {
     font-size: 28px;
+    line-height: 1.1;
+  }
+  .hero-carousel__content .elementor-widget-heading {
+    margin-bottom: 18px !important;
+  }
+  .hero-carousel__content .elementor-widget-text-editor {
+    margin-bottom: 22px !important;
+  }
+  .hero-carousel__pagination {
+    left: 14px;
+    bottom: 20px;
   }
 }
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 @media (prefers-reduced-motion: reduce) {
-  .hero-carousel.is-initialized > .hero-carousel__slide {
-    transition: none;
-  }
+  .hero-carousel__slide,
   .hero-carousel__dot,
   .hero-carousel__content .elementor-button {
-    transition: none;
-  }
-}
-body.elementor-editor-active .hero-carousel,
-body.elementor-editor-preview .hero-carousel {
-  /*
-   * Elementor needs to display its editing controls.
-   *
-   * Horizontal geometry is still constrained by
-   * width/max-width and the slide/inner boundaries.
-   */
-  overflow: visible !important;
-}
-body.elementor-editor-active .hero-carousel__slide,
-body.elementor-editor-active .hero-carousel__slide.is-active,
-body.elementor-editor-preview .hero-carousel__slide,
-body.elementor-editor-preview .hero-carousel__slide.is-active {
-  position: relative;
-  top: auto;
-  right: auto;
-  bottom: auto;
-  left: auto;
-  z-index: auto;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  transform: none;
-}
-body.elementor-editor-active .hero-carousel__pagination,
-body.elementor-editor-preview .hero-carousel__pagination {
-  display: none !important;
-}
-
-@media (max-width: 767.98px) {
-  body.elementor-editor-active .hero-carousel__inner,
-  body.elementor-editor-preview .hero-carousel__inner {
-    flex-direction: column !important;
+    transition: none !important;
   }
 }
 /* ==========================================================

@@ -1,819 +1,848 @@
-// ==========================================================
-// Accessibility
-// CONFERP / CONRERP
-// ==========================================================
-//
-// Global accessibility rules shared across the institutional
-// theme and Federal CONFERP global components.
-//
-// High contrast palette:
-//
-// Background: #000
-// Text:       #fff
-// Links:      #ff0
-// Focus:      #ff0
-//
-// Images, videos and institutional logos are preserved.
-//
-// ==========================================================
+/**
+ * Accessibility
+ *
+ * Recursos globais de acessibilidade do tema CONFERP.
+ *
+ * Controlado por assets/js/accessibility.js.
+ *
+ * Recursos:
+ * - ajuste de tamanho de fonte
+ * - alto contraste
+ * - tratamento dos componentes institucionais
+ * - tratamento dos componentes globais
+ * - compatibilidade com Elementor
+ * - Hero Carousel
+ */
 
 
-// ==========================================================
-// Global Font Scale
-// ==========================================================
+/* =========================================================
+   FONT SIZE
+   ========================================================= */
 
-:root {
+/*
+ * accessibility.js controla:
+ *
+ * --conferp-font-scale
+ *
+ * Exemplos:
+ * 0.90
+ * 1
+ * 1.10
+ * 1.20
+ */
 
-	--conferp-font-scale: 1;
+html {
+    --conferp-font-scale: 1;
 }
 
 
 /*
- * The theme should preferably use rem units.
+ * Aplicamos a escala na raiz.
  *
- * This allows A+ / A- controls to resize content
- * consistently without changing individual components.
+ * Os elementos que utilizam rem acompanham automaticamente
+ * a alteração.
  */
 
 html {
-
-	font-size:
-		calc(
-			100% *
-			var(--conferp-font-scale)
-		);
+    font-size: calc(100% * var(--conferp-font-scale));
 }
 
 
-// ==========================================================
-// High Contrast
-// ==========================================================
+/* =========================================================
+   HIGH CONTRAST
+   ========================================================= */
 
 html.conferp-high-contrast {
 
-	background-color: #000;
+    background-color: #000 !important;
+    color: #fff !important;
 
 
-	// ======================================================
-	// Base Document
-	// ======================================================
+    body {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
 
-	body,
-	main,
-	#page,
-	.site,
-	.site-content,
-	.content-area,
-	.site-main {
 
-		background-color: #000 !important;
+    /* =====================================================
+       TEXTO
+       ===================================================== */
 
-		color: #fff !important;
-	}
+    body,
+    p,
+    span,
+    li,
+    dt,
+    dd,
+    address,
+    blockquote,
+    figcaption {
+        color: #fff !important;
+    }
 
 
-	// ======================================================
-	// Generic Text
-	// ======================================================
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: #fff !important;
+    }
 
-	p,
-	li,
-	dt,
-	dd,
-	blockquote,
-	figcaption,
-	address,
-	label {
 
-		color: #fff;
-	}
+    /* =====================================================
+       LINKS
+       ===================================================== */
 
+    a {
+        color: #ff0 !important;
+        text-decoration: underline;
+    }
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
 
-		color: #fff !important;
-	}
+    a:hover,
+    a:focus {
+        color: #fff !important;
+        text-decoration: underline;
+    }
 
 
-	// ======================================================
-	// Generic Links
-	// ======================================================
+    /* =====================================================
+       FOCUS
+       ===================================================== */
 
-	a:not(
-		.conferp-utility-bar__federal-logo,
-		.conferp-subfooter__federal-logo
-	) {
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    [tabindex]:focus-visible {
+        outline: 3px solid #ff0 !important;
+        outline-offset: 3px;
+    }
 
-		color: #ff0 !important;
 
-		text-decoration: underline;
+    /* =====================================================
+       FORMULÁRIOS
+       ===================================================== */
 
-		text-decoration-thickness: .125em;
-		text-underline-offset: .15em;
-	}
+    input,
+    textarea,
+    select {
+        background-color: #000 !important;
 
+        color: #fff !important;
 
-	// ======================================================
-	// Institutional Header
-	// ======================================================
-	//
-	// Real structure:
-	//
-	// .site-header
-	// └── .site-header__main
-	//     └── .site-header__inner
-	//         └── .site-branding
-	//
-	// Institutional logos/images remain unchanged.
-	// ======================================================
+        border-color: #fff !important;
+    }
 
-	.site-header,
-	.site-header__main,
-	.site-header__inner {
 
-		background-color: #000 !important;
+    input::placeholder,
+    textarea::placeholder {
+        color: #fff !important;
+        opacity: .85;
+    }
 
-		color: #fff !important;
-	}
 
+    option {
+        background-color: #000;
+        color: #fff;
+    }
 
-	// ======================================================
-	// Institutional Name
-	// ======================================================
 
-	.site-branding__institution-name {
+    /* =====================================================
+       BOTÕES GENÉRICOS
+       ===================================================== */
 
-		color: #fff !important;
-	}
+    button,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
+        background-color: #000 !important;
 
+        color: #ff0 !important;
 
-	// ======================================================
-	// Header Social Networks
-	// ======================================================
+        border-color: #ff0 !important;
+    }
 
-	.site-branding__social-link {
 
-		background-color: transparent !important;
+    button:hover,
+    button:focus,
+    input[type="button"]:hover,
+    input[type="button"]:focus,
+    input[type="submit"]:hover,
+    input[type="submit"]:focus,
+    input[type="reset"]:hover,
+    input[type="reset"]:focus {
+        background-color: #ff0 !important;
 
-		color: #ff0 !important;
+        color: #000 !important;
 
-		text-decoration: none !important;
+        border-color: #ff0 !important;
+    }
 
 
-		&:hover,
-		&:focus-visible {
+    /* =====================================================
+       ELEMENTOR
+       ===================================================== */
 
-			background-color: #ff0 !important;
+    .elementor {
+        color: #fff;
+    }
 
-			color: #000 !important;
-		}
-	}
 
+    .elementor-widget-text-editor,
+    .elementor-widget-text-editor p {
+        color: #fff !important;
+    }
 
-	.site-branding__social-separator {
 
-		background-color:
-			rgba(255, 255, 255, .65) !important;
-	}
+    .elementor-heading-title {
+        color: #fff !important;
+    }
 
 
-	// ======================================================
-	// Primary Navigation
-	// ======================================================
+    /*
+     * Não forçamos background preto indiscriminadamente
+     * em todos os containers Elementor.
+     *
+     * Isso preserva imagens, componentes e estruturas
+     * que possuem tratamento próprio.
+     */
 
-	.primary-navigation {
 
-		background-color: #000 !important;
+    /* =====================================================
+       HEADER INSTITUCIONAL
+       ===================================================== */
 
-		color: #fff !important;
-	}
+    .site-header,
+    .site-header__desktop,
+    .site-header__mobile,
+    .site-branding {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
 
 
-	.primary-navigation__menu {
+    .site-header a {
+        color: #ff0 !important;
+    }
 
-		background-color: #000 !important;
-	}
 
+    /* =====================================================
+       NAVEGAÇÃO
+       ===================================================== */
 
-	// ======================================================
-	// Primary Navigation — First Level
-	// ======================================================
+    .main-navigation,
+    .site-navigation,
+    .mobile-navigation {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
 
-	.primary-navigation__menu > .menu-item > a {
 
-		background-color: #000 !important;
+    .main-navigation a,
+    .site-navigation a,
+    .mobile-navigation a {
+        color: #ff0 !important;
+    }
 
-		color: #ff0 !important;
 
-		text-decoration: underline;
+    .main-navigation a:hover,
+    .main-navigation a:focus,
+    .site-navigation a:hover,
+    .site-navigation a:focus,
+    .mobile-navigation a:hover,
+    .mobile-navigation a:focus {
+        background-color: #fff !important;
+        color: #000 !important;
+    }
 
-		text-decoration-thickness: .125em;
-		text-underline-offset: .15em;
 
+    /* =====================================================
+       UTILITY BAR
+       ===================================================== */
 
-		&:hover,
-		&:focus-visible {
+    .conferp-utility-bar {
+        background-color: #000 !important;
+        color: #fff !important;
 
-			background-color: #ff0 !important;
+        border-color: #fff !important;
+    }
 
-			color: #000 !important;
 
-			text-decoration: none;
-		}
-	}
+    .conferp-utility-bar a {
+        color: #ff0 !important;
+    }
 
 
-	// ======================================================
-	// Primary Navigation — Current Page
-	// ======================================================
+    .conferp-utility-bar select {
+        background-color: #000 !important;
 
-	.primary-navigation__menu {
+        color: #fff !important;
 
-		> .current-menu-item,
-		> .current-menu-ancestor,
-		> .current-menu-parent {
+        border-color: #fff !important;
+    }
 
-			> a {
 
-				background-color: #fff !important;
+    /* =====================================================
+       FOOTER INSTITUCIONAL
+       ===================================================== */
 
-				color: #000 !important;
+    .site-footer {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
 
-				text-decoration: none;
-			}
-		}
-	}
 
+    .site-footer h1,
+    .site-footer h2,
+    .site-footer h3,
+    .site-footer h4,
+    .site-footer h5,
+    .site-footer h6 {
+        color: #fff !important;
+    }
 
-	// ======================================================
-	// Primary Navigation — Dropdown
-	// ======================================================
 
-	.primary-navigation .sub-menu {
+    .site-footer p,
+    .site-footer li,
+    .site-footer address {
+        color: #fff !important;
+    }
 
-		border:
-			1px
-			solid
-			#fff !important;
 
-		border-top: 0 !important;
+    .site-footer a {
+        color: #ff0 !important;
+    }
 
-		background-color: #000 !important;
 
-		box-shadow:
-			0
-			.5rem
-			1rem
-			rgba(255, 255, 255, .12);
-	}
+    .site-footer a:hover,
+    .site-footer a:focus {
+        color: #fff !important;
+    }
 
 
-	.primary-navigation .sub-menu .menu-item a {
+    /* =====================================================
+       SUBFOOTER GLOBAL
+       ===================================================== */
 
-		background-color: #000 !important;
+    .conferp-subfooter {
+        background-color: #000 !important;
+        color: #fff !important;
 
-		color: #ff0 !important;
+        border-top: 1px solid #fff;
+    }
 
-		text-decoration: underline;
 
-		text-decoration-thickness: .125em;
-		text-underline-offset: .15em;
+    .conferp-subfooter a {
+        color: #ff0 !important;
+    }
 
 
-		&:hover,
-		&:focus-visible {
+    .conferp-subfooter select {
+        background-color: #000 !important;
 
-			background-color: #ff0 !important;
+        color: #fff !important;
 
-			color: #000 !important;
+        border-color: #fff !important;
+    }
 
-			text-decoration: none;
-		}
-	}
 
+    /* =====================================================
+       ACCESSIBILITY STICKY
+       ===================================================== */
 
-	// ======================================================
-	// Primary Navigation — Current Dropdown Item
-	// ======================================================
+    .conferp-accessibility-sticky {
+        background-color: #000 !important;
 
-	.primary-navigation .sub-menu {
+        color: #ff0 !important;
 
-		.current-menu-item > a,
-		.current-menu-ancestor > a,
-		.current-menu-parent > a {
+        border-color: #ff0 !important;
+    }
 
-			background-color: #fff !important;
 
-			color: #000 !important;
+    .conferp-accessibility-sticky svg {
+        color: #ff0 !important;
+        fill: currentColor;
+    }
 
-			font-weight: 700;
 
-			text-decoration: none;
-		}
-	}
+    /* =====================================================
+       BACK TO TOP
+       ===================================================== */
 
+    .conferp-back-to-top {
+        background-color: #000 !important;
 
-	// ======================================================
-	// Primary Navigation — Empty Menu
-	// ======================================================
+        color: #ff0 !important;
 
-	.primary-navigation__empty {
+        border: 2px solid #ff0 !important;
+    }
 
-		background-color: #000 !important;
 
-		color: #fff !important;
+    .conferp-back-to-top:hover,
+    .conferp-back-to-top:focus {
+        background-color: #ff0 !important;
 
+        color: #000 !important;
+    }
 
-		a {
 
-			color: #ff0 !important;
-		}
-	}
+    /* =====================================================
+       IMAGENS
+       ===================================================== */
 
+    /*
+     * Imagens comuns continuam visíveis.
+     *
+     * Não aplicamos invert() globalmente porque isso
+     * destruiria fotografias e identidade visual.
+     */
 
-	// ======================================================
-	// Institutional Footer
-	// ======================================================
+    img,
+    picture,
+    video {
+        opacity: 1;
+    }
 
-	.site-footer,
-	.site-footer__inner,
-	.site-footer__branding,
-	.site-footer__column {
 
-		background-color: #000 !important;
+    /* =====================================================
+       HERO CAROUSEL
+       ===================================================== */
 
-		color: #fff !important;
-	}
+    /*
+     * O Hero possui tratamento próprio para impedir que
+     * as regras genéricas do Elementor criem o problema
+     * visto anteriormente:
+     *
+     * fundo claro + texto branco.
+     */
 
+    .hero-carousel,
+    .hero-carousel__slide,
+    .hero-carousel__inner {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
 
-	.site-footer {
 
-		border-top:
-			1px
-			solid
-			#fff;
-	}
+    /* -----------------------------------------------------
+       HERO CONTENT
+       ----------------------------------------------------- */
 
+    .hero-carousel__content {
+        position: relative;
 
-	.site-footer__column {
+        background: transparent !important;
 
-		border-color:
-			rgba(255, 255, 255, .55) !important;
-	}
+        color: #fff !important;
 
+        opacity: 1 !important;
+    }
 
-	.site-footer__title,
-	.site-footer__institution-name,
-	.site-footer p,
-	.site-footer address {
 
-		color: #fff !important;
-	}
+    .hero-carousel__content .elementor-widget-heading,
+    .hero-carousel__content .elementor-widget-text-editor,
+    .hero-carousel__content .elementor-widget-button,
+    .hero-carousel__content .elementor-widget-container,
+    .hero-carousel__content .elementor-heading-title,
+    .hero-carousel__content .elementor-button-wrapper {
+        opacity: 1 !important;
+    }
 
 
-	.site-footer a {
+    /* -----------------------------------------------------
+       HERO HEADING
+       ----------------------------------------------------- */
 
-		color: #ff0 !important;
-	}
+    .hero-carousel__content .elementor-heading-title {
+        color: #fff !important;
 
+        opacity: 1 !important;
+    }
 
-	// ======================================================
-	// Federal Global Components
-	// ======================================================
-	//
-	// Utility Bar and Subfooter belong to the Federal
-	// CONFERP layer, but also participate in high contrast.
-	// ======================================================
 
-	.conferp-utility-bar,
-	.conferp-subfooter {
+    /* -----------------------------------------------------
+       HERO TEXT
+       ----------------------------------------------------- */
 
-		background-color: #000 !important;
+    .hero-carousel__content .elementor-widget-text-editor,
+    .hero-carousel__content .elementor-widget-text-editor p {
+        color: #fff !important;
 
-		color: #fff !important;
-	}
+        opacity: 1 !important;
+    }
 
 
-	.conferp-utility-bar__container,
-	.conferp-subfooter__inner {
+    /* -----------------------------------------------------
+       HERO BUTTON WRAPPERS
+       ----------------------------------------------------- */
 
-		background-color: #000 !important;
-	}
+    .hero-carousel__content .elementor-widget-button {
+        background: transparent !important;
 
+        border: 0 !important;
 
-	// ======================================================
-	// Federal Logos
-	// ======================================================
-	//
-	// Keep original white federal SVG.
-	// ======================================================
+        box-shadow: none !important;
 
-	.conferp-utility-bar__federal-logo,
-	.conferp-subfooter__federal-logo {
+        opacity: 1 !important;
+    }
 
-		color: #fff !important;
 
-		text-decoration: none !important;
-	}
+    .hero-carousel__content
+        .elementor-widget-button
+        > .elementor-widget-container {
 
+        background: transparent !important;
 
-	// ======================================================
-	// CONRERP Regional Selectors
-	// ======================================================
+        border: 0 !important;
 
-	.conferp-utility-bar__regional-selector .form-select,
-	.conferp-subfooter__regional-selector .form-select {
+        box-shadow: none !important;
 
-		border:
-			2px
-			solid
-			#fff !important;
+        opacity: 1 !important;
+    }
 
-		background-color: #000 !important;
 
-		color: #fff !important;
-	}
+    .hero-carousel__content .elementor-button-wrapper {
+        background: transparent !important;
 
+        border: 0 !important;
 
-	// ======================================================
-	// Utility Bar Federal Links
-	// ======================================================
+        box-shadow: none !important;
 
-	.conferp-utility-bar__link,
-	.conferp-utility-bar__mobile-link {
+        opacity: 1 !important;
+    }
 
-		color: #ff0 !important;
-	}
 
+    /* -----------------------------------------------------
+       HERO BUTTON
+       ----------------------------------------------------- */
 
-	// ======================================================
-	// Accessibility Controls
-	// ======================================================
+    .hero-carousel__content .elementor-button {
+        background-color: #000 !important;
 
-	.conferp-accessibility-control,
-	.conferp-accessibility-sticky__control,
-	.conferp-accessibility-sticky__trigger {
+        color: #ff0 !important;
 
-		border-color: #fff !important;
+        border: 2px solid #ff0 !important;
 
-		background-color: #000 !important;
+        box-shadow: none !important;
 
-		color: #fff !important;
+        opacity: 1 !important;
 
-		text-decoration: none !important;
-	}
+        text-decoration: none !important;
+    }
 
 
-	.conferp-accessibility-control:hover,
-	.conferp-accessibility-control:focus-visible,
-	.conferp-accessibility-sticky__control:hover,
-	.conferp-accessibility-sticky__control:focus-visible,
-	.conferp-accessibility-sticky__trigger:hover,
-	.conferp-accessibility-sticky__trigger:focus-visible {
+    .hero-carousel__content .elementor-button:hover,
+    .hero-carousel__content .elementor-button:focus-visible {
+        background-color: #ff0 !important;
 
-		background-color: #ff0 !important;
+        color: #000 !important;
 
-		color: #000 !important;
-	}
+        border-color: #ff0 !important;
 
+        text-decoration: none !important;
+    }
 
-	// ======================================================
-	// Accessibility Sticky
-	// ======================================================
 
-	.conferp-accessibility-sticky__panel {
+    .hero-carousel__content .elementor-button:focus-visible {
+        outline: 3px solid #fff !important;
+        outline-offset: 3px;
+    }
 
-		border:
-			1px
-			solid
-			#fff;
 
-		background-color: #000 !important;
-	}
+    /* -----------------------------------------------------
+       HERO MEDIA
+       ----------------------------------------------------- */
 
+    /*
+     * O container da imagem continua opaco.
+     *
+     * Alteramos somente a fotografia.
+     */
 
-	// ======================================================
-	// Registered Area
-	// ======================================================
+    .hero-carousel__media {
+        background-color: #000 !important;
 
-	.conferp-utility-bar__registered-button {
+        opacity: 1 !important;
+    }
 
-		border:
-			2px
-			solid
-			#ff0 !important;
 
-		background-color: #000 !important;
+    .hero-carousel__media .elementor-widget-image,
+    .hero-carousel__media .elementor-widget-container {
+        background: transparent !important;
 
-		color: #ff0 !important;
+        opacity: 1 !important;
+    }
 
-		text-decoration: underline !important;
-	}
 
+    .hero-carousel__media img {
+        opacity: .45 !important;
 
-	.conferp-utility-bar__registered-button:hover,
-	.conferp-utility-bar__registered-button:focus-visible {
+        filter:
+            grayscale(100%)
+            contrast(120%);
+    }
 
-		background-color: #ff0 !important;
 
-		color: #000 !important;
+    /* -----------------------------------------------------
+       HERO PAGINATION
+       ----------------------------------------------------- */
 
-		text-decoration: none !important;
-	}
+    .hero-carousel__pagination {
+        opacity: 1 !important;
+    }
 
 
-	// ======================================================
-	// Buttons
-	// ======================================================
+    .hero-carousel__dot {
+        background-color: #fff !important;
 
-	button,
-	.btn,
-	input[type="button"],
-	input[type="submit"],
-	input[type="reset"] {
+        opacity: 1 !important;
 
-		border-color: #fff;
+        border: 0 !important;
+    }
 
-		background-color: #000;
 
-		color: #fff;
-	}
+    .hero-carousel__dot.is-active {
+        background-color: #ff0 !important;
 
+        opacity: 1 !important;
+    }
 
-	button:hover,
-	.btn:hover,
-	input[type="button"]:hover,
-	input[type="submit"]:hover,
-	input[type="reset"]:hover {
 
-		border-color: #ff0;
+    .hero-carousel__dot:hover {
+        opacity: .85 !important;
+    }
 
-		background-color: #ff0;
 
-		color: #000;
-	}
+    .hero-carousel__dot:focus-visible {
+        outline: 3px solid #ff0 !important;
+        outline-offset: 4px;
+    }
 
 
-	// ======================================================
-	// Forms
-	// ======================================================
+    /* =====================================================
+       HERO — MOBILE
+       ===================================================== */
 
-	input,
-	select,
-	textarea {
+    @include media-breakpoint-down(md) {
 
-		border:
-			2px
-			solid
-			#fff !important;
+        /*
+         * O mobile usa a fotografia atrás do conteúdo.
+         *
+         * No contraste:
+         *
+         * imagem
+         * ↓
+         * overlay preto
+         * ↓
+         * texto / botão
+         */
 
-		background-color: #000 !important;
 
-		color: #fff !important;
-	}
+        .hero-carousel,
+        .hero-carousel__slide,
+        .hero-carousel__inner {
+            background-color: #000 !important;
+        }
 
 
-	input::placeholder,
-	textarea::placeholder {
+        /* -------------------------------------------------
+           MEDIA
+           ------------------------------------------------- */
 
-		color: #fff !important;
+        .hero-carousel__media {
+            z-index: 1;
 
-		opacity: .85;
-	}
+            background-color: #000 !important;
 
+            opacity: 1 !important;
+        }
 
-	option {
 
-		background-color: #000;
+        .hero-carousel__media .elementor-widget-image,
+        .hero-carousel__media .elementor-widget-container {
+            opacity: 1 !important;
+        }
 
-		color: #fff;
-	}
 
+        /*
+         * SOMENTE a fotografia recebe transparência.
+         */
 
-	// ======================================================
-	// Tables
-	// ======================================================
+        .hero-carousel__media .elementor-widget-image img {
+            opacity: .30 !important;
 
-	table,
-	thead,
-	tbody,
-	tfoot,
-	tr,
-	th,
-	td {
+            filter:
+                grayscale(100%)
+                contrast(120%);
+        }
 
-		border-color: #fff !important;
 
-		background-color: #000 !important;
+        /* -------------------------------------------------
+           OVERLAY
+           ------------------------------------------------- */
 
-		color: #fff !important;
-	}
+        /*
+         * Substitui o overlay claro utilizado no modo
+         * normal por uma camada escura.
+         */
 
+        .hero-carousel__inner::after {
+            content: "";
 
-	// ======================================================
-	// Elementor
-	// ======================================================
-	//
-	// Initial compatibility only.
-	//
-	// Internal Elementor pages will be refined after
-	// their real components and layouts are implemented.
-	//
-	// Do NOT use:
-	//
-	// * {
-	//     background: #000 !important;
-	// }
-	//
-	// That would destroy images, overlays, cards and other
-	// visual components.
-	// ======================================================
+            position: absolute;
 
-	.elementor,
-	.elementor-section,
-	.elementor-container,
-	.elementor-widget-wrap,
-	.e-con {
+            z-index: 2;
 
-		color: #fff;
-	}
+            inset: 0;
 
+            background: rgba(0, 0, 0, .72) !important;
 
-	.elementor-widget-heading .elementor-heading-title {
+            opacity: 1 !important;
 
-		color: #fff !important;
-	}
+            pointer-events: none;
+        }
 
 
-	.elementor-widget-text-editor {
+        /* -------------------------------------------------
+           CONTENT
+           ------------------------------------------------- */
 
-		color: #fff !important;
-	}
+        .hero-carousel__content {
+            position: relative;
 
+            z-index: 3;
 
-	.elementor-widget-text-editor p,
-	.elementor-widget-text-editor li {
+            background: transparent !important;
 
-		color: #fff !important;
-	}
+            color: #fff !important;
 
+            opacity: 1 !important;
+        }
 
-	// ======================================================
-	// Images / Media
-	// ======================================================
-	//
-	// Never apply invert() globally.
-	//
-	// Institutional logos, photographs, videos and other
-	// media must preserve their original appearance.
-	// ======================================================
 
-	img,
-	picture,
-	video,
-	iframe,
-	canvas {
+        /*
+         * Forçamos os elementos internos para 100%
+         * de opacidade.
+         */
 
-		filter: none;
-	}
+        .hero-carousel__content .elementor-widget-heading,
+        .hero-carousel__content .elementor-widget-text-editor,
+        .hero-carousel__content .elementor-widget-button,
+        .hero-carousel__content .elementor-widget-container,
+        .hero-carousel__content .elementor-heading-title,
+        .hero-carousel__content .elementor-button-wrapper,
+        .hero-carousel__content .elementor-button {
+            opacity: 1 !important;
+        }
 
 
-	// ======================================================
-	// Horizontal Rules / Dividers
-	// ======================================================
+        /* -------------------------------------------------
+           HEADING
+           ------------------------------------------------- */
 
-	hr {
+        .hero-carousel__content .elementor-heading-title {
+            color: #fff !important;
+        }
 
-		border-color: #fff !important;
 
-		opacity: 1;
-	}
+        /* -------------------------------------------------
+           TEXT
+           ------------------------------------------------- */
 
+        .hero-carousel__content .elementor-widget-text-editor,
+        .hero-carousel__content .elementor-widget-text-editor p {
+            color: #fff !important;
+        }
 
-	// ======================================================
-	// Global High Contrast Focus
-	// ======================================================
 
-	:focus-visible {
+        /* -------------------------------------------------
+           BUTTON WRAPPERS
+           ------------------------------------------------- */
 
-		outline:
-			3px
-			solid
-			#ff0 !important;
+        .hero-carousel__content .elementor-widget-button,
+        .hero-carousel__content
+            .elementor-widget-button
+            > .elementor-widget-container,
+        .hero-carousel__content .elementor-button-wrapper {
 
-		outline-offset:
-			3px !important;
-	}
+            background: transparent !important;
+
+            border: 0 !important;
+
+            box-shadow: none !important;
+        }
+
+
+        /* -------------------------------------------------
+           BUTTON
+           ------------------------------------------------- */
+
+        .hero-carousel__content .elementor-button {
+            background-color: #000 !important;
+
+            color: #ff0 !important;
+
+            border: 2px solid #ff0 !important;
+
+            box-shadow: none !important;
+        }
+
+
+        .hero-carousel__content .elementor-button:hover,
+        .hero-carousel__content .elementor-button:focus-visible {
+            background-color: #ff0 !important;
+
+            color: #000 !important;
+
+            border-color: #ff0 !important;
+        }
+
+
+        /* -------------------------------------------------
+           PAGINATION
+           ------------------------------------------------- */
+
+        .hero-carousel__pagination {
+            z-index: 4;
+
+            opacity: 1 !important;
+        }
+
+
+        .hero-carousel__dot {
+            background-color: #fff !important;
+
+            opacity: 1 !important;
+        }
+
+
+        .hero-carousel__dot.is-active {
+            background-color: #ff0 !important;
+
+            opacity: 1 !important;
+        }
+    }
 }
 
 
-// ==========================================================
-// Default Keyboard Focus
-// ==========================================================
-//
-// Used when high contrast mode is NOT enabled.
-// ==========================================================
-
-a,
-button,
-input,
-select,
-textarea,
-[tabindex] {
-
-	&:focus-visible {
-
-		outline:
-			3px
-			solid
-			$institution-secondary;
-
-		outline-offset:
-			3px;
-	}
-}
-
-
-// ==========================================================
-// Screen Reader Text
-// ==========================================================
-
-.screen-reader-text {
-
-	position: absolute;
-
-	width: 1px;
-	height: 1px;
-
-	padding: 0;
-	margin: -1px;
-
-	overflow: hidden;
-
-	clip: rect(0, 0, 0, 0);
-
-	white-space: nowrap;
-
-	border: 0;
-
-
-	&:focus {
-
-		position: fixed;
-
-		z-index: 100000;
-
-		top: 10px;
-		left: 10px;
-
-		width: auto;
-		height: auto;
-
-		padding:
-			.75rem
-			1rem;
-
-		margin: 0;
-
-		overflow: visible;
-
-		clip: auto;
-
-		white-space: normal;
-
-		background-color: $white;
-
-		color: $black;
-
-		font-weight: 700;
-	}
-}
-
-
-// ==========================================================
-// Reduced Motion
-// ==========================================================
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
-	*,
-	*::before,
-	*::after {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
 
-		scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
 
-		animation-duration:
-			.01ms !important;
-
-		animation-iteration-count:
-			1 !important;
-
-		transition-duration:
-			.01ms !important;
-	}
+        transition-duration: .01ms !important;
+    }
 }

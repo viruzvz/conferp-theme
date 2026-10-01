@@ -1,0 +1,964 @@
+/**
+ * Hero Carousel
+ *
+ * CONFERP institutional homepage hero.
+ *
+ * Desktop:
+ * - Conteúdo dentro do container de 1320px
+ * - Imagem full-bleed à direita
+ * - 62% conteúdo / 38% mídia
+ *
+ * < LG:
+ * - Layout mobile
+ * - Imagem atrás do conteúdo
+ * - Overlay claro/opacidade
+ * - Texto permanece sobre a imagem
+ */
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero-carousel {
+    position: relative;
+
+    width: 100% !important;
+    max-width: none !important;
+
+    min-height: 330px;
+    height: 330px;
+    max-height: 400px;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden;
+    overflow-x: clip;
+
+    background-color: $institution-background-light;
+}
+
+
+/* =========================================================
+   SLIDES
+   ========================================================= */
+
+.hero-carousel__slide {
+    position: relative;
+
+    width: 100% !important;
+    max-width: none !important;
+
+    min-height: 330px;
+    height: 330px;
+    max-height: 400px;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: visible;
+}
+
+
+/*
+ * Slides sobrepostos.
+ * Mantém a altura do Hero estável entre os slides.
+ */
+
+.hero-carousel.is-initialized .hero-carousel__slide {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity .45s ease,
+        visibility .45s ease;
+}
+
+.hero-carousel.is-initialized .hero-carousel__slide.is-active {
+    position: relative;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   INNER
+   ========================================================= */
+
+.hero-carousel__inner {
+    position: relative;
+
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+
+    width: 100% !important;
+    max-width: 1320px !important;
+
+    min-height: 330px;
+    height: 330px;
+    max-height: 400px;
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+
+    gap: 0 !important;
+
+    overflow: visible;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.hero-carousel__content {
+    position: relative;
+    z-index: 3;
+
+    display: flex !important;
+
+    flex: 0 0 62% !important;
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+    justify-content: center !important;
+
+    width: 62% !important;
+    max-width: 62% !important;
+
+    min-width: 0;
+
+    height: 100%;
+
+    margin: 0 !important;
+
+    padding: 24px 36px 24px 0 !important;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.hero-carousel__content {
+
+    .elementor-widget-heading {
+        width: 100%;
+        max-width: 740px;
+
+        margin: 0 0 18px !important;
+        padding: 0 !important;
+    }
+
+    .elementor-heading-title {
+        margin: 0 !important;
+        padding: 0 !important;
+
+        color: $institution-primary;
+
+        font-family: "Montserrat", Arial, sans-serif;
+        font-size: 42px;
+        font-weight: 700;
+        line-height: 1.08;
+
+        letter-spacing: -.02em;
+        text-align: left;
+    }
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.hero-carousel__content {
+
+    .elementor-widget-text-editor {
+        width: 100%;
+        max-width: 740px;
+
+        margin: 0 0 22px !important;
+        padding: 0 !important;
+
+        color: $body-color;
+
+        text-align: left;
+    }
+
+    .elementor-widget-text-editor p {
+        margin-top: 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.hero-carousel__content {
+
+    .elementor-widget-button {
+        width: auto !important;
+        max-width: 100%;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        align-self: flex-start !important;
+    }
+
+    .elementor-button-wrapper {
+        width: auto !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        text-align: left;
+    }
+
+    .elementor-button {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: auto;
+
+        min-height: 30px;
+
+        padding: 7px 16px !important;
+
+        border: 1px solid $institution-primary !important;
+        border-radius: 25px !important;
+
+        background-color: #5292cd !important;
+
+        color: #fff !important;
+
+        font-family: "Montserrat", Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1;
+
+        text-align: center;
+        text-decoration: none !important;
+
+        box-shadow: none;
+
+        transition:
+            background-color .2s ease,
+            border-color .2s ease,
+            color .2s ease;
+    }
+
+    .elementor-button:hover,
+    .elementor-button:focus-visible {
+        border-color: $institution-primary !important;
+
+        background-color: $institution-primary !important;
+
+        color: #fff !important;
+
+        text-decoration: none !important;
+    }
+
+    .elementor-button:focus-visible {
+        outline: 3px solid rgba(77, 155, 213, .35);
+        outline-offset: 3px;
+    }
+}
+
+
+/* =========================================================
+   MEDIA — DESKTOP
+   ========================================================= */
+
+.hero-carousel__media {
+    position: relative;
+    z-index: 1;
+
+    display: flex !important;
+
+    /*
+     * 38% do container
+     * +
+     * somente a sobra até a borda direita da viewport.
+     */
+    flex:
+        0 0
+        calc(
+            38% + max(0px, (100vw - 1320px) / 2)
+        ) !important;
+
+    align-items: stretch !important;
+    justify-content: flex-end !important;
+
+    width:
+        calc(
+            38% + max(0px, (100vw - 1320px) / 2)
+        ) !important;
+
+    max-width: none !important;
+    min-width: 0;
+
+    height: 330px;
+    min-height: 330px;
+    max-height: 400px;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   IMAGE — DESKTOP
+   ========================================================= */
+
+.hero-carousel__media {
+
+    .elementor-widget-image {
+        position: relative;
+
+        display: flex;
+
+        align-items: stretch;
+        justify-content: flex-end;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        height: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        overflow: hidden;
+    }
+
+    .elementor-widget-container {
+        display: flex;
+
+        align-items: stretch;
+        justify-content: flex-end;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        height: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        overflow: hidden;
+    }
+
+    .elementor-widget-image img {
+        display: block;
+
+        width: 100%;
+        max-width: 100%;
+
+        height: 100%;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        border: 0;
+        border-radius: 0;
+
+        object-fit: contain;
+        object-position: right center;
+    }
+}
+
+
+/* =========================================================
+   PAGINATION
+   ========================================================= */
+
+.hero-carousel__pagination {
+    position: absolute;
+    z-index: 10;
+
+    left: max(
+        calc((100vw - 1320px) / 2),
+        24px
+    );
+
+    bottom: 12px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================================
+   DOTS
+   ========================================================= */
+
+.hero-carousel__dot {
+    display: block;
+
+    width: 40px;
+    height: 5px;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    border-radius: 999px;
+
+    background-color: #5292cd;
+
+    opacity: 1;
+
+    cursor: pointer;
+
+    transition:
+        width .2s ease,
+        background-color .2s ease,
+        opacity .2s ease;
+}
+
+.hero-carousel__dot:hover {
+    opacity: .8;
+}
+
+.hero-carousel__dot.is-active {
+    width: 42px;
+
+    background-color: $institution-secondary;
+}
+
+.hero-carousel__dot:focus-visible {
+    outline: 3px solid rgba(77, 155, 213, .35);
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   ELEMENTOR RESET
+   ========================================================= */
+
+.hero-carousel,
+.hero-carousel__slide,
+.hero-carousel__inner,
+.hero-carousel__content,
+.hero-carousel__media {
+
+    > .e-con-inner {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
+
+/* =========================================================
+   DESKTOP INTERMEDIÁRIO
+   992px — 1399px
+   ========================================================= */
+
+@media (min-width: 992px) and (max-width: 1399.98px) {
+
+    .hero-carousel__inner {
+        width: calc(100% - 48px) !important;
+        max-width: 1320px !important;
+
+        margin: 0 auto !important;
+    }
+
+    .hero-carousel__content {
+        flex-basis: 62% !important;
+
+        width: 62% !important;
+        max-width: 62% !important;
+
+        padding-right: 28px !important;
+    }
+
+    .hero-carousel__content {
+
+        .elementor-widget-heading,
+        .elementor-widget-text-editor {
+            max-width: 100%;
+        }
+
+        .elementor-heading-title {
+            font-size: 38px;
+        }
+    }
+
+    .hero-carousel__media {
+        flex-basis: 38% !important;
+
+        width: 38% !important;
+        max-width: 38% !important;
+    }
+
+    .hero-carousel__pagination {
+        left: 24px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   < LG / < 992px
+   =========================================================
+   IMPORTANTE:
+   NÃO EMPILHAR.
+
+   A mídia vira uma camada de fundo.
+   O conteúdo permanece por cima.
+   ========================================================= */
+
+@include media-breakpoint-down(lg) {
+
+    /* -----------------------------------------------------
+       HERO
+       ----------------------------------------------------- */
+
+    .hero-carousel {
+        position: relative;
+
+        width: 100% !important;
+
+        /*
+         * Mantemos uma altura controlada para que
+         * os slides não "sambem".
+         */
+        height: 350px;
+        min-height: 350px;
+        max-height: 400px;
+
+        overflow: hidden;
+    }
+
+
+    /* -----------------------------------------------------
+       SLIDE
+       ----------------------------------------------------- */
+
+    .hero-carousel__slide {
+        position: relative;
+
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        height: 350px;
+        min-height: 350px;
+        max-height: 400px;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        overflow: hidden;
+    }
+
+
+    /* -----------------------------------------------------
+       INNER
+       ----------------------------------------------------- */
+
+    .hero-carousel__inner {
+        position: relative;
+
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        height: 350px;
+        min-height: 350px;
+        max-height: 400px;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        overflow: hidden;
+    }
+
+
+    /* -----------------------------------------------------
+       IMAGE / BACKGROUND
+       ----------------------------------------------------- */
+
+    .hero-carousel__media {
+        position: absolute;
+
+        z-index: 1;
+
+        inset: 0;
+
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        height: 100% !important;
+        min-height: 100% !important;
+        max-height: none;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        overflow: hidden;
+
+        /*
+         * Não aplicar opacity no container.
+         *
+         * Isso evita que outros elementos do slide
+         * herdem transparência.
+         */
+        opacity: 1;
+    }
+
+
+    .hero-carousel__media {
+
+        .elementor-widget-image,
+        .elementor-widget-container {
+            display: block;
+
+            width: 100% !important;
+            max-width: 100% !important;
+
+            height: 100% !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .elementor-widget-image img {
+            display: block;
+
+            width: 100% !important;
+            max-width: 100% !important;
+
+            height: 100% !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            object-fit: cover;
+            object-position: center center;
+
+            /*
+             * Somente a FOTO recebe transparência.
+             *
+             * Texto e botão continuam 100% opacos.
+             */
+            opacity: .22;
+        }
+    }
+
+
+    /*
+     * Camada clara adicional.
+     *
+     * Fica ENTRE a imagem e o conteúdo.
+     */
+
+    .hero-carousel__media::after {
+        content: "";
+
+        position: absolute;
+        z-index: 2;
+
+        inset: 0;
+
+        pointer-events: none;
+
+        background-color: rgba(242, 246, 255, .58);
+    }
+
+
+    /* -----------------------------------------------------
+       CONTENT
+       ----------------------------------------------------- */
+
+    .hero-carousel__content {
+        position: relative;
+        z-index: 5;
+
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        align-items: flex-start !important;
+        justify-content: center !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        height: 100% !important;
+
+        margin: 0 !important;
+
+        padding:
+            28px
+            32px
+            48px !important;
+
+        box-sizing: border-box;
+
+        /*
+         * Conteúdo não recebe transparência.
+         */
+        opacity: 1 !important;
+    }
+
+
+    /* -----------------------------------------------------
+       HEADING
+       ----------------------------------------------------- */
+
+    .hero-carousel__content {
+
+        .elementor-widget-heading {
+            position: relative;
+            z-index: 6;
+
+            width: 100%;
+            max-width: 650px;
+
+            margin: 0 0 18px !important;
+
+            opacity: 1 !important;
+        }
+
+        .elementor-heading-title {
+            margin: 0 !important;
+
+            color: $institution-primary;
+
+            font-size: 34px;
+            line-height: 1.1;
+
+            letter-spacing: -.01em;
+
+            opacity: 1 !important;
+        }
+    }
+
+
+    /* -----------------------------------------------------
+       DESCRIPTION
+       ----------------------------------------------------- */
+
+    .hero-carousel__content {
+
+        .elementor-widget-text-editor {
+            position: relative;
+            z-index: 6;
+
+            width: 100%;
+            max-width: 650px;
+
+            margin: 0 0 22px !important;
+
+            color: $body-color;
+
+            opacity: 1 !important;
+        }
+
+        .elementor-widget-text-editor,
+        .elementor-widget-text-editor p {
+            opacity: 1 !important;
+        }
+    }
+
+
+    /* -----------------------------------------------------
+       BUTTON
+       ----------------------------------------------------- */
+
+    .hero-carousel__content {
+
+        .elementor-widget-button {
+            position: relative;
+            z-index: 6;
+
+            width: auto !important;
+
+            margin: 0 !important;
+
+            opacity: 1 !important;
+        }
+
+        .elementor-button-wrapper {
+            opacity: 1 !important;
+        }
+
+        .elementor-button {
+            opacity: 1 !important;
+
+            background-color: #5292cd !important;
+
+            color: #fff !important;
+        }
+    }
+
+
+    /* -----------------------------------------------------
+       PAGINATION
+       ----------------------------------------------------- */
+
+    .hero-carousel__pagination {
+        position: absolute;
+        z-index: 20;
+
+        left: 32px;
+        bottom: 16px;
+
+        margin: 0;
+        padding: 0;
+
+        transform: none;
+    }
+
+    .hero-carousel__dot {
+        width: 32px;
+    }
+
+    .hero-carousel__dot.is-active {
+        width: 36px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   < 768px
+   ========================================================= */
+
+@include media-breakpoint-down(md) {
+
+    .hero-carousel,
+    .hero-carousel__slide,
+    .hero-carousel__inner {
+        height: 350px;
+        min-height: 350px;
+    }
+
+    .hero-carousel__content {
+        padding:
+            24px
+            16px
+            46px !important;
+    }
+
+    .hero-carousel__content {
+
+        .elementor-widget-heading {
+            max-width: 100%;
+
+            margin-bottom: 16px !important;
+        }
+
+        .elementor-heading-title {
+            font-size: 30px;
+            line-height: 1.12;
+        }
+
+        .elementor-widget-text-editor {
+            max-width: 100%;
+
+            margin-bottom: 20px !important;
+        }
+    }
+
+    .hero-carousel__pagination {
+        left: 16px;
+        bottom: 14px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   < 576px
+   ========================================================= */
+
+@include media-breakpoint-down(sm) {
+
+    .hero-carousel,
+    .hero-carousel__slide,
+    .hero-carousel__inner {
+        height: 350px;
+        min-height: 350px;
+    }
+
+    .hero-carousel__content {
+        padding:
+            22px
+            16px
+            44px !important;
+    }
+
+    .hero-carousel__content {
+
+        .elementor-heading-title {
+            font-size: 28px;
+        }
+    }
+
+
+    /*
+     * No celular a fotografia fica ainda mais discreta
+     * para preservar a leitura.
+     */
+
+    .hero-carousel__media {
+
+        .elementor-widget-image img {
+            opacity: .18;
+        }
+    }
+
+    .hero-carousel__media::after {
+        background-color: rgba(242, 246, 255, .62);
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-carousel__slide,
+    .hero-carousel__dot,
+    .hero-carousel__content .elementor-button {
+        transition: none;
+    }
+}

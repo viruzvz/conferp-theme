@@ -1,7 +1,7 @@
 /**
  * CONFERP Hero Carousel
  *
- * Expected Elementor structure:
+ * Elementor structure:
  *
  * .hero-carousel
  * ├── .hero-carousel__slide
@@ -10,101 +10,115 @@
  * │       └── .hero-carousel__media
  * │
  * └── .hero-carousel__slide
- *     └── .hero-carousel__inner
- *         ├── .hero-carousel__content
- *         └── .hero-carousel__media
  *
- * Responsibilities:
- *
- * Elementor:
- * - Content editing.
- * - Slide duplication.
- * - Slide deletion.
- * - Slide reordering.
- * - Editor visibility.
- *
- * Theme:
- * - Active slide.
- * - Fade transition.
- * - Pagination.
- * - Autoplay.
- * - Keyboard navigation.
- * - Accessibility.
+ * Features:
+ * - Fade transition
+ * - Pagination
+ * - Autoplay
+ * - Keyboard navigation
+ * - Mobile swipe
+ * - Pause on hover/focus
+ * - Reduced motion
+ * - Accessibility
  *
  * @package Conferp_Theme
  */
 
-document.addEventListener('DOMContentLoaded', () => {
-	'use strict';
+document.addEventListener(
+	'DOMContentLoaded',
+	() => {
 
-	const carousels = document.querySelectorAll('.hero-carousel');
+		const carousels =
+			document.querySelectorAll(
+				'.hero-carousel'
+			);
 
-	if (!carousels.length) {
-		return;
+
+		if (!carousels.length) {
+			return;
+		}
+
+
+		carousels.forEach(
+			(carousel) => {
+
+				initHeroCarousel(
+					carousel
+				);
+
+			}
+		);
+
 	}
-
-	carousels.forEach((carousel) => {
-		initHeroCarousel(carousel);
-	});
-});
+);
 
 
 /**
- * Check whether Elementor editor/preview is active.
- *
- * Carousel behavior must not initialize inside Elementor.
+ * Detect Elementor editor.
  *
  * @return {boolean}
  */
 function isElementorEditor() {
 
-	const body = document.body;
-	const html = document.documentElement;
+	const body =
+		document.body;
+
+	const html =
+		document.documentElement;
+
 
 	return (
-		body.classList.contains('elementor-editor-active') ||
-		body.classList.contains('elementor-editor-preview') ||
-		html.classList.contains('elementor-html') ||
-		window.location.search.includes('elementor-preview=')
+		body.classList.contains(
+			'elementor-editor-active'
+		) ||
+		body.classList.contains(
+			'elementor-editor-preview'
+		) ||
+		html.classList.contains(
+			'elementor-html'
+		) ||
+		window.location.search.includes(
+			'elementor-preview='
+		)
 	);
 
 }
 
 
 /**
- * Initialize one Hero Carousel.
+ * Initialize carousel.
  *
- * @param {HTMLElement} carousel Carousel root.
+ * @param {HTMLElement} carousel
  *
  * @return {void}
  */
 function initHeroCarousel(carousel) {
 
-	/**
-	 * Elementor must retain full control over the component
-	 * while the page is being edited.
-	 */
+	// ------------------------------------------------------
+	// Elementor protection
+	// ------------------------------------------------------
+
 	if (isElementorEditor()) {
 		return;
 	}
 
 
-	/**
-	 * IMPORTANT:
-	 *
-	 * Slides are now DIRECT children of .hero-carousel.
-	 *
-	 * We no longer search for:
-	 *
-	 * .hero-carousel__inner > .hero-carousel__slide
-	 */
-	const slides = Array.from(
-		carousel.children
-	).filter((element) => {
-		return element.classList.contains(
-			'hero-carousel__slide'
+	// ------------------------------------------------------
+	// Slides
+	// ------------------------------------------------------
+
+	const slides =
+		Array.from(
+			carousel.children
+		).filter(
+			(element) => {
+
+				return element.classList.contains(
+					'hero-carousel__slide'
+				);
+
+			}
 		);
-	});
 
 
 	if (!slides.length) {
@@ -112,40 +126,57 @@ function initHeroCarousel(carousel) {
 	}
 
 
-	// ======================================================
+	// ------------------------------------------------------
 	// Configuration
-	// ======================================================
+	// ------------------------------------------------------
 
-	const AUTOPLAY_DELAY = 6000;
+	const AUTOPLAY_DELAY =
+		6000;
 
-	const prefersReducedMotion = window.matchMedia(
-		'(prefers-reduced-motion: reduce)'
-	).matches;
+	const SWIPE_THRESHOLD =
+		50;
+
+
+	const prefersReducedMotion =
+		window.matchMedia(
+			'(prefers-reduced-motion: reduce)'
+		).matches;
+
+
+	// ------------------------------------------------------
+	// State
+	// ------------------------------------------------------
 
 	let currentIndex = 0;
+
 	let autoplayTimer = null;
 
 	let pagination = null;
+
 	let dots = [];
 
 
-	// ======================================================
-	// Carousel State
-	// ======================================================
+	let touchStartX = 0;
+	let touchStartY = 0;
+
+	let touchEndX = 0;
+	let touchEndY = 0;
+
+
+	// ------------------------------------------------------
+	// Carousel
+	// ------------------------------------------------------
 
 	carousel.classList.add(
 		'is-initialized'
 	);
 
 
-	// ======================================================
-	// Accessibility
-	// ======================================================
-
 	carousel.setAttribute(
 		'role',
 		'region'
 	);
+
 
 	carousel.setAttribute(
 		'aria-roledescription',
@@ -153,7 +184,11 @@ function initHeroCarousel(carousel) {
 	);
 
 
-	if (!carousel.hasAttribute('aria-label')) {
+	if (
+		!carousel.hasAttribute(
+			'aria-label'
+		)
+	) {
 
 		carousel.setAttribute(
 			'aria-label',
@@ -163,29 +198,37 @@ function initHeroCarousel(carousel) {
 	}
 
 
-	slides.forEach((slide, index) => {
+	// ------------------------------------------------------
+	// Slides Accessibility
+	// ------------------------------------------------------
 
-		slide.setAttribute(
-			'role',
-			'group'
-		);
+	slides.forEach(
+		(slide, index) => {
 
-		slide.setAttribute(
-			'aria-roledescription',
-			'slide'
-		);
-
-		slide.setAttribute(
-			'aria-label',
-			`${index + 1} de ${slides.length}`
-		);
-
-	});
+			slide.setAttribute(
+				'role',
+				'group'
+			);
 
 
-	// ======================================================
+			slide.setAttribute(
+				'aria-roledescription',
+				'slide'
+			);
+
+
+			slide.setAttribute(
+				'aria-label',
+				`${index + 1} de ${slides.length}`
+			);
+
+		}
+	);
+
+
+	// ------------------------------------------------------
 	// Pagination
-	// ======================================================
+	// ------------------------------------------------------
 
 	function createPagination() {
 
@@ -194,12 +237,15 @@ function initHeroCarousel(carousel) {
 		}
 
 
-		pagination = document.createElement(
-			'div'
-		);
+		pagination =
+			document.createElement(
+				'div'
+			);
+
 
 		pagination.className =
 			'hero-carousel__pagination';
+
 
 		pagination.setAttribute(
 			'aria-label',
@@ -207,40 +253,55 @@ function initHeroCarousel(carousel) {
 		);
 
 
-		slides.forEach((slide, index) => {
+		slides.forEach(
+			(slide, index) => {
 
-			const dot = document.createElement(
-				'button'
-			);
-
-			dot.type = 'button';
-
-			dot.className =
-				'hero-carousel__dot';
-
-			dot.setAttribute(
-				'aria-label',
-				`Ir para o destaque ${index + 1}`
-			);
+				const dot =
+					document.createElement(
+						'button'
+					);
 
 
-			dot.addEventListener(
-				'click',
-				() => {
-
-					goToSlide(index);
-
-					restartAutoplay();
-
-				}
-			);
+				dot.type =
+					'button';
 
 
-			pagination.appendChild(dot);
+				dot.className =
+					'hero-carousel__dot';
 
-			dots.push(dot);
 
-		});
+				dot.setAttribute(
+					'aria-label',
+					`Ir para o destaque ${index + 1}`
+				);
+
+
+				dot.addEventListener(
+					'click',
+					() => {
+
+						goToSlide(
+							index
+						);
+
+
+						restartAutoplay();
+
+					}
+				);
+
+
+				pagination.appendChild(
+					dot
+				);
+
+
+				dots.push(
+					dot
+				);
+
+			}
+		);
 
 
 		carousel.appendChild(
@@ -250,30 +311,40 @@ function initHeroCarousel(carousel) {
 	}
 
 
-	// ======================================================
-	// Slide Navigation
-	// ======================================================
+	// ------------------------------------------------------
+	// Navigate
+	// ------------------------------------------------------
 
 	function goToSlide(index) {
 
 		if (index < 0) {
-			index = slides.length - 1;
+
+			index =
+				slides.length - 1;
+
 		}
 
 
-		if (index >= slides.length) {
+		if (
+			index >=
+			slides.length
+		) {
+
 			index = 0;
+
 		}
 
 
-		currentIndex = index;
+		currentIndex =
+			index;
 
 
 		slides.forEach(
 			(slide, slideIndex) => {
 
 				const isActive =
-					slideIndex === currentIndex;
+					slideIndex ===
+					currentIndex;
 
 
 				slide.classList.toggle(
@@ -290,10 +361,6 @@ function initHeroCarousel(carousel) {
 				);
 
 
-				/**
-				 * Inactive slides must not receive
-				 * keyboard interaction.
-				 */
 				if (isActive) {
 
 					slide.removeAttribute(
@@ -317,7 +384,8 @@ function initHeroCarousel(carousel) {
 			(dot, dotIndex) => {
 
 				const isActive =
-					dotIndex === currentIndex;
+					dotIndex ===
+					currentIndex;
 
 
 				dot.classList.toggle(
@@ -365,9 +433,9 @@ function initHeroCarousel(carousel) {
 	}
 
 
-	// ======================================================
+	// ------------------------------------------------------
 	// Autoplay
-	// ======================================================
+	// ------------------------------------------------------
 
 	function stopAutoplay() {
 
@@ -380,7 +448,9 @@ function initHeroCarousel(carousel) {
 			autoplayTimer
 		);
 
-		autoplayTimer = null;
+
+		autoplayTimer =
+			null;
 
 	}
 
@@ -389,7 +459,8 @@ function initHeroCarousel(carousel) {
 
 		if (
 			prefersReducedMotion ||
-			slides.length <= 1
+			slides.length <= 1 ||
+			document.hidden
 		) {
 			return;
 		}
@@ -398,10 +469,11 @@ function initHeroCarousel(carousel) {
 		stopAutoplay();
 
 
-		autoplayTimer = window.setInterval(
-			nextSlide,
-			AUTOPLAY_DELAY
-		);
+		autoplayTimer =
+			window.setInterval(
+				nextSlide,
+				AUTOPLAY_DELAY
+			);
 
 	}
 
@@ -415,15 +487,18 @@ function initHeroCarousel(carousel) {
 	}
 
 
-	// ======================================================
-	// Keyboard Navigation
-	// ======================================================
+	// ------------------------------------------------------
+	// Keyboard
+	// ------------------------------------------------------
 
 	carousel.addEventListener(
 		'keydown',
 		(event) => {
 
-			if (event.key === 'ArrowLeft') {
+			if (
+				event.key ===
+				'ArrowLeft'
+			) {
 
 				event.preventDefault();
 
@@ -431,11 +506,13 @@ function initHeroCarousel(carousel) {
 
 				restartAutoplay();
 
-				return;
 			}
 
 
-			if (event.key === 'ArrowRight') {
+			if (
+				event.key ===
+				'ArrowRight'
+			) {
 
 				event.preventDefault();
 
@@ -449,9 +526,143 @@ function initHeroCarousel(carousel) {
 	);
 
 
-	// ======================================================
-	// Mouse Interaction
-	// ======================================================
+	// ------------------------------------------------------
+	// Swipe
+	// ------------------------------------------------------
+
+	carousel.addEventListener(
+		'touchstart',
+		(event) => {
+
+			if (
+				!event.touches.length
+			) {
+				return;
+			}
+
+
+			touchStartX =
+				event.touches[0]
+					.clientX;
+
+
+			touchStartY =
+				event.touches[0]
+					.clientY;
+
+
+			touchEndX =
+				touchStartX;
+
+
+			touchEndY =
+				touchStartY;
+
+
+			stopAutoplay();
+
+		},
+		{
+			passive: true
+		}
+	);
+
+
+	carousel.addEventListener(
+		'touchmove',
+		(event) => {
+
+			if (
+				!event.touches.length
+			) {
+				return;
+			}
+
+
+			touchEndX =
+				event.touches[0]
+					.clientX;
+
+
+			touchEndY =
+				event.touches[0]
+					.clientY;
+
+		},
+		{
+			passive: true
+		}
+	);
+
+
+	carousel.addEventListener(
+		'touchend',
+		() => {
+
+			const distanceX =
+				touchEndX -
+				touchStartX;
+
+
+			const distanceY =
+				touchEndY -
+				touchStartY;
+
+
+			const horizontalDistance =
+				Math.abs(
+					distanceX
+				);
+
+
+			const verticalDistance =
+				Math.abs(
+					distanceY
+				);
+
+
+			const horizontalSwipe =
+				horizontalDistance >
+				verticalDistance;
+
+
+			const validSwipe =
+				horizontalDistance >=
+				SWIPE_THRESHOLD;
+
+
+			if (
+				horizontalSwipe &&
+				validSwipe
+			) {
+
+				if (
+					distanceX < 0
+				) {
+
+					nextSlide();
+
+				} else {
+
+					previousSlide();
+
+				}
+
+			}
+
+
+			restartAutoplay();
+
+		},
+		{
+			passive: true
+		}
+	);
+
+
+	// ------------------------------------------------------
+	// Hover
+	// ------------------------------------------------------
 
 	carousel.addEventListener(
 		'mouseenter',
@@ -465,9 +676,9 @@ function initHeroCarousel(carousel) {
 	);
 
 
-	// ======================================================
-	// Keyboard Focus
-	// ======================================================
+	// ------------------------------------------------------
+	// Focus
+	// ------------------------------------------------------
 
 	carousel.addEventListener(
 		'focusin',
@@ -495,19 +706,22 @@ function initHeroCarousel(carousel) {
 	);
 
 
-	// ======================================================
-	// Browser Tab Visibility
-	// ======================================================
+	// ------------------------------------------------------
+	// Browser Visibility
+	// ------------------------------------------------------
 
 	document.addEventListener(
 		'visibilitychange',
 		() => {
 
-			if (document.hidden) {
+			if (
+				document.hidden
+			) {
 
 				stopAutoplay();
 
 				return;
+
 			}
 
 
@@ -517,9 +731,9 @@ function initHeroCarousel(carousel) {
 	);
 
 
-	// ======================================================
+	// ------------------------------------------------------
 	// Initialize
-	// ======================================================
+	// ------------------------------------------------------
 
 	createPagination();
 
