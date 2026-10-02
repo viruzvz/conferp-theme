@@ -15,6 +15,15 @@
 $institution-primary: #205584;
 $institution-secondary: #4d9bd5;
 
+/*
+ * Main institutional heading color.
+ *
+ * Used for page titles, card titles, section headings
+ * and other prominent textual elements.
+ */
+$institution-heading-color: #1e284b;
+
+
 // ----------------------------------------------------------
 // Neutral Colors
 // ----------------------------------------------------------
@@ -32,6 +41,7 @@ $gray-700: #495057;
 $gray-800: #343a40;
 $gray-900: #212529;
 
+
 // ----------------------------------------------------------
 // Bootstrap Theme
 // ----------------------------------------------------------
@@ -40,12 +50,14 @@ $primary: $institution-primary;
 $secondary: $institution-secondary;
 $dark: $gray-900;
 
+
 // ----------------------------------------------------------
 // Body
 // ----------------------------------------------------------
 
 $body-bg: $white;
 $body-color: $gray-900;
+
 
 // ----------------------------------------------------------
 // Typography
@@ -59,12 +71,14 @@ $font-family-sans-serif:
 $font-size-base: 1rem;
 $line-height-base: 1.5;
 
+
 // ----------------------------------------------------------
 // Links
 // ----------------------------------------------------------
 
 $link-color: $primary;
 $link-decoration: none;
+
 
 // ----------------------------------------------------------
 // Borders
@@ -73,6 +87,7 @@ $link-decoration: none;
 $border-radius: .25rem;
 $border-radius-sm: .2rem;
 $border-radius-lg: .375rem;
+
 
 // ----------------------------------------------------------
 // Grid
@@ -88,6 +103,7 @@ $container-max-widths: (
     xl: 1140px,
     xxl: 1320px
 );
+
 
 // ----------------------------------------------------------
 // Components — Buttons
@@ -117,11 +133,13 @@ $button-transition:
     border-color .2s ease,
     box-shadow .2s ease;
 
+
 // ----------------------------------------------------------
 // Spacing
 // ----------------------------------------------------------
 
 $section-spacing-y: 30px;
+
 
 // ----------------------------------------------------------
 // Backgrounds

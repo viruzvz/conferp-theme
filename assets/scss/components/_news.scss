@@ -1,0 +1,958 @@
+/**
+ * CONFERP News
+ *
+ * Main layout for the institutional news archive,
+ * categories, search results, empty states and pagination.
+ */
+
+
+/* ==========================================================
+   NEWS PAGE
+   ========================================================== */
+
+.news-page {
+    width: 100%;
+
+    margin: 0;
+    padding: 0 0 64px;
+
+    background-color: $white;
+}
+
+
+/* ==========================================================
+   PAGE CONTAINER
+   ========================================================== */
+
+.news-page > .container {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==========================================================
+   PAGE HEADER
+   ========================================================== */
+
+.news-page__header {
+    position: relative;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding:
+        30px
+        max(24px, calc((100% - 1320px) / 2))
+        38px;
+
+    background-color: $institution-background-light;
+}
+
+
+/* ==========================================================
+   PAGE HEADER INNER
+   ========================================================== */
+
+.news-page__header-inner {
+    width: 100%;
+    max-width: 1320px;
+
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+/* ==========================================================
+   PAGE EYEBROW
+   ========================================================== */
+
+.news-page__eyebrow {
+    display: block;
+
+    margin: 0 0 6px;
+    padding: 0;
+
+    color: $institution-primary;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+
+/* ==========================================================
+   PAGE TITLE
+   ========================================================== */
+
+.news-page__title {
+    position: relative;
+
+    display: inline-block;
+
+    margin: 0;
+    padding: 0 0 14px;
+
+    color: $institution-heading-color;
+
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -.02em;
+}
+
+
+.news-page__title::after {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 165px;
+    height: 3px;
+
+    background-color: $conferp-global-transparency;
+}
+
+
+/* ==========================================================
+   MAIN LAYOUT
+   ========================================================== */
+
+.news-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        260px;
+
+    align-items: start;
+
+    column-gap: 48px;
+
+    width: calc(100% - 48px);
+    max-width: 1320px;
+
+    margin: 0 auto;
+
+    padding: 38px 0 0;
+}
+
+
+/* ==========================================================
+   NEWS MAIN
+   ========================================================== */
+
+.news-layout__main {
+    min-width: 0;
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==========================================================
+   NEWS GRID
+   ========================================================== */
+
+.news-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    align-items: start;
+
+    column-gap: 32px;
+    row-gap: 48px;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==========================================================
+   SIDEBAR
+   ========================================================== */
+
+.news-layout__sidebar {
+    min-width: 0;
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==========================================================
+   SEARCH RESULTS SUMMARY
+   ========================================================== */
+
+.news-results-summary {
+    width: 100%;
+
+    margin: 0 0 32px;
+    padding: 0 0 20px;
+
+    border-bottom: 1px solid $gray-300;
+}
+
+
+.news-results-summary__label {
+    margin: 0 0 4px;
+    padding: 0;
+
+    color: $gray-600;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+
+.news-results-summary__term {
+    margin: 0 0 8px;
+    padding: 0;
+
+    color: $institution-heading-color;
+
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+
+.news-results-summary__count {
+    margin: 0;
+    padding: 0;
+
+    color: $gray-600;
+
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+
+/* ==========================================================
+   SEARCH RESULTS ACTIONS
+   ========================================================== */
+
+.news-results-summary__actions {
+    display: flex;
+
+    align-items: center;
+
+    margin: 16px 0 0;
+    padding: 0;
+}
+
+
+.news-results-summary__back {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: $institution-primary;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition: color .2s ease;
+}
+
+
+.news-results-summary__back:hover,
+.news-results-summary__back:focus-visible {
+    color: $institution-heading-color;
+
+    text-decoration: underline;
+}
+
+
+.news-results-summary__back:focus-visible {
+    outline: 2px solid rgba(77, 155, 213, .35);
+    outline-offset: 4px;
+}
+
+
+/* ==========================================================
+   NEWS EMPTY STATE
+   ========================================================== */
+
+.news-empty {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    width: 100%;
+    max-width: 640px;
+
+    margin: 8px 0 0;
+    padding: 32px;
+
+    border: 1px solid $gray-300;
+    border-radius: 20px;
+
+    background-color: $institution-background-light;
+}
+
+
+/* ==========================================================
+   EMPTY STATE ICON
+   ========================================================== */
+
+.news-empty__icon {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    margin: 0 0 20px;
+
+    border-radius: 50%;
+
+    background-color: $white;
+
+    color: $institution-primary;
+}
+
+
+.news-empty__icon svg {
+    display: block;
+
+    width: 22px;
+    height: 22px;
+
+    fill: currentColor;
+}
+
+
+/* ==========================================================
+   EMPTY STATE TITLE
+   ========================================================== */
+
+.news-empty__title {
+    margin: 0 0 10px;
+    padding: 0;
+
+    color: $institution-heading-color;
+
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+
+/* ==========================================================
+   EMPTY STATE MESSAGE
+   ========================================================== */
+
+.news-empty__message {
+    max-width: 540px;
+
+    margin: 0 0 24px;
+    padding: 0;
+
+    color: $gray-700;
+
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+
+/* ==========================================================
+   EMPTY STATE ACTION
+   ========================================================== */
+
+.news-empty__back {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 38px;
+
+    margin: 0;
+    padding: 8px 22px;
+
+    border: 1px solid $button-primary-border;
+    border-radius: $button-border-radius;
+
+    background-color: $button-primary-bg;
+
+    color: $button-primary-color;
+
+    font-family: inherit;
+    font-size: $button-font-size;
+    font-weight: $button-font-weight;
+    line-height: $button-line-height;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: $button-transition;
+}
+
+
+.news-empty__back:hover,
+.news-empty__back:focus-visible {
+    border-color: $button-primary-hover-border;
+
+    background-color: $button-primary-hover-bg;
+
+    color: $button-primary-hover-color;
+
+    text-decoration: none;
+}
+
+
+.news-empty__back:focus-visible {
+    outline: 3px solid rgba(77, 155, 213, .30);
+    outline-offset: 3px;
+}
+
+
+/* ==========================================================
+   CATEGORY DESCRIPTION
+   ========================================================== */
+
+.news-category__description {
+    width: 100%;
+
+    margin: 0 0 32px;
+    padding: 0 0 20px;
+
+    border-bottom: 1px solid $gray-300;
+
+    color: $gray-700;
+
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+.news-category__description > :last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==========================================================
+   NEWS PAGINATION
+   ========================================================== */
+
+.news-pagination {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    margin: 56px 0 0;
+    padding: 24px 0 0;
+
+    border-top: 1px solid $gray-300;
+}
+
+
+/* ==========================================================
+   PAGINATION LIST
+   ========================================================== */
+
+.news-pagination__list {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+/* ==========================================================
+   PAGINATION ITEM
+   ========================================================== */
+
+.news-pagination__item {
+    display: flex;
+
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==========================================================
+   PAGINATION LINKS
+   ========================================================== */
+
+.news-pagination .page-numbers {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 38px;
+    height: 38px;
+
+    margin: 0;
+    padding: 0 11px;
+
+    border: 1px solid $gray-300;
+    border-radius: 999px;
+
+    background-color: $white;
+
+    color: $institution-primary;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+
+    text-decoration: none;
+
+    transition:
+        color .2s ease,
+        background-color .2s ease,
+        border-color .2s ease;
+}
+
+
+/* ==========================================================
+   CURRENT PAGE
+   ========================================================== */
+
+.news-pagination .page-numbers.current {
+    border-color: $institution-primary;
+
+    background-color: $institution-primary;
+
+    color: $white;
+
+    cursor: default;
+}
+
+
+/* ==========================================================
+   PAGINATION HOVER / FOCUS
+   ========================================================== */
+
+.news-pagination a.page-numbers:hover,
+.news-pagination a.page-numbers:focus-visible {
+    border-color: $institution-primary;
+
+    background-color: $institution-background-light;
+
+    color: $institution-heading-color;
+}
+
+
+.news-pagination a.page-numbers:focus-visible {
+    outline: 3px solid rgba(77, 155, 213, .30);
+    outline-offset: 3px;
+}
+
+
+/* ==========================================================
+   PREVIOUS / NEXT
+   ========================================================== */
+
+.news-pagination .prev,
+.news-pagination .next {
+    gap: 7px;
+
+    padding-right: 16px;
+    padding-left: 16px;
+}
+
+
+/* ==========================================================
+   PAGINATION DOTS
+   ========================================================== */
+
+.news-pagination .dots {
+    min-width: auto;
+
+    padding-right: 5px;
+    padding-left: 5px;
+
+    border-color: transparent;
+
+    background: transparent;
+
+    color: $gray-600;
+}
+
+
+/* ==========================================================
+   TABLET
+   Bootstrap LG
+   < 992px
+   ========================================================== */
+
+@include media-breakpoint-down(lg) {
+
+    .news-page {
+        padding-bottom: 56px;
+    }
+
+
+    .news-page__header {
+        padding:
+            28px
+            24px
+            32px;
+    }
+
+
+    .news-layout {
+        grid-template-columns: minmax(0, 1fr);
+
+        width: calc(100% - 48px);
+
+        column-gap: 0;
+        row-gap: 32px;
+
+        padding-top: 32px;
+    }
+
+
+    /*
+     * Filters appear before the cards.
+     */
+    .news-layout__sidebar {
+        order: 1;
+
+        width: 100%;
+    }
+
+
+    .news-layout__main {
+        order: 2;
+    }
+
+
+    /*
+     * Two cards are maintained on tablet.
+     */
+    .news-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        column-gap: 24px;
+        row-gap: 40px;
+    }
+
+
+    .news-empty {
+        max-width: none;
+    }
+}
+
+
+/* ==========================================================
+   MOBILE
+   Bootstrap MD
+   < 768px
+   ========================================================== */
+
+@include media-breakpoint-down(md) {
+
+    .news-page {
+        padding-bottom: 48px;
+    }
+
+
+    .news-page__header {
+        padding:
+            24px
+            16px
+            30px;
+    }
+
+
+    .news-page__title {
+        padding-bottom: 12px;
+
+        font-size: 36px;
+    }
+
+
+    .news-page__title::after {
+        width: 120px;
+    }
+
+
+    .news-layout {
+        width: calc(100% - 32px);
+
+        row-gap: 40px;
+
+        padding-top: 30px;
+    }
+
+
+    /*
+     * Single-column news feed.
+     */
+    .news-grid {
+        grid-template-columns: minmax(0, 1fr);
+
+        column-gap: 0;
+        row-gap: 40px;
+    }
+
+
+    /* ------------------------------------------------------
+       Search results
+       ------------------------------------------------------ */
+
+    .news-results-summary {
+        margin-bottom: 28px;
+        padding-bottom: 18px;
+    }
+
+
+    .news-results-summary__term {
+        font-size: 20px;
+    }
+
+
+    /* ------------------------------------------------------
+       Empty state
+       ------------------------------------------------------ */
+
+    .news-empty {
+        margin-top: 0;
+
+        padding: 26px;
+    }
+
+
+    .news-empty__title {
+        font-size: 21px;
+    }
+
+
+    .news-empty__message {
+        font-size: 14px;
+    }
+
+
+    /* ------------------------------------------------------
+       Pagination
+       ------------------------------------------------------ */
+
+    .news-pagination {
+        margin-top: 44px;
+        padding-top: 20px;
+    }
+
+
+    .news-pagination__list {
+        gap: 6px;
+    }
+
+
+    .news-pagination .page-numbers {
+        min-width: 36px;
+        height: 36px;
+
+        padding-right: 10px;
+        padding-left: 10px;
+
+        font-size: 13px;
+    }
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+   Bootstrap SM
+   < 576px
+   ========================================================== */
+
+@include media-breakpoint-down(sm) {
+
+    .news-page {
+        padding-bottom: 40px;
+    }
+
+
+    .news-page__header {
+        padding:
+            22px
+            14px
+            28px;
+    }
+
+
+    .news-page__title {
+        font-size: 32px;
+    }
+
+
+    .news-layout {
+        width: calc(100% - 28px);
+
+        row-gap: 36px;
+
+        padding-top: 28px;
+    }
+
+
+    .news-grid {
+        row-gap: 36px;
+    }
+
+
+    /* ------------------------------------------------------
+       Search results
+       ------------------------------------------------------ */
+
+    .news-results-summary {
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+    }
+
+
+    .news-results-summary__label {
+        font-size: 13px;
+    }
+
+
+    .news-results-summary__term {
+        font-size: 19px;
+    }
+
+
+    .news-results-summary__count {
+        font-size: 12px;
+    }
+
+
+    .news-results-summary__actions {
+        margin-top: 14px;
+    }
+
+
+    /* ------------------------------------------------------
+       Empty state
+       ------------------------------------------------------ */
+
+    .news-empty {
+        padding: 22px;
+    }
+
+
+    .news-empty__icon {
+        width: 42px;
+        height: 42px;
+
+        margin-bottom: 16px;
+    }
+
+
+    .news-empty__title {
+        font-size: 20px;
+    }
+
+
+    .news-empty__message {
+        margin-bottom: 20px;
+    }
+
+
+    /* ------------------------------------------------------
+       Pagination
+       ------------------------------------------------------ */
+
+    .news-pagination {
+        margin-top: 36px;
+    }
+
+
+    /*
+     * Keep the arrows visible while hiding the
+     * Previous / Next text on small screens.
+     */
+    .news-pagination__label {
+        position: absolute;
+
+        width: 1px;
+        height: 1px;
+
+        margin: -1px;
+        padding: 0;
+
+        overflow: hidden;
+
+        clip: rect(0, 0, 0, 0);
+
+        white-space: nowrap;
+
+        border: 0;
+    }
+
+
+    .news-pagination .prev,
+    .news-pagination .next {
+        width: 36px;
+
+        padding: 0;
+    }
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .news-results-summary__back,
+    .news-empty__back,
+    .news-pagination .page-numbers {
+        transition: none;
+    }
+}

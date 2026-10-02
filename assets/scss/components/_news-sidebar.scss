@@ -1,0 +1,632 @@
+/**
+ * CONFERP News Sidebar
+ *
+ * Search and category filters used by
+ * the institutional News module.
+ *
+ * Desktop:
+ * - Sidebar displayed beside the news grid.
+ * - Search card.
+ * - Categories displayed as a list.
+ *
+ * Tablet / Mobile (< 992px):
+ * - Sidebar moves above the news grid.
+ * - Search occupies 100% width.
+ * - Categories list becomes a select.
+ */
+
+
+/* ==========================================================
+   SIDEBAR
+   ========================================================== */
+
+.news-sidebar {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    gap: 28px;
+}
+
+
+/* ==========================================================
+   SIDEBAR SECTION / CARD
+   ========================================================== */
+
+.news-sidebar__section {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    border: 1px solid $gray-300;
+    border-radius: 20px;
+
+    background-color: $institution-background-light;
+}
+
+
+/* ==========================================================
+   CARD HEADER
+   ========================================================== */
+
+.news-sidebar__header {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 42px;
+
+    margin: 0;
+    padding: 8px 14px;
+
+    background-color: $institution-secondary;
+}
+
+
+/* ==========================================================
+   CARD TITLE
+   ========================================================== */
+
+.news-sidebar__title {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    color: $white;
+
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.25;
+
+    text-align: center;
+}
+
+
+/*
+ * Search title is uppercase in the Figma.
+ */
+.news-search .news-sidebar__title {
+    text-transform: uppercase;
+}
+
+
+/* ==========================================================
+   CARD BODY
+   ========================================================== */
+
+.news-sidebar__body {
+    width: 100%;
+
+    margin: 0;
+    padding: 16px 14px 18px;
+
+    background-color: $institution-background-light;
+}
+
+
+/* ==========================================================
+   SEARCH FORM
+   ========================================================== */
+
+.news-search__form {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    gap: 14px;
+}
+
+
+/* ==========================================================
+   SEARCH FIELD
+   ========================================================== */
+
+.news-search__field {
+    position: relative;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==========================================================
+   SEARCH INPUT
+   ========================================================== */
+
+.news-search__input {
+    display: block;
+
+    width: 100%;
+    height: 40px;
+
+    margin: 0;
+
+    padding:
+        7px
+        42px
+        7px
+        14px;
+
+    border: 1px solid $gray-400;
+    border-radius: 999px;
+
+    background-color: $white;
+
+    color: $body-color;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+
+    outline: 0;
+
+    box-shadow: none;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.news-search__input::placeholder {
+    color: $gray-600;
+
+    opacity: 1;
+}
+
+
+.news-search__input:hover {
+    border-color: $gray-500;
+}
+
+
+.news-search__input:focus {
+    border-color: $institution-primary;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(77, 155, 213, .18);
+}
+
+
+/* ==========================================================
+   SEARCH ICON
+   ========================================================== */
+
+.news-search__icon {
+    position: absolute;
+
+    top: 50%;
+    right: 14px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+    height: 20px;
+
+    color: $gray-700;
+
+    pointer-events: none;
+
+    transform: translateY(-50%);
+}
+
+
+.news-search__icon svg {
+    display: block;
+
+    width: 20px;
+    height: 20px;
+
+    fill: currentColor;
+}
+
+
+/* ==========================================================
+   SEARCH BUTTON
+   ========================================================== */
+
+.news-search__submit {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 38px;
+
+    margin: 0;
+    padding: 7px 18px;
+
+    border: 1px solid $gray-400;
+    border-radius: 999px;
+
+    background-color: $gray-100;
+
+    color: $gray-700;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    box-shadow: none;
+
+    transition:
+        color .2s ease,
+        background-color .2s ease,
+        border-color .2s ease;
+}
+
+
+.news-search__submit:hover,
+.news-search__submit:focus-visible {
+    border-color: $institution-primary;
+
+    background-color: $institution-primary;
+
+    color: $white;
+}
+
+
+.news-search__submit:focus-visible {
+    outline: 3px solid rgba(77, 155, 213, .30);
+    outline-offset: 2px;
+}
+
+
+/* ==========================================================
+   CATEGORIES
+   ========================================================== */
+
+.news-categories .news-sidebar__body {
+    padding:
+        18px
+        18px
+        22px;
+}
+
+
+/* ==========================================================
+   CATEGORIES LIST
+   Desktop
+   ========================================================== */
+
+.news-categories__list {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    gap: 14px;
+
+    list-style: none;
+}
+
+
+/* ==========================================================
+   CATEGORY ITEM
+   ========================================================== */
+
+.news-categories__item {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==========================================================
+   CATEGORY LINK
+   ========================================================== */
+
+.news-categories__link {
+    display: inline-flex;
+
+    align-items: baseline;
+
+    width: auto;
+
+    margin: 0;
+    padding: 0;
+
+    color: $institution-primary;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.35;
+
+    text-decoration: none;
+
+    transition:
+        color .2s ease,
+        text-decoration-color .2s ease;
+}
+
+
+.news-categories__link:hover,
+.news-categories__link:focus-visible {
+    color: $institution-heading-color;
+
+    text-decoration: underline;
+}
+
+
+.news-categories__link:focus-visible {
+    outline: 2px solid rgba(77, 155, 213, .35);
+    outline-offset: 3px;
+}
+
+
+/* ==========================================================
+   CATEGORY COUNT
+   ========================================================== */
+
+.news-categories__count {
+    margin-left: 4px;
+
+    white-space: nowrap;
+}
+
+
+/* ==========================================================
+   CATEGORY SELECT
+   Hidden on desktop
+   ========================================================== */
+
+.news-categories__select-wrapper {
+    display: none;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==========================================================
+   TABLET / MOBILE
+   Bootstrap LG
+   < 992px
+   ========================================================== */
+
+@include media-breakpoint-down(lg) {
+
+    /*
+     * The sidebar becomes a full-width filter area
+     * above the news cards.
+     */
+    .news-sidebar {
+        width: 100%;
+
+        gap: 20px;
+    }
+
+
+    /*
+     * Remove the desktop width limitation.
+     */
+    .news-sidebar__section {
+        width: 100%;
+        max-width: none;
+    }
+
+
+    /* ------------------------------------------------------
+       Search
+       ------------------------------------------------------ */
+
+    .news-search {
+        width: 100%;
+        max-width: none;
+    }
+
+
+    .news-search__form {
+        width: 100%;
+    }
+
+
+    .news-search__field {
+        width: 100%;
+    }
+
+
+    .news-search__input {
+        width: 100%;
+    }
+
+
+    .news-search__submit {
+        width: 100%;
+    }
+
+
+    /* ------------------------------------------------------
+       Categories
+       ------------------------------------------------------ */
+
+    /*
+     * Hide the long desktop category list.
+     */
+    .news-categories__list {
+        display: none;
+    }
+
+
+    /*
+     * Display the compact category selector.
+     */
+    .news-categories__select-wrapper {
+        display: block;
+
+        width: 100%;
+    }
+
+
+    .news-categories__select {
+        display: block;
+
+        width: 100%;
+        height: 40px;
+
+        margin: 0;
+
+        padding:
+            7px
+            42px
+            7px
+            14px;
+
+        border: 1px solid $gray-400;
+        border-radius: 999px;
+
+        background-color: $white;
+
+        color: $body-color;
+
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.2;
+
+        cursor: pointer;
+
+        outline: 0;
+
+        box-shadow: none;
+
+        transition:
+            border-color .2s ease,
+            box-shadow .2s ease;
+    }
+
+
+    .news-categories__select:hover {
+        border-color: $gray-500;
+    }
+
+
+    .news-categories__select:focus {
+        border-color: $institution-primary;
+
+        box-shadow:
+            0 0 0 3px
+            rgba(77, 155, 213, .18);
+    }
+}
+
+
+/* ==========================================================
+   MOBILE
+   Bootstrap MD
+   < 768px
+   ========================================================== */
+
+@include media-breakpoint-down(md) {
+
+    .news-sidebar {
+        gap: 16px;
+    }
+
+
+    .news-sidebar__body {
+        padding:
+            16px
+            16px
+            18px;
+    }
+
+
+    .news-categories .news-sidebar__body {
+        padding:
+            16px
+            16px
+            18px;
+    }
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+   Bootstrap SM
+   < 576px
+   ========================================================== */
+
+@include media-breakpoint-down(sm) {
+
+    .news-sidebar__header {
+        min-height: 40px;
+
+        padding:
+            8px
+            12px;
+    }
+
+
+    .news-sidebar__body {
+        padding:
+            14px
+            14px
+            16px;
+    }
+
+
+    .news-categories .news-sidebar__body {
+        padding:
+            14px
+            14px
+            16px;
+    }
+
+
+    .news-search__form {
+        gap: 12px;
+    }
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .news-search__input,
+    .news-search__submit,
+    .news-categories__link,
+    .news-categories__select {
+        transition: none;
+    }
+}

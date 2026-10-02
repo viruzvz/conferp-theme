@@ -37,6 +37,10 @@ require_once get_template_directory() . '/inc/customizer.php';
  */
 require_once get_template_directory() . '/inc/helpers.php';
 
+/**
+ * News posts.
+ */
+require_once get_template_directory() . '/inc/news.php';
 
 /**
  * Document head.

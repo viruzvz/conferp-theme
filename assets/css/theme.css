@@ -58,6 +58,12 @@
  *
  * [ CONFERP Logo ] [ Regional Selector ]
  */
+/*
+ * Main institutional heading color.
+ *
+ * Used for page titles, card titles, section headings
+ * and other prominent textual elements.
+ */
 /* ==========================================================
    BOOTSTRAP 5
 ========================================================== */
@@ -13380,28 +13386,23 @@ html.conferp-high-contrast {
 /**
  * CONFERP Buttons
  *
- * Supports:
+ * Sistema de botões institucionais do tema.
  *
- * 1. Native theme button:
- *    <a class="btn-conferp btn-conferp-primary">
- *
- * 2. Elementor Button widget:
- *    <div class="btn-conferp btn-conferp-primary elementor-widget-button">
- *        ...
- *        <a class="elementor-button">
- *    </div>
+ * A tipografia dos botões criados no Elementor pode continuar
+ * sendo controlada pelo próprio Elementor.
  */
-/* ==========================================================
-   Native Theme Button
-   ========================================================== */
-.btn-conferp:not(.elementor-widget-button) {
+/* =========================================================
+   BASE
+   ========================================================= */
+.btn-conferp,
+.elementor-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: auto;
   min-height: 30px;
   padding: 7px 16px;
-  border: 0;
+  border: 1px solid transparent;
   border-radius: 25px;
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 14px;
@@ -13411,184 +13412,219 @@ html.conferp-high-contrast {
   text-decoration: none;
   cursor: pointer;
   box-shadow: none;
-  appearance: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-/* ==========================================================
-   Native Primary
-   ========================================================== */
-.btn-conferp-primary:not(.elementor-widget-button) {
-  border: 0;
+/* =========================================================
+   PRIMARY
+   ========================================================= */
+.btn-conferp-primary,
+.elementor-button {
+  border-color: #205584;
   background-color: #5292cd;
   color: #fff;
 }
 
-.btn-conferp-primary:not(.elementor-widget-button):hover,
-.btn-conferp-primary:not(.elementor-widget-button):focus-visible {
+.btn-conferp-primary:hover,
+.btn-conferp-primary:focus-visible,
+.elementor-button:hover,
+.elementor-button:focus-visible {
+  border-color: #205584;
   background-color: #205584;
   color: #fff;
   text-decoration: none;
 }
 
-/* ==========================================================
-   Native Outline
-   ========================================================== */
-.btn-conferp-outline:not(.elementor-widget-button) {
-  border: 1px solid #205584;
+/* =========================================================
+   OUTLINE
+   ========================================================= */
+.btn-conferp-outline {
+  border-color: #205584;
   background-color: transparent;
   color: #205584;
 }
 
-.btn-conferp-outline:not(.elementor-widget-button):hover,
-.btn-conferp-outline:not(.elementor-widget-button):focus-visible {
+.btn-conferp-outline:hover,
+.btn-conferp-outline:focus-visible {
+  border-color: #205584;
   background-color: #205584;
   color: #fff;
-}
-
-/* ==========================================================
-   Elementor Button Widget
-
-   btn-conferp / btn-conferp-primary are applied to the
-   Elementor widget itself.
-
-   The widget and its wrappers remain transparent.
-   Only the actual <a class="elementor-button"> is styled.
-   ========================================================== */
-.elementor-widget-button.btn-conferp,
-.elementor-widget-button.btn-conferp-primary,
-.elementor-widget-button.btn-conferp-outline {
-  background: transparent !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
-
-/* Elementor wrappers */
-.elementor-widget-button.btn-conferp > .elementor-widget-container {
-  background: transparent !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
-.elementor-widget-button.btn-conferp .elementor-button-wrapper {
-  background: transparent !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
-
-/* Actual Elementor button */
-.elementor-widget-button.btn-conferp .elementor-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  min-height: 30px;
-  padding: 7px 16px;
-  border: 0 !important;
-  border-radius: 25px;
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  box-shadow: none !important;
-  appearance: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-/* ==========================================================
-   Elementor Primary
-   ========================================================== */
-.elementor-widget-button.btn-conferp-primary .elementor-button {
-  border: 0 !important;
-  background-color: #5292cd !important;
-  color: #fff !important;
-}
-.elementor-widget-button.btn-conferp-primary .elementor-button:hover,
-.elementor-widget-button.btn-conferp-primary .elementor-button:focus-visible {
-  border: 0 !important;
-  background-color: #205584 !important;
-  color: #fff !important;
   text-decoration: none;
 }
 
-/* ==========================================================
-   Elementor Outline
-   ========================================================== */
-.elementor-widget-button.btn-conferp-outline .elementor-button {
-  border: 1px solid #205584 !important;
-  background-color: transparent !important;
-  color: #205584 !important;
-}
-.elementor-widget-button.btn-conferp-outline .elementor-button:hover,
-.elementor-widget-button.btn-conferp-outline .elementor-button:focus-visible {
-  background-color: #205584 !important;
-  color: #fff !important;
-}
-
-/* ==========================================================
-   Focus
-   ========================================================== */
-.btn-conferp:not(.elementor-widget-button):focus-visible,
-.elementor-widget-button.btn-conferp .elementor-button:focus-visible {
+/* =========================================================
+   FOCUS
+   ========================================================= */
+.btn-conferp:focus-visible,
+.elementor-button:focus-visible {
   outline: 3px solid rgba(77, 155, 213, 0.35);
   outline-offset: 3px;
 }
 
-/* ==========================================================
-   Sizes - Native
-   ========================================================== */
-.btn-conferp-sm:not(.elementor-widget-button) {
-  min-height: 28px;
-  padding: 6px 14px;
-  font-size: 13px;
-}
-
-.btn-conferp-lg:not(.elementor-widget-button) {
-  min-height: 42px;
-  padding: 10px 22px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-/* ==========================================================
-   Sizes - Elementor
-   ========================================================== */
-.elementor-widget-button.btn-conferp-sm .elementor-button {
-  min-height: 28px;
-  padding: 6px 14px;
-  font-size: 13px;
-}
-
-.elementor-widget-button.btn-conferp-lg .elementor-button {
-  min-height: 42px;
-  padding: 10px 22px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-/* ==========================================================
-   Disabled
-   ========================================================== */
+/* =========================================================
+   DISABLED
+   ========================================================= */
+.btn-conferp:disabled,
 .btn-conferp.is-disabled,
-.btn-conferp:disabled {
+.elementor-button:disabled {
   opacity: 0.55;
   cursor: not-allowed;
   pointer-events: none;
 }
 
-/* ==========================================================
-   Reduced Motion
-   ========================================================== */
+/* =========================================================
+   SIZES
+   ========================================================= */
+.btn-conferp-sm {
+  min-height: 28px;
+  padding: 6px 14px;
+  font-size: 13px;
+}
+
+.btn-conferp-lg {
+  min-height: 42px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* =========================================================
+   QUICK ACCESS
+   =========================================================
+ *
+ * Uso no Elementor:
+ *
+ * Avançado > Classes CSS:
+ * btn-conferp btn-conferp-quick-access
+ *
+ * O Elementor continua responsável pela tipografia.
+ * O tema controla geometria, borda, alinhamento,
+ * ícone e estados de interação.
+ */
+.btn-conferp-quick-access {
+  width: 100% !important;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  /*
+   * O widget do Elementor ocupa toda a largura
+   * disponível dentro da célula do Grid.
+   */
+}
+.btn-conferp-quick-access .elementor-widget-container,
+.btn-conferp-quick-access .elementor-button-wrapper {
+  width: 100%;
+}
+.btn-conferp-quick-access .elementor-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  min-height: 62px;
+  padding: 12px 20px !important;
+  border: 1px solid #ccc !important;
+  border-radius: 25px !important;
+  background-color: transparent !important;
+  color: #205584 !important;
+  text-align: left !important;
+  box-shadow: none !important;
+}
+.btn-conferp-quick-access {
+  /*
+   * Ícone e texto permanecem centralizados
+   * verticalmente e alinhados à esquerda.
+   */
+}
+.btn-conferp-quick-access .elementor-button-content-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: 100%;
+  text-align: left;
+}
+.btn-conferp-quick-access {
+  /*
+   * Espaçamento entre o ícone e o texto.
+   */
+}
+.btn-conferp-quick-access .elementor-button-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+}
+.btn-conferp-quick-access {
+  /*
+   * Ícones tradicionais.
+   */
+}
+.btn-conferp-quick-access .elementor-button-icon i {
+  font-size: 25px !important;
+  line-height: 1;
+}
+.btn-conferp-quick-access {
+  /*
+   * Ícones SVG.
+   */
+}
+.btn-conferp-quick-access .elementor-button-icon svg {
+  display: block;
+  width: 25px !important;
+  height: 25px !important;
+  flex: 0 0 25px;
+}
+.btn-conferp-quick-access {
+  /*
+   * Permite quebra de linha sem alterar
+   * a tipografia definida no Elementor.
+   */
+}
+.btn-conferp-quick-access .elementor-button-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: inherit !important;
+  text-align: left;
+}
+.btn-conferp-quick-access {
+  /*
+   * Texto e ícone herdam a cor institucional
+   * definida no botão.
+   */
+}
+.btn-conferp-quick-access .elementor-button-icon,
+.btn-conferp-quick-access .elementor-button-icon i,
+.btn-conferp-quick-access .elementor-button-icon svg {
+  color: inherit !important;
+}
+.btn-conferp-quick-access .elementor-button-icon svg {
+  fill: currentColor;
+}
+.btn-conferp-quick-access {
+  /*
+   * Estados de interação.
+   */
+}
+.btn-conferp-quick-access .elementor-button:hover,
+.btn-conferp-quick-access .elementor-button:focus-visible {
+  border-color: #205584 !important;
+  background-color: #f2f6ff !important;
+  color: #205584 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+.btn-conferp-quick-access .elementor-button:focus-visible {
+  outline: 3px solid rgba(77, 155, 213, 0.35);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 @media (prefers-reduced-motion: reduce) {
   .btn-conferp,
-  .elementor-widget-button.btn-conferp .elementor-button {
+  .elementor-button {
     transition: none;
   }
 }
@@ -14409,6 +14445,1232 @@ html.conferp-high-contrast {
   .hero-carousel__dot,
   .hero-carousel__content .elementor-button {
     transition: none !important;
+  }
+}
+/**
+ * CONFERP News
+ *
+ * Main layout for the institutional news archive,
+ * categories, search results, empty states and pagination.
+ */
+/* ==========================================================
+   NEWS PAGE
+   ========================================================== */
+.news-page {
+  width: 100%;
+  margin: 0;
+  padding: 0 0 64px;
+  background-color: #ffffff;
+}
+
+/* ==========================================================
+   PAGE CONTAINER
+   ========================================================== */
+.news-page > .container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================
+   PAGE HEADER
+   ========================================================== */
+.news-page__header {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 30px max(24px, (100% - 1320px) / 2) 38px;
+  background-color: #f2f6ff;
+}
+
+/* ==========================================================
+   PAGE HEADER INNER
+   ========================================================== */
+.news-page__header-inner {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* ==========================================================
+   PAGE EYEBROW
+   ========================================================== */
+.news-page__eyebrow {
+  display: block;
+  margin: 0 0 6px;
+  padding: 0;
+  color: #205584;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* ==========================================================
+   PAGE TITLE
+   ========================================================== */
+.news-page__title {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0 0 14px;
+  color: #1e284b;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.news-page__title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 165px;
+  height: 3px;
+  background-color: #dba840;
+}
+
+/* ==========================================================
+   MAIN LAYOUT
+   ========================================================== */
+.news-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  align-items: start;
+  column-gap: 48px;
+  width: calc(100% - 48px);
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 38px 0 0;
+}
+
+/* ==========================================================
+   NEWS MAIN
+   ========================================================== */
+.news-layout__main {
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================
+   NEWS GRID
+   ========================================================== */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  column-gap: 32px;
+  row-gap: 48px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================
+   SIDEBAR
+   ========================================================== */
+.news-layout__sidebar {
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================
+   SEARCH RESULTS SUMMARY
+   ========================================================== */
+.news-results-summary {
+  width: 100%;
+  margin: 0 0 32px;
+  padding: 0 0 20px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.news-results-summary__label {
+  margin: 0 0 4px;
+  padding: 0;
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.news-results-summary__term {
+  margin: 0 0 8px;
+  padding: 0;
+  color: #1e284b;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.news-results-summary__count {
+  margin: 0;
+  padding: 0;
+  color: #6c757d;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* ==========================================================
+   SEARCH RESULTS ACTIONS
+   ========================================================== */
+.news-results-summary__actions {
+  display: flex;
+  align-items: center;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.news-results-summary__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #205584;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.news-results-summary__back:hover,
+.news-results-summary__back:focus-visible {
+  color: #1e284b;
+  text-decoration: underline;
+}
+
+.news-results-summary__back:focus-visible {
+  outline: 2px solid rgba(77, 155, 213, 0.35);
+  outline-offset: 4px;
+}
+
+/* ==========================================================
+   NEWS EMPTY STATE
+   ========================================================== */
+.news-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 640px;
+  margin: 8px 0 0;
+  padding: 32px;
+  border: 1px solid #dee2e6;
+  border-radius: 20px;
+  background-color: #f2f6ff;
+}
+
+/* ==========================================================
+   EMPTY STATE ICON
+   ========================================================== */
+.news-empty__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin: 0 0 20px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #205584;
+}
+
+.news-empty__icon svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+/* ==========================================================
+   EMPTY STATE TITLE
+   ========================================================== */
+.news-empty__title {
+  margin: 0 0 10px;
+  padding: 0;
+  color: #1e284b;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* ==========================================================
+   EMPTY STATE MESSAGE
+   ========================================================== */
+.news-empty__message {
+  max-width: 540px;
+  margin: 0 0 24px;
+  padding: 0;
+  color: #495057;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* ==========================================================
+   EMPTY STATE ACTION
+   ========================================================== */
+.news-empty__back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  margin: 0;
+  padding: 8px 22px;
+  border: 1px solid #1c4772;
+  border-radius: 25px;
+  background-color: #5292cd;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.news-empty__back:hover,
+.news-empty__back:focus-visible {
+  border-color: #1c4772;
+  background-color: #1c4772;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.news-empty__back:focus-visible {
+  outline: 3px solid rgba(77, 155, 213, 0.3);
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   CATEGORY DESCRIPTION
+   ========================================================== */
+.news-category__description {
+  width: 100%;
+  margin: 0 0 32px;
+  padding: 0 0 20px;
+  border-bottom: 1px solid #dee2e6;
+  color: #495057;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.news-category__description > :last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================
+   NEWS PAGINATION
+   ========================================================== */
+.news-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 56px 0 0;
+  padding: 24px 0 0;
+  border-top: 1px solid #dee2e6;
+}
+
+/* ==========================================================
+   PAGINATION LIST
+   ========================================================== */
+.news-pagination__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ==========================================================
+   PAGINATION ITEM
+   ========================================================== */
+.news-pagination__item {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================
+   PAGINATION LINKS
+   ========================================================== */
+.news-pagination .page-numbers {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  height: 38px;
+  margin: 0;
+  padding: 0 11px;
+  border: 1px solid #dee2e6;
+  border-radius: 999px;
+  background-color: #ffffff;
+  color: #205584;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* ==========================================================
+   CURRENT PAGE
+   ========================================================== */
+.news-pagination .page-numbers.current {
+  border-color: #205584;
+  background-color: #205584;
+  color: #ffffff;
+  cursor: default;
+}
+
+/* ==========================================================
+   PAGINATION HOVER / FOCUS
+   ========================================================== */
+.news-pagination a.page-numbers:hover,
+.news-pagination a.page-numbers:focus-visible {
+  border-color: #205584;
+  background-color: #f2f6ff;
+  color: #1e284b;
+}
+
+.news-pagination a.page-numbers:focus-visible {
+  outline: 3px solid rgba(77, 155, 213, 0.3);
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   PREVIOUS / NEXT
+   ========================================================== */
+.news-pagination .prev,
+.news-pagination .next {
+  gap: 7px;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+/* ==========================================================
+   PAGINATION DOTS
+   ========================================================== */
+.news-pagination .dots {
+  min-width: auto;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-color: transparent;
+  background: transparent;
+  color: #6c757d;
+}
+
+/* ==========================================================
+   TABLET
+   Bootstrap LG
+   < 992px
+   ========================================================== */
+@media (max-width: 991.98px) {
+  .news-page {
+    padding-bottom: 56px;
+  }
+  .news-page__header {
+    padding: 28px 24px 32px;
+  }
+  .news-layout {
+    grid-template-columns: minmax(0, 1fr);
+    width: calc(100% - 48px);
+    column-gap: 0;
+    row-gap: 32px;
+    padding-top: 32px;
+  }
+  /*
+   * Filters appear before the cards.
+   */
+  .news-layout__sidebar {
+    order: 1;
+    width: 100%;
+  }
+  .news-layout__main {
+    order: 2;
+  }
+  /*
+   * Two cards are maintained on tablet.
+   */
+  .news-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 40px;
+  }
+  .news-empty {
+    max-width: none;
+  }
+}
+/* ==========================================================
+   MOBILE
+   Bootstrap MD
+   < 768px
+   ========================================================== */
+@media (max-width: 767.98px) {
+  .news-page {
+    padding-bottom: 48px;
+  }
+  .news-page__header {
+    padding: 24px 16px 30px;
+  }
+  .news-page__title {
+    padding-bottom: 12px;
+    font-size: 36px;
+  }
+  .news-page__title::after {
+    width: 120px;
+  }
+  .news-layout {
+    width: calc(100% - 32px);
+    row-gap: 40px;
+    padding-top: 30px;
+  }
+  /*
+   * Single-column news feed.
+   */
+  .news-grid {
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: 0;
+    row-gap: 40px;
+  }
+  /* ------------------------------------------------------
+     Search results
+     ------------------------------------------------------ */
+  .news-results-summary {
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+  }
+  .news-results-summary__term {
+    font-size: 20px;
+  }
+  /* ------------------------------------------------------
+     Empty state
+     ------------------------------------------------------ */
+  .news-empty {
+    margin-top: 0;
+    padding: 26px;
+  }
+  .news-empty__title {
+    font-size: 21px;
+  }
+  .news-empty__message {
+    font-size: 14px;
+  }
+  /* ------------------------------------------------------
+     Pagination
+     ------------------------------------------------------ */
+  .news-pagination {
+    margin-top: 44px;
+    padding-top: 20px;
+  }
+  .news-pagination__list {
+    gap: 6px;
+  }
+  .news-pagination .page-numbers {
+    min-width: 36px;
+    height: 36px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 13px;
+  }
+}
+/* ==========================================================
+   SMALL MOBILE
+   Bootstrap SM
+   < 576px
+   ========================================================== */
+@media (max-width: 575.98px) {
+  .news-page {
+    padding-bottom: 40px;
+  }
+  .news-page__header {
+    padding: 22px 14px 28px;
+  }
+  .news-page__title {
+    font-size: 32px;
+  }
+  .news-layout {
+    width: calc(100% - 28px);
+    row-gap: 36px;
+    padding-top: 28px;
+  }
+  .news-grid {
+    row-gap: 36px;
+  }
+  /* ------------------------------------------------------
+     Search results
+     ------------------------------------------------------ */
+  .news-results-summary {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+  }
+  .news-results-summary__label {
+    font-size: 13px;
+  }
+  .news-results-summary__term {
+    font-size: 19px;
+  }
+  .news-results-summary__count {
+    font-size: 12px;
+  }
+  .news-results-summary__actions {
+    margin-top: 14px;
+  }
+  /* ------------------------------------------------------
+     Empty state
+     ------------------------------------------------------ */
+  .news-empty {
+    padding: 22px;
+  }
+  .news-empty__icon {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 16px;
+  }
+  .news-empty__title {
+    font-size: 20px;
+  }
+  .news-empty__message {
+    margin-bottom: 20px;
+  }
+  /* ------------------------------------------------------
+     Pagination
+     ------------------------------------------------------ */
+  .news-pagination {
+    margin-top: 36px;
+  }
+  /*
+   * Keep the arrows visible while hiding the
+   * Previous / Next text on small screens.
+   */
+  .news-pagination__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .news-pagination .prev,
+  .news-pagination .next {
+    width: 36px;
+    padding: 0;
+  }
+}
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .news-results-summary__back,
+  .news-empty__back,
+  .news-pagination .page-numbers {
+    transition: none;
+  }
+}
+/**
+ * CONFERP News Card
+ *
+ * Card used by the institutional news module.
+ *
+ * Content:
+ *
+ * .news-card
+ * ├── .news-card__image
+ * └── .news-card__content
+ *     ├── .news-card__category
+ *     ├── .news-card__title
+ *     └── .news-card__excerpt
+ */
+/* ==========================================================
+   CARD
+   ========================================================== */
+.news-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+/* ==========================================================
+   FEATURED IMAGE
+   ========================================================== */
+.news-card__image {
+  position: relative;
+  display: block;
+  width: 100%;
+  /*
+   * Keeps every news card visually consistent regardless
+   * of the original featured-image dimensions.
+   */
+  aspect-ratio: 16/10;
+  margin: 0 0 16px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 22px;
+  background-color: #f2f6ff;
+  text-decoration: none;
+}
+
+.news-card__image img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+/*
+ * Subtle interaction without changing the card geometry.
+ */
+.news-card__image:hover img,
+.news-card__image:focus-visible img {
+  transform: scale(1.025);
+}
+
+.news-card__image:focus-visible {
+  outline: 3px solid rgba(77, 155, 213, 0.35);
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   CONTENT
+   ========================================================== */
+.news-card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0 12px;
+}
+
+/* ==========================================================
+   CATEGORY
+   ========================================================== */
+.news-card__category {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 0;
+  color: #212529;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.4;
+  text-decoration: none;
+  opacity: 0.65;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.news-card__category:hover,
+.news-card__category:focus-visible {
+  color: #205584;
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.news-card__category:focus-visible {
+  outline: 2px solid rgba(77, 155, 213, 0.35);
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   TITLE
+   ========================================================== */
+.news-card__title {
+  width: 100%;
+  margin: 0 0 12px;
+  padding: 0;
+}
+
+.news-card__title a {
+  color: #1e284b;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.news-card__title a:hover,
+.news-card__title a:focus-visible {
+  color: #205584;
+  text-decoration: underline;
+}
+
+.news-card__title a:focus-visible {
+  outline: 2px solid rgba(77, 155, 213, 0.35);
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   EXCERPT
+   ========================================================== */
+.news-card__excerpt {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: #212529;
+  line-height: 1.55;
+}
+
+/* ==========================================================
+   ACCESSIBILITY
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .news-card__image img,
+  .news-card__category,
+  .news-card__title a {
+    transition: none;
+  }
+  .news-card__image:hover img,
+  .news-card__image:focus-visible img {
+    transform: none;
+  }
+}
+/**
+ * CONFERP News Sidebar
+ *
+ * Search and category filters used by
+ * the institutional News module.
+ *
+ * Desktop:
+ * - Sidebar displayed beside the news grid.
+ * - Search card.
+ * - Categories displayed as a list.
+ *
+ * Tablet / Mobile (< 992px):
+ * - Sidebar moves above the news grid.
+ * - Search occupies 100% width.
+ * - Categories list becomes a select.
+ */
+/* ==========================================================
+   SIDEBAR
+   ========================================================== */
+.news-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  gap: 28px;
+}
+
+/* ==========================================================
+   SIDEBAR SECTION / CARD
+   ========================================================== */
+.news-sidebar__section {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #dee2e6;
+  border-radius: 20px;
+  background-color: #f2f6ff;
+}
+
+/* ==========================================================
+   CARD HEADER
+   ========================================================== */
+.news-sidebar__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 42px;
+  margin: 0;
+  padding: 8px 14px;
+  background-color: #4d9bd5;
+}
+
+/* ==========================================================
+   CARD TITLE
+   ========================================================== */
+.news-sidebar__title {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+}
+
+/*
+ * Search title is uppercase in the Figma.
+ */
+.news-search .news-sidebar__title {
+  text-transform: uppercase;
+}
+
+/* ==========================================================
+   CARD BODY
+   ========================================================== */
+.news-sidebar__body {
+  width: 100%;
+  margin: 0;
+  padding: 16px 14px 18px;
+  background-color: #f2f6ff;
+}
+
+/* ==========================================================
+   SEARCH FORM
+   ========================================================== */
+.news-search__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 14px;
+}
+
+/* ==========================================================
+   SEARCH FIELD
+   ========================================================== */
+.news-search__field {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================
+   SEARCH INPUT
+   ========================================================== */
+.news-search__input {
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  padding: 7px 42px 7px 14px;
+  border: 1px solid #ced4da;
+  border-radius: 999px;
+  background-color: #ffffff;
+  color: #212529;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  outline: 0;
+  box-shadow: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.news-search__input::placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.news-search__input:hover {
+  border-color: #adb5bd;
+}
+
+.news-search__input:focus {
+  border-color: #205584;
+  box-shadow: 0 0 0 3px rgba(77, 155, 213, 0.18);
+}
+
+/* ==========================================================
+   SEARCH ICON
+   ========================================================== */
+.news-search__icon {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: #495057;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.news-search__icon svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* ==========================================================
+   SEARCH BUTTON
+   ========================================================== */
+.news-search__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 38px;
+  margin: 0;
+  padding: 7px 18px;
+  border: 1px solid #ced4da;
+  border-radius: 999px;
+  background-color: #f8f9fa;
+  color: #495057;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: none;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.news-search__submit:hover,
+.news-search__submit:focus-visible {
+  border-color: #205584;
+  background-color: #205584;
+  color: #ffffff;
+}
+
+.news-search__submit:focus-visible {
+  outline: 3px solid rgba(77, 155, 213, 0.3);
+  outline-offset: 2px;
+}
+
+/* ==========================================================
+   CATEGORIES
+   ========================================================== */
+.news-categories .news-sidebar__body {
+  padding: 18px 18px 22px;
+}
+
+/* ==========================================================
+   CATEGORIES LIST
+   Desktop
+   ========================================================== */
+.news-categories__list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 14px;
+  list-style: none;
+}
+
+/* ==========================================================
+   CATEGORY ITEM
+   ========================================================== */
+.news-categories__item {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================
+   CATEGORY LINK
+   ========================================================== */
+.news-categories__link {
+  display: inline-flex;
+  align-items: baseline;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  color: #205584;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.news-categories__link:hover,
+.news-categories__link:focus-visible {
+  color: #1e284b;
+  text-decoration: underline;
+}
+
+.news-categories__link:focus-visible {
+  outline: 2px solid rgba(77, 155, 213, 0.35);
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   CATEGORY COUNT
+   ========================================================== */
+.news-categories__count {
+  margin-left: 4px;
+  white-space: nowrap;
+}
+
+/* ==========================================================
+   CATEGORY SELECT
+   Hidden on desktop
+   ========================================================== */
+.news-categories__select-wrapper {
+  display: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================
+   TABLET / MOBILE
+   Bootstrap LG
+   < 992px
+   ========================================================== */
+@media (max-width: 991.98px) {
+  /*
+   * The sidebar becomes a full-width filter area
+   * above the news cards.
+   */
+  .news-sidebar {
+    width: 100%;
+    gap: 20px;
+  }
+  /*
+   * Remove the desktop width limitation.
+   */
+  .news-sidebar__section {
+    width: 100%;
+    max-width: none;
+  }
+  /* ------------------------------------------------------
+     Search
+     ------------------------------------------------------ */
+  .news-search {
+    width: 100%;
+    max-width: none;
+  }
+  .news-search__form {
+    width: 100%;
+  }
+  .news-search__field {
+    width: 100%;
+  }
+  .news-search__input {
+    width: 100%;
+  }
+  .news-search__submit {
+    width: 100%;
+  }
+  /* ------------------------------------------------------
+     Categories
+     ------------------------------------------------------ */
+  /*
+   * Hide the long desktop category list.
+   */
+  .news-categories__list {
+    display: none;
+  }
+  /*
+   * Display the compact category selector.
+   */
+  .news-categories__select-wrapper {
+    display: block;
+    width: 100%;
+  }
+  .news-categories__select {
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    padding: 7px 42px 7px 14px;
+    border: 1px solid #ced4da;
+    border-radius: 999px;
+    background-color: #ffffff;
+    color: #212529;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+    cursor: pointer;
+    outline: 0;
+    box-shadow: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .news-categories__select:hover {
+    border-color: #adb5bd;
+  }
+  .news-categories__select:focus {
+    border-color: #205584;
+    box-shadow: 0 0 0 3px rgba(77, 155, 213, 0.18);
+  }
+}
+/* ==========================================================
+   MOBILE
+   Bootstrap MD
+   < 768px
+   ========================================================== */
+@media (max-width: 767.98px) {
+  .news-sidebar {
+    gap: 16px;
+  }
+  .news-sidebar__body {
+    padding: 16px 16px 18px;
+  }
+  .news-categories .news-sidebar__body {
+    padding: 16px 16px 18px;
+  }
+}
+/* ==========================================================
+   SMALL MOBILE
+   Bootstrap SM
+   < 576px
+   ========================================================== */
+@media (max-width: 575.98px) {
+  .news-sidebar__header {
+    min-height: 40px;
+    padding: 8px 12px;
+  }
+  .news-sidebar__body {
+    padding: 14px 14px 16px;
+  }
+  .news-categories .news-sidebar__body {
+    padding: 14px 14px 16px;
+  }
+  .news-search__form {
+    gap: 12px;
+  }
+}
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .news-search__input,
+  .news-search__submit,
+  .news-categories__link,
+  .news-categories__select {
+    transition: none;
   }
 }
 /* ==========================================================
