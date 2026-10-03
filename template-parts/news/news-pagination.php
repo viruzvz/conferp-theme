@@ -65,6 +65,7 @@ $pagination = paginate_links(
 if ( empty( $pagination ) ) {
 	return;
 }
+
 ?>
 
 <nav

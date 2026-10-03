@@ -27,6 +27,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	</div>
 
+
+	<?php
+	get_template_part(
+		'template-parts/news/news-pagination'
+	);
+	?>
+
+
 <?php else : ?>
 
 	<?php
