@@ -1,0 +1,281 @@
+/**
+ * CONFERP Biblioteca Sidebar
+ *
+ * Collection filters used by
+ * the institutional Biblioteca module.
+ *
+ * Desktop:
+ * - Sidebar displayed beside the Biblioteca grid.
+ * - Collections displayed as a list.
+ *
+ * Tablet / Mobile (< 992px):
+ * - Sidebar is hidden because the collection selector
+ *   is already available in the main search bar.
+ */
+
+
+/* ==========================================================
+   SIDEBAR
+   ========================================================== */
+
+.biblioteca-sidebar {
+	display: flex;
+	flex-direction: column;
+
+	width: 100%;
+	min-width: 0;
+
+	margin: 0;
+	padding: 0;
+}
+
+
+/* ==========================================================
+   SIDEBAR PANEL
+   ========================================================== */
+
+.biblioteca-sidebar__panel {
+	width: 100%;
+
+	margin: 0;
+	padding: 0;
+
+	overflow: hidden;
+
+	border: 1px solid $gray-300;
+	border-radius: 20px;
+
+	background-color: $institution-background-light;
+}
+
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+
+.biblioteca-sidebar__header {
+	display: flex;
+
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+	min-height: 42px;
+
+	margin: 0;
+	padding: 8px 14px;
+
+	background-color: $institution-secondary;
+}
+
+
+/* ==========================================================
+   TITLE
+   ========================================================== */
+
+.biblioteca-sidebar__title {
+	width: 100%;
+
+	margin: 0;
+	padding: 0;
+
+	color: $white;
+
+	font-family: "Montserrat", Arial, sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.25;
+
+	text-align: center;
+}
+
+
+/* ==========================================================
+   BODY
+   ========================================================== */
+
+.biblioteca-sidebar__body {
+	width: 100%;
+
+	margin: 0;
+	padding:
+		18px
+		18px
+		22px;
+
+	background-color: $institution-background-light;
+}
+
+
+/* ==========================================================
+   COLLECTION LIST
+   ========================================================== */
+
+.biblioteca-sidebar__list {
+	display: flex;
+	flex-direction: column;
+
+	width: 100%;
+
+	margin: 0;
+	padding: 0;
+
+	gap: 14px;
+
+	list-style: none;
+}
+
+
+/* ==========================================================
+   COLLECTION ITEM
+   ========================================================== */
+
+.biblioteca-sidebar__item {
+	width: 100%;
+
+	margin: 0;
+	padding: 0;
+}
+
+
+/* ==========================================================
+   COLLECTION LINK
+   ========================================================== */
+
+.biblioteca-sidebar__link {
+	display: inline-flex;
+
+	align-items: baseline;
+
+	width: auto;
+
+	margin: 0;
+	padding: 0;
+
+	color: $institution-primary;
+
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.35;
+
+	text-decoration: none;
+
+	transition:
+		color .2s ease,
+		text-decoration-color .2s ease;
+}
+
+.biblioteca-sidebar__link:hover,
+.biblioteca-sidebar__link:focus-visible {
+	color: $institution-heading-color;
+
+	text-decoration: underline;
+}
+
+.biblioteca-sidebar__link:focus-visible {
+	outline: 2px solid rgba(77, 155, 213, .35);
+	outline-offset: 3px;
+}
+
+
+/* ==========================================================
+   ACTIVE COLLECTION
+   ========================================================== */
+
+.biblioteca-sidebar__link.is-active {
+	color: $institution-heading-color;
+
+	font-weight: 600;
+}
+
+
+/* ==========================================================
+   COLLECTION LABEL
+   ========================================================== */
+
+.biblioteca-sidebar__link-label {
+	display: inline;
+}
+
+
+/* ==========================================================
+   COLLECTION COUNT
+   ========================================================== */
+
+.biblioteca-sidebar__count {
+	display: inline;
+
+	min-width: 0;
+	height: auto;
+
+	margin-left: 4px;
+	padding: 0;
+
+	border-radius: 0;
+
+	background: transparent;
+
+	color: inherit;
+
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+
+	white-space: nowrap;
+
+	&::before {
+		content: "(";
+	}
+
+	&::after {
+		content: ")";
+	}
+}
+
+
+/* ==========================================================
+   ACTIVE COUNT
+   ========================================================== */
+
+.biblioteca-sidebar__link.is-active {
+
+	.biblioteca-sidebar__count {
+		background: transparent;
+
+		color: inherit;
+	}
+
+}
+
+
+/* ==========================================================
+   TABLET / MOBILE
+   Bootstrap LG
+   < 992px
+   ========================================================== */
+
+@include media-breakpoint-down(lg) {
+
+	/*
+	 * The collection selector in the main Biblioteca
+	 * search bar already provides this functionality.
+	 */
+	.biblioteca-sidebar {
+		display: none;
+	}
+
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+	.biblioteca-sidebar__link {
+		transition: none;
+	}
+
+}

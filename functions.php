@@ -43,6 +43,11 @@ require_once get_template_directory() . '/inc/helpers.php';
 require_once get_template_directory() . '/inc/news.php';
 
 /**
+ * Library posts.
+ */
+require_once get_template_directory() . '/inc/biblioteca.php';
+
+/**
  * Document head.
  *
  * Handles theme-level head defaults such as:

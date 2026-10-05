@@ -1,0 +1,804 @@
+/**
+ * CONFERP Biblioteca
+ *
+ * Main Biblioteca archive layout, search/filter bar,
+ * grid, empty state and pagination.
+ *
+ * @package conferp
+ */
+
+
+/* ==========================================================
+   BIBLIOTECA PAGE
+   ========================================================== */
+
+.biblioteca-page {
+	background: $white;
+	padding-bottom: 72px;
+}
+
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+
+.biblioteca-page__header {
+	background: $institution-background-light;
+
+	padding:
+		30px
+		max(24px, calc((100% - 1320px) / 2))
+		42px;
+}
+
+.biblioteca-page__header > .container {
+	width: 100%;
+	max-width: 1320px;
+
+	margin: 0 auto;
+	padding: 0;
+}
+
+.biblioteca-page__title {
+	position: relative;
+
+	margin: 0;
+	padding-bottom: 18px;
+
+	color: $institution-heading-color;
+
+	font-size: 42px;
+	font-weight: 700;
+	line-height: 1.15;
+
+	&::after {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		width: 165px;
+		height: 3px;
+
+		background: $conferp-global-transparency;
+
+		content: "";
+	}
+}
+
+.biblioteca-page__description {
+	max-width: 760px;
+
+	margin: 20px 0 0;
+
+	color: $body-color;
+
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.65;
+}
+
+
+/* ==========================================================
+   SEARCH / FILTER AREA
+   ========================================================== */
+
+.biblioteca-search {
+	background: $conferp-global-dark;
+
+	padding:
+		24px
+		max(24px, calc((100% - 1320px) / 2));
+}
+
+.biblioteca-search > .container {
+	width: 100%;
+	max-width: 1320px;
+
+	margin: 0 auto;
+	padding: 0;
+}
+
+.biblioteca-search__form {
+	display: grid;
+
+	grid-template-columns:
+		minmax(220px, 300px)
+		minmax(320px, 1fr)
+		auto;
+
+	align-items: center;
+
+	gap: 16px;
+}
+
+
+/* ==========================================================
+   COLLECTION SELECT
+   ========================================================== */
+
+.biblioteca-search__collection {
+	position: relative;
+}
+
+.biblioteca-search__select {
+	width: 100%;
+	min-height: 48px;
+
+	padding: 0 44px 0 18px;
+
+	border: 1px solid rgba($white, .35);
+	border-radius: 25px;
+
+	background-color: $white;
+
+	color: $institution-heading-color;
+
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 500;
+
+	cursor: pointer;
+
+	transition:
+		border-color .2s ease,
+		box-shadow .2s ease;
+
+	&:focus {
+		border-color: $institution-accent;
+		outline: 0;
+
+		box-shadow:
+			0 0 0 3px rgba($institution-accent, .2);
+	}
+}
+
+
+/* ==========================================================
+   SEARCH FIELD
+   ========================================================== */
+
+.biblioteca-search__field {
+	position: relative;
+}
+
+.biblioteca-search__input {
+	width: 100%;
+	min-height: 48px;
+
+	padding: 0 52px 0 18px;
+
+	border: 1px solid rgba($white, .35);
+	border-radius: 25px;
+
+	background: $white;
+
+	color: $body-color;
+
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 400;
+
+	transition:
+		border-color .2s ease,
+		box-shadow .2s ease;
+
+	&::placeholder {
+		color: $gray-600;
+		opacity: 1;
+	}
+
+	&:focus {
+		border-color: $institution-accent;
+		outline: 0;
+
+		box-shadow:
+			0 0 0 3px rgba($institution-accent, .2);
+	}
+}
+
+.biblioteca-search__icon {
+	position: absolute;
+	top: 50%;
+	right: 18px;
+
+	display: inline-flex;
+
+	width: 20px;
+	height: 20px;
+
+	align-items: center;
+	justify-content: center;
+
+	color: $institution-primary;
+
+	pointer-events: none;
+
+	transform: translateY(-50%);
+
+	svg {
+		display: block;
+
+		width: 100%;
+		height: 100%;
+	}
+}
+
+
+/* ==========================================================
+   SEARCH BUTTON
+   ========================================================== */
+
+.biblioteca-search__submit {
+	display: inline-flex;
+
+	min-width: 118px;
+	min-height: 48px;
+
+	padding: 0 24px;
+
+	align-items: center;
+	justify-content: center;
+
+	border: $button-border-width solid $button-primary-border;
+	border-radius: $button-border-radius;
+
+	background: $button-primary-bg;
+
+	color: $button-primary-color;
+
+	font-family: inherit;
+	font-size: $button-font-size;
+	font-weight: $button-font-weight;
+	line-height: $button-line-height;
+
+	cursor: pointer;
+
+	transition: $button-transition;
+
+	&:hover,
+	&:focus-visible {
+		border-color: $button-primary-hover-border;
+
+		background: $button-primary-hover-bg;
+
+		color: $button-primary-hover-color;
+	}
+
+	&:focus-visible {
+		outline: 2px solid $white;
+		outline-offset: 3px;
+	}
+}
+
+
+/* ==========================================================
+   MAIN LAYOUT
+   ========================================================== */
+
+.biblioteca-layout.container {
+	display: grid;
+
+	width: calc(100% - 48px);
+	max-width: 1320px;
+
+	margin: 0 auto;
+	padding: 48px 0 0;
+
+	grid-template-columns:
+		minmax(0, 1fr)
+		260px;
+
+	gap: 48px;
+}
+
+.biblioteca-layout__main,
+.biblioteca-layout__sidebar {
+	min-width: 0;
+}
+
+
+/* ==========================================================
+   BIBLIOTECA GRID
+   ========================================================== */
+
+.biblioteca-grid {
+	display: grid;
+
+	grid-template-columns:
+		repeat(2, minmax(0, 1fr));
+
+	gap: $section-spacing-y;
+}
+
+
+/* ==========================================================
+   EMPTY STATE
+   ========================================================== */
+
+.biblioteca-empty {
+	display: flex;
+
+	min-height: 320px;
+
+	padding: 48px 32px;
+
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+
+	border: 1px solid $gray-300;
+	border-radius: 20px;
+
+	background: $gray-100;
+
+	text-align: center;
+}
+
+.biblioteca-empty__icon {
+	display: flex;
+
+	width: 52px;
+	height: 52px;
+
+	margin-bottom: 20px;
+
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 50%;
+
+	background: $institution-background-light;
+
+	color: $institution-primary;
+
+	svg {
+		width: 24px;
+		height: 24px;
+	}
+}
+
+.biblioteca-empty__title {
+	margin: 0 0 12px;
+
+	color: $institution-heading-color;
+
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1.3;
+}
+
+.biblioteca-empty__message {
+	max-width: 580px;
+
+	margin: 0;
+
+	color: $gray-600;
+
+	font-size: 15px;
+	line-height: 1.7;
+}
+
+.biblioteca-empty__back {
+	display: inline-flex;
+
+	margin-top: 24px;
+
+	padding:
+		$button-padding-y
+		$button-padding-x;
+
+	align-items: center;
+	justify-content: center;
+
+	border: $button-border-width solid $button-primary-border;
+	border-radius: $button-border-radius;
+
+	background: transparent;
+
+	color: $institution-primary;
+
+	font-size: $button-font-size;
+	font-weight: $button-font-weight;
+	line-height: $button-line-height;
+
+	text-decoration: none;
+
+	transition: $button-transition;
+
+	&:hover,
+	&:focus-visible {
+		border-color: $button-primary-hover-border;
+
+		background: $button-primary-hover-bg;
+
+		color: $button-primary-hover-color;
+	}
+
+	&:focus-visible {
+		outline: 2px solid $institution-accent;
+		outline-offset: 3px;
+	}
+}
+
+
+/* ==========================================================
+   BIBLIOTECA PAGINATION
+   Same visual system as News pagination.
+   ========================================================== */
+
+.biblioteca-pagination {
+	display: flex;
+
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+
+	margin: 56px 0 0;
+	padding: 24px 0 0;
+
+	border-top: 1px solid $gray-300;
+}
+
+
+/* ==========================================================
+   PAGINATION LIST
+   ========================================================== */
+
+.biblioteca-pagination__list {
+	display: flex;
+
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	gap: 8px;
+
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+
+/* ==========================================================
+   PAGINATION ITEM
+   ========================================================== */
+
+.biblioteca-pagination__item {
+	display: flex;
+
+	align-items: center;
+
+	margin: 0;
+	padding: 0;
+}
+
+
+/* ==========================================================
+   PAGINATION LINKS
+   ========================================================== */
+
+.biblioteca-pagination .page-numbers {
+	display: inline-flex;
+
+	align-items: center;
+	justify-content: center;
+
+	min-width: 38px;
+	height: 38px;
+
+	margin: 0;
+	padding: 0 11px;
+
+	border: 1px solid $gray-300;
+	border-radius: 999px;
+
+	background-color: $white;
+
+	color: $institution-primary;
+
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1;
+
+	text-decoration: none;
+
+	transition:
+		color .2s ease,
+		background-color .2s ease,
+		border-color .2s ease;
+}
+
+
+/* ==========================================================
+   CURRENT PAGE
+   ========================================================== */
+
+.biblioteca-pagination .page-numbers.current {
+	border-color: $institution-primary;
+
+	background-color: $institution-primary;
+
+	color: $white;
+
+	cursor: default;
+}
+
+
+/* ==========================================================
+   PAGINATION HOVER / FOCUS
+   ========================================================== */
+
+.biblioteca-pagination a.page-numbers:hover,
+.biblioteca-pagination a.page-numbers:focus-visible {
+	border-color: $institution-primary;
+
+	background-color: $institution-background-light;
+
+	color: $institution-heading-color;
+}
+
+.biblioteca-pagination a.page-numbers:focus-visible {
+	outline: 3px solid rgba(77, 155, 213, .30);
+	outline-offset: 3px;
+}
+
+
+/* ==========================================================
+   PREVIOUS / NEXT
+   ========================================================== */
+
+.biblioteca-pagination .prev,
+.biblioteca-pagination .next {
+	gap: 7px;
+
+	padding-right: 16px;
+	padding-left: 16px;
+}
+
+
+/* ==========================================================
+   PAGINATION DOTS
+   ========================================================== */
+
+.biblioteca-pagination .dots {
+	min-width: auto;
+
+	padding-right: 5px;
+	padding-left: 5px;
+
+	border-color: transparent;
+
+	background: transparent;
+
+	color: $gray-600;
+}
+
+
+/* ==========================================================
+   TABLET / BELOW LG
+   Bootstrap LG
+   < 992px
+   ========================================================== */
+
+@media (max-width: 991.98px) {
+
+	.biblioteca-page {
+		padding-bottom: 56px;
+	}
+
+	.biblioteca-page__header {
+		padding-right: 24px;
+		padding-left: 24px;
+	}
+
+	.biblioteca-search {
+		padding-right: 24px;
+		padding-left: 24px;
+	}
+
+	.biblioteca-search__form {
+		grid-template-columns:
+			minmax(200px, .8fr)
+			1.2fr;
+	}
+
+	.biblioteca-search__submit {
+		grid-column: 1 / -1;
+
+		width: 100%;
+	}
+
+	.biblioteca-layout.container {
+		display: block;
+
+		padding-top: 40px;
+	}
+
+	/*
+	 * The collection selector already provides the
+	 * same filtering functionality on tablet/mobile.
+	 */
+	.biblioteca-layout__sidebar {
+		display: none;
+	}
+
+}
+
+
+/* ==========================================================
+   MOBILE
+   Bootstrap MD
+   < 768px
+   ========================================================== */
+
+@media (max-width: 767.98px) {
+
+	.biblioteca-page {
+		padding-bottom: 48px;
+	}
+
+	.biblioteca-page__header {
+		padding-top: 24px;
+		padding-bottom: 32px;
+	}
+
+	.biblioteca-page__title {
+		font-size: 36px;
+	}
+
+	.biblioteca-page__description {
+		font-size: 15px;
+	}
+
+	.biblioteca-search {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	.biblioteca-search__form {
+		grid-template-columns: 1fr;
+
+		gap: 12px;
+	}
+
+	.biblioteca-search__submit {
+		grid-column: auto;
+	}
+
+	.biblioteca-layout.container {
+		width: calc(100% - 32px);
+
+		padding-top: 32px;
+	}
+
+	.biblioteca-grid {
+		grid-template-columns: 1fr;
+
+		gap: 24px;
+	}
+
+	.biblioteca-empty {
+		min-height: 280px;
+
+		padding: 40px 24px;
+	}
+
+
+	/* ------------------------------------------------------
+	   Pagination
+	   Same responsive dimensions as News.
+	   ------------------------------------------------------ */
+
+	.biblioteca-pagination {
+		margin-top: 44px;
+		padding-top: 20px;
+	}
+
+	.biblioteca-pagination__list {
+		gap: 6px;
+	}
+
+	.biblioteca-pagination .page-numbers {
+		min-width: 36px;
+		height: 36px;
+
+		padding-right: 10px;
+		padding-left: 10px;
+
+		font-size: 13px;
+	}
+
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+   Bootstrap SM
+   < 576px
+   ========================================================== */
+
+@media (max-width: 575.98px) {
+
+	.biblioteca-page {
+		padding-bottom: 40px;
+	}
+
+	.biblioteca-page__header,
+	.biblioteca-search {
+		padding-right: 16px;
+		padding-left: 16px;
+	}
+
+	.biblioteca-page__title {
+		font-size: 32px;
+
+		&::after {
+			width: 120px;
+		}
+	}
+
+	.biblioteca-search__select,
+	.biblioteca-search__input,
+	.biblioteca-search__submit {
+		min-height: 46px;
+	}
+
+
+	/* ------------------------------------------------------
+	   Pagination
+	   ------------------------------------------------------ */
+
+	.biblioteca-pagination {
+		margin-top: 36px;
+	}
+
+	/*
+	 * Keep the arrows visible while hiding the
+	 * Previous / Next text on small screens.
+	 */
+	.biblioteca-pagination__label {
+		position: absolute;
+
+		width: 1px;
+		height: 1px;
+
+		margin: -1px;
+		padding: 0;
+
+		overflow: hidden;
+
+		clip: rect(0, 0, 0, 0);
+
+		white-space: nowrap;
+
+		border: 0;
+	}
+
+	.biblioteca-pagination .prev,
+	.biblioteca-pagination .next {
+		width: 36px;
+
+		padding: 0;
+	}
+
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+	.biblioteca-search__select,
+	.biblioteca-search__input,
+	.biblioteca-search__submit,
+	.biblioteca-empty__back,
+	.biblioteca-pagination .page-numbers {
+		transition: none;
+	}
+
+}
