@@ -48,6 +48,11 @@ require_once get_template_directory() . '/inc/news.php';
 require_once get_template_directory() . '/inc/biblioteca.php';
 
 /**
+ * Breadcrumbs template.
+ */
+require_once get_template_directory() . '/inc/breadcrumb.php';
+
+/**
  * Document head.
  *
  * Handles theme-level head defaults such as:

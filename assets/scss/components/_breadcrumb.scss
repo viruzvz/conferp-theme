@@ -1,0 +1,270 @@
+/**
+ * CONFERP Breadcrumb
+ *
+ * Global institutional breadcrumb component.
+ * Used by PHP templates and Elementor through shortcode.
+ *
+ * @package conferp
+ */
+
+
+/* ==========================================================
+   BREADCRUMB
+   ========================================================== */
+
+.conferp-breadcrumb {
+	width: 100%;
+
+	margin: 0 0 18px;
+
+	color: $gray-600;
+
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.5;
+}
+
+
+/* ==========================================================
+   LIST
+   ========================================================== */
+
+.conferp-breadcrumb__list {
+	display: flex;
+
+	width: 100%;
+
+	margin: 0;
+	padding: 0;
+
+	align-items: center;
+	flex-wrap: wrap;
+
+	gap: 0;
+
+	list-style: none;
+}
+
+
+/* ==========================================================
+   ITEM
+   ========================================================== */
+
+.conferp-breadcrumb__item {
+	display: inline-flex;
+
+	min-width: 0;
+
+	align-items: center;
+
+	color: $gray-600;
+
+	/*
+	 * Visual separator.
+	 *
+	 * Kept outside the HTML so screen readers do not
+	 * unnecessarily announce the separator.
+	 */
+	& + &::before {
+		display: inline-block;
+
+		margin: 0 9px;
+
+		color: $gray-600;
+
+		font-weight: 400;
+
+		content: "/";
+	}
+
+	&.is-current {
+		color: $institution-heading-color;
+	}
+}
+
+
+/* ==========================================================
+   LINKS
+   ========================================================== */
+
+.conferp-breadcrumb__link {
+	color: $institution-primary;
+
+	font-weight: 500;
+
+	text-decoration: none;
+
+	transition: color .2s ease;
+
+	&:hover,
+	&:focus-visible {
+		color: $institution-heading-color;
+
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	&:focus-visible {
+		outline: 2px solid rgba($institution-accent, .35);
+		outline-offset: 3px;
+	}
+}
+
+
+/* ==========================================================
+   CURRENT ITEM
+   ========================================================== */
+
+.conferp-breadcrumb__current {
+	display: inline-block;
+
+	max-width: 520px;
+
+	overflow: hidden;
+
+	color: $institution-heading-color;
+
+	font-weight: 600;
+
+	text-overflow: ellipsis;
+
+	white-space: nowrap;
+
+	vertical-align: bottom;
+}
+
+
+/* ==========================================================
+   ELEMENTOR
+   ========================================================== */
+
+/*
+ * Elementor shortcode widgets can add paragraph spacing
+ * depending on surrounding widget styles.
+ *
+ * Keep the breadcrumb component self-contained.
+ */
+
+.elementor-widget-shortcode {
+
+	.conferp-breadcrumb {
+		margin-top: 0;
+	}
+
+	.conferp-breadcrumb__list {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-left: 0;
+	}
+}
+
+
+/* ==========================================================
+   TABLET
+   < 992px
+   ========================================================== */
+
+@media (max-width: 991.98px) {
+
+	.conferp-breadcrumb {
+		margin-bottom: 16px;
+
+		font-size: 13px;
+	}
+
+	.conferp-breadcrumb__current {
+		max-width: 420px;
+	}
+
+}
+
+
+/* ==========================================================
+   MOBILE
+   < 768px
+   ========================================================== */
+
+@media (max-width: 767.98px) {
+
+	.conferp-breadcrumb {
+		margin-bottom: 14px;
+
+		font-size: 12px;
+		line-height: 1.5;
+	}
+
+	.conferp-breadcrumb__list {
+		flex-wrap: nowrap;
+
+		overflow: hidden;
+	}
+
+	.conferp-breadcrumb__item {
+		flex: 0 0 auto;
+
+		/*
+		 * Current item receives the remaining available
+		 * width and may be truncated.
+		 */
+		&.is-current {
+			min-width: 0;
+
+			flex: 1 1 auto;
+		}
+
+		& + &::before {
+			margin-right: 7px;
+			margin-left: 7px;
+		}
+	}
+
+	.conferp-breadcrumb__current {
+		display: block;
+
+		max-width: 100%;
+
+		overflow: hidden;
+
+		text-overflow: ellipsis;
+
+		white-space: nowrap;
+	}
+
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+   < 576px
+   ========================================================== */
+
+@media (max-width: 575.98px) {
+
+	.conferp-breadcrumb {
+		margin-bottom: 12px;
+
+		font-size: 12px;
+	}
+
+	.conferp-breadcrumb__item {
+
+		& + &::before {
+			margin-right: 6px;
+			margin-left: 6px;
+		}
+	}
+
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+	.conferp-breadcrumb__link {
+		transition: none;
+	}
+
+}

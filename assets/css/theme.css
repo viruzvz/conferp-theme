@@ -14447,6 +14447,189 @@ html.conferp-high-contrast {
     transition: none !important;
   }
 }
+/**
+ * CONFERP Breadcrumb
+ *
+ * Global institutional breadcrumb component.
+ * Used by PHP templates and Elementor through shortcode.
+ *
+ * @package conferp
+ */
+/* ==========================================================
+   BREADCRUMB
+   ========================================================== */
+.conferp-breadcrumb {
+  width: 100%;
+  margin: 0 0 18px;
+  color: #6c757d;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* ==========================================================
+   LIST
+   ========================================================== */
+.conferp-breadcrumb__list {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  list-style: none;
+}
+
+/* ==========================================================
+   ITEM
+   ========================================================== */
+.conferp-breadcrumb__item {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  color: #6c757d;
+  /*
+   * Visual separator.
+   *
+   * Kept outside the HTML so screen readers do not
+   * unnecessarily announce the separator.
+   */
+}
+.conferp-breadcrumb__item + .conferp-breadcrumb__item::before {
+  display: inline-block;
+  margin: 0 9px;
+  color: #6c757d;
+  font-weight: 400;
+  content: "/";
+}
+.conferp-breadcrumb__item.is-current {
+  color: #1e284b;
+}
+
+/* ==========================================================
+   LINKS
+   ========================================================== */
+.conferp-breadcrumb__link {
+  color: #205584;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.conferp-breadcrumb__link:hover, .conferp-breadcrumb__link:focus-visible {
+  color: #1e284b;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.conferp-breadcrumb__link:focus-visible {
+  outline: 2px solid rgba(77, 155, 213, 0.35);
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   CURRENT ITEM
+   ========================================================== */
+.conferp-breadcrumb__current {
+  display: inline-block;
+  max-width: 520px;
+  overflow: hidden;
+  color: #1e284b;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+/* ==========================================================
+   ELEMENTOR
+   ========================================================== */
+/*
+ * Elementor shortcode widgets can add paragraph spacing
+ * depending on surrounding widget styles.
+ *
+ * Keep the breadcrumb component self-contained.
+ */
+.elementor-widget-shortcode .conferp-breadcrumb {
+  margin-top: 0;
+}
+.elementor-widget-shortcode .conferp-breadcrumb__list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+/* ==========================================================
+   TABLET
+   < 992px
+   ========================================================== */
+@media (max-width: 991.98px) {
+  .conferp-breadcrumb {
+    margin-bottom: 16px;
+    font-size: 13px;
+  }
+  .conferp-breadcrumb__current {
+    max-width: 420px;
+  }
+}
+/* ==========================================================
+   MOBILE
+   < 768px
+   ========================================================== */
+@media (max-width: 767.98px) {
+  .conferp-breadcrumb {
+    margin-bottom: 14px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .conferp-breadcrumb__list {
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+  .conferp-breadcrumb__item {
+    flex: 0 0 auto;
+    /*
+     * Current item receives the remaining available
+     * width and may be truncated.
+     */
+  }
+  .conferp-breadcrumb__item.is-current {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+  .conferp-breadcrumb__item + .conferp-breadcrumb__item::before {
+    margin-right: 7px;
+    margin-left: 7px;
+  }
+  .conferp-breadcrumb__current {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+/* ==========================================================
+   SMALL MOBILE
+   < 576px
+   ========================================================== */
+@media (max-width: 575.98px) {
+  .conferp-breadcrumb {
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+  .conferp-breadcrumb__item + .conferp-breadcrumb__item::before {
+    margin-right: 6px;
+    margin-left: 6px;
+  }
+}
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .conferp-breadcrumb__link {
+    transition: none;
+  }
+}
 /* Notícias */
 /**
  * CONFERP News
@@ -16527,7 +16710,7 @@ html.conferp-high-contrast {
  * CONFERP Biblioteca
  *
  * Main Biblioteca archive layout, search/filter bar,
- * grid, empty state and pagination.
+ * results summary, grid, empty state and pagination.
  *
  * @package conferp
  */
@@ -16730,6 +16913,65 @@ html.conferp-high-contrast {
 }
 
 /* ==========================================================
+   RESULTS SUMMARY
+   Same visual language as News search results.
+   ========================================================== */
+.biblioteca-results-summary {
+  width: 100%;
+  margin: 0 0 32px;
+  padding: 0 0 26px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.biblioteca-results-summary__content {
+  width: 100%;
+}
+
+.biblioteca-results-summary__label {
+  margin: 0 0 4px;
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.biblioteca-results-summary__title {
+  margin: 0 0 8px;
+  color: #1e284b;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.biblioteca-results-summary__count {
+  margin: 0 0 16px;
+  color: #6c757d;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.biblioteca-results-summary__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #205584;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.biblioteca-results-summary__back:hover, .biblioteca-results-summary__back:focus-visible {
+  color: #1e284b;
+  text-decoration: underline;
+}
+.biblioteca-results-summary__back:focus-visible {
+  outline: 2px solid rgba(77, 155, 213, 0.35);
+  outline-offset: 3px;
+}
+
+/* ==========================================================
    BIBLIOTECA GRID
    ========================================================== */
 .biblioteca-grid {
@@ -16740,38 +16982,40 @@ html.conferp-high-contrast {
 
 /* ==========================================================
    EMPTY STATE
+   Same visual language as News empty results.
    ========================================================== */
 .biblioteca-empty {
   display: flex;
-  min-height: 320px;
-  padding: 48px 32px;
-  align-items: center;
+  min-height: 280px;
+  padding: 32px;
+  align-items: flex-start;
   flex-direction: column;
   justify-content: center;
   border: 1px solid #dee2e6;
   border-radius: 20px;
-  background: #f8f9fa;
-  text-align: center;
+  background: #f2f6ff;
+  text-align: left;
 }
 
 .biblioteca-empty__icon {
   display: flex;
-  width: 52px;
-  height: 52px;
+  width: 46px;
+  height: 46px;
   margin-bottom: 20px;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #f2f6ff;
+  background: #ffffff;
   color: #205584;
 }
 .biblioteca-empty__icon svg {
-  width: 24px;
-  height: 24px;
+  display: block;
+  width: 22px;
+  height: 22px;
 }
 
 .biblioteca-empty__title {
-  margin: 0 0 12px;
+  margin: 0 0 8px;
   color: #1e284b;
   font-size: 24px;
   font-weight: 700;
@@ -16779,10 +17023,11 @@ html.conferp-high-contrast {
 }
 
 .biblioteca-empty__message {
-  max-width: 580px;
+  max-width: 620px;
   margin: 0;
-  color: #6c757d;
+  color: #212529;
   font-size: 15px;
+  font-weight: 400;
   line-height: 1.7;
 }
 
@@ -16794,8 +17039,8 @@ html.conferp-high-contrast {
   justify-content: center;
   border: 1px solid #1c4772;
   border-radius: 25px;
-  background: transparent;
-  color: #205584;
+  background: #5292cd;
+  color: #ffffff;
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1;
@@ -16808,7 +17053,7 @@ html.conferp-high-contrast {
   color: #ffffff;
 }
 .biblioteca-empty__back:focus-visible {
-  outline: 2px solid #4d9bd5;
+  outline: 2px solid rgba(77, 155, 213, 0.35);
   outline-offset: 3px;
 }
 
@@ -16949,8 +17194,8 @@ html.conferp-high-contrast {
     padding-top: 40px;
   }
   /*
-   * The collection selector already provides the
-   * same filtering functionality on tablet/mobile.
+   * The collection selector already provides the same
+   * filtering functionality on tablet/mobile.
    */
   .biblioteca-layout__sidebar {
     display: none;
@@ -16990,13 +17235,20 @@ html.conferp-high-contrast {
     width: calc(100% - 32px);
     padding-top: 32px;
   }
+  .biblioteca-results-summary {
+    margin-bottom: 24px;
+    padding-bottom: 22px;
+  }
+  .biblioteca-results-summary__title {
+    font-size: 22px;
+  }
   .biblioteca-grid {
     grid-template-columns: 1fr;
     gap: 24px;
   }
   .biblioteca-empty {
-    min-height: 280px;
-    padding: 40px 24px;
+    min-height: 260px;
+    padding: 28px;
   }
   /* ------------------------------------------------------
      Pagination
@@ -17042,6 +17294,25 @@ html.conferp-high-contrast {
   .biblioteca-search__submit {
     min-height: 46px;
   }
+  .biblioteca-results-summary__label {
+    font-size: 13px;
+  }
+  .biblioteca-results-summary__title {
+    font-size: 21px;
+  }
+  .biblioteca-results-summary__count,
+  .biblioteca-results-summary__back {
+    font-size: 13px;
+  }
+  .biblioteca-empty {
+    padding: 24px;
+  }
+  .biblioteca-empty__title {
+    font-size: 22px;
+  }
+  .biblioteca-empty__message {
+    font-size: 14px;
+  }
   /* ------------------------------------------------------
      Pagination
      ------------------------------------------------------ */
@@ -17049,8 +17320,8 @@ html.conferp-high-contrast {
     margin-top: 36px;
   }
   /*
-   * Keep the arrows visible while hiding the
-   * Previous / Next text on small screens.
+   * Keep Previous / Next text available to assistive
+   * technologies while displaying only the arrows.
    */
   .biblioteca-pagination__label {
     position: absolute;
@@ -17076,6 +17347,7 @@ html.conferp-high-contrast {
   .biblioteca-search__select,
   .biblioteca-search__input,
   .biblioteca-search__submit,
+  .biblioteca-results-summary__back,
   .biblioteca-empty__back,
   .biblioteca-pagination .page-numbers {
     transition: none;
@@ -17362,6 +17634,630 @@ html.conferp-high-contrast {
 @media (prefers-reduced-motion: reduce) {
   .biblioteca-sidebar__link {
     transition: none;
+  }
+}
+/**
+ * CONFERP Biblioteca Single
+ *
+ * Individual Biblioteca item.
+ * Collection, authors, content, document and navigation.
+ *
+ * @package conferp
+ */
+/* ==========================================================
+   PAGE
+   ========================================================== */
+.biblioteca-single {
+  background: #ffffff;
+  padding-bottom: 72px;
+}
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+.biblioteca-single__header {
+  background: #f2f6ff;
+  padding: 30px max(24px, (100% - 1320px) / 2) 42px;
+}
+
+.biblioteca-single__header-inner {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.biblioteca-single__title {
+  position: relative;
+  max-width: 1000px;
+  margin: 0;
+  padding-bottom: 20px;
+  color: #1e284b;
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+.biblioteca-single__title::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 165px;
+  height: 3px;
+  background: #dba840;
+  content: "";
+}
+
+/* ==========================================================
+   MAIN CONTAINER
+   ========================================================== */
+.biblioteca-single__container {
+  width: calc(100% - 48px);
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-top: 48px;
+}
+
+/* ==========================================================
+   META
+   Collection + intellectual authors.
+   ========================================================== */
+.biblioteca-single__meta {
+  display: flex;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto 42px;
+  padding: 0 0 20px;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.biblioteca-single__meta-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.biblioteca-single__meta-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  align-items: center;
+  justify-content: center;
+  color: #205584;
+}
+.biblioteca-single__meta-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.biblioteca-single__meta-label {
+  margin-right: 4px;
+  color: #6c757d;
+  font-weight: 600;
+}
+
+/* ==========================================================
+   COLLECTIONS / AUTHORS
+   ========================================================== */
+.biblioteca-single__collections,
+.biblioteca-single__authors {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  flex-wrap: wrap;
+  color: #6c757d;
+}
+.biblioteca-single__collections a,
+.biblioteca-single__authors a {
+  color: #205584;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.biblioteca-single__collections a:hover, .biblioteca-single__collections a:focus-visible,
+.biblioteca-single__authors a:hover,
+.biblioteca-single__authors a:focus-visible {
+  color: #1e284b;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.biblioteca-single__collections a:focus-visible,
+.biblioteca-single__authors a:focus-visible {
+  outline: 2px solid rgba(77, 155, 213, 0.35);
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   CONTENT
+   ========================================================== */
+.biblioteca-single__content {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  color: #212529;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.75;
+}
+.biblioteca-single__content p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+.biblioteca-single__content h2, .biblioteca-single__content .h2,
+.biblioteca-single__content h3,
+.biblioteca-single__content .h3,
+.biblioteca-single__content h4,
+.biblioteca-single__content .h4,
+.biblioteca-single__content h5,
+.biblioteca-single__content .h5,
+.biblioteca-single__content h6,
+.biblioteca-single__content .h6 {
+  color: #1e284b;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.biblioteca-single__content h2, .biblioteca-single__content .h2 {
+  margin: 2em 0 0.8em;
+  font-size: 30px;
+}
+.biblioteca-single__content h3, .biblioteca-single__content .h3 {
+  margin: 1.8em 0 0.7em;
+  font-size: 24px;
+}
+.biblioteca-single__content h4, .biblioteca-single__content .h4 {
+  margin: 1.6em 0 0.6em;
+  font-size: 20px;
+}
+.biblioteca-single__content h5, .biblioteca-single__content .h5 {
+  margin: 1.5em 0 0.6em;
+  font-size: 18px;
+}
+.biblioteca-single__content h6, .biblioteca-single__content .h6 {
+  margin: 1.5em 0 0.6em;
+  font-size: 16px;
+}
+.biblioteca-single__content a {
+  color: #205584;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+.biblioteca-single__content a:hover, .biblioteca-single__content a:focus-visible {
+  color: #1e284b;
+}
+.biblioteca-single__content a:focus-visible {
+  outline: 2px solid rgba(77, 155, 213, 0.35);
+  outline-offset: 3px;
+}
+.biblioteca-single__content ul,
+.biblioteca-single__content ol {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+  padding-left: 1.5em;
+}
+.biblioteca-single__content li + li {
+  margin-top: 0.45em;
+}
+.biblioteca-single__content blockquote {
+  margin: 2em 0;
+  padding: 18px 24px;
+  border-left: 4px solid #4d9bd5;
+  background: #f2f6ff;
+  color: #1e284b;
+}
+.biblioteca-single__content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+.biblioteca-single__content figure {
+  max-width: 100%;
+  margin: 2em 0;
+}
+.biblioteca-single__content figcaption {
+  margin-top: 8px;
+  color: #6c757d;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.biblioteca-single__content table {
+  width: 100%;
+  margin: 2em 0;
+  border-collapse: collapse;
+}
+.biblioteca-single__content th,
+.biblioteca-single__content td {
+  padding: 12px 14px;
+  border: 1px solid #dee2e6;
+  text-align: left;
+  vertical-align: top;
+}
+.biblioteca-single__content th {
+  background: #f2f6ff;
+  color: #1e284b;
+  font-weight: 700;
+}
+
+/* ==========================================================
+   MULTI-PAGE CONTENT
+   ========================================================== */
+.biblioteca-single__page-links {
+  margin-top: 32px;
+}
+
+/* ==========================================================
+   DOCUMENT SECTION
+   ========================================================== */
+.biblioteca-single__document {
+  width: 100%;
+  max-width: 860px;
+  margin: 48px auto 0;
+  padding-top: 32px;
+  border-top: 1px solid #dee2e6;
+}
+
+.biblioteca-single__document-heading {
+  position: relative;
+  margin: 0 0 22px;
+  padding-bottom: 12px;
+  color: #1e284b;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.biblioteca-single__document-heading::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 52px;
+  height: 2px;
+  background: #205584;
+  content: "";
+}
+
+/* ==========================================================
+   DOCUMENT CARD
+   ========================================================== */
+.biblioteca-document-card {
+  display: grid;
+  width: 100%;
+  padding: 24px;
+  align-items: center;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 20px;
+  border: 1px solid #dee2e6;
+  border-radius: 16px;
+  background: #f2f6ff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.biblioteca-document-card:hover {
+  border-color: rgba(32, 85, 132, 0.3);
+  box-shadow: 0 10px 30px rgba(30, 40, 75, 0.08);
+}
+
+/* ==========================================================
+   DOCUMENT ICON
+   ========================================================== */
+.biblioteca-document-card__icon {
+  display: flex;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #205584;
+}
+.biblioteca-document-card__icon svg {
+  display: block;
+  width: 25px;
+  height: 25px;
+}
+
+/* ==========================================================
+   DOCUMENT CONTENT
+   ========================================================== */
+.biblioteca-document-card__content {
+  min-width: 0;
+}
+
+.biblioteca-document-card__title {
+  margin: 0 0 6px;
+  overflow-wrap: anywhere;
+  color: #1e284b;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.biblioteca-document-card__meta {
+  display: flex;
+  margin: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  color: #6c757d;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ==========================================================
+   DOCUMENT ACTION
+   ========================================================== */
+.biblioteca-document-card__action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.biblioteca-document-card__button {
+  display: inline-flex;
+  min-height: 44px;
+  padding: 0.4375rem 1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #1c4772;
+  border-radius: 25px;
+  background: #5292cd;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.biblioteca-document-card__button:hover, .biblioteca-document-card__button:focus-visible {
+  border-color: #1c4772;
+  background: #1c4772;
+  color: #ffffff;
+  text-decoration: none;
+}
+.biblioteca-document-card__button:focus-visible {
+  outline: 2px solid rgba(77, 155, 213, 0.35);
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   PREVIOUS / NEXT NAVIGATION
+   ========================================================== */
+.biblioteca-single__navigation {
+  display: grid;
+  width: 100%;
+  max-width: 860px;
+  margin: 48px auto 0;
+  padding-top: 32px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  border-top: 1px solid #dee2e6;
+}
+
+.biblioteca-single__navigation-previous,
+.biblioteca-single__navigation-next {
+  min-width: 0;
+}
+.biblioteca-single__navigation-previous > a,
+.biblioteca-single__navigation-next > a {
+  display: flex;
+  height: 100%;
+  min-height: 110px;
+  padding: 20px;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #dee2e6;
+  border-radius: 16px;
+  background: #f2f6ff;
+  color: #1e284b;
+  text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.biblioteca-single__navigation-previous > a:hover, .biblioteca-single__navigation-previous > a:focus-visible,
+.biblioteca-single__navigation-next > a:hover,
+.biblioteca-single__navigation-next > a:focus-visible {
+  border-color: #205584;
+  box-shadow: 0 8px 24px rgba(30, 40, 75, 0.08);
+  color: #1e284b;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+.biblioteca-single__navigation-previous > a:focus-visible,
+.biblioteca-single__navigation-next > a:focus-visible {
+  outline: 2px solid rgba(77, 155, 213, 0.35);
+  outline-offset: 3px;
+}
+
+.biblioteca-single__navigation-next > a {
+  text-align: right;
+}
+
+.biblioteca-single__navigation-direction {
+  display: block;
+  margin-bottom: 8px;
+  color: #205584;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.biblioteca-single__navigation-title {
+  display: block;
+  overflow-wrap: anywhere;
+  color: #1e284b;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+/* ==========================================================
+   TABLET / BELOW LG
+   < 992px
+   ========================================================== */
+@media (max-width: 991.98px) {
+  .biblioteca-single {
+    padding-bottom: 56px;
+  }
+  .biblioteca-single__header {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+  .biblioteca-single__container {
+    padding-top: 40px;
+  }
+  .biblioteca-document-card {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 18px;
+  }
+  .biblioteca-document-card__action {
+    grid-column: 1/-1;
+    justify-content: flex-start;
+    padding-left: 70px;
+  }
+}
+/* ==========================================================
+   MOBILE
+   < 768px
+   ========================================================== */
+@media (max-width: 767.98px) {
+  .biblioteca-single {
+    padding-bottom: 48px;
+  }
+  .biblioteca-single__header {
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+  .biblioteca-single__title {
+    font-size: 36px;
+  }
+  .biblioteca-single__container {
+    width: calc(100% - 32px);
+    padding-top: 32px;
+  }
+  .biblioteca-single__meta {
+    margin-bottom: 32px;
+    padding-bottom: 18px;
+    gap: 12px;
+  }
+  .biblioteca-single__content {
+    font-size: 16px;
+  }
+  .biblioteca-single__content h2, .biblioteca-single__content .h2 {
+    font-size: 27px;
+  }
+  .biblioteca-single__content h3, .biblioteca-single__content .h3 {
+    font-size: 22px;
+  }
+  .biblioteca-single__document {
+    margin-top: 40px;
+    padding-top: 28px;
+  }
+  .biblioteca-single__document-heading {
+    font-size: 21px;
+  }
+  .biblioteca-document-card {
+    display: flex;
+    padding: 22px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .biblioteca-document-card__icon {
+    width: 48px;
+    height: 48px;
+  }
+  .biblioteca-document-card__icon svg {
+    width: 23px;
+    height: 23px;
+  }
+  .biblioteca-document-card__action {
+    width: 100%;
+    padding-left: 0;
+  }
+  .biblioteca-document-card__button {
+    width: 100%;
+  }
+  .biblioteca-single__navigation {
+    margin-top: 40px;
+    padding-top: 24px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .biblioteca-single__navigation-next > a {
+    text-align: left;
+  }
+}
+/* ==========================================================
+   SMALL MOBILE
+   < 576px
+   ========================================================== */
+@media (max-width: 575.98px) {
+  .biblioteca-single {
+    padding-bottom: 40px;
+  }
+  .biblioteca-single__header {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+  .biblioteca-single__title {
+    font-size: 32px;
+  }
+  .biblioteca-single__title::after {
+    width: 120px;
+  }
+  .biblioteca-single__container {
+    width: calc(100% - 32px);
+  }
+  .biblioteca-single__meta-item {
+    align-items: flex-start;
+  }
+  .biblioteca-single__content h2, .biblioteca-single__content .h2 {
+    font-size: 26px;
+  }
+  .biblioteca-single__content h3, .biblioteca-single__content .h3 {
+    font-size: 22px;
+  }
+  .biblioteca-single__document {
+    margin-top: 36px;
+  }
+  .biblioteca-document-card {
+    padding: 20px;
+  }
+  .biblioteca-document-card__title {
+    font-size: 16px;
+  }
+  .biblioteca-single__navigation-previous > a,
+  .biblioteca-single__navigation-next > a {
+    min-height: 0;
+    padding: 18px;
+  }
+}
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .biblioteca-single__collections a,
+  .biblioteca-single__authors a,
+  .biblioteca-single__content a,
+  .biblioteca-document-card,
+  .biblioteca-document-card__button,
+  .biblioteca-single__navigation-previous > a,
+  .biblioteca-single__navigation-next > a {
+    transition: none;
+  }
+  .biblioteca-single__navigation-previous > a:hover, .biblioteca-single__navigation-previous > a:focus-visible,
+  .biblioteca-single__navigation-next > a:hover,
+  .biblioteca-single__navigation-next > a:focus-visible {
+    transform: none;
   }
 }
 /* ==========================================================

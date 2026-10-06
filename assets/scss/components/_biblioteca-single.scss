@@ -1,0 +1,902 @@
+/**
+ * CONFERP Biblioteca Single
+ *
+ * Individual Biblioteca item.
+ * Collection, authors, content, document and navigation.
+ *
+ * @package conferp
+ */
+
+
+/* ==========================================================
+   PAGE
+   ========================================================== */
+
+.biblioteca-single {
+	background: $white;
+
+	padding-bottom: 72px;
+}
+
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+
+.biblioteca-single__header {
+	background: $institution-background-light;
+
+	padding:
+		30px
+		max(24px, calc((100% - 1320px) / 2))
+		42px;
+}
+
+.biblioteca-single__header-inner {
+	width: 100%;
+	max-width: 1320px;
+
+	margin: 0 auto;
+}
+
+.biblioteca-single__title {
+	position: relative;
+
+	max-width: 1000px;
+
+	margin: 0;
+	padding-bottom: 20px;
+
+	color: $institution-heading-color;
+
+	font-size: clamp(36px, 4vw, 52px);
+	font-weight: 700;
+	line-height: 1.15;
+
+	&::after {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		width: 165px;
+		height: 3px;
+
+		background: $conferp-global-transparency;
+
+		content: "";
+	}
+}
+
+
+/* ==========================================================
+   MAIN CONTAINER
+   ========================================================== */
+
+.biblioteca-single__container {
+	width: calc(100% - 48px);
+	max-width: 1080px;
+
+	margin: 0 auto;
+
+	padding-top: 48px;
+}
+
+
+/* ==========================================================
+   META
+   Collection + intellectual authors.
+   ========================================================== */
+
+.biblioteca-single__meta {
+	display: flex;
+
+	width: 100%;
+	max-width: 860px;
+
+	margin: 0 auto 42px;
+	padding: 0 0 20px;
+
+	flex-direction: column;
+
+	gap: 10px;
+
+	border-bottom: 1px solid $gray-300;
+}
+
+.biblioteca-single__meta-item {
+	display: flex;
+
+	align-items: flex-start;
+
+	gap: 10px;
+
+	color: $gray-600;
+
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+.biblioteca-single__meta-icon {
+	display: inline-flex;
+
+	flex: 0 0 auto;
+
+	width: 18px;
+	height: 18px;
+
+	margin-top: 1px;
+
+	align-items: center;
+	justify-content: center;
+
+	color: $institution-primary;
+
+	svg {
+		display: block;
+
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.biblioteca-single__meta-label {
+	margin-right: 4px;
+
+	color: $gray-600;
+
+	font-weight: 600;
+}
+
+
+/* ==========================================================
+   COLLECTIONS / AUTHORS
+   ========================================================== */
+
+.biblioteca-single__collections,
+.biblioteca-single__authors {
+	display: flex;
+
+	min-width: 0;
+
+	align-items: baseline;
+	flex-wrap: wrap;
+
+	color: $gray-600;
+
+	a {
+		color: $institution-primary;
+
+		font-weight: 500;
+
+		text-decoration: none;
+
+		transition: color .2s ease;
+
+		&:hover,
+		&:focus-visible {
+			color: $institution-heading-color;
+
+			text-decoration: underline;
+
+			text-underline-offset: 3px;
+		}
+
+		&:focus-visible {
+			outline: 2px solid rgba($institution-accent, .35);
+			outline-offset: 3px;
+		}
+	}
+}
+
+
+/* ==========================================================
+   CONTENT
+   ========================================================== */
+
+.biblioteca-single__content {
+	width: 100%;
+	max-width: 860px;
+
+	margin: 0 auto;
+
+	color: $body-color;
+
+	font-size: 17px;
+	font-weight: 400;
+	line-height: 1.75;
+
+	p {
+		margin-top: 0;
+		margin-bottom: 1.5em;
+	}
+
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: $institution-heading-color;
+
+		font-weight: 700;
+		line-height: 1.3;
+	}
+
+	h2 {
+		margin: 2em 0 .8em;
+
+		font-size: 30px;
+	}
+
+	h3 {
+		margin: 1.8em 0 .7em;
+
+		font-size: 24px;
+	}
+
+	h4 {
+		margin: 1.6em 0 .6em;
+
+		font-size: 20px;
+	}
+
+	h5 {
+		margin: 1.5em 0 .6em;
+
+		font-size: 18px;
+	}
+
+	h6 {
+		margin: 1.5em 0 .6em;
+
+		font-size: 16px;
+	}
+
+	a {
+		color: $institution-primary;
+
+		text-decoration: underline;
+		text-underline-offset: 3px;
+
+		transition: color .2s ease;
+
+		&:hover,
+		&:focus-visible {
+			color: $institution-heading-color;
+		}
+
+		&:focus-visible {
+			outline: 2px solid rgba($institution-accent, .35);
+			outline-offset: 3px;
+		}
+	}
+
+	ul,
+	ol {
+		margin-top: 0;
+		margin-bottom: 1.5em;
+
+		padding-left: 1.5em;
+	}
+
+	li + li {
+		margin-top: .45em;
+	}
+
+	blockquote {
+		margin: 2em 0;
+		padding: 18px 24px;
+
+		border-left: 4px solid $institution-secondary;
+
+		background: $institution-background-light;
+
+		color: $institution-heading-color;
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+
+		border-radius: 12px;
+	}
+
+	figure {
+		max-width: 100%;
+
+		margin: 2em 0;
+	}
+
+	figcaption {
+		margin-top: 8px;
+
+		color: $gray-600;
+
+		font-size: 13px;
+		line-height: 1.5;
+	}
+
+	table {
+		width: 100%;
+
+		margin: 2em 0;
+
+		border-collapse: collapse;
+	}
+
+	th,
+	td {
+		padding: 12px 14px;
+
+		border: 1px solid $gray-300;
+
+		text-align: left;
+		vertical-align: top;
+	}
+
+	th {
+		background: $institution-background-light;
+
+		color: $institution-heading-color;
+
+		font-weight: 700;
+	}
+}
+
+
+/* ==========================================================
+   MULTI-PAGE CONTENT
+   ========================================================== */
+
+.biblioteca-single__page-links {
+	margin-top: 32px;
+}
+
+
+/* ==========================================================
+   DOCUMENT SECTION
+   ========================================================== */
+
+.biblioteca-single__document {
+	width: 100%;
+	max-width: 860px;
+
+	margin: 48px auto 0;
+	padding-top: 32px;
+
+	border-top: 1px solid $gray-300;
+}
+
+.biblioteca-single__document-heading {
+	position: relative;
+
+	margin: 0 0 22px;
+	padding-bottom: 12px;
+
+	color: $institution-heading-color;
+
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 1.3;
+
+	&::after {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		width: 52px;
+		height: 2px;
+
+		background: $institution-primary;
+
+		content: "";
+	}
+}
+
+
+/* ==========================================================
+   DOCUMENT CARD
+   ========================================================== */
+
+.biblioteca-document-card {
+	display: grid;
+
+	width: 100%;
+
+	padding: 24px;
+
+	align-items: center;
+
+	grid-template-columns:
+		auto
+		minmax(0, 1fr)
+		auto;
+
+	gap: 20px;
+
+	border: 1px solid $gray-300;
+	border-radius: 16px;
+
+	background: $institution-background-light;
+
+	transition:
+		border-color .2s ease,
+		box-shadow .2s ease;
+}
+
+.biblioteca-document-card:hover {
+	border-color: rgba($institution-primary, .3);
+
+	box-shadow:
+		0 10px 30px rgba($institution-heading-color, .08);
+}
+
+
+/* ==========================================================
+   DOCUMENT ICON
+   ========================================================== */
+
+.biblioteca-document-card__icon {
+	display: flex;
+
+	width: 52px;
+	height: 52px;
+
+	flex: 0 0 auto;
+
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 50%;
+
+	background: $white;
+
+	color: $institution-primary;
+
+	svg {
+		display: block;
+
+		width: 25px;
+		height: 25px;
+	}
+}
+
+
+/* ==========================================================
+   DOCUMENT CONTENT
+   ========================================================== */
+
+.biblioteca-document-card__content {
+	min-width: 0;
+}
+
+.biblioteca-document-card__title {
+	margin: 0 0 6px;
+
+	overflow-wrap: anywhere;
+
+	color: $institution-heading-color;
+
+	font-size: 17px;
+	font-weight: 700;
+	line-height: 1.4;
+}
+
+.biblioteca-document-card__meta {
+	display: flex;
+
+	margin: 0;
+
+	align-items: center;
+	flex-wrap: wrap;
+
+	gap: 6px;
+
+	color: $gray-600;
+
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.4;
+}
+
+
+/* ==========================================================
+   DOCUMENT ACTION
+   ========================================================== */
+
+.biblioteca-document-card__action {
+	display: flex;
+
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.biblioteca-document-card__button {
+	display: inline-flex;
+
+	min-height: 44px;
+
+	padding:
+		$button-padding-y
+		$button-padding-x;
+
+	align-items: center;
+	justify-content: center;
+
+	gap: 8px;
+
+	border: $button-border-width solid $button-primary-border;
+	border-radius: $button-border-radius;
+
+	background: $button-primary-bg;
+
+	color: $button-primary-color;
+
+	font-size: $button-font-size;
+	font-weight: $button-font-weight;
+	line-height: $button-line-height;
+
+	text-decoration: none;
+
+	white-space: nowrap;
+
+	transition: $button-transition;
+
+	&:hover,
+	&:focus-visible {
+		border-color: $button-primary-hover-border;
+
+		background: $button-primary-hover-bg;
+
+		color: $button-primary-hover-color;
+
+		text-decoration: none;
+	}
+
+	&:focus-visible {
+		outline: 2px solid rgba($institution-accent, .35);
+		outline-offset: 3px;
+	}
+}
+
+
+/* ==========================================================
+   PREVIOUS / NEXT NAVIGATION
+   ========================================================== */
+
+.biblioteca-single__navigation {
+	display: grid;
+
+	width: 100%;
+	max-width: 860px;
+
+	margin: 48px auto 0;
+	padding-top: 32px;
+
+	grid-template-columns:
+		repeat(2, minmax(0, 1fr));
+
+	gap: 20px;
+
+	border-top: 1px solid $gray-300;
+}
+
+.biblioteca-single__navigation-previous,
+.biblioteca-single__navigation-next {
+	min-width: 0;
+
+	> a {
+		display: flex;
+
+		height: 100%;
+		min-height: 110px;
+
+		padding: 20px;
+
+		flex-direction: column;
+		justify-content: center;
+
+		border: 1px solid $gray-300;
+		border-radius: 16px;
+
+		background: $institution-background-light;
+
+		color: $institution-heading-color;
+
+		text-decoration: none;
+
+		transition:
+			border-color .2s ease,
+			box-shadow .2s ease,
+			transform .2s ease;
+
+		&:hover,
+		&:focus-visible {
+			border-color: $institution-primary;
+
+			box-shadow:
+				0 8px 24px rgba($institution-heading-color, .08);
+
+			color: $institution-heading-color;
+
+			text-decoration: none;
+
+			transform: translateY(-2px);
+		}
+
+		&:focus-visible {
+			outline: 2px solid rgba($institution-accent, .35);
+			outline-offset: 3px;
+		}
+	}
+}
+
+.biblioteca-single__navigation-next {
+
+	> a {
+		text-align: right;
+	}
+}
+
+.biblioteca-single__navigation-direction {
+	display: block;
+
+	margin-bottom: 8px;
+
+	color: $institution-primary;
+
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+.biblioteca-single__navigation-title {
+	display: block;
+
+	overflow-wrap: anywhere;
+
+	color: $institution-heading-color;
+
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.45;
+}
+
+
+/* ==========================================================
+   TABLET / BELOW LG
+   < 992px
+   ========================================================== */
+
+@media (max-width: 991.98px) {
+
+	.biblioteca-single {
+		padding-bottom: 56px;
+	}
+
+	.biblioteca-single__header {
+		padding-right: 24px;
+		padding-left: 24px;
+	}
+
+	.biblioteca-single__container {
+		padding-top: 40px;
+	}
+
+	.biblioteca-document-card {
+		grid-template-columns:
+			auto
+			minmax(0, 1fr);
+
+		gap: 18px;
+	}
+
+	.biblioteca-document-card__action {
+		grid-column: 1 / -1;
+
+		justify-content: flex-start;
+
+		padding-left: 70px;
+	}
+
+}
+
+
+/* ==========================================================
+   MOBILE
+   < 768px
+   ========================================================== */
+
+@media (max-width: 767.98px) {
+
+	.biblioteca-single {
+		padding-bottom: 48px;
+	}
+
+	.biblioteca-single__header {
+		padding-top: 24px;
+		padding-bottom: 32px;
+	}
+
+	.biblioteca-single__title {
+		font-size: 36px;
+	}
+
+	.biblioteca-single__container {
+		width: calc(100% - 32px);
+
+		padding-top: 32px;
+	}
+
+	.biblioteca-single__meta {
+		margin-bottom: 32px;
+		padding-bottom: 18px;
+
+		gap: 12px;
+	}
+
+	.biblioteca-single__content {
+		font-size: 16px;
+
+		h2 {
+			font-size: 27px;
+		}
+
+		h3 {
+			font-size: 22px;
+		}
+	}
+
+	.biblioteca-single__document {
+		margin-top: 40px;
+		padding-top: 28px;
+	}
+
+	.biblioteca-single__document-heading {
+		font-size: 21px;
+	}
+
+	.biblioteca-document-card {
+		display: flex;
+
+		padding: 22px;
+
+		align-items: flex-start;
+		flex-direction: column;
+
+		gap: 16px;
+	}
+
+	.biblioteca-document-card__icon {
+		width: 48px;
+		height: 48px;
+
+		svg {
+			width: 23px;
+			height: 23px;
+		}
+	}
+
+	.biblioteca-document-card__action {
+		width: 100%;
+
+		padding-left: 0;
+	}
+
+	.biblioteca-document-card__button {
+		width: 100%;
+	}
+
+	.biblioteca-single__navigation {
+		margin-top: 40px;
+		padding-top: 24px;
+
+		grid-template-columns: 1fr;
+
+		gap: 12px;
+	}
+
+	.biblioteca-single__navigation-next {
+
+		> a {
+			text-align: left;
+		}
+	}
+
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+   < 576px
+   ========================================================== */
+
+@media (max-width: 575.98px) {
+
+	.biblioteca-single {
+		padding-bottom: 40px;
+	}
+
+	.biblioteca-single__header {
+		padding-right: 16px;
+		padding-left: 16px;
+	}
+
+	.biblioteca-single__title {
+		font-size: 32px;
+
+		&::after {
+			width: 120px;
+		}
+	}
+
+	.biblioteca-single__container {
+		width: calc(100% - 32px);
+	}
+
+	.biblioteca-single__meta-item {
+		align-items: flex-start;
+	}
+
+	.biblioteca-single__content {
+
+		h2 {
+			font-size: 26px;
+		}
+
+		h3 {
+			font-size: 22px;
+		}
+	}
+
+	.biblioteca-single__document {
+		margin-top: 36px;
+	}
+
+	.biblioteca-document-card {
+		padding: 20px;
+	}
+
+	.biblioteca-document-card__title {
+		font-size: 16px;
+	}
+
+	.biblioteca-single__navigation-previous,
+	.biblioteca-single__navigation-next {
+
+		> a {
+			min-height: 0;
+
+			padding: 18px;
+		}
+	}
+
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+	.biblioteca-single__collections a,
+	.biblioteca-single__authors a,
+	.biblioteca-single__content a,
+	.biblioteca-document-card,
+	.biblioteca-document-card__button,
+	.biblioteca-single__navigation-previous > a,
+	.biblioteca-single__navigation-next > a {
+		transition: none;
+	}
+
+	.biblioteca-single__navigation-previous > a,
+	.biblioteca-single__navigation-next > a {
+
+		&:hover,
+		&:focus-visible {
+			transform: none;
+		}
+	}
+
+}

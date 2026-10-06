@@ -32,7 +32,7 @@ get_header();
 			<header class="news-single__header">
 
 				<div class="news-single__header-inner">
-
+					<?php conferp_breadcrumb(); ?>
 					<h1 class="news-single__title">
 						<?php the_title(); ?>
 					</h1>

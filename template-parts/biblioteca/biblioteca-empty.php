@@ -76,7 +76,7 @@ $archive_url = get_post_type_archive_link( 'biblioteca' );
 		class="biblioteca-empty__back"
 		href="<?php echo esc_url( $archive_url ); ?>"
 	>
-		<?php esc_html_e( 'Ver toda a Biblioteca', 'conferp' ); ?>
+		<?php esc_html_e( 'Voltar', 'conferp' ); ?>
 	</a>
 
 </div>

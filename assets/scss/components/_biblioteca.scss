@@ -2,7 +2,7 @@
  * CONFERP Biblioteca
  *
  * Main Biblioteca archive layout, search/filter bar,
- * grid, empty state and pagination.
+ * results summary, grid, empty state and pagination.
  *
  * @package conferp
  */
@@ -298,6 +298,85 @@
 
 
 /* ==========================================================
+   RESULTS SUMMARY
+   Same visual language as News search results.
+   ========================================================== */
+
+.biblioteca-results-summary {
+	width: 100%;
+
+	margin: 0 0 32px;
+	padding: 0 0 26px;
+
+	border-bottom: 1px solid $gray-300;
+}
+
+.biblioteca-results-summary__content {
+	width: 100%;
+}
+
+.biblioteca-results-summary__label {
+	margin: 0 0 4px;
+
+	color: $gray-600;
+
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+.biblioteca-results-summary__title {
+	margin: 0 0 8px;
+
+	color: $institution-heading-color;
+
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1.3;
+}
+
+.biblioteca-results-summary__count {
+	margin: 0 0 16px;
+
+	color: $gray-600;
+
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+.biblioteca-results-summary__back {
+	display: inline-flex;
+
+	align-items: center;
+
+	gap: 8px;
+
+	color: $institution-primary;
+
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.4;
+
+	text-decoration: none;
+
+	transition: color .2s ease;
+
+	&:hover,
+	&:focus-visible {
+		color: $institution-heading-color;
+
+		text-decoration: underline;
+	}
+
+	&:focus-visible {
+		outline: 2px solid rgba($institution-accent, .35);
+		outline-offset: 3px;
+	}
+}
+
+
+/* ==========================================================
    BIBLIOTECA GRID
    ========================================================== */
 
@@ -313,32 +392,33 @@
 
 /* ==========================================================
    EMPTY STATE
+   Same visual language as News empty results.
    ========================================================== */
 
 .biblioteca-empty {
 	display: flex;
 
-	min-height: 320px;
+	min-height: 280px;
 
-	padding: 48px 32px;
+	padding: 32px;
 
-	align-items: center;
+	align-items: flex-start;
 	flex-direction: column;
 	justify-content: center;
 
 	border: 1px solid $gray-300;
 	border-radius: 20px;
 
-	background: $gray-100;
+	background: $institution-background-light;
 
-	text-align: center;
+	text-align: left;
 }
 
 .biblioteca-empty__icon {
 	display: flex;
 
-	width: 52px;
-	height: 52px;
+	width: 46px;
+	height: 46px;
 
 	margin-bottom: 20px;
 
@@ -347,18 +427,20 @@
 
 	border-radius: 50%;
 
-	background: $institution-background-light;
+	background: $white;
 
 	color: $institution-primary;
 
 	svg {
-		width: 24px;
-		height: 24px;
+		display: block;
+
+		width: 22px;
+		height: 22px;
 	}
 }
 
 .biblioteca-empty__title {
-	margin: 0 0 12px;
+	margin: 0 0 8px;
 
 	color: $institution-heading-color;
 
@@ -368,13 +450,14 @@
 }
 
 .biblioteca-empty__message {
-	max-width: 580px;
+	max-width: 620px;
 
 	margin: 0;
 
-	color: $gray-600;
+	color: $body-color;
 
 	font-size: 15px;
+	font-weight: 400;
 	line-height: 1.7;
 }
 
@@ -393,9 +476,9 @@
 	border: $button-border-width solid $button-primary-border;
 	border-radius: $button-border-radius;
 
-	background: transparent;
+	background: $button-primary-bg;
 
-	color: $institution-primary;
+	color: $button-primary-color;
 
 	font-size: $button-font-size;
 	font-weight: $button-font-weight;
@@ -415,7 +498,7 @@
 	}
 
 	&:focus-visible {
-		outline: 2px solid $institution-accent;
+		outline: 2px solid rgba($institution-accent, .35);
 		outline-offset: 3px;
 	}
 }
@@ -541,7 +624,7 @@
 }
 
 .biblioteca-pagination a.page-numbers:focus-visible {
-	outline: 3px solid rgba(77, 155, 213, .30);
+	outline: 3px solid rgba($institution-accent, .30);
 	outline-offset: 3px;
 }
 
@@ -618,8 +701,8 @@
 	}
 
 	/*
-	 * The collection selector already provides the
-	 * same filtering functionality on tablet/mobile.
+	 * The collection selector already provides the same
+	 * filtering functionality on tablet/mobile.
 	 */
 	.biblioteca-layout__sidebar {
 		display: none;
@@ -674,6 +757,15 @@
 		padding-top: 32px;
 	}
 
+	.biblioteca-results-summary {
+		margin-bottom: 24px;
+		padding-bottom: 22px;
+	}
+
+	.biblioteca-results-summary__title {
+		font-size: 22px;
+	}
+
 	.biblioteca-grid {
 		grid-template-columns: 1fr;
 
@@ -681,9 +773,9 @@
 	}
 
 	.biblioteca-empty {
-		min-height: 280px;
+		min-height: 260px;
 
-		padding: 40px 24px;
+		padding: 28px;
 	}
 
 
@@ -746,6 +838,31 @@
 		min-height: 46px;
 	}
 
+	.biblioteca-results-summary__label {
+		font-size: 13px;
+	}
+
+	.biblioteca-results-summary__title {
+		font-size: 21px;
+	}
+
+	.biblioteca-results-summary__count,
+	.biblioteca-results-summary__back {
+		font-size: 13px;
+	}
+
+	.biblioteca-empty {
+		padding: 24px;
+	}
+
+	.biblioteca-empty__title {
+		font-size: 22px;
+	}
+
+	.biblioteca-empty__message {
+		font-size: 14px;
+	}
+
 
 	/* ------------------------------------------------------
 	   Pagination
@@ -756,8 +873,8 @@
 	}
 
 	/*
-	 * Keep the arrows visible while hiding the
-	 * Previous / Next text on small screens.
+	 * Keep Previous / Next text available to assistive
+	 * technologies while displaying only the arrows.
 	 */
 	.biblioteca-pagination__label {
 		position: absolute;
@@ -796,6 +913,7 @@
 	.biblioteca-search__select,
 	.biblioteca-search__input,
 	.biblioteca-search__submit,
+	.biblioteca-results-summary__back,
 	.biblioteca-empty__back,
 	.biblioteca-pagination .page-numbers {
 		transition: none;

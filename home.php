@@ -25,7 +25,7 @@ get_header();
 		<header class="news-page__header">
 
 			<div class="news-page__header-inner">
-
+				<?php conferp_breadcrumb(); ?>
 				<h1 class="news-page__title">
 					<?php esc_html_e( 'Notícias', 'conferp' ); ?>
 				</h1>

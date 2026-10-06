@@ -33,10 +33,7 @@ $results_count = isset( $wp_query->found_posts )
 
 			<div class="news-page__header-inner">
 
-				<span class="news-page__eyebrow">
-					<?php esc_html_e( 'Notícias', 'conferp' ); ?>
-				</span>
-
+				<?php conferp_breadcrumb(); ?>
 				<h1 class="news-page__title">
 					<?php esc_html_e( 'Resultados da busca', 'conferp' ); ?>
 				</h1>

@@ -22,7 +22,7 @@ $biblioteca_query = conferp_get_biblioteca_query();
 	<header class="biblioteca-page__header">
 
 		<div class="container">
-
+			<?php conferp_breadcrumb(); ?>
 			<h1 class="biblioteca-page__title">
 				<?php esc_html_e( 'Biblioteca', 'conferp' ); ?>
 			</h1>
@@ -62,6 +62,17 @@ $biblioteca_query = conferp_get_biblioteca_query();
 	<div class="biblioteca-layout container">
 
 		<div class="biblioteca-layout__main">
+
+			<?php
+			get_template_part(
+				'template-parts/biblioteca/biblioteca-results-summary',
+				null,
+				array(
+					'query' => $biblioteca_query,
+				)
+			);
+			?>
+
 
 			<?php
 			get_template_part(

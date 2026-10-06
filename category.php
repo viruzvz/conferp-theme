@@ -28,10 +28,7 @@ $category = get_queried_object();
 
 			<div class="news-page__header-inner">
 
-				<span class="news-page__eyebrow">
-					<?php esc_html_e( 'Notícias', 'conferp' ); ?>
-				</span>
-
+				<?php conferp_breadcrumb(); ?>
 				<h1 class="news-page__title">
 					<?php single_cat_title(); ?>
 				</h1>
