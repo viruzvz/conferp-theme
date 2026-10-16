@@ -14630,6 +14630,89 @@ html.conferp-high-contrast {
     transition: none;
   }
 }
+/**
+ * CONFERP — Cabeçalho institucional global
+ *
+ * Utilizado por Notícias, Biblioteca,
+ * Atas e Reuniões e futuros módulos.
+ *
+ * @package conferp
+ */
+.conferp-page-heading {
+  width: 100%;
+  padding: 32px 0 40px;
+  background-color: #f2f6ff;
+}
+.conferp-page-heading .container {
+  width: 100%;
+}
+.conferp-page-heading .conferp-breadcrumb {
+  margin-bottom: 24px;
+}
+.conferp-page-heading__title {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #1e284b;
+}
+.conferp-page-heading__title::after {
+  content: none;
+}
+.conferp-page-heading__primary {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 16px;
+}
+.conferp-page-heading__primary::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #dba840;
+}
+.conferp-page-heading__highlight {
+  color: #4d9bd5;
+}
+.conferp-page-heading__description {
+  max-width: 900px;
+  margin: 20px 0 0;
+  color: #1e284b;
+  font-size: 15px;
+  line-height: 1.65;
+}
+@media (max-width: 991.98px) {
+  .conferp-page-heading {
+    padding: 28px 0 36px;
+  }
+  .conferp-page-heading__title {
+    font-size: 36px;
+  }
+}
+@media (max-width: 575.98px) {
+  .conferp-page-heading {
+    padding: 24px 0 32px;
+  }
+  .conferp-page-heading .conferp-breadcrumb {
+    margin-bottom: 18px;
+  }
+  .conferp-page-heading__title {
+    padding-bottom: 16px;
+    font-size: 30px;
+  }
+  .conferp-page-heading__title::after {
+    width: 100px;
+  }
+  .conferp-page-heading__description {
+    margin-top: 16px;
+    font-size: 14px;
+  }
+}
+
 /* Notícias */
 /**
  * CONFERP News
@@ -18258,6 +18341,841 @@ html.conferp-high-contrast {
   .biblioteca-single__navigation-next > a:hover,
   .biblioteca-single__navigation-next > a:focus-visible {
     transform: none;
+  }
+}
+/* Atas e Reuniões */
+/**
+ * CONFERP — Atas e Reuniões
+ * Estrutura geral do módulo.
+ *
+ * @package conferp
+ */
+.atas-page {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.atas-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 270px;
+  gap: 32px;
+  align-items: start;
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+.atas-layout__main {
+  min-width: 0;
+}
+.atas-layout__sidebar {
+  min-width: 0;
+}
+
+.atas-page__count {
+  margin: 0 0 24px;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.atas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.atas-page__empty {
+  margin: 0;
+  padding: 32px;
+  border: 1px solid #dee2e6;
+  border-radius: 25px;
+  color: #6c757d;
+  text-align: center;
+}
+
+.atas-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 32px;
+}
+.atas-pagination a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 25px;
+  color: #1e284b;
+  text-decoration: none;
+}
+.atas-pagination a:hover, .atas-pagination a[aria-current=page] {
+  background-color: #205584;
+  border-color: #205584;
+  color: #ffffff;
+}
+
+/* ==========================================================
+   RESULTS
+   ========================================================== */
+.atas-results {
+  padding-top: 32px;
+  padding-bottom: 56px;
+}
+
+.atas-page__count {
+  margin: 0 0 18px;
+  padding: 0;
+  color: #6c757d;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ==========================================================
+   RESULTS LAYOUT
+   ========================================================== */
+.atas-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 270px;
+  align-items: start;
+  gap: 32px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+.atas-layout__main, .atas-layout__sidebar {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+@media (max-width: 991.98px) {
+  .atas-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+}
+@media (max-width: 575.98px) {
+  .atas-results {
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }
+}
+@media (max-width: 991.98px) {
+  .atas-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+}
+@media (max-width: 575.98px) {
+  .atas-layout {
+    padding-top: 28px;
+    padding-bottom: 40px;
+  }
+}
+/**
+ * CONFERP — Atas e Reuniões
+ * Cards de documentos.
+ *
+ * @package conferp
+ */
+.ata-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-width: 0;
+  padding: 22px 24px;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 25px;
+  /* Ícone PDF */
+}
+.ata-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 52px;
+  width: 52px;
+  color: #1e284b;
+}
+.ata-card__icon svg {
+  display: block;
+  width: 42px;
+  height: auto;
+}
+.ata-card {
+  /* Conteúdo principal */
+}
+.ata-card__body {
+  flex: 1;
+  min-width: 0;
+}
+.ata-card {
+  /* Tipo de reunião */
+}
+.ata-card__tag {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color: #f2f6ff;
+  color: #205584;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.ata-card {
+  /* Título */
+}
+.ata-card h2, .ata-card .h2 {
+  margin: 0 0 10px;
+  color: #1e284b;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.ata-card {
+  /* Data da reunião */
+}
+.ata-card__date {
+  margin: 0 0 8px;
+  color: #6c757d;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.ata-card {
+  /* Assuntos */
+}
+.ata-card__subjects {
+  margin: 0;
+  color: #6c757d;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.ata-card__subjects strong {
+  color: #1e284b;
+}
+.ata-card {
+  /* Área dos documentos */
+}
+.ata-card__documents {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+  min-width: 0;
+}
+.ata-card {
+  /* Botão de visualização */
+}
+.ata-card__pdf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 10px 18px;
+  background-color: #205584;
+  border-radius: 25px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.ata-card__pdf:hover {
+  background-color: #4d9bd5;
+  color: #ffffff;
+}
+.ata-card__pdf:focus-visible {
+  outline: 2px solid #4d9bd5;
+  outline-offset: 3px;
+}
+.ata-card {
+  /* PDFs complementares */
+}
+.ata-card__extras {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.ata-card__extras strong {
+  color: #1e284b;
+}
+.ata-card__extras a {
+  color: #205584;
+  text-decoration: underline;
+}
+.ata-card__extras a:hover {
+  color: #4d9bd5;
+}
+.ata-card__extras a:focus-visible {
+  outline: 2px solid #4d9bd5;
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   TABLET
+   Bootstrap MD até LG
+   ========================================================== */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .ata-card {
+    gap: 18px;
+    padding: 20px;
+  }
+  .ata-card__icon {
+    flex-basis: 46px;
+    width: 46px;
+  }
+  .ata-card__icon svg {
+    width: 38px;
+  }
+  .ata-card h2, .ata-card .h2 {
+    font-size: 15px;
+  }
+  .ata-card__pdf {
+    padding: 10px 14px;
+  }
+}
+/* ==========================================================
+   MOBILE
+   Abaixo de 768px
+   ========================================================== */
+@media (max-width: 767.98px) {
+  .ata-card {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    grid-template-areas: "icon body" "documents documents";
+    align-items: start;
+    justify-content: stretch;
+    column-gap: 14px;
+    row-gap: 18px;
+    padding: 20px;
+    /* PDF à esquerda */
+  }
+  .ata-card__icon {
+    grid-area: icon;
+    width: 42px;
+    min-width: 0;
+    flex: none;
+    align-self: start;
+  }
+  .ata-card__icon svg {
+    width: 38px;
+  }
+  .ata-card {
+    /* Informações à direita */
+  }
+  .ata-card__body {
+    grid-area: body;
+    width: 100%;
+    min-width: 0;
+  }
+  .ata-card__tag {
+    margin-bottom: 8px;
+  }
+  .ata-card h2, .ata-card .h2 {
+    margin-bottom: 8px;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .ata-card__date, .ata-card__subjects {
+    font-size: 12px;
+  }
+  .ata-card {
+    /* Documentos abaixo do conteúdo */
+  }
+  .ata-card__documents {
+    grid-area: documents;
+    width: 100%;
+    min-width: 0;
+    align-items: stretch;
+    gap: 14px;
+  }
+  .ata-card {
+    /* Botão em largura total */
+  }
+  .ata-card__pdf {
+    width: 100%;
+    min-height: 44px;
+  }
+  .ata-card {
+    /* Anexos abaixo do botão */
+  }
+  .ata-card__extras {
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+  }
+}
+/* ==========================================================
+   MOBILE PEQUENO
+   Abaixo de 576px
+   ========================================================== */
+@media (max-width: 575.98px) {
+  .ata-card {
+    padding: 18px 16px;
+    column-gap: 12px;
+  }
+  .ata-card__tag {
+    font-size: 11px;
+  }
+  .ata-card h2, .ata-card .h2 {
+    font-size: 14px;
+  }
+  .ata-card__extras {
+    font-size: 12px;
+  }
+}
+/* ==========================================================
+   ACESSIBILIDADE
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .ata-card__pdf {
+    transition: none;
+  }
+}
+/**
+ * CONFERP — Atas e Reuniões
+ * Sidebar
+ *
+ * Padrão visual baseado na Biblioteca.
+ * Preserva os badges de quantidade.
+ *
+ * @package conferp
+ */
+/* ==========================================================
+   SIDEBAR
+   ========================================================== */
+.atas-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================
+   PANEL
+   ========================================================== */
+.atas-sidebar__panel {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #dee2e6;
+  border-radius: 20px;
+  background-color: #f2f6ff;
+}
+
+/* ==========================================================
+   HEADER / TITLE
+   ========================================================== */
+.atas-sidebar__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 42px;
+  margin: 0;
+  padding: 8px 14px;
+  background-color: #4d9bd5;
+  color: #ffffff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* ==========================================================
+   BODY
+   ========================================================== */
+.atas-sidebar__content {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 18px 18px 22px;
+  background-color: #f2f6ff;
+}
+
+/* ==========================================================
+   LIST
+   ========================================================== */
+.atas-sidebar__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.atas-sidebar__list li {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+.atas-sidebar__list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  color: #205584;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.atas-sidebar__list a > span:first-child {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.atas-sidebar__list a:hover, .atas-sidebar__list a:focus-visible {
+  color: #1e284b;
+  text-decoration: underline;
+}
+.atas-sidebar__list a:focus-visible {
+  outline: 2px solid #4d9bd5;
+  outline-offset: 3px;
+}
+.atas-sidebar__list a[aria-current=page] {
+  color: #1e284b;
+  font-weight: 600;
+}
+
+/* ==========================================================
+   COUNT BADGE
+   Exclusivo do módulo Atas
+   ========================================================== */
+.atas-sidebar__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-width: 25px;
+  min-height: 25px;
+  margin: 0;
+  padding: 3px 6px;
+  border-radius: 25px;
+  background-color: #1e284b;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ==========================================================
+   ALL YEARS
+   ========================================================== */
+.atas-sidebar__all {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 0;
+  color: #205584;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.35;
+  text-decoration: none;
+}
+.atas-sidebar__all:hover, .atas-sidebar__all:focus-visible {
+  color: #1e284b;
+  text-decoration: underline;
+}
+.atas-sidebar__all:focus-visible {
+  outline: 2px solid #4d9bd5;
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   TABLET
+   Abaixo de 992px
+   ========================================================== */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .atas-sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 20px;
+  }
+}
+/* ==========================================================
+   MOBILE
+   Abaixo de 768px
+   ========================================================== */
+@media (max-width: 767.98px) {
+  .atas-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .atas-sidebar__content {
+    padding: 18px;
+  }
+  .atas-sidebar__list {
+    gap: 14px;
+  }
+}
+/* ==========================================================
+   MOBILE PEQUENO
+   Abaixo de 576px
+   ========================================================== */
+@media (max-width: 575.98px) {
+  .atas-sidebar__title {
+    min-height: 42px;
+    font-size: 14px;
+  }
+  .atas-sidebar__content {
+    padding: 16px;
+  }
+  .atas-sidebar__list a {
+    font-size: 14px;
+  }
+}
+/* ==========================================================
+   ACESSIBILIDADE
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .atas-sidebar__list a {
+    transition: none;
+  }
+}
+/**
+ * CONFERP — Atas e Reuniões
+ * Pesquisa e filtros do arquivo público.
+ *
+ * @package conferp
+ */
+.atas-search {
+  width: 100%;
+  margin: 0;
+  padding: 30px 0;
+  background-color: #1e284b;
+}
+
+.atas-filtros {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  /* Campo principal de pesquisa */
+}
+.atas-filtros__search {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.atas-filtros__search label {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+}
+.atas-filtros__search input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid #dee2e6;
+  border-radius: 25px;
+  background-color: #ffffff;
+  color: #1e284b;
+  font: inherit;
+}
+.atas-filtros__search input::placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+.atas-filtros__search input:focus-visible {
+  outline: 2px solid #4d9bd5;
+  outline-offset: 2px;
+}
+.atas-filtros {
+  /* Grade de filtros */
+}
+.atas-filtros__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+}
+.atas-filtros {
+  /* Campos individuais */
+}
+.atas-filtros__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.atas-filtros__field label {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+}
+.atas-filtros__field select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #dee2e6;
+  border-radius: 25px;
+  background-color: #ffffff;
+  color: #1e284b;
+  font: inherit;
+  cursor: pointer;
+}
+.atas-filtros__field select:focus-visible {
+  outline: 2px solid #4d9bd5;
+  outline-offset: 2px;
+}
+.atas-filtros {
+  /* Botões e ações */
+}
+.atas-filtros__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  min-width: 0;
+}
+.atas-filtros__actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 28px;
+  border: 0;
+  border-radius: 25px;
+  background-color: #4d9bd5;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.atas-filtros__actions button:hover {
+  background-color: #205584;
+}
+.atas-filtros__actions button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+.atas-filtros__actions a {
+  color: #ffffff;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.atas-filtros__actions a:hover {
+  color: #4d9bd5;
+}
+.atas-filtros__actions a:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   TABLET
+   Abaixo de 992px
+   ========================================================== */
+@media (max-width: 991.98px) {
+  .atas-filtros__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+/* ==========================================================
+   MOBILE
+   Abaixo de 768px
+   ========================================================== */
+@media (max-width: 767.98px) {
+  .atas-search {
+    padding: 26px 0;
+  }
+  .atas-filtros {
+    gap: 18px;
+  }
+  .atas-filtros__search input {
+    font-size: 14px;
+  }
+  .atas-filtros__field select {
+    font-size: 14px;
+  }
+}
+/* ==========================================================
+   MOBILE PEQUENO
+   Abaixo de 576px
+   ========================================================== */
+@media (max-width: 575.98px) {
+  .atas-search {
+    padding: 24px 0;
+  }
+  .atas-filtros__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  .atas-filtros__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+  .atas-filtros__actions button {
+    width: 100%;
+  }
+  .atas-filtros__actions a {
+    display: inline-block;
+    padding: 8px 0;
+    text-align: center;
+  }
+}
+/* ==========================================================
+   ACESSIBILIDADE
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .atas-filtros__actions button {
+    transition: none;
   }
 }
 /* ==========================================================

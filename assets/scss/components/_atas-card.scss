@@ -1,0 +1,321 @@
+
+/**
+ * CONFERP — Atas e Reuniões
+ * Cards de documentos.
+ *
+ * @package conferp
+ */
+
+.ata-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    min-width: 0;
+    padding: 22px 24px;
+
+    background-color: $white;
+    border: 1px solid $gray-300;
+    border-radius: 25px;
+
+    /* Ícone PDF */
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex: 0 0 52px;
+        width: 52px;
+
+        color: $institution-heading-color;
+
+        svg {
+            display: block;
+            width: 42px;
+            height: auto;
+        }
+    }
+
+    /* Conteúdo principal */
+    &__body {
+        flex: 1;
+        min-width: 0;
+    }
+
+    /* Tipo de reunião */
+    &__tag {
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 5px 10px;
+
+        background-color: $institution-background-light;
+        color: $institution-primary;
+
+        border-radius: 25px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    /* Título */
+    h2 {
+        margin: 0 0 10px;
+
+        color: $institution-heading-color;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.5;
+
+        overflow-wrap: anywhere;
+    }
+
+    /* Data da reunião */
+    &__date {
+        margin: 0 0 8px;
+
+        color: $gray-600;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    /* Assuntos */
+    &__subjects {
+        margin: 0;
+
+        color: $gray-600;
+        font-size: 13px;
+        line-height: 1.5;
+
+        overflow-wrap: anywhere;
+
+        strong {
+            color: $institution-heading-color;
+        }
+    }
+
+    /* Área dos documentos */
+    &__documents {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+
+        flex-shrink: 0;
+        min-width: 0;
+    }
+
+    /* Botão de visualização */
+    &__pdf {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        min-height: 40px;
+        padding: 10px 18px;
+
+        background-color: $institution-primary;
+        border-radius: 25px;
+
+        color: $white;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.4;
+        text-align: center;
+        text-decoration: none;
+
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: $institution-secondary;
+            color: $white;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $institution-secondary;
+            outline-offset: 3px;
+        }
+    }
+
+    /* PDFs complementares */
+    &__extras {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+
+        font-size: 12px;
+        line-height: 1.5;
+
+        strong {
+            color: $institution-heading-color;
+        }
+
+        a {
+            color: $institution-primary;
+            text-decoration: underline;
+
+            &:hover {
+                color: $institution-secondary;
+            }
+
+            &:focus-visible {
+                outline: 2px solid $institution-secondary;
+                outline-offset: 3px;
+            }
+        }
+    }
+}
+
+/* ==========================================================
+   TABLET
+   Bootstrap MD até LG
+   ========================================================== */
+
+@include media-breakpoint-between(md, lg) {
+
+    .ata-card {
+        gap: 18px;
+        padding: 20px;
+
+        &__icon {
+            flex-basis: 46px;
+            width: 46px;
+
+            svg {
+                width: 38px;
+            }
+        }
+
+        h2 {
+            font-size: 15px;
+        }
+
+        &__pdf {
+            padding: 10px 14px;
+        }
+    }
+}
+
+/* ==========================================================
+   MOBILE
+   Abaixo de 768px
+   ========================================================== */
+
+@include media-breakpoint-down(md) {
+
+    .ata-card {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        grid-template-areas:
+            "icon body"
+            "documents documents";
+
+        align-items: start;
+        justify-content: stretch;
+        column-gap: 14px;
+        row-gap: 18px;
+
+        padding: 20px;
+
+        /* PDF à esquerda */
+        &__icon {
+            grid-area: icon;
+
+            width: 42px;
+            min-width: 0;
+
+            flex: none;
+            align-self: start;
+
+            svg {
+                width: 38px;
+            }
+        }
+
+        /* Informações à direita */
+        &__body {
+            grid-area: body;
+            width: 100%;
+            min-width: 0;
+        }
+
+        &__tag {
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            margin-bottom: 8px;
+
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        &__date,
+        &__subjects {
+            font-size: 12px;
+        }
+
+        /* Documentos abaixo do conteúdo */
+        &__documents {
+            grid-area: documents;
+
+            width: 100%;
+            min-width: 0;
+
+            align-items: stretch;
+            gap: 14px;
+        }
+
+        /* Botão em largura total */
+        &__pdf {
+            width: 100%;
+            min-height: 44px;
+        }
+
+        /* Anexos abaixo do botão */
+        &__extras {
+            justify-content: flex-start;
+            align-items: center;
+
+            width: 100%;
+            gap: 10px;
+        }
+    }
+}
+
+/* ==========================================================
+   MOBILE PEQUENO
+   Abaixo de 576px
+   ========================================================== */
+
+@include media-breakpoint-down(sm) {
+
+    .ata-card {
+        padding: 18px 16px;
+        column-gap: 12px;
+
+        &__tag {
+            font-size: 11px;
+        }
+
+        h2 {
+            font-size: 14px;
+        }
+
+        &__extras {
+            font-size: 12px;
+        }
+    }
+}
+
+/* ==========================================================
+   ACESSIBILIDADE
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ata-card__pdf {
+        transition: none;
+    }
+}

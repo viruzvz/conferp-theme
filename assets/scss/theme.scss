@@ -43,6 +43,7 @@
 @import "components/forms";
 @import "components/icons";
 @import "components/breadcrumb";
+@import "components/page-heading";
 
 /* Notícias */
 @import "components/news";
@@ -55,6 +56,12 @@
 @import "components/biblioteca-card";
 @import "components/biblioteca-sidebar";
 @import "components/biblioteca-single";
+
+/* Atas e Reuniões */
+@import "components/atas";
+@import "components/atas-card";
+@import "components/atas-sidebar";
+@import "components/atas-filters";
 
 /* ==========================================================
    GLOBAL / FEDERAL

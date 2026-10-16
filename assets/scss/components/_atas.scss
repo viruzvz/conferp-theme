@@ -1,0 +1,162 @@
+
+/**
+ * CONFERP — Atas e Reuniões
+ * Estrutura geral do módulo.
+ *
+ * @package conferp
+ */
+
+.atas-page {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.atas-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 270px;
+    gap: 32px;
+    align-items: start;
+
+    padding-top: 40px;
+    padding-bottom: 60px;
+
+    &__main {
+        min-width: 0;
+    }
+
+    &__sidebar {
+        min-width: 0;
+    }
+}
+
+.atas-page__count {
+    margin: 0 0 24px;
+    color: $gray-600;
+    font-size: 14px;
+}
+
+.atas-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.atas-page__empty {
+    margin: 0;
+    padding: 32px;
+    border: 1px solid $gray-300;
+    border-radius: 25px;
+    color: $gray-600;
+    text-align: center;
+}
+
+.atas-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 32px;
+
+    a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        min-width: 40px;
+        min-height: 40px;
+        padding: 8px 12px;
+
+        border: 1px solid $gray-300;
+        border-radius: 25px;
+
+        color: $institution-heading-color;
+        text-decoration: none;
+
+        &:hover,
+        &[aria-current="page"] {
+            background-color: $institution-primary;
+            border-color: $institution-primary;
+            color: $white;
+        }
+    }
+}
+
+/* ==========================================================
+   RESULTS
+   ========================================================== */
+
+.atas-results {
+    padding-top: 32px;
+    padding-bottom: 56px;
+}
+
+.atas-page__count {
+    margin: 0 0 18px;
+    padding: 0;
+
+    color: $gray-600;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ==========================================================
+   RESULTS LAYOUT
+   ========================================================== */
+
+.atas-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 270px;
+
+    align-items: start;
+    gap: 32px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    &__main,
+    &__sidebar {
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@include media-breakpoint-down(lg) {
+
+    .atas-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+    }
+
+}
+
+@include media-breakpoint-down(sm) {
+
+    .atas-results {
+        padding-top: 24px;
+        padding-bottom: 40px;
+    }
+
+}
+
+
+@media (max-width: 991.98px) {
+    .atas-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .atas-layout {
+        padding-top: 28px;
+        padding-bottom: 40px;
+    }
+}

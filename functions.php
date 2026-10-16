@@ -53,6 +53,25 @@ require_once get_template_directory() . '/inc/biblioteca.php';
 require_once get_template_directory() . '/inc/breadcrumb.php';
 
 /**
+ * Atas e Reuniões posts.
+ */
+require_once get_template_directory() . '/inc/atas-reunioes.php';
+
+/**
+ * Gestão automática Atas e Reuniões.
+ */
+require_once get_template_directory() . '/inc/atas-cadastro.php';
+
+/**
+ * Gestão automática Público Atas e Reuniões.
+ */
+require_once get_template_directory() . '/inc/atas-publico.php';
+
+/**
+ * CPT Transparância.
+ */
+require_once get_template_directory() . '/inc/admin/transparencia-menu.php';
+/**
  * Document head.
  *
  * Handles theme-level head defaults such as:

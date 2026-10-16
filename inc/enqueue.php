@@ -1,3 +1,4 @@
+
 <?php
 /**
  * Enqueue scripts and styles.
@@ -22,12 +23,12 @@ function conferp_enqueue_assets() {
 	/**
 	 * Asset paths used for cache busting.
 	 */
-	$theme_css_path             = get_template_directory() . '/assets/css/theme.css';
-	$theme_js_path              = get_template_directory() . '/assets/js/theme.js';
-	$utility_bar_js_path        = get_template_directory() . '/assets/js/utility-bar.js';
-	$accessibility_js_path      = get_template_directory() . '/assets/js/accessibility.js';
-	$mobile_navigation_js_path  = get_template_directory() . '/assets/js/mobile-navigation.js';
-	$hero_carousel_js_path      = get_template_directory() . '/assets/js/hero-carousel.js';
+	$theme_css_path            = get_template_directory() . '/assets/css/theme.css';
+	$theme_js_path             = get_template_directory() . '/assets/js/theme.js';
+	$utility_bar_js_path       = get_template_directory() . '/assets/js/utility-bar.js';
+	$accessibility_js_path     = get_template_directory() . '/assets/js/accessibility.js';
+	$mobile_navigation_js_path = get_template_directory() . '/assets/js/mobile-navigation.js';
+	$hero_carousel_js_path     = get_template_directory() . '/assets/js/hero-carousel.js';
 
 
 	/**
@@ -107,9 +108,6 @@ function conferp_enqueue_assets() {
 	 *
 	 * Controls the institutional Hero Carousel built with
 	 * Elementor containers.
-	 *
-	 * Elementor manages the content while the theme manages
-	 * carousel behavior, navigation and accessibility.
 	 */
 
 	wp_enqueue_script(
@@ -158,3 +156,64 @@ function conferp_enqueue_assets() {
 }
 
 add_action( 'wp_enqueue_scripts', 'conferp_enqueue_assets' );
+
+
+/**
+ * ======================================================
+ * ADMIN — Atas e Reuniões
+ * ======================================================
+ *
+ * JavaScript exclusivo do cadastro administrativo.
+ *
+ * @return void
+ */
+function conferp_enqueue_atas_admin_assets() {
+
+	$screen = get_current_screen();
+
+	if ( ! $screen ) {
+		return;
+	}
+
+	// Apenas adicionar/editar Atas e Reuniões.
+	if (
+		'ata_reuniao' !== $screen->post_type ||
+		'post' !== $screen->base
+	) {
+		return;
+	}
+
+	$theme_version = wp_get_theme()->get( 'Version' );
+
+	/**
+	 * Asset path used for cache busting.
+	 */
+	$atas_cadastro_js_path = get_template_directory() . '/assets/js/atas-cadastro.js';
+
+	/**
+	 * ======================================================
+	 * WordPress Media Library
+	 * ======================================================
+	 */
+
+	wp_enqueue_media();
+
+
+	/**
+	 * ======================================================
+	 * Atas e Reuniões — Cadastro
+	 * ======================================================
+	 */
+
+	wp_enqueue_script(
+		'conferp-atas-cadastro',
+		get_template_directory_uri() . '/assets/js/atas-cadastro.js',
+		array( 'jquery', 'jquery-ui-sortable' ),
+		file_exists( $atas_cadastro_js_path )
+			? filemtime( $atas_cadastro_js_path )
+			: $theme_version,
+		true
+	);
+}
+
+add_action( 'admin_enqueue_scripts', 'conferp_enqueue_atas_admin_assets' );

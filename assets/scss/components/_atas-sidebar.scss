@@ -1,0 +1,297 @@
+
+/**
+ * CONFERP — Atas e Reuniões
+ * Sidebar
+ *
+ * Padrão visual baseado na Biblioteca.
+ * Preserva os badges de quantidade.
+ *
+ * @package conferp
+ */
+
+/* ==========================================================
+   SIDEBAR
+   ========================================================== */
+
+.atas-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================================
+   PANEL
+   ========================================================== */
+
+.atas-sidebar__panel {
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    border: 1px solid $gray-300;
+    border-radius: 20px;
+
+    background-color: $institution-background-light;
+}
+
+/* ==========================================================
+   HEADER / TITLE
+   ========================================================== */
+
+.atas-sidebar__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 42px;
+
+    margin: 0;
+    padding: 8px 14px;
+
+    background-color: $institution-secondary;
+    color: $white;
+
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.25;
+
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* ==========================================================
+   BODY
+   ========================================================== */
+
+.atas-sidebar__content {
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 18px 18px 22px;
+
+    background-color: $institution-background-light;
+}
+
+/* ==========================================================
+   LIST
+   ========================================================== */
+
+.atas-sidebar__list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    li {
+        width: 100%;
+        min-width: 0;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+
+        width: 100%;
+        min-width: 0;
+
+        margin: 0;
+        padding: 0;
+
+        color: $institution-primary;
+
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.35;
+
+        text-decoration: none;
+
+        transition: color 0.2s ease;
+
+        // Permite quebra de títulos longos.
+        > span:first-child {
+            flex: 1;
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
+        &:hover,
+        &:focus-visible {
+            color: $institution-heading-color;
+            text-decoration: underline;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $institution-secondary;
+            outline-offset: 3px;
+        }
+
+        &[aria-current="page"] {
+            color: $institution-heading-color;
+            font-weight: 600;
+        }
+    }
+}
+
+/* ==========================================================
+   COUNT BADGE
+   Exclusivo do módulo Atas
+   ========================================================== */
+
+.atas-sidebar__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    min-width: 25px;
+    min-height: 25px;
+
+    margin: 0;
+    padding: 3px 6px;
+
+    border-radius: 25px;
+
+    background-color: $institution-heading-color;
+    color: $white;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* ==========================================================
+   ALL YEARS
+   ========================================================== */
+
+.atas-sidebar__all {
+    display: inline-block;
+
+    margin-top: 18px;
+    padding: 0;
+
+    color: $institution-primary;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.35;
+
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+        color: $institution-heading-color;
+        text-decoration: underline;
+    }
+
+    &:focus-visible {
+        outline: 2px solid $institution-secondary;
+        outline-offset: 3px;
+    }
+}
+
+/* ==========================================================
+   TABLET
+   Abaixo de 992px
+   ========================================================== */
+
+@include media-breakpoint-between(md, lg) {
+
+    .atas-sidebar {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+        gap: 20px;
+    }
+
+}
+
+/* ==========================================================
+   MOBILE
+   Abaixo de 768px
+   ========================================================== */
+
+@include media-breakpoint-down(md) {
+
+    .atas-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .atas-sidebar__content {
+        padding: 18px;
+    }
+
+    .atas-sidebar__list {
+        gap: 14px;
+    }
+
+}
+
+/* ==========================================================
+   MOBILE PEQUENO
+   Abaixo de 576px
+   ========================================================== */
+
+@include media-breakpoint-down(sm) {
+
+    .atas-sidebar__title {
+        min-height: 42px;
+        font-size: 14px;
+    }
+
+    .atas-sidebar__content {
+        padding: 16px;
+    }
+
+    .atas-sidebar__list {
+        a {
+            font-size: 14px;
+        }
+    }
+
+}
+
+/* ==========================================================
+   ACESSIBILIDADE
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .atas-sidebar__list a {
+        transition: none;
+    }
+
+}
