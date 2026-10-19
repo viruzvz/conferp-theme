@@ -610,6 +610,29 @@ function conferp_get_breadcrumb_items() {
 
 
 	/* ======================================================
+	   ATAS E REUNIÕES — TRANSPARÊNCIA
+	   Transparência é um agrupamento sem página própria.
+	   ====================================================== */
+
+	if ( is_post_type_archive( 'ata_reuniao' ) ) {
+
+		$items[] = array(
+			'label'   => __( 'Transparência', 'conferp' ),
+			'url'     => '',
+			'current' => false,
+		);
+
+		$items[] = array(
+			'label'   => __( 'Atas e Reuniões', 'conferp' ),
+			'url'     => '',
+			'current' => true,
+		);
+
+		return $items;
+	}
+
+
+	/* ======================================================
 	   GENERIC CUSTOM POST TYPE ARCHIVE
 	   Future modules:
 	   Atas, Leis, Resoluções, Portarias...

@@ -29,18 +29,15 @@ get_header();
 			<?php post_class( 'news-single__article' ); ?>
 		>
 
-			<header class="news-single__header">
-
-				<div class="news-single__header-inner">
-					<?php conferp_breadcrumb(); ?>
-					<h1 class="news-single__title">
-						<?php the_title(); ?>
-					</h1>
-
-				</div>
-
-			</header>
-
+			<?php
+			get_template_part(
+				'template-parts/global/page-heading',
+				null,
+				array(
+					'title' => get_the_title(),
+				)
+			);
+			?>
 
 			<div class="news-single__container">
 

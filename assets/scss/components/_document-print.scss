@@ -1,0 +1,116 @@
+// Impressão A4: somente o documento jurídico, sem navegação ou controles do portal.
+@media print {
+  @page {
+    size: A4;
+    margin: 18mm 16mm;
+  }
+
+  body.single-lei_decreto {
+    width: auto !important;
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt !important;
+
+    // Componentes globais do tema, inclusive versões responsivas.
+    .site-header,
+    .site-footer,
+    .site-subfooter,
+    .utility-bar,
+    .conferp-utility-bar,
+    .subfooter,
+    .conferp-subfooter,
+    .site-navigation,
+    .main-navigation,
+    .mobile-navigation,
+    .mobile-menu,
+    .conferp-page-heading,
+    .conferp-breadcrumb,
+    .breadcrumb,
+    .back-to-top,
+    .conferp-back-to-top,
+    .accessibility-widget,
+    .accessibility-controls,
+    .conferp-accessibility,
+    .conferp-accessibility-sticky__trigger,
+    .nav-access,
+    .sticky-accessibility,
+    .accessibility-sticky,
+    .vlibras-plugin,
+    .institutional-document__types,
+    [vw],
+    [vw-access-button],
+    [vw-plugin-wrapper],
+    #wpadminbar,
+    .no-print,
+    .institutional-document-actions,
+    .institutional-document__actions {
+      display: none !important;
+      visibility: hidden !important;
+    }
+
+    .legislation-single__container,
+    .container,
+    .site-main {
+      max-width: none !important;
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .institutional-document {
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      color: #000 !important;
+      background: #fff !important;
+    }
+
+    .institutional-document__header {
+      margin-bottom: 10mm;
+    }
+
+    .institutional-document__coat {
+      width: 24mm;
+      max-height: 32mm;
+    }
+
+    .institutional-document__content {
+      font-size: 11pt;
+      line-height: 1.5;
+    }
+
+    .institutional-document__content h2,
+    .institutional-document__content h3,
+    .institutional-document__content h4,
+    .institutional-document__content h5,
+    .institutional-document__content h6 {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    .institutional-document__content p,
+    .institutional-document__content li {
+      orphans: 3;
+      widows: 3;
+    }
+
+    .institutional-document__footer {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .institutional-document__type {
+      color: #000 !important;
+      background: transparent !important;
+      border: 1px solid #777;
+    }
+
+    a {
+      color: #000 !important;
+      text-decoration: none !important;
+    }
+  }
+}

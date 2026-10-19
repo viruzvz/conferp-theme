@@ -19,27 +19,16 @@ $biblioteca_query = conferp_get_biblioteca_query();
 	class="site-main biblioteca-page"
 >
 
-	<header class="biblioteca-page__header">
-
-		<div class="container">
-			<?php conferp_breadcrumb(); ?>
-			<h1 class="biblioteca-page__title">
-				<?php esc_html_e( 'Biblioteca', 'conferp' ); ?>
-			</h1>
-
-			<p class="biblioteca-page__description">
-				<?php
-				esc_html_e(
-					'Aqui estão todas as publicações disponibilizadas pelo CONFERP, todas ao seu alcance.',
-					'conferp'
-				);
-				?>
-			</p>
-
-		</div>
-
-	</header>
-
+	<?php
+	get_template_part(
+		'template-parts/global/page-heading',
+		null,
+		array(
+			'title'       => __( 'Biblioteca', 'conferp' ),
+			'description' => __( 'Aqui estão todas as publicações disponibilizadas pelo CONFERP, todas ao seu alcance.', 'conferp' ),
+		)
+	);
+	?>
 
 	<section
 		class="biblioteca-search"

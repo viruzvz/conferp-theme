@@ -14632,9 +14632,7 @@ html.conferp-high-contrast {
 }
 /**
  * CONFERP — Cabeçalho institucional global
- *
- * Utilizado por Notícias, Biblioteca,
- * Atas e Reuniões e futuros módulos.
+ * Utilizado por Notícias, Biblioteca, Atas e Reuniões e futuros módulos.
  *
  * @package conferp
  */
@@ -14653,10 +14651,12 @@ html.conferp-high-contrast {
   display: block;
   margin: 0;
   padding: 0;
+  color: #1e284b;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: 42px;
   font-weight: 700;
   line-height: 1.15;
-  color: #1e284b;
+  overflow-wrap: anywhere;
 }
 .conferp-page-heading__title::after {
   content: none;
@@ -14669,8 +14669,8 @@ html.conferp-high-contrast {
 .conferp-page-heading__primary::after {
   content: "";
   position: absolute;
-  left: 0;
   bottom: 0;
+  left: 0;
   width: 100%;
   height: 3px;
   background-color: #dba840;
@@ -14685,6 +14685,7 @@ html.conferp-high-contrast {
   font-size: 15px;
   line-height: 1.65;
 }
+
 @media (max-width: 991.98px) {
   .conferp-page-heading {
     padding: 28px 0 36px;
@@ -14701,18 +14702,13 @@ html.conferp-high-contrast {
     margin-bottom: 18px;
   }
   .conferp-page-heading__title {
-    padding-bottom: 16px;
     font-size: 30px;
-  }
-  .conferp-page-heading__title::after {
-    width: 100px;
   }
   .conferp-page-heading__description {
     margin-top: 16px;
     font-size: 14px;
   }
 }
-
 /* Notícias */
 /**
  * CONFERP News
@@ -19178,6 +19174,1187 @@ html.conferp-high-contrast {
     transition: none;
   }
 }
+/* Documentos */
+.legislation-single__container {
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+.institutional-document {
+  max-width: 900px;
+  margin-inline: auto;
+  padding: clamp(1.25rem, 4vw, 3.5rem);
+  background: #ffffff;
+  color: #212529;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  overflow-wrap: anywhere;
+}
+
+.institutional-document__header {
+  text-align: center;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.institutional-document__coat {
+  display: block;
+  width: 112px;
+  height: auto;
+  max-height: 140px;
+  object-fit: contain;
+  margin: 0 auto 1rem;
+}
+
+.institutional-document__republic {
+  color: #1e284b;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.institutional-document__types {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.institutional-document__type {
+  display: inline-block;
+  border-radius: 0.25rem;
+  padding: 0.3rem 0.75rem;
+  color: #ffffff;
+  background: #205584;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.institutional-document__title {
+  color: #1e284b;
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  line-height: 1.4;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.institutional-document__identification {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+.institutional-document__summary {
+  max-width: 650px;
+  margin: 1.25rem auto 0;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.institutional-document__content {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: #212529;
+}
+.institutional-document__content p {
+  margin-bottom: 1.25rem;
+}
+.institutional-document__content h2, .institutional-document__content .h2, .institutional-document__content h3, .institutional-document__content .h3, .institutional-document__content h4, .institutional-document__content .h4, .institutional-document__content h5, .institutional-document__content .h5, .institutional-document__content h6, .institutional-document__content .h6 {
+  color: #1e284b;
+  line-height: 1.4;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.institutional-document__content h2, .institutional-document__content .h2 {
+  font-size: 1.3rem;
+}
+.institutional-document__content h3, .institutional-document__content .h3 {
+  font-size: 1.15rem;
+}
+.institutional-document__content ul, .institutional-document__content ol {
+  padding-left: 1.75rem;
+  margin-bottom: 1.25rem;
+}
+.institutional-document__content img {
+  max-width: 100%;
+  height: auto;
+}
+.institutional-document__content a {
+  overflow-wrap: anywhere;
+}
+
+.institutional-document__footer {
+  border-top: 1px solid #dee2e6;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #6c757d;
+  text-align: center;
+}
+.institutional-document__footer p {
+  margin-bottom: 0.4rem;
+}
+.institutional-document__footer a {
+  overflow-wrap: anywhere;
+}
+
+.institutional-document-actions {
+  max-width: 900px;
+  margin: 1.5rem auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.institutional-document-actions__button {
+  border: 1px solid #205584;
+  border-radius: 0.35rem;
+  background: #205584;
+  color: #ffffff;
+  padding: 0.75rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.institutional-document-actions__button:hover, .institutional-document-actions__button:focus-visible {
+  opacity: 0.9;
+}
+.institutional-document-actions__button--secondary {
+  background: #ffffff;
+  color: #205584;
+}
+
+.institutional-document-actions__help {
+  width: 100%;
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.8rem;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 18mm 16mm;
+  }
+  body.single-lei_decreto {
+    width: auto !important;
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt !important;
+  }
+  body.single-lei_decreto .site-header,
+  body.single-lei_decreto .site-footer,
+  body.single-lei_decreto .site-subfooter,
+  body.single-lei_decreto .utility-bar,
+  body.single-lei_decreto .conferp-utility-bar,
+  body.single-lei_decreto .subfooter,
+  body.single-lei_decreto .conferp-subfooter,
+  body.single-lei_decreto .site-navigation,
+  body.single-lei_decreto .main-navigation,
+  body.single-lei_decreto .mobile-navigation,
+  body.single-lei_decreto .mobile-menu,
+  body.single-lei_decreto .conferp-page-heading,
+  body.single-lei_decreto .conferp-breadcrumb,
+  body.single-lei_decreto .breadcrumb,
+  body.single-lei_decreto .back-to-top,
+  body.single-lei_decreto .conferp-back-to-top,
+  body.single-lei_decreto .accessibility-widget,
+  body.single-lei_decreto .accessibility-controls,
+  body.single-lei_decreto .conferp-accessibility,
+  body.single-lei_decreto .conferp-accessibility-sticky__trigger,
+  body.single-lei_decreto .nav-access,
+  body.single-lei_decreto .sticky-accessibility,
+  body.single-lei_decreto .accessibility-sticky,
+  body.single-lei_decreto .vlibras-plugin,
+  body.single-lei_decreto .institutional-document__types,
+  body.single-lei_decreto [vw],
+  body.single-lei_decreto [vw-access-button],
+  body.single-lei_decreto [vw-plugin-wrapper],
+  body.single-lei_decreto #wpadminbar,
+  body.single-lei_decreto .no-print,
+  body.single-lei_decreto .institutional-document-actions,
+  body.single-lei_decreto .institutional-document__actions {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  body.single-lei_decreto .legislation-single__container,
+  body.single-lei_decreto .container,
+  body.single-lei_decreto .site-main {
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  body.single-lei_decreto .institutional-document {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: #000 !important;
+    background: #fff !important;
+  }
+  body.single-lei_decreto .institutional-document__header {
+    margin-bottom: 10mm;
+  }
+  body.single-lei_decreto .institutional-document__coat {
+    width: 24mm;
+    max-height: 32mm;
+  }
+  body.single-lei_decreto .institutional-document__content {
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+  body.single-lei_decreto .institutional-document__content h2, body.single-lei_decreto .institutional-document__content .h2,
+  body.single-lei_decreto .institutional-document__content h3,
+  body.single-lei_decreto .institutional-document__content .h3,
+  body.single-lei_decreto .institutional-document__content h4,
+  body.single-lei_decreto .institutional-document__content .h4,
+  body.single-lei_decreto .institutional-document__content h5,
+  body.single-lei_decreto .institutional-document__content .h5,
+  body.single-lei_decreto .institutional-document__content h6,
+  body.single-lei_decreto .institutional-document__content .h6 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  body.single-lei_decreto .institutional-document__content p,
+  body.single-lei_decreto .institutional-document__content li {
+    orphans: 3;
+    widows: 3;
+  }
+  body.single-lei_decreto .institutional-document__footer {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  body.single-lei_decreto .institutional-document__type {
+    color: #000 !important;
+    background: transparent !important;
+    border: 1px solid #777;
+  }
+  body.single-lei_decreto a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+}
+/* Leis e Decretos */
+/**
+ * CONFERP — Leis e Decretos
+ * Estrutura geral do módulo.
+ *
+ * @package conferp
+ */
+.leis-decretos-page {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.leis-decretos-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 270px;
+  gap: 32px;
+  align-items: start;
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+.leis-decretos-layout__main {
+  min-width: 0;
+}
+.leis-decretos-layout__sidebar {
+  min-width: 0;
+}
+
+.leis-decretos-page__count {
+  margin: 0 0 24px;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.leis-decretos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.leis-decretos-page__empty {
+  margin: 0;
+  padding: 32px;
+  border: 1px solid #dee2e6;
+  border-radius: 25px;
+  color: #6c757d;
+  text-align: center;
+}
+
+.leis-decretos-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 32px;
+}
+.leis-decretos-pagination a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 25px;
+  color: #1e284b;
+  text-decoration: none;
+}
+.leis-decretos-pagination a:hover, .leis-decretos-pagination a[aria-current=page] {
+  background-color: #205584;
+  border-color: #205584;
+  color: #ffffff;
+}
+
+/* ==========================================================
+   RESULTS
+   ========================================================== */
+.leis-decretos-results {
+  padding-top: 32px;
+  padding-bottom: 56px;
+}
+
+.leis-decretos-page__count {
+  margin: 0 0 18px;
+  padding: 0;
+  color: #6c757d;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ==========================================================
+   RESULTS LAYOUT
+   ========================================================== */
+.leis-decretos-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 270px;
+  align-items: start;
+  gap: 32px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+.leis-decretos-layout__main, .leis-decretos-layout__sidebar {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+@media (max-width: 991.98px) {
+  .leis-decretos-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+}
+@media (max-width: 575.98px) {
+  .leis-decretos-results {
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }
+}
+@media (max-width: 991.98px) {
+  .leis-decretos-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+}
+@media (max-width: 575.98px) {
+  .leis-decretos-layout {
+    padding-top: 28px;
+    padding-bottom: 40px;
+  }
+}
+.leis-decretos-pagination ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.leis-decretos-pagination .page-numbers {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 25px;
+  color: #1e284b;
+  text-decoration: none;
+}
+
+.leis-decretos-pagination .page-numbers:hover, .leis-decretos-pagination .page-numbers.current {
+  background: #205584;
+  border-color: #205584;
+  color: #ffffff;
+}
+
+/**
+ * CONFERP — Leis e Decretos
+ * Pesquisa e filtros do arquivo público.
+ *
+ * @package conferp
+ */
+.leis-decretos-search {
+  width: 100%;
+  margin: 0;
+  padding: 30px 0;
+  background-color: #1e284b;
+}
+
+.leis-decretos-filtros {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  /* Campo principal de pesquisa */
+}
+.leis-decretos-filtros__search {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.leis-decretos-filtros__search label {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+}
+.leis-decretos-filtros__search input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid #dee2e6;
+  border-radius: 25px;
+  background-color: #ffffff;
+  color: #1e284b;
+  font: inherit;
+}
+.leis-decretos-filtros__search input::placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+.leis-decretos-filtros__search input:focus-visible {
+  outline: 2px solid #4d9bd5;
+  outline-offset: 2px;
+}
+.leis-decretos-filtros {
+  /* Grade de filtros */
+}
+.leis-decretos-filtros__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+}
+.leis-decretos-filtros {
+  /* Campos individuais */
+}
+.leis-decretos-filtros__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.leis-decretos-filtros__field label {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+}
+.leis-decretos-filtros__field select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #dee2e6;
+  border-radius: 25px;
+  background-color: #ffffff;
+  color: #1e284b;
+  font: inherit;
+  cursor: pointer;
+}
+.leis-decretos-filtros__field select:focus-visible {
+  outline: 2px solid #4d9bd5;
+  outline-offset: 2px;
+}
+.leis-decretos-filtros {
+  /* Botões e ações */
+}
+.leis-decretos-filtros__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  min-width: 0;
+}
+.leis-decretos-filtros__actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 28px;
+  border: 0;
+  border-radius: 25px;
+  background-color: #4d9bd5;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.leis-decretos-filtros__actions button:hover {
+  background-color: #205584;
+}
+.leis-decretos-filtros__actions button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+.leis-decretos-filtros__actions a {
+  color: #ffffff;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.leis-decretos-filtros__actions a:hover {
+  color: #4d9bd5;
+}
+.leis-decretos-filtros__actions a:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   TABLET
+   Abaixo de 992px
+   ========================================================== */
+@media (max-width: 991.98px) {
+  .leis-decretos-filtros__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+/* ==========================================================
+   MOBILE
+   Abaixo de 768px
+   ========================================================== */
+@media (max-width: 767.98px) {
+  .leis-decretos-search {
+    padding: 26px 0;
+  }
+  .leis-decretos-filtros {
+    gap: 18px;
+  }
+  .leis-decretos-filtros__search input {
+    font-size: 14px;
+  }
+  .leis-decretos-filtros__field select {
+    font-size: 14px;
+  }
+}
+/* ==========================================================
+   MOBILE PEQUENO
+   Abaixo de 576px
+   ========================================================== */
+@media (max-width: 575.98px) {
+  .leis-decretos-search {
+    padding: 24px 0;
+  }
+  .leis-decretos-filtros__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  .leis-decretos-filtros__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+  .leis-decretos-filtros__actions button {
+    width: 100%;
+  }
+  .leis-decretos-filtros__actions a {
+    display: inline-block;
+    padding: 8px 0;
+    text-align: center;
+  }
+}
+/* ==========================================================
+   ACESSIBILIDADE
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .leis-decretos-filtros__actions button {
+    transition: none;
+  }
+}
+/**
+ * CONFERP — Leis e Decretos
+ * Cards de documentos.
+ *
+ * @package conferp
+ */
+.leis-decretos-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-width: 0;
+  padding: 22px 24px;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 25px;
+  /* Ícone PDF */
+}
+.leis-decretos-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 52px;
+  width: 52px;
+  color: #1e284b;
+}
+.leis-decretos-card__icon svg {
+  display: block;
+  width: 42px;
+  height: auto;
+}
+.leis-decretos-card {
+  /* Conteúdo principal */
+}
+.leis-decretos-card__body {
+  flex: 1;
+  min-width: 0;
+}
+.leis-decretos-card {
+  /* Tipo de reunião */
+}
+.leis-decretos-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.leis-decretos-card__tag {
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 5px 10px;
+  background-color: #f2f6ff;
+  color: #205584;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.leis-decretos-card {
+  /* Título */
+}
+.leis-decretos-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+.leis-decretos-card__title a:hover {
+  text-decoration: underline;
+}
+.leis-decretos-card h2, .leis-decretos-card .h2 {
+  margin: 0 0 10px;
+  color: #1e284b;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.leis-decretos-card {
+  /* Data da reunião */
+}
+.leis-decretos-card__date {
+  margin: 0 0 8px;
+  color: #6c757d;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.leis-decretos-card {
+  /* Assuntos */
+}
+.leis-decretos-card__summary {
+  margin: 0;
+  color: #6c757d;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.leis-decretos-card__summary strong {
+  color: #1e284b;
+}
+.leis-decretos-card {
+  /* Área dos documentos */
+}
+.leis-decretos-card__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+  min-width: 0;
+}
+.leis-decretos-card {
+  /* Botão de visualização */
+}
+.leis-decretos-card__open {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 10px 18px;
+  background-color: #205584;
+  border-radius: 25px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.leis-decretos-card__open:hover {
+  background-color: #4d9bd5;
+  color: #ffffff;
+}
+.leis-decretos-card__open:focus-visible {
+  outline: 2px solid #4d9bd5;
+  outline-offset: 3px;
+}
+.leis-decretos-card {
+  /* PDFs complementares */
+}
+.leis-decretos-card__number {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.leis-decretos-card__number strong {
+  color: #1e284b;
+}
+.leis-decretos-card__number a {
+  color: #205584;
+  text-decoration: underline;
+}
+.leis-decretos-card__number a:hover {
+  color: #4d9bd5;
+}
+.leis-decretos-card__number a:focus-visible {
+  outline: 2px solid #4d9bd5;
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   TABLET
+   Bootstrap MD até LG
+   ========================================================== */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .leis-decretos-card {
+    gap: 18px;
+    padding: 20px;
+  }
+  .leis-decretos-card__icon {
+    flex-basis: 46px;
+    width: 46px;
+  }
+  .leis-decretos-card__icon svg {
+    width: 38px;
+  }
+  .leis-decretos-card h2, .leis-decretos-card .h2 {
+    font-size: 15px;
+  }
+  .leis-decretos-card__open {
+    padding: 10px 14px;
+  }
+}
+/* ==========================================================
+   MOBILE
+   Abaixo de 768px
+   ========================================================== */
+@media (max-width: 767.98px) {
+  .leis-decretos-card {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    grid-template-areas: "icon body" "documents documents";
+    align-items: start;
+    justify-content: stretch;
+    column-gap: 14px;
+    row-gap: 18px;
+    padding: 20px;
+    /* PDF à esquerda */
+  }
+  .leis-decretos-card__icon {
+    grid-area: icon;
+    width: 42px;
+    min-width: 0;
+    flex: none;
+    align-self: start;
+  }
+  .leis-decretos-card__icon svg {
+    width: 38px;
+  }
+  .leis-decretos-card {
+    /* Informações à direita */
+  }
+  .leis-decretos-card__body {
+    grid-area: body;
+    width: 100%;
+    min-width: 0;
+  }
+  .leis-decretos-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .leis-decretos-card__tag {
+    margin-bottom: 8px;
+  }
+  .leis-decretos-card h2, .leis-decretos-card .h2 {
+    margin-bottom: 8px;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .leis-decretos-card__date, .leis-decretos-card__summary {
+    font-size: 12px;
+  }
+  .leis-decretos-card {
+    /* Documentos abaixo do conteúdo */
+  }
+  .leis-decretos-card__actions {
+    grid-area: documents;
+    width: 100%;
+    min-width: 0;
+    align-items: stretch;
+    gap: 14px;
+  }
+  .leis-decretos-card {
+    /* Botão em largura total */
+  }
+  .leis-decretos-card__open {
+    width: 100%;
+    min-height: 44px;
+  }
+  .leis-decretos-card {
+    /* Anexos abaixo do botão */
+  }
+  .leis-decretos-card__number {
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+  }
+}
+/* ==========================================================
+   MOBILE PEQUENO
+   Abaixo de 576px
+   ========================================================== */
+@media (max-width: 575.98px) {
+  .leis-decretos-card {
+    padding: 18px 16px;
+    column-gap: 12px;
+  }
+  .leis-decretos-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .leis-decretos-card__tag {
+    font-size: 11px;
+  }
+  .leis-decretos-card h2, .leis-decretos-card .h2 {
+    font-size: 14px;
+  }
+  .leis-decretos-card__number {
+    font-size: 12px;
+  }
+}
+/* ==========================================================
+   ACESSIBILIDADE
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .leis-decretos-card__pdf {
+    transition: none;
+  }
+}
+.leis-decretos-card__summary {
+  margin: 8px 0 0;
+  color: #6c757d;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.leis-decretos-card__number {
+  margin: 0 0 8px;
+  color: #6c757d;
+  font-size: 13px;
+}
+
+.leis-decretos-card__icon svg {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+ * CONFERP — Leis e Decretos
+ * Sidebar
+ *
+ * Padrão visual baseado na Biblioteca.
+ * Preserva os badges de quantidade.
+ *
+ * @package conferp
+ */
+/* ==========================================================
+   SIDEBAR
+   ========================================================== */
+.leis-decretos-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================
+   PANEL
+   ========================================================== */
+.leis-decretos-sidebar__panel {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #dee2e6;
+  border-radius: 25px;
+  background-color: #f2f6ff;
+}
+
+/* ==========================================================
+   HEADER / TITLE
+   ========================================================== */
+.leis-decretos-sidebar__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 42px;
+  margin: 0;
+  padding: 8px 14px;
+  background-color: #4d9bd5;
+  color: #ffffff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* ==========================================================
+   BODY
+   ========================================================== */
+.leis-decretos-sidebar__content {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 18px 18px 22px;
+  background-color: #f2f6ff;
+}
+
+/* ==========================================================
+   LIST
+   ========================================================== */
+.leis-decretos-sidebar__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.leis-decretos-sidebar__list li {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+.leis-decretos-sidebar__list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  color: #205584;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.leis-decretos-sidebar__list a > span:first-child {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.leis-decretos-sidebar__list a:hover, .leis-decretos-sidebar__list a:focus-visible {
+  color: #1e284b;
+  text-decoration: underline;
+}
+.leis-decretos-sidebar__list a:focus-visible {
+  outline: 2px solid #4d9bd5;
+  outline-offset: 3px;
+}
+.leis-decretos-sidebar__list a[aria-current=page] {
+  color: #1e284b;
+  font-weight: 600;
+}
+
+/* ==========================================================
+   COUNT BADGE
+   Exclusivo do módulo Leis e Decretos
+   ========================================================== */
+.leis-decretos-sidebar__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-width: 25px;
+  min-height: 25px;
+  margin: 0;
+  padding: 3px 6px;
+  border-radius: 25px;
+  background-color: #1e284b;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ==========================================================
+   ALL YEARS
+   ========================================================== */
+.leis-decretos-sidebar__all {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 0;
+  color: #205584;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.35;
+  text-decoration: none;
+}
+.leis-decretos-sidebar__all:hover, .leis-decretos-sidebar__all:focus-visible {
+  color: #1e284b;
+  text-decoration: underline;
+}
+.leis-decretos-sidebar__all:focus-visible {
+  outline: 2px solid #4d9bd5;
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   TABLET
+   Abaixo de 992px
+   ========================================================== */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .leis-decretos-sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 20px;
+  }
+}
+/* ==========================================================
+   MOBILE
+   Abaixo de 768px
+   ========================================================== */
+@media (max-width: 767.98px) {
+  .leis-decretos-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .leis-decretos-sidebar__content {
+    padding: 18px;
+  }
+  .leis-decretos-sidebar__list {
+    gap: 14px;
+  }
+}
+/* ==========================================================
+   MOBILE PEQUENO
+   Abaixo de 576px
+   ========================================================== */
+@media (max-width: 575.98px) {
+  .leis-decretos-sidebar__title {
+    min-height: 42px;
+    font-size: 14px;
+  }
+  .leis-decretos-sidebar__content {
+    padding: 16px;
+  }
+  .leis-decretos-sidebar__list a {
+    font-size: 14px;
+  }
+}
+/* ==========================================================
+   ACESSIBILIDADE
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .leis-decretos-sidebar__list a {
+    transition: none;
+  }
+}
+.leis-decretos-sidebar__count {
+  margin-left: 12px;
+}
+
 /* ==========================================================
    GLOBAL / FEDERAL
 

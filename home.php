@@ -20,20 +20,17 @@ get_header();
 	class="site-main news-page"
 >
 
+	<?php
+	get_template_part(
+		'template-parts/global/page-heading',
+		null,
+		array(
+			'title' => __( 'Notícias', 'conferp' ),
+		)
+	);
+	?>
+
 	<div class="container">
-
-		<header class="news-page__header">
-
-			<div class="news-page__header-inner">
-				<?php conferp_breadcrumb(); ?>
-				<h1 class="news-page__title">
-					<?php esc_html_e( 'Notícias', 'conferp' ); ?>
-				</h1>
-
-			</div>
-
-		</header>
-
 
 		<div class="news-layout">
 

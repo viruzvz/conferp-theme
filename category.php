@@ -22,21 +22,17 @@ $category = get_queried_object();
 	class="site-main news-page news-category"
 >
 
+	<?php
+	get_template_part(
+		'template-parts/global/page-heading',
+		null,
+		array(
+			'title' => single_cat_title( '', false ),
+		)
+	);
+	?>
+
 	<div class="container">
-
-		<header class="news-page__header">
-
-			<div class="news-page__header-inner">
-
-				<?php conferp_breadcrumb(); ?>
-				<h1 class="news-page__title">
-					<?php single_cat_title(); ?>
-				</h1>
-
-			</div>
-
-		</header>
-
 
 		<div class="news-layout">
 

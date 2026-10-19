@@ -68,9 +68,24 @@ require_once get_template_directory() . '/inc/atas-cadastro.php';
 require_once get_template_directory() . '/inc/atas-publico.php';
 
 /**
- * CPT Transparância.
+ * Gestão automática Leis e Decretos.
+ */
+require_once get_template_directory() . '/inc/leis-decretos.php';
+
+/**
+ * Pesquisa exclusiva, filtros, consulta paginada e ordenação pela data do documento jurídico.
+ */
+require_once get_template_directory() . '/inc/leis-decretos-public.php';
+
+/**
+ * CPT Transparância (Aqui cria o menu Transparência no dashboard).
  */
 require_once get_template_directory() . '/inc/admin/transparencia-menu.php';
+
+/**
+ * CPT Legislação (Aqui cria o menu Legislação no dashboard).
+ */
+require_once get_template_directory() . '/inc/legislacao.php';
 /**
  * Document head.
  *
