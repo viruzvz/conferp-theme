@@ -73,9 +73,19 @@ require_once get_template_directory() . '/inc/atas-publico.php';
 require_once get_template_directory() . '/inc/leis-decretos.php';
 
 /**
+ * Gestão automática Resoluções Normativas.
+ */
+require_once get_template_directory() . '/inc/resolucoes-normativas.php';
+
+/**
  * Pesquisa exclusiva, filtros, consulta paginada e ordenação pela data do documento jurídico.
  */
 require_once get_template_directory() . '/inc/leis-decretos-public.php';
+
+/**
+ * Pesquisa exclusiva, filtros, consulta paginada e ordenação pela data do documento jurídico.
+ */
+require_once get_template_directory() . '/inc/resolucoes-normativas-public.php';
 
 /**
  * CPT Transparância (Aqui cria o menu Transparência no dashboard).

@@ -11,5 +11,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<button class="institutional-document-actions__button institutional-document-actions__button--secondary" type="button" onclick="window.print()" aria-describedby="institutional-document-pdf-help">
 		<?php esc_html_e( 'Salvar como PDF', 'conferp' ); ?>
 	</button>
-	<p id="institutional-document-pdf-help" class="institutional-document-actions__help"><?php esc_html_e( 'Na janela de impressão, selecione “Salvar como PDF” como destino.', 'conferp' ); ?></p>
+	<p id="institutional-document-pdf-help" class="institutional-document-actions__help"><?php esc_html_e( 'Orientações para impressão e PDF: na janela de impressão do navegador, abra “Mais definições” e desmarque “Cabeçalhos e rodapés” para remover a data, o título, a URL e a numeração automática. Para gerar um PDF, selecione “Salvar como PDF” no campo “Destino”.', 'conferp' ); ?></p>
 </div>

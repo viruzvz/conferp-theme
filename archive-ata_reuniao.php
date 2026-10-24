@@ -18,7 +18,7 @@ get_header();
 $filters = conferp_atas_public_filters();
 $ids     = conferp_atas_public_query( $filters );
 
-$per_page = 10;
+$per_page = 6;
 $page     = max( 1, absint( get_query_var( 'paged' ) ) );
 $total    = count( $ids );
 $pages    = max( 1, (int) ceil( $total / $per_page ) );
@@ -327,7 +327,7 @@ $archive_url = get_post_type_archive_link( 'ata_reuniao' );
                         $extras = is_array( $extras ) ? $extras : array();
                         ?>
 
-                        <article class="ata-card">
+                        <article id="ata-<?php echo esc_attr( $id ); ?>" class="ata-card">
 
                           <div class="ata-card__icon" aria-hidden="true">
                               <svg
@@ -511,6 +511,22 @@ $archive_url = get_post_type_archive_link( 'ata_reuniao' );
 
                 </div>
 
+                <?php
+                // Componente global de carregamento progressivo.
+                if ( $pages > 1 ) {
+                    get_template_part(
+                        'template-parts/global/load-more',
+                        null,
+                        array(
+                            'list'       => '.atas-lista',
+                            'card'       => '.ata-card',
+                            'pagination' => '.atas-pagination',
+                            'total'      => $total,
+                        )
+                    );
+                }
+                ?>
+
                 <!-- Paginação -->
                 <?php if ( $pages > 1 ) : ?>
 
@@ -526,6 +542,7 @@ $archive_url = get_post_type_archive_link( 'ata_reuniao' );
                                 'ata_tipo'    => $filters['tipo'],
                                 'ata_assunto' => $filters['assunto'],
                                 'ata_ano'     => $filters['ano'],
+                                'ata_gestao'  => $filters['gestao'],
                                 'ata_ordem'   => $filters['ordem'],
                             )
                         );
@@ -547,6 +564,12 @@ $archive_url = get_post_type_archive_link( 'ata_reuniao' );
                             );
                         }
                         ?>
+
+                        <?php if ( $page < $pages ) : ?>
+                            <a class="next page-numbers" href="<?php echo esc_url( add_query_arg( $pagination_args, get_pagenum_link( $page + 1 ) ) ); ?>" rel="next">
+                                <?php esc_html_e( 'Próximo »', 'conferp' ); ?>
+                            </a>
+                        <?php endif; ?>
 
                     </nav>
 

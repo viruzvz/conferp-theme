@@ -633,6 +633,39 @@ function conferp_get_breadcrumb_items() {
 
 
 	/* ======================================================
+	   LEIS E DECRETOS — LEGISLAÇÃO
+	   Legislação é um agrupamento sem página pública.
+	   ====================================================== */
+
+	if ( is_post_type_archive( 'lei_decreto' ) || is_singular( 'lei_decreto' ) ) {
+
+		$items[] = array(
+			'label'   => __( 'Legislação', 'conferp' ),
+			'url'     => '',
+			'current' => false,
+		);
+
+		$single_document = is_singular( 'lei_decreto' );
+
+		$items[] = array(
+			'label'   => __( 'Leis e Decretos', 'conferp' ),
+			'url'     => $single_document ? get_post_type_archive_link( 'lei_decreto' ) : '',
+			'current' => ! $single_document,
+		);
+
+		if ( $single_document ) {
+			$items[] = array(
+				'label'   => get_the_title(),
+				'url'     => '',
+				'current' => true,
+			);
+		}
+
+		return $items;
+	}
+
+
+	/* ======================================================
 	   GENERIC CUSTOM POST TYPE ARCHIVE
 	   Future modules:
 	   Atas, Leis, Resoluções, Portarias...

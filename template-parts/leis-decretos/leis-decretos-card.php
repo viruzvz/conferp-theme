@@ -16,9 +16,7 @@ $date = conferp_leis_decretos_date( $id );
             <?php if ( $types && ! is_wp_error( $types ) ) : foreach ( $types as $term ) : ?><span class="leis-decretos-card__tag"><?php echo esc_html( $term->name ); ?></span><?php endforeach; else : ?><span class="leis-decretos-card__tag"><?php esc_html_e( 'Documento legal', 'conferp' ); ?></span><?php endif; ?>
         </div>
         <h2 class="leis-decretos-card__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-        <?php if ( $date ) : ?><p class="leis-decretos-card__date"><?php echo esc_html( $date ); ?></p><?php endif; ?>
-        <?php if ( $number ) : ?><p class="leis-decretos-card__number"><strong><?php esc_html_e( 'Número:', 'conferp' ); ?></strong> <?php echo esc_html( $number ); ?></p><?php endif; ?>
-        <?php if ( $summary ) : ?><p class="leis-decretos-card__summary"><?php echo esc_html( $summary ); ?></p><?php endif; ?>
+        <?php if ( $summary ) : ?><p class="leis-decretos-card__summary"><strong><?php esc_html_e( 'Ementa:', 'conferp' ); ?></strong> <em><?php echo esc_html( $summary ); ?></em></p><?php endif; ?>
     </div>
     <div class="leis-decretos-card__actions"><a class="leis-decretos-card__open" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Ler documento', 'conferp' ); ?> <span aria-hidden="true">↗</span></a></div>
 </article>

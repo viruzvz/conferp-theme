@@ -26,6 +26,14 @@ $archive_url = get_post_type_archive_link( 'lei_decreto' );
         <div class="leis-decretos-layout">
             <div class="leis-decretos-layout__main">
                 <?php get_template_part( 'template-parts/leis-decretos/leis-decretos-loop', null, array( 'documents' => $documents ) ); ?>
+                <?php if ( $documents->max_num_pages > 1 ) : ?>
+                    <?php get_template_part( 'template-parts/global/load-more', null, array(
+                        'list'       => '.leis-decretos-lista',
+                        'card'       => '.leis-decretos-card',
+                        'pagination' => '.leis-decretos-pagination',
+                        'total'      => $documents->found_posts,
+                    ) ); ?>
+                <?php endif; ?>
                 <?php get_template_part( 'template-parts/leis-decretos/leis-decretos-pagination', null, compact( 'documents', 'filters' ) ); ?>
             </div>
             <aside class="leis-decretos-layout__sidebar" aria-label="<?php esc_attr_e( 'Filtros de leis e decretos', 'conferp' ); ?>">

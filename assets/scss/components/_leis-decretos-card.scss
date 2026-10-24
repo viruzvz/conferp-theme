@@ -333,3 +333,6 @@
 .leis-decretos-card__summary { margin: 8px 0 0; color: $gray-600; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
 .leis-decretos-card__number { margin: 0 0 8px; color: $gray-600; font-size: 13px; }
 .leis-decretos-card__icon svg { display: block; max-width: 100%; }
+
+// Ementa do documento — tipografia discreta, conforme padrão das atas.
+.leis-decretos-card__summary { font-size: 13px; line-height: 1.5; strong { color: $institution-heading-color; } em { font-style: italic; } }

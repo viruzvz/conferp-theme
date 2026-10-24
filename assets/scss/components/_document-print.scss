@@ -5,7 +5,9 @@
     margin: 18mm 16mm;
   }
 
-  body.single-lei_decreto {
+  // Regras compartilhadas pelos tipos de documento institucional.
+  body.single-lei_decreto,
+  body.single-resolucao_normativa {
     width: auto !important;
     background: #fff !important;
     color: #000 !important;
@@ -95,6 +97,14 @@
     .institutional-document__content li {
       orphans: 3;
       widows: 3;
+    }
+
+    // Evita quebrar parágrafos curtos de encerramento ao meio.
+    // A data e a assinatura podem ser agrupadas no Gutenberg para permanecerem juntas.
+    .institutional-document__content > p:last-child,
+    .institutional-document__content > p:nth-last-child(2) {
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .institutional-document__footer {

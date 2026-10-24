@@ -16,7 +16,7 @@ $filters     = $args['filters'] ?? array();
 $archive_url = $args['archive_url'] ?? get_post_type_archive_link( 'ata_reuniao' );
 
 $current_type = $filters['tipo'] ?? '';
-$current_year = $filters['ano'] ?? '';
+$current_gestao = $filters['gestao'] ?? '';
 
 /**
  * Monta URLs preservando os filtros ativos.
@@ -28,6 +28,7 @@ $build_url = static function ( $changes = array() ) use ( $filters, $archive_url
         'ata_tipo'    => $filters['tipo'] ?? '',
         'ata_assunto' => $filters['assunto'] ?? '',
         'ata_ano'     => $filters['ano'] ?? '',
+        'ata_gestao'  => $filters['gestao'] ?? '',
         'ata_ordem'   => $filters['ordem'] ?? '',
     );
 
@@ -44,41 +45,30 @@ $build_url = static function ( $changes = array() ) use ( $filters, $archive_url
 };
 
 /**
- * Contagem por ano da reunião.
+ * Mandatos cadastrados na taxonomia exclusiva de Atas e Reuniões.
+ * Contagem considera somente atas publicadas com PDF principal válido,
+ * seguindo as mesmas regras da listagem pública.
  */
-$year_counts = array();
+$gestoes = get_terms( array(
+    'taxonomy'   => 'ata_gestao',
+    'hide_empty' => true,
+    'orderby'    => 'name',
+    'order'      => 'ASC',
+) );
 
-$posts = get_posts(
-    array(
-        'post_type'      => 'ata_reuniao',
-        'post_status'    => 'publish',
-        'posts_per_page' => -1,
-        'fields'         => 'ids',
-        'no_found_rows'  => true,
-    )
-);
-
-foreach ( $posts as $post_id ) {
-
-    $date = get_post_meta( $post_id, '_ata_data', true );
-
-    if (
-        ! is_string( $date ) ||
-        ! preg_match( '/^(\d{4})-\d{2}-\d{2}$/', $date, $matches )
-    ) {
-        continue;
+$gestao_counts = array();
+if ( ! is_wp_error( $gestoes ) ) {
+    foreach ( $gestoes as $gestao ) {
+        $gestao_counts[ $gestao->slug ] = count( conferp_atas_public_query( array(
+            'q'       => '',
+            'tipo'    => '',
+            'assunto' => '',
+            'ano'     => '',
+            'gestao'  => $gestao->slug,
+            'ordem'   => 'recentes',
+        ) ) );
     }
-
-    $year = $matches[1];
-
-    if ( ! isset( $year_counts[ $year ] ) ) {
-        $year_counts[ $year ] = 0;
-    }
-
-    $year_counts[ $year ]++;
 }
-
-krsort( $year_counts );
 ?>
 
 <aside
@@ -134,65 +124,38 @@ krsort( $year_counts );
 
     </section>
 
-    <!-- Navegação por ano -->
+    <!-- Navegação pelos mandatos institucionais -->
     <section class="atas-sidebar__panel">
-
         <h2 class="atas-sidebar__title">
-            <?php esc_html_e( 'Ano', 'conferp' ); ?>
+            <?php esc_html_e( 'Gestão', 'conferp' ); ?>
         </h2>
 
         <div class="atas-sidebar__content">
-
             <ul class="atas-sidebar__list">
-
-                <?php foreach ( array_keys( $years ) as $year ) : ?>
-
-                    <li>
-                        <a
-                            href="<?php echo esc_url(
-                                $build_url(
-                                    array(
-                                        'ata_ano' => $year,
-                                    )
-                                )
-                            ); ?>"
-                            <?php if ( (string) $current_year === (string) $year ) : ?>
-                                aria-current="page"
-                            <?php endif; ?>
-                        >
-                            <span>
-                                <?php echo esc_html( $year ); ?>
-                            </span>
-
-                            <span class="atas-sidebar__count">
-                                <?php echo esc_html( $year_counts[ $year ] ?? 0 ); ?>
-                            </span>
-                        </a>
-                    </li>
-
-                <?php endforeach; ?>
-
+                <?php if ( ! is_wp_error( $gestoes ) && ! empty( $gestoes ) ) : ?>
+                    <?php foreach ( $gestoes as $gestao ) : ?>
+                        <?php if ( empty( $gestao_counts[ $gestao->slug ] ) ) { continue; } ?>
+                        <li>
+                            <a
+                                href="<?php echo esc_url( $build_url( array( 'ata_gestao' => $gestao->slug ) ) ); ?>"
+                                <?php if ( $current_gestao === $gestao->slug ) : ?>aria-current="page"<?php endif; ?>
+                            >
+                                <span><?php echo esc_html( $gestao->name ); ?></span>
+                                <span class="atas-sidebar__count">
+                                    <?php echo esc_html( $gestao_counts[ $gestao->slug ] ); ?>
+                                </span>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </ul>
 
-            <?php if ( $current_year ) : ?>
-
-                <a
-                    class="atas-sidebar__all"
-                    href="<?php echo esc_url(
-                        $build_url(
-                            array(
-                                'ata_ano' => '',
-                            )
-                        )
-                    ); ?>"
-                >
-                    <?php esc_html_e( 'Ver todos os anos', 'conferp' ); ?>
+            <?php if ( $current_gestao ) : ?>
+                <a class="atas-sidebar__all" href="<?php echo esc_url( $build_url( array( 'ata_gestao' => '' ) ) ); ?>">
+                    <?php esc_html_e( 'Ver todas as gestões', 'conferp' ); ?>
                 </a>
-
             <?php endif; ?>
-
         </div>
-
     </section>
 
 </aside>

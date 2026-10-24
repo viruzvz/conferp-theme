@@ -62,7 +62,7 @@ function conferp_leis_decretos_query( $filters ) {
     $args = array(
         'post_type'          => 'lei_decreto',
         'post_status'        => 'publish',
-        'posts_per_page'     => 10,
+        'posts_per_page'     => 6,
         'paged'              => max( 1, absint( get_query_var( 'paged' ) ) ),
         'ignore_sticky_posts'=> true,
         'conferp_ld_archive' => true,
@@ -90,3 +90,42 @@ function conferp_leis_decretos_date( $post_id ) {
     $timestamp = strtotime( $date . ' 12:00:00 UTC' );
     return $timestamp ? wp_date( get_option( 'date_format' ), $timestamp, new DateTimeZone( 'UTC' ) ) : '';
 }
+
+/**
+ * Keep the WordPress main archive query in sync with the custom listing.
+ * This allows /leis-e-decretos/page/2/ to resolve for Load More.
+ */
+function conferp_leis_decretos_main_archive_query( $query ) {
+    if ( is_admin() || ! $query->is_main_query() || ! $query->is_post_type_archive( 'lei_decreto' ) ) {
+        return;
+    }
+
+    $filters = conferp_leis_decretos_filters();
+    $query->set( 'posts_per_page', 6 );
+    $query->set( 'post_status', 'publish' );
+    $query->set( 'ignore_sticky_posts', true );
+    $query->set( 'conferp_ld_archive', true );
+    $query->set( 'conferp_ld_term', $filters['q'] );
+    $query->set( 'conferp_ld_direction', 'antigas' === $filters['ordem'] ? 'ASC' : 'DESC' );
+
+    if ( $filters['tipo'] ) {
+        if ( term_exists( $filters['tipo'], 'legislacao_tipo' ) ) {
+            $query->set( 'tax_query', array( array(
+                'taxonomy' => 'legislacao_tipo',
+                'field'    => 'slug',
+                'terms'    => $filters['tipo'],
+            ) ) );
+        } else {
+            $query->set( 'post__in', array( 0 ) );
+        }
+    }
+
+    if ( $filters['ano'] ) {
+        $query->set( 'meta_query', array( array(
+            'key'     => '_legislacao_data',
+            'value'   => $filters['ano'] . '-',
+            'compare' => 'LIKE',
+        ) ) );
+    }
+}
+add_action( 'pre_get_posts', 'conferp_leis_decretos_main_archive_query' );

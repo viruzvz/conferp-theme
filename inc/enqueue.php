@@ -29,6 +29,7 @@ function conferp_enqueue_assets() {
 	$accessibility_js_path     = get_template_directory() . '/assets/js/accessibility.js';
 	$mobile_navigation_js_path = get_template_directory() . '/assets/js/mobile-navigation.js';
 	$hero_carousel_js_path     = get_template_directory() . '/assets/js/hero-carousel.js';
+	$load_more_js_path           = get_template_directory() . '/assets/js/load-more.js';
 
 
 	/**
@@ -120,6 +121,21 @@ function conferp_enqueue_assets() {
 		true
 	);
 
+	/**
+	 * ======================================================
+	 * Global Component — Load More
+	 * ======================================================
+	 */
+	if ( file_exists( $load_more_js_path ) ) {
+		wp_enqueue_script(
+			'conferp-load-more',
+			get_template_directory_uri()
+				. '/assets/js/load-more.js',
+			array(),
+			filemtime( $load_more_js_path ),
+			true
+		);
+	}
 
 	/**
 	 * ======================================================

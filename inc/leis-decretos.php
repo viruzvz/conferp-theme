@@ -69,9 +69,9 @@ function conferp_register_legislacao() {
 			array(
 				'type'              => $type,
 				'single'            => true,
-				'show_in_rest'      => false,
-				'auth_callback'     => static function () {
-					return current_user_can( 'edit_posts' );
+				'show_in_rest'      => true,
+				'auth_callback'     => static function ( $allowed, $meta_key, $post_id ) {
+					return current_user_can( 'edit_post', $post_id );
 				},
 			),
 		);

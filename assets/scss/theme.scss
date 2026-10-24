@@ -44,6 +44,7 @@
 @import "components/icons";
 @import "components/breadcrumb";
 @import "components/page-heading";
+@import "components/load-more";
 
 /* Notícias */
 @import "components/news";
@@ -72,6 +73,12 @@
 @import "components/leis-decretos-filters";
 @import "components/leis-decretos-card";
 @import "components/leis-decretos-sidebar";
+
+/* Resoluções Normativas */
+@import "components/resolucoes-normativas";
+// @import "components/resolucoes-normativas-filters";
+// @import "components/resolucoes-normativas-card";
+// @import "components/resolucoes-normativas-sidebar";
 
 /* ==========================================================
    GLOBAL / FEDERAL

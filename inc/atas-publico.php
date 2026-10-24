@@ -8,6 +8,7 @@ function conferp_atas_public_filters() {
         'q'       => isset( $get['ata_busca'] ) && is_string( $get['ata_busca'] ) ? sanitize_text_field( $get['ata_busca'] ) : '',
         'tipo'    => isset( $get['ata_tipo'] ) && is_string( $get['ata_tipo'] ) ? sanitize_title( $get['ata_tipo'] ) : '',
         'assunto' => isset( $get['ata_assunto'] ) && is_string( $get['ata_assunto'] ) ? sanitize_title( $get['ata_assunto'] ) : '',
+        'gestao'  => isset( $get['ata_gestao'] ) && is_string( $get['ata_gestao'] ) ? sanitize_title( $get['ata_gestao'] ) : '',
         'ano'     => isset( $get['ata_ano'] ) && is_string( $get['ata_ano'] ) && preg_match( '/^\d{4}$/', $get['ata_ano'] ) ? $get['ata_ano'] : '',
         'ordem'   => isset( $get['ata_ordem'] ) && 'antigas' === $get['ata_ordem'] ? 'antigas' : 'recentes',
     );
@@ -16,7 +17,7 @@ function conferp_atas_public_filters() {
 /** Restrict to published entries with a valid PDF; filter metadata in PHP because WordPress default search ignores post meta. */
 function conferp_atas_public_query( $filters ) {
     $tax_query = array( 'relation' => 'AND' );
-    foreach ( array( 'tipo' => 'ata_tipo', 'assunto' => 'ata_assunto' ) as $key => $taxonomy ) {
+    foreach ( array( 'tipo' => 'ata_tipo', 'assunto' => 'ata_assunto', 'gestao' => 'ata_gestao' ) as $key => $taxonomy ) {
         if ( $filters[ $key ] ) {
             $tax_query[] = array( 'taxonomy' => $taxonomy, 'field' => 'slug', 'terms' => $filters[ $key ] );
         }
@@ -82,3 +83,16 @@ function conferp_atas_enable_archive( $args, $post_type ) {
 }
 add_filter( 'register_post_type_args', 'conferp_atas_enable_archive', 10, 2 );
 
+
+/**
+ * Align the main archive query with the six-item public listing.
+ * Prevent WordPress from treating /page/2/ as a 404 before the
+ * independent PDF-filtered query renders the requested page.
+ */
+function conferp_atas_main_archive_pagination( $query ) {
+    if ( is_admin() || ! $query->is_main_query() || ! $query->is_post_type_archive( 'ata_reuniao' ) ) {
+        return;
+    }
+    $query->set( 'posts_per_page', 6 );
+}
+add_action( 'pre_get_posts', 'conferp_atas_main_archive_pagination' );
