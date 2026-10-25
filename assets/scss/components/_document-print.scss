@@ -7,7 +7,8 @@
 
   // Regras compartilhadas pelos tipos de documento institucional.
   body.single-lei_decreto,
-  body.single-resolucao_normativa {
+  body.single-resolucao_normativa,
+  body.single-portaria {
     width: auto !important;
     background: #fff !important;
     color: #000 !important;

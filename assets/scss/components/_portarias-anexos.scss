@@ -1,0 +1,26 @@
+.portaria-single {
+  .portaria-anexos {
+    margin: 2rem 0 3rem;
+    padding: 1.5rem;
+    border: 1px solid #dce2ed;
+    border-radius: 16px;
+    background: #f7f9fe;
+  }
+  .portaria-anexos__title { margin: 0 0 .5rem; font-size: 1.4rem; color: #1e284b; }
+  .portaria-anexos__description { margin: 0 0 1.25rem; color: #596477; }
+  .portaria-anexos__list { list-style: none; padding: 0; margin: 0; }
+  .portaria-anexos__item {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1rem; padding: 1rem 0; border-top: 1px solid #dce2ed;
+  }
+  .portaria-anexos__details { display: flex; flex-direction: column; gap: .25rem; min-width: 0; overflow-wrap: anywhere; }
+  .portaria-anexos__details span { font-size: .8rem; color: #596477; }
+  .portaria-anexos__links { display: flex; flex-wrap: wrap; gap: .75rem; }
+  .portaria-anexos__links a { color: #1c4772; font-weight: 600; }
+  @media (max-width: 575.98px) {
+    .portaria-anexos__item { align-items: flex-start; flex-direction: column; }
+  }
+}
+@media print {
+  .portaria-anexos { display: none !important; }
+}

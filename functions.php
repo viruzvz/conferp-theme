@@ -77,6 +77,10 @@ require_once get_template_directory() . '/inc/leis-decretos.php';
  */
 require_once get_template_directory() . '/inc/resolucoes-normativas.php';
 
+/** Cadastro de Portarias. */
+require_once get_template_directory() . '/inc/portarias.php';
+require_once get_template_directory() . '/inc/portarias-anexos.php';
+
 /**
  * Pesquisa exclusiva, filtros, consulta paginada e ordenação pela data do documento jurídico.
  */
@@ -108,3 +112,5 @@ require_once get_template_directory() . '/inc/legislacao.php';
  * and the installed SEO plugin.
  */
 require_once get_template_directory() . '/inc/head.php';
+/** Consulta pública exclusiva de Portarias. */
+require_once get_template_directory() . '/inc/portarias-public.php';

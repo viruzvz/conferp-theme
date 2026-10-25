@@ -3,11 +3,15 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 $document_id = get_the_ID();
 $is_resolution = 'resolucao_normativa' === get_post_type( $document_id );
-$source = get_post_meta( $document_id, $is_resolution ? '_resolucao_fonte' : '_legislacao_fonte', true );
+$is_portaria = 'portaria' === get_post_type( $document_id );
+$source = get_post_meta( $document_id, $is_resolution ? '_resolucao_fonte' : ( $is_portaria ? '_portaria_fonte' : '_legislacao_fonte' ), true );
 ?>
 <footer class="institutional-document__footer">
     <p><strong><?php esc_html_e( 'Conselho Federal de Profissionais de Relações Públicas — CONFERP', 'conferp' ); ?></strong></p>
     <p><?php esc_html_e( 'Documento disponibilizado para consulta no portal institucional do CONFERP.', 'conferp' ); ?></p>
+    <?php if ( $is_portaria ) : ?>
+        <p><?php esc_html_e( 'Transcrição disponibilizada para consulta. Para conferir o ato oficial, utilize o PDF assinado.', 'conferp' ); ?></p>
+    <?php endif; ?>
     <?php if ( $source ) : ?>
         <p class="institutional-document__source">
             <?php esc_html_e( 'Fonte oficial:', 'conferp' ); ?>

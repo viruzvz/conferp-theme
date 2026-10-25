@@ -4,7 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 $document_id = get_the_ID();
 $is_resolution = 'resolucao_normativa' === get_post_type( $document_id );
-$prefix = $is_resolution ? '_resolucao_' : '_legislacao_';
+$is_portaria = 'portaria' === get_post_type( $document_id );
+$prefix = $is_resolution ? '_resolucao_' : ( $is_portaria ? '_portaria_' : '_legislacao_' );
 $number = get_post_meta( $document_id, $prefix . 'numero', true );
 $date_raw = get_post_meta( $document_id, $prefix . 'data', true );
 $summary = get_post_meta( $document_id, $prefix . 'ementa', true );
@@ -22,7 +23,7 @@ if ( $dou_date ) {
         $dou_date_formatted = wp_date( 'd/m/Y', $dou_timestamp );
     }
 }
-$types = $is_resolution ? array() : get_the_terms( $document_id, 'legislacao_tipo' );
+$types = ( $is_resolution || $is_portaria ) ? array() : get_the_terms( $document_id, 'legislacao_tipo' );
 $has_types = ! is_wp_error( $types ) && ! empty( $types );
 $coat_path = get_theme_file_path( 'assets/img/global/brasao-republica.svg' );
 $coat_url = get_theme_file_uri( 'assets/img/global/brasao-republica.svg' );
@@ -34,6 +35,8 @@ $coat_url = get_theme_file_uri( 'assets/img/global/brasao-republica.svg' );
     <p class="institutional-document__republic"><?php esc_html_e( 'República Federativa do Brasil', 'conferp' ); ?></p>
     <?php if ( $is_resolution ) : ?>
         <p class="institutional-document__types"><span class="institutional-document__type"><?php esc_html_e( 'Resolução Normativa', 'conferp' ); ?></span></p>
+    <?php elseif ( $is_portaria ) : ?>
+        <p class="institutional-document__types"><span class="institutional-document__type"><?php esc_html_e( 'Portaria', 'conferp' ); ?></span></p>
     <?php elseif ( $has_types ) : ?>
         <p class="institutional-document__types">
             <?php foreach ( $types as $type ) : ?>
