@@ -1,0 +1,21 @@
+/** CONFERP — Instruções Normativas. Arquivo de entrada do módulo. */
+@import "instrucoes-normativas-filters";
+@import "instrucoes-normativas-card";
+@import "instrucoes-normativas-sidebar";
+
+.instrucoes-page {
+  .instrucoes-results { padding-top: 34px; padding-bottom: 60px; }
+  .instrucoes-page__count { margin: 0 0 22px; color: $gray-600; font-size: 14px; }
+  .instrucoes-layout { display: grid; grid-template-columns: minmax(0, 1fr) 270px; gap: 32px; align-items: start; }
+  .instrucoes-layout__main, .instrucoes-layout__sidebar { min-width: 0; }
+  .instrucoes-lista { display: flex; flex-direction: column; gap: 14px; }
+  .instrucoes-page__empty { padding: 32px; border: 1px solid $gray-300; border-radius: 25px; text-align: center; color: $gray-600; }
+  .instrucoes-pagination { margin-top: 30px;
+    ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .page-numbers { display: inline-flex; justify-content: center; align-items: center; min-width: 40px; min-height: 40px; padding: 8px 12px; border: 1px solid $gray-300; border-radius: 25px; text-decoration: none; color: $institution-heading-color; }
+    .page-numbers:hover, .page-numbers.current { background: $institution-primary; color: $white; border-color: $institution-primary; }
+    .page-numbers:focus-visible { outline: 2px solid $institution-secondary; outline-offset: 3px; }
+  }
+  @media (max-width: 991.98px) { .instrucoes-layout { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 575.98px) { .instrucoes-results { padding-top: 24px; padding-bottom: 40px; } }
+}

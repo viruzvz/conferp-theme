@@ -5,7 +5,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $is_portaria = 'portaria' === get_post_type( get_the_ID() );
-$pdf_id = $is_portaria ? absint( get_post_meta( get_the_ID(), '_portaria_pdf_id', true ) ) : 0;
+$is_instruction = 'instrucao_normativa' === get_post_type( get_the_ID() );
+$pdf_id = $is_portaria ? absint( get_post_meta( get_the_ID(), '_portaria_pdf_id', true ) ) : ( $is_instruction ? absint( get_post_meta( get_the_ID(), '_instrucao_pdf_id', true ) ) : 0 );
 $pdf_url = ( $pdf_id && 'application/pdf' === get_post_mime_type( $pdf_id ) ) ? wp_get_attachment_url( $pdf_id ) : '';
 ?>
 <div class="institutional-document-actions" aria-label="<?php esc_attr_e( 'Ações do documento', 'conferp' ); ?>">
@@ -18,6 +19,11 @@ $pdf_url = ( $pdf_id && 'application/pdf' === get_post_mime_type( $pdf_id ) ) ? 
             <a class="institutional-document-actions__button institutional-document-actions__button--secondary" href="<?php echo esc_url( add_query_arg( 'conferp_portaria_download', get_the_ID(), home_url( '/' ) ) ); ?>"><?php esc_html_e( 'Baixar portaria assinada', 'conferp' ); ?></a>
         <?php else : ?>
             <p class="institutional-document-actions__help"><?php esc_html_e( 'O PDF assinado ainda não está disponível.', 'conferp' ); ?></p>
+        <?php endif; ?>
+    <?php elseif ( $is_instruction ) : ?>
+        <?php if ( $pdf_url ) : ?>
+            <a class="institutional-document-actions__button institutional-document-actions__button--secondary" href="<?php echo esc_url( $pdf_url ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Visualizar PDF oficial', 'conferp' ); ?></a>
+            <a class="institutional-document-actions__button institutional-document-actions__button--secondary" href="<?php echo esc_url( add_query_arg( 'conferp_instrucao_download', get_the_ID(), home_url( '/' ) ) ); ?>"><?php esc_html_e( 'Baixar PDF oficial', 'conferp' ); ?></a>
         <?php endif; ?>
     <?php else : ?>
 	<button class="institutional-document-actions__button institutional-document-actions__button--secondary" type="button" onclick="window.print()" aria-describedby="institutional-document-pdf-help">

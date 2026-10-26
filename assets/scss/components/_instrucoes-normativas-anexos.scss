@@ -1,0 +1,16 @@
+.instrucao-single {
+  .instrucao-anexos {
+    margin: 2rem 0 3rem; padding: 1.5rem;
+    border: 1px solid #dce2ed; border-radius: 16px; background: #f7f9fe;
+    h2 { color: #1e284b; font-size: 1.4rem; margin: 0 0 .5rem; }
+    p { color: #596477; }
+  }
+  .instrucao-anexos__list { list-style: none; padding: 0; margin: 0; }
+  .instrucao-anexos__item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-top: 1px solid #dce2ed; }
+  .instrucao-anexos__details { display: flex; flex-direction: column; gap: .25rem; overflow-wrap: anywhere; }
+  .instrucao-anexos__details small { color: #596477; }
+  .instrucao-anexos__links { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .instrucao-anexos__links a { color: #1c4772; font-weight: 600; }
+  @media (max-width: 575.98px) { .instrucao-anexos__item { flex-direction: column; align-items: flex-start; } }
+}
+@media print { .instrucao-anexos { display: none !important; } }

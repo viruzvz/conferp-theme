@@ -1,0 +1,34 @@
+/** Cards — Instruções Normativas. */
+.instrucoes-page {
+  .instrucoes-card { display: flex; align-items: center; gap: 24px; padding: 22px 28px; border: 1px solid $gray-300; border-radius: 25px; background: $white; }
+  .instrucoes-card__icon { flex: 0 0 50px; width: 50px; color: $institution-heading-color; svg { display: block; width: 48px; height: 56px; } }
+  .instrucoes-card__body { flex: 1 1 auto; min-width: 0; }
+  .instrucoes-card__meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; color: $gray-600; font-size: 12px; }
+  .instrucoes-card__type { display: inline-block; background: $institution-background-light; color: $institution-primary; border-radius: 25px; padding: 5px 11px; font-weight: 600; }
+  .instrucoes-card__status { color: $institution-primary; }
+  .instrucoes-card__title { margin: 9px 0 10px; font-size: 16px; line-height: 1.4; font-weight: 700; color: $institution-heading-color;
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: $institution-primary; text-decoration: underline; }
+    a:focus-visible { outline: 2px solid $institution-secondary; outline-offset: 3px; }
+  }
+  .instrucoes-card__summary { margin: 0; font-size: 13px; line-height: 1.5; color: $institution-heading-color; em { font-weight: 400; } }
+  // Assuntos seguem o padrão textual de Atas e Reuniões (sem etiquetas).
+  .instrucoes-card__topics {
+    margin: 8px 0 0;
+    color: $gray-600;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+
+    strong {
+      color: $institution-heading-color;
+      font-weight: 600;
+    }
+  }
+  .instrucoes-card__link { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; gap: 7px; border-radius: 25px; padding: 11px 18px; background: $institution-primary; color: $white; font-size: 12px; font-weight: 700; white-space: nowrap; text-decoration: none;
+    &:hover { background: $institution-secondary; color: $white; }
+    &:focus-visible { outline: 2px solid $institution-secondary; outline-offset: 3px; }
+  }
+  @media (max-width: 767.98px) { .instrucoes-card { flex-wrap: wrap; gap: 12px; padding: 20px; } .instrucoes-card__icon { flex-basis: 42px; width: 42px; svg { width: 42px; height: 49px; } } .instrucoes-card__body { flex-basis: calc(100% - 60px); } .instrucoes-card__link { margin-left: 54px; } }
+  @media (max-width: 575.98px) { .instrucoes-card__link { margin-left: 0; width: 100%; } .instrucoes-card__title { font-size: 15px; } }
+}

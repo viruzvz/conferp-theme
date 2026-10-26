@@ -114,3 +114,9 @@ require_once get_template_directory() . '/inc/legislacao.php';
 require_once get_template_directory() . '/inc/head.php';
 /** Consulta pública exclusiva de Portarias. */
 require_once get_template_directory() . '/inc/portarias-public.php';
+
+/** Cadastro de Instruções Normativas e anexos. */
+require_once get_template_directory() . '/inc/instrucoes-normativas.php';
+require_once get_template_directory() . '/inc/instrucoes-normativas-anexos.php';
+require_once get_template_directory() . '/inc/instrucoes-normativas-download.php';
+require_once get_template_directory() . '/inc/instrucoes-normativas-public.php';
