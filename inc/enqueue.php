@@ -255,3 +255,14 @@ function conferp_enqueue_instrucoes_admin_assets() {
     wp_enqueue_script( 'conferp-instrucoes-admin', get_template_directory_uri() . '/assets/js/instrucoes-normativas-admin.js', array( 'jquery', 'media-views' ), filemtime( $path ), true );
 }
 add_action( 'admin_enqueue_scripts', 'conferp_enqueue_instrucoes_admin_assets' );
+
+/** ADMIN — Contratos: Biblioteca de Mídia, PDF original e documentos vinculados. */
+function conferp_enqueue_contratos_admin_assets() {
+    $screen = get_current_screen();
+    if ( ! $screen || 'contrato' !== $screen->post_type || 'post' !== $screen->base ) { return; }
+    $path = get_template_directory() . '/assets/js/contratos-admin.js';
+    if ( ! file_exists( $path ) ) { return; }
+    wp_enqueue_media();
+    wp_enqueue_script( 'conferp-contratos-admin', get_template_directory_uri() . '/assets/js/contratos-admin.js', array( 'jquery', 'media-views' ), filemtime( $path ), true );
+}
+add_action( 'admin_enqueue_scripts', 'conferp_enqueue_contratos_admin_assets' );

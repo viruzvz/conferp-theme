@@ -1,0 +1,21 @@
+/** CONFERP — Contratos. Arquivo de entrada do módulo. */
+@import "contratos-filters";
+@import "contratos-card";
+@import "contratos-sidebar";
+
+.contratos-page {
+  .contratos-results { padding-top: 34px; padding-bottom: 60px; }
+  .contratos-page__count { margin: 0 0 22px; color: $gray-600; font-size: 14px; }
+  .contratos-layout { display: grid; grid-template-columns: minmax(0, 1fr) 270px; gap: 32px; align-items: start; }
+  .contratos-layout__main, .contratos-layout__sidebar { min-width: 0; }
+  .contratos-lista { display: flex; flex-direction: column; gap: 14px; }
+  .contratos-page__empty { padding: 32px; border: 1px solid $gray-300; border-radius: 25px; text-align: center; color: $gray-600; }
+  .contratos-pagination { margin-top: 30px;
+    ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .page-numbers { display: inline-flex; justify-content: center; align-items: center; min-width: 40px; min-height: 40px; padding: 8px 12px; border: 1px solid $gray-300; border-radius: 25px; text-decoration: none; color: $institution-heading-color; }
+    .page-numbers:hover, .page-numbers.current { background: $institution-primary; color: $white; border-color: $institution-primary; }
+    .page-numbers:focus-visible { outline: 2px solid $institution-secondary; outline-offset: 3px; }
+  }
+  @media (max-width: 991.98px) { .contratos-layout { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 575.98px) { .contratos-results { padding-top: 24px; padding-bottom: 40px; } }
+}

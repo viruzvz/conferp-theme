@@ -120,3 +120,8 @@ require_once get_template_directory() . '/inc/instrucoes-normativas.php';
 require_once get_template_directory() . '/inc/instrucoes-normativas-anexos.php';
 require_once get_template_directory() . '/inc/instrucoes-normativas-download.php';
 require_once get_template_directory() . '/inc/instrucoes-normativas-public.php';
+
+/** Cadastro administrativo de Contratos. */
+require_once get_template_directory() . '/inc/contratos.php';
+require_once get_template_directory() . '/inc/contratos-download.php';
+require_once get_template_directory() . '/inc/contratos-public.php';

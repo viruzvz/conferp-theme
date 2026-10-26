@@ -1,0 +1,30 @@
+// Ficha pública de contratos administrativos. Escopo exclusivo do CPT contrato.
+.contrato-single {
+  background: #f7f9fc;
+  &__container { padding-top: 2.5rem; padding-bottom: 4rem; }
+}
+.contrato-resumo {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  border: 1px solid #dbe2eb;
+  border-radius: .5rem;
+  background: $white;
+  overflow-wrap: anywhere;
+  &__header { padding-bottom: 1.5rem; border-bottom: 1px solid #dbe2eb; margin-bottom: 1.5rem; }
+  &__eyebrow { color: $institution-primary; font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+  &__title { color: $institution-heading-color; font-size: clamp(1.4rem, 3vw, 2rem); margin: 0; }
+  &__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 2rem; margin: 0; }
+  &__field { min-width: 0; dt { color: #56677e; font-size: .85rem; margin-bottom: .25rem; } dd { color: $institution-heading-color; font-weight: 600; margin: 0; } }
+  &__section { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #dbe2eb; h3 { color: $institution-heading-color; font-size: 1.2rem; margin: 0 0 1rem; } p { line-height: 1.7; } }
+  &__actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+  &__button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: .65rem 1rem; background: $institution-primary; color: $white; border: 1px solid $institution-primary; border-radius: .3rem; font-weight: 600; text-decoration: none; &:hover, &:focus { color: $white; filter: brightness(.88); } &--secondary { background: $white; color: $institution-primary; &:hover, &:focus { color: $institution-primary; background: #eef4fc; filter: none; } } }
+  &__hint { font-size: .85rem; color: #56677e; margin: .75rem 0 0; }
+  &__attachments { display: grid; gap: .75rem; }
+  &__attachment { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem; border: 1px solid #dbe2eb; border-radius: .3rem; span { display: block; font-size: .85rem; color: #56677e; margin-top: .25rem; } p { margin: .5rem 0 0; } a { white-space: nowrap; } }
+  @media (max-width: 767.98px) { &__grid { grid-template-columns: 1fr; } &__attachment { align-items: flex-start; flex-direction: column; } &__actions { flex-direction: column; } &__button { width: 100%; } }
+}
+@media print {
+  .contrato-single .contrato-resumo { max-width: none; border: 0; padding: 0; }
+  .contrato-resumo__actions, .contrato-resumo__hint { display: none !important; }
+}

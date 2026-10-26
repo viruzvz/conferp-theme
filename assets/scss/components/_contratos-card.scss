@@ -1,0 +1,42 @@
+/** Cards — Contratos. */
+.contratos-page {
+  .contratos-card { display: flex; align-items: center; gap: 24px; padding: 22px 28px; border: 1px solid $gray-300; border-radius: 25px; background: $white; }
+  .contratos-card__icon { flex: 0 0 50px; width: 50px; color: $institution-heading-color; svg { display: block; width: 48px; height: 56px; } }
+  .contratos-card__body { flex: 1 1 auto; min-width: 0; }
+  .contratos-card__meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; color: $gray-600; font-size: 12px; }
+  .contratos-card__type { display: inline-block; background: $institution-background-light; color: $institution-primary; border-radius: 25px; padding: 5px 11px; font-weight: 600; }
+  .contratos-card__status { color: $institution-primary; }
+  .contratos-card__title { margin: 9px 0 10px; font-size: 16px; line-height: 1.4; font-weight: 700; color: $institution-heading-color;
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: $institution-primary; text-decoration: underline; }
+    a:focus-visible { outline: 2px solid $institution-secondary; outline-offset: 3px; }
+  }
+  .contratos-card__summary { margin: 0; font-size: 13px; line-height: 1.5; color: $institution-heading-color; em { font-weight: 400; } }
+  // Assuntos seguem o padrão textual de Atas e Reuniões (sem etiquetas).
+  .contratos-card__topics {
+    margin: 8px 0 0;
+    color: $gray-600;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+
+    strong {
+      color: $institution-heading-color;
+      font-weight: 600;
+    }
+  }
+  .contratos-card__link { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; gap: 7px; border-radius: 25px; padding: 11px 18px; background: $institution-primary; color: $white; font-size: 12px; font-weight: 700; white-space: nowrap; text-decoration: none;
+    &:hover { background: $institution-secondary; color: $white; }
+    &:focus-visible { outline: 2px solid $institution-secondary; outline-offset: 3px; }
+  }
+  @media (max-width: 767.98px) { .contratos-card { flex-wrap: wrap; gap: 12px; padding: 20px; } .contratos-card__icon { flex-basis: 42px; width: 42px; svg { width: 42px; height: 49px; } } .contratos-card__body { flex-basis: calc(100% - 60px); } .contratos-card__link { margin-left: 54px; } }
+  @media (max-width: 575.98px) { .contratos-card__link { margin-left: 0; width: 100%; } .contratos-card__title { font-size: 15px; } }
+}
+
+.contratos-page {
+  .contratos-card__detail { margin: 7px 0 0; color: $gray-600; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; strong { color: $institution-heading-color; } }
+  .contratos-card__actions { display: flex; flex-direction: column; gap: 9px; flex: 0 0 auto; }
+  .contratos-card__link--outline { background: $white; color: $institution-primary; border: 1px solid $institution-primary; &:hover { background: $institution-background-light; color: $institution-heading-color; } }
+  @media (max-width: 767.98px) { .contratos-card__actions { margin-left: 54px; flex-direction: row; flex-wrap: wrap; } .contratos-card__link { margin-left: 0; } }
+  @media (max-width: 575.98px) { .contratos-card__actions { margin-left: 0; width: 100%; flex-direction: column; } .contratos-card__link { width: 100%; } }
+}
