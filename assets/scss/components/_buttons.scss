@@ -300,6 +300,89 @@
 
 
 /* =========================================================
+   HOME — BOTÃO TODAS AS NOTÍCIAS
+   Elementor > Avançado > Classes CSS: btn-conferp-news
+   (Não adicionar a classe base btn-conferp ao widget.)
+   ========================================================= */
+
+.elementor-widget-button.btn-conferp-news {
+    width: auto !important;
+    max-width: 100%;
+    align-self: flex-end;
+    flex: 0 0 auto;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+
+    > .elementor-widget-container {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .elementor-button-wrapper {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .elementor-button {
+        display: inline-flex !important;
+        width: auto !important;
+        min-height: 30px;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 5px 14px !important;
+        border: 1px solid $institution-primary !important;
+        border-radius: 999px !important;
+        background-color: #fff !important;
+        color: $institution-primary !important;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.4;
+        text-decoration: none !important;
+        box-shadow: none !important;
+    }
+
+    .elementor-button-content-wrapper {
+        display: inline-flex !important;
+        width: auto;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px;
+    }
+
+    .elementor-button-text { color: inherit !important; }
+
+    .elementor-button-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 !important;
+        color: inherit !important;
+    }
+
+    .elementor-button-icon i { font-size: 12px; line-height: 1; }
+    .elementor-button-icon svg {
+        width: 12px;
+        height: 12px;
+        fill: currentColor;
+    }
+
+    .elementor-button:hover,
+    .elementor-button:focus-visible {
+        border-color: $institution-primary !important;
+        background-color: $institution-primary !important;
+        color: #fff !important;
+    }
+
+    .elementor-button:focus-visible {
+        outline: 3px solid rgba(77, 155, 213, .35);
+        outline-offset: 3px;
+    }
+}
+
+
+/* =========================================================
    REDUCED MOTION
    ========================================================= */
 

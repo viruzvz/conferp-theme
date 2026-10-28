@@ -13620,6 +13620,83 @@ html.conferp-high-contrast {
 }
 
 /* =========================================================
+   HOME — BOTÃO TODAS AS NOTÍCIAS
+   Elementor > Avançado > Classes CSS: btn-conferp-news
+   (Não adicionar a classe base btn-conferp ao widget.)
+   ========================================================= */
+.elementor-widget-button.btn-conferp-news {
+  width: auto !important;
+  max-width: 100%;
+  align-self: flex-end;
+  flex: 0 0 auto;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+.elementor-widget-button.btn-conferp-news > .elementor-widget-container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.elementor-widget-button.btn-conferp-news .elementor-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+.elementor-widget-button.btn-conferp-news .elementor-button {
+  display: inline-flex !important;
+  width: auto !important;
+  min-height: 30px;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 5px 14px !important;
+  border: 1px solid #205584 !important;
+  border-radius: 999px !important;
+  background-color: #fff !important;
+  color: #205584 !important;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+.elementor-widget-button.btn-conferp-news .elementor-button-content-wrapper {
+  display: inline-flex !important;
+  width: auto;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px;
+}
+.elementor-widget-button.btn-conferp-news .elementor-button-text {
+  color: inherit !important;
+}
+.elementor-widget-button.btn-conferp-news .elementor-button-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 !important;
+  color: inherit !important;
+}
+.elementor-widget-button.btn-conferp-news .elementor-button-icon i {
+  font-size: 12px;
+  line-height: 1;
+}
+.elementor-widget-button.btn-conferp-news .elementor-button-icon svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+.elementor-widget-button.btn-conferp-news .elementor-button:hover,
+.elementor-widget-button.btn-conferp-news .elementor-button:focus-visible {
+  border-color: #205584 !important;
+  background-color: #205584 !important;
+  color: #fff !important;
+}
+.elementor-widget-button.btn-conferp-news .elementor-button:focus-visible {
+  outline: 3px solid rgba(77, 155, 213, 0.35);
+  outline-offset: 3px;
+}
+
+/* =========================================================
    REDUCED MOTION
    ========================================================= */
 @media (prefers-reduced-motion: reduce) {
@@ -16828,6 +16905,294 @@ html.conferp-high-contrast {
     transform: none;
   }
 }
+/**
+ * CONFERP — Home / Últimas notícias (Elementor Pro Posts widget)
+ * Aplique a classe CSS `conferp-home-news` ao widget Posts.
+ * Mantém os estilos do archive de Notícias isolados.
+ */
+.conferp-home-news .elementor-posts-container {
+  align-items: start;
+}
+.conferp-home-news .elementor-post {
+  min-width: 0;
+  background: transparent;
+}
+.conferp-home-news .elementor-post__thumbnail__link {
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+  border-radius: 22px;
+  overflow: hidden;
+  background-color: #f2f6ff;
+}
+.conferp-home-news .elementor-post__thumbnail {
+  aspect-ratio: 16/10;
+  padding-bottom: 0 !important;
+  overflow: hidden;
+}
+.conferp-home-news .elementor-post__thumbnail img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  transform: none;
+  transition: transform 0.3s ease;
+}
+.conferp-home-news .elementor-post__thumbnail__link:hover img,
+.conferp-home-news .elementor-post__thumbnail__link:focus-visible img {
+  transform: scale(1.025);
+}
+.conferp-home-news .elementor-post__text {
+  padding: 0 12px;
+}
+.conferp-home-news .elementor-post__title {
+  margin: 0 0 12px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(18px, 1.6vw, 22px);
+  font-weight: 600;
+  line-height: 1.35;
+}
+.conferp-home-news .elementor-post__title a {
+  color: #1e284b;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.conferp-home-news .elementor-post__title a:hover,
+.conferp-home-news .elementor-post__title a:focus-visible {
+  color: #205584;
+  text-decoration: underline;
+}
+.conferp-home-news .elementor-post__excerpt {
+  margin: 0;
+  color: #212529;
+  font-size: 15px;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.conferp-home-news .elementor-post__meta-data,
+.conferp-home-news .elementor-post__read-more {
+  display: none;
+}
+.conferp-home-news .elementor-post__badge {
+  background-color: #205584;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+}
+.conferp-home-news a:focus-visible {
+  outline: 3px solid rgba(77, 155, 213, 0.35);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .conferp-home-news .elementor-post__thumbnail img,
+  .conferp-home-news .elementor-post__title a {
+    transition: none;
+  }
+  .conferp-home-news .elementor-post__thumbnail__link:hover img,
+  .conferp-home-news .elementor-post__thumbnail__link:focus-visible img {
+    transform: none;
+  }
+}
+/* Categoria dinâmica inserida pelo tema acima do título. */
+.conferp-home-news .conferp-home-news__category {
+  margin: 0 0 10px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 400;
+}
+.conferp-home-news .conferp-home-news__category a {
+  color: #6c757d;
+  text-decoration: none;
+}
+.conferp-home-news .conferp-home-news__category a:hover, .conferp-home-news .conferp-home-news__category a:focus-visible {
+  color: #205584;
+  text-decoration: underline;
+}
+
+/* CONFERP — Destaques: posts fixados, reutilizável por shortcode. */
+.conferp-highlights {
+  background: #e6f0f9;
+  border-radius: 24px;
+  padding: 22px 14px 16px;
+  font-family: "Montserrat", Arial, sans-serif;
+  color: #1e284b;
+}
+.conferp-highlights__heading {
+  margin: 0 0 22px;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #1e284b;
+}
+.conferp-highlights__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.conferp-highlights__rule {
+  border-top: 1px solid #fff;
+  margin-top: 52px;
+}
+
+.conferp-highlight {
+  display: flex;
+  min-width: 0;
+  min-height: 138px;
+  overflow: hidden;
+  border: 1px solid #d7e0e9;
+  border-radius: 22px;
+  background: #fff;
+}
+.conferp-highlight__image-link {
+  display: block;
+  flex: 0 0 28%;
+  min-width: 0;
+  overflow: hidden;
+}
+.conferp-highlight__image, .conferp-highlight__image-placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 138px;
+  object-fit: cover;
+}
+.conferp-highlight__image-placeholder {
+  background: #d5e3ef;
+}
+.conferp-highlight__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 14px 12px;
+}
+.conferp-highlight__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.28;
+  color: #1e284b;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.conferp-highlight__title a {
+  color: inherit;
+  text-decoration: none;
+}
+.conferp-highlight__title a:hover {
+  text-decoration: underline;
+}
+.conferp-highlight__bottom {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 8px;
+}
+.conferp-highlight__date {
+  color: #1c4772;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.conferp-highlight__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  flex-shrink: 0;
+  min-height: 28px;
+  padding: 5px 12px;
+  background: #5292cd;
+  color: #fff;
+  border: 1px solid #1c4772;
+  border-radius: 99px;
+  font-size: 11px;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.conferp-highlight__button:hover {
+  background: #1c4772;
+  color: #fff;
+}
+.conferp-highlight a:focus-visible {
+  outline: 2px solid #1c4772;
+  outline-offset: 3px;
+}
+
+@media (max-width: 991.98px) {
+  .conferp-highlights__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .conferp-highlights__rule {
+    margin-top: 28px;
+  }
+}
+@media (max-width: 575.98px) {
+  .conferp-highlights {
+    padding: 18px 12px 14px;
+    border-radius: 20px;
+  }
+  .conferp-highlight {
+    min-height: 128px;
+  }
+  .conferp-highlight__image-link {
+    flex-basis: 30%;
+  }
+  .conferp-highlight__image, .conferp-highlight__image-placeholder {
+    min-height: 128px;
+  }
+  .conferp-highlight__body {
+    padding: 10px;
+  }
+  .conferp-highlight__title {
+    font-size: 16px;
+  }
+  .conferp-highlight__date {
+    font-size: 11px;
+    white-space: normal;
+  }
+  .conferp-highlight__button {
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+}
+/*
+ * CONFERP — Banner de evento
+ * Apenas acessibilidade.
+ * O layout fica sob responsabilidade do Elementor.
+ */
+.conferp-event-banner__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.conferp-event-banner__link:focus-visible {
+  outline: 3px solid #1c4772;
+  outline-offset: 2px;
+}
+
 /* Biblioteca */
 /**
  * CONFERP Biblioteca

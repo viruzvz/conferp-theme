@@ -1,0 +1,134 @@
+/**
+ * CONFERP — Home / Últimas notícias (Elementor Pro Posts widget)
+ * Aplique a classe CSS `conferp-home-news` ao widget Posts.
+ * Mantém os estilos do archive de Notícias isolados.
+ */
+.conferp-home-news {
+  .elementor-posts-container {
+    align-items: start;
+  }
+
+  .elementor-post {
+    min-width: 0;
+    background: transparent;
+  }
+
+  .elementor-post__thumbnail__link {
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+    border-radius: 22px;
+    overflow: hidden;
+    background-color: $institution-background-light;
+  }
+
+  .elementor-post__thumbnail {
+    aspect-ratio: 16 / 10;
+    padding-bottom: 0 !important;
+    overflow: hidden;
+  }
+
+  .elementor-post__thumbnail img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+    transform: none;
+    transition: transform .3s ease;
+  }
+
+  .elementor-post__thumbnail__link:hover img,
+  .elementor-post__thumbnail__link:focus-visible img {
+    transform: scale(1.025);
+  }
+
+  .elementor-post__text {
+    padding: 0 12px;
+  }
+
+  .elementor-post__title {
+    margin: 0 0 12px;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: clamp(18px, 1.6vw, 22px);
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .elementor-post__title a {
+    color: $institution-heading-color;
+    text-decoration: none;
+    transition: color .2s ease;
+  }
+
+  .elementor-post__title a:hover,
+  .elementor-post__title a:focus-visible {
+    color: $institution-primary;
+    text-decoration: underline;
+  }
+
+  .elementor-post__excerpt {
+    margin: 0;
+    color: $body-color;
+    font-size: 15px;
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .elementor-post__meta-data,
+  .elementor-post__read-more {
+    display: none;
+  }
+
+  // Caso a opção Badge/Category esteja habilitada no widget.
+  .elementor-post__badge {
+    background-color: $institution-primary;
+    color: $white;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  a:focus-visible {
+    outline: 3px solid rgba(77, 155, 213, .35);
+    outline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .conferp-home-news .elementor-post__thumbnail img,
+  .conferp-home-news .elementor-post__title a {
+    transition: none;
+  }
+  .conferp-home-news .elementor-post__thumbnail__link:hover img,
+  .conferp-home-news .elementor-post__thumbnail__link:focus-visible img {
+    transform: none;
+  }
+}
+
+/* Categoria dinâmica inserida pelo tema acima do título. */
+.conferp-home-news {
+  .conferp-home-news__category {
+    margin: 0 0 10px;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.45;
+    font-weight: 400;
+  }
+
+  .conferp-home-news__category a {
+    color: $gray-600;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      color: $institution-primary;
+      text-decoration: underline;
+    }
+  }
+}

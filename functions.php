@@ -125,3 +125,10 @@ require_once get_template_directory() . '/inc/instrucoes-normativas-public.php';
 require_once get_template_directory() . '/inc/contratos.php';
 require_once get_template_directory() . '/inc/contratos-download.php';
 require_once get_template_directory() . '/inc/contratos-public.php';
+
+/** Destaques editoriais (posts fixados). */
+require_once get_template_directory() . '/inc/home-destaques.php';
+
+/** Banner programado de eventos na Home (posts categoria Eventos). */
+require_once get_template_directory() . '/inc/home-eventos.php';
+require_once get_template_directory() . '/inc/home-eventos-public.php';

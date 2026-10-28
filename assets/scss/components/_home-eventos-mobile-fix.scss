@@ -1,0 +1,77 @@
+/* CONFERP — Banner de evento: imagem integral, altura definida pelo conteúdo. */
+.conferp-event-banner {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0;
+  padding: 0;
+  border-radius: 28px;
+  overflow: hidden;
+
+  &__link,
+  &__picture {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 0;
+  }
+
+  &__image,
+  &__picture img {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    transform: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  &__link:focus-visible { outline: 3px solid #1c4772; outline-offset: -3px; }
+
+  &__sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .conferp-event-banner { border-radius: 20px; }
+
+  /* Corrige o widget de shortcode e seu container específico no Elementor.
+     Evita que height:100% ou min-height fixo impeçam o fluxo normal. */
+  .elementor-element-a802dfc,
+  .elementor-element-a802dfc > .e-con-inner,
+  .elementor-element-d29dc88,
+  .elementor-element-d29dc88 > .elementor-widget-container,
+  .elementor-element-d29dc88 .elementor-shortcode {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+
+  .elementor-element-d29dc88 {
+    position: relative !important;
+    align-self: stretch;
+    flex: 0 0 auto !important;
+  }
+}
