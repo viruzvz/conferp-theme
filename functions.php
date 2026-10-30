@@ -132,3 +132,17 @@ require_once get_template_directory() . '/inc/home-destaques.php';
 /** Banner programado de eventos na Home (posts categoria Eventos). */
 require_once get_template_directory() . '/inc/home-eventos.php';
 require_once get_template_directory() . '/inc/home-eventos-public.php';
+
+/** Cadastro administrativo dos Conselhos Regionais. */
+require_once get_template_directory() . '/inc/conrerps/post-type.php';
+require_once get_template_directory() . '/inc/conrerps/taxonomy.php';
+require_once get_template_directory() . '/inc/conrerps/meta-boxes.php';
+require_once get_template_directory() . '/inc/conrerps/queries.php';
+require_once get_template_directory() . '/inc/conrerps/settings.php';
+require_once get_template_directory() . '/inc/conrerps/home-shortcode.php';
+
+/** Suporte seguro a arquivos SVG. */
+require_once get_template_directory() . '/inc/media/svg-support.php';
+
+/** Elementor pro shortcode */
+require_once get_template_directory() . '/inc/page-heading-shortcode.php';

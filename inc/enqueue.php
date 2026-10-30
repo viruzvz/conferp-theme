@@ -30,6 +30,7 @@ function conferp_enqueue_assets() {
 	$mobile_navigation_js_path = get_template_directory() . '/assets/js/mobile-navigation.js';
 	$hero_carousel_js_path     = get_template_directory() . '/assets/js/hero-carousel.js';
 	$load_more_js_path           = get_template_directory() . '/assets/js/load-more.js';
+	$home_conrerps_js_path       = get_template_directory() . '/assets/js/home-conrerps.js';
 
 
 	/**
@@ -41,10 +42,21 @@ function conferp_enqueue_assets() {
 	 * through Sass into theme.css.
 	 */
 
+	/**
+	 * Montserrat — global institutional typography.
+	 * Loaded on every public page, including those without Elementor.
+	 */
+	wp_enqueue_style(
+		'conferp-montserrat',
+		'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap',
+		array(),
+		null
+	);
+
 	wp_enqueue_style(
 		'conferp',
 		get_template_directory_uri() . '/assets/css/theme.css',
-		array(),
+		array( 'conferp-montserrat' ),
 		file_exists( $theme_css_path )
 			? filemtime( $theme_css_path )
 			: $theme_version
@@ -133,6 +145,23 @@ function conferp_enqueue_assets() {
 				. '/assets/js/load-more.js',
 			array(),
 			filemtime( $load_more_js_path ),
+			true
+		);
+	}
+
+	/**
+	 * ======================================================
+	 * Home — Encontre seu Conrerp
+	 * ======================================================
+	 * Registrado e carregado exclusivamente pelo enqueue.php.
+	 * O script inicializa somente quando encontra o componente.
+	 */
+	if ( file_exists( $home_conrerps_js_path ) ) {
+		wp_enqueue_script(
+			'conferp-home-conrerps',
+			get_template_directory_uri() . '/assets/js/home-conrerps.js',
+			array(),
+			filemtime( $home_conrerps_js_path ),
 			true
 		);
 	}

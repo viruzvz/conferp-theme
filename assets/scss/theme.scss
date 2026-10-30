@@ -45,15 +45,17 @@
 @import "components/breadcrumb";
 @import "components/page-heading";
 @import "components/load-more";
+@import "components/home-noticias";
+@import "components/home-destaques";
+@import "components/home-eventos";
+@import "components/home-conrerps";
+@import "components/elementor-internal-page";
 
 /* Notícias */
 @import "components/news";
 @import "components/news-card";
 @import "components/news-sidebar";
 @import "components/news-single";
-@import "components/home-noticias";
-@import "components/home-destaques";
-@import "components/home-eventos";
 
 /* Biblioteca */
 @import "components/biblioteca";
@@ -92,6 +94,8 @@
 @import "components/contratos-single";
 @import "components/contratos";
 
+/* Fixers */
+// @import "components/elementor-theme-isolation";
 /* ==========================================================
    GLOBAL / FEDERAL
 

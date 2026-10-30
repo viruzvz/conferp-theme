@@ -1,0 +1,15 @@
+/**
+ * CONFERP — Páginas internas Elementor Pro.
+ * A classe é aplicada ao container principal no Elementor.
+ * Não altera os tokens globais nem outros módulos do tema.
+ */
+.conferp-internal-page {
+    background-color: #f5f8fe;
+
+    .conferp-page-heading {
+        background-color: #f5f8fe;
+    }
+
+    // O shortcode já contém o container Bootstrap do componente.
+    // Não definir alturas fixas nem alterar wrappers globais do Elementor.
+}

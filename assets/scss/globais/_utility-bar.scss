@@ -914,3 +914,20 @@
         white-space: nowrap;
     }
 }
+
+// ==========================================================
+// Compatibilidade com os estilos globais de botoes do Elementor
+// ==========================================================
+// O Kit do Elementor aplica padding a todos os <button> do body.
+// Os controles institucionais ficam fora da area editavel e devem
+// preservar as dimensoes definidas acima, inclusive A+ e A-.
+// Esta regra so atua nas paginas Elementor; nao depende do Kit ID.
+body.elementor-page .conferp-utility-bar {
+    button.conferp-accessibility-control {
+        padding: 0;
+    }
+
+    button.conferp-accessibility-control--text {
+        padding: 0 .15rem;
+    }
+}

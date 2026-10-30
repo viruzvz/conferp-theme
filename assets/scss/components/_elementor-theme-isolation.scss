@@ -1,0 +1,89 @@
+/**
+ * CONFERP — Protecao dos componentes do tema em paginas Elementor.
+ * Importar por ultimo no theme.scss.
+ * Escopo intencional: somente elementos institucionais existentes.
+ */
+body.elementor-page {
+  // Heading: maior especificidade que os seletores genericos de h1 do Elementor.
+  .conferp-page-heading {
+    background-color: #f5f8fe;
+
+    h1.conferp-page-heading__title {
+      display: block;
+      margin: 0;
+      padding: 0;
+      color: $institution-heading-color;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: normal;
+      text-transform: none;
+      overflow-wrap: anywhere;
+
+      &::after { content: none; }
+    }
+
+    .conferp-page-heading__highlight {
+      color: $institution-secondary;
+    }
+
+    .conferp-page-heading__primary::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      background-color: $conferp-global-transparency;
+    }
+  }
+
+  // Raizes globais fora da area editavel: preservar tokens de fonte e cor.
+  .conferp-utility-bar {
+    font-family: $conferp-global-font-family;
+    font-size: .8125rem;
+    color: $conferp-global-white;
+  }
+
+  .site-header {
+    font-family: "Montserrat", Arial, sans-serif;
+  }
+
+  .site-header .site-branding__institution-name {
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    color: #1c4772;
+  }
+
+  .site-footer {
+    font-family: "Montserrat", Arial, sans-serif;
+    color: #fff;
+  }
+
+  .conferp-subfooter {
+    font-family: $conferp-global-font-family;
+    color: $conferp-global-text;
+  }
+
+  // Impedir que regras genericas de imagens do Elementor ampliem logos SVG.
+  .site-header .site-branding__logo-image {
+    display: block;
+    width: auto;
+    max-width: 144px;
+    height: 102px;
+    object-fit: contain;
+  }
+
+  @include media-breakpoint-down(lg) {
+    .conferp-page-heading h1.conferp-page-heading__title { font-size: 36px; }
+  }
+
+  @include media-breakpoint-down(sm) {
+    .conferp-page-heading h1.conferp-page-heading__title { font-size: 30px; }
+  }
+}
