@@ -140,6 +140,7 @@ require_once get_template_directory() . '/inc/conrerps/meta-boxes.php';
 require_once get_template_directory() . '/inc/conrerps/queries.php';
 require_once get_template_directory() . '/inc/conrerps/settings.php';
 require_once get_template_directory() . '/inc/conrerps/home-shortcode.php';
+require_once get_template_directory() . '/inc/conrerps/accordion-shortcode.php';
 
 /** Suporte seguro a arquivos SVG. */
 require_once get_template_directory() . '/inc/media/svg-support.php';

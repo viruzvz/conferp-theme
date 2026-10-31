@@ -1,93 +1,188 @@
+
 /**
  * CONFERP — Cabeçalho institucional global
- * Utilizado por Notícias, Biblioteca, Atas e Reuniões e futuros módulos.
+ *
+ * Utilizado em páginas nativas do tema e em páginas
+ * construídas com Elementor Pro.
+ *
+ * A tipografia do H1 é controlada pelo tema,
+ * independentemente das configurações do Elementor.
  *
  * @package conferp
  */
 
 .conferp-page-heading {
-    width: 100%;
-    padding: 32px 0 40px;
-    background-color: $institution-background-light;
+  width: 100%;
+  padding: 32px 0 40px;
+  background-color: $institution-background-light;
 
-    .container {
-        width: 100%;
+  .container {
+    width: 100%;
+  }
+
+  // Navegação estrutural
+  .conferp-breadcrumb {
+    margin-bottom: 24px;
+  }
+
+  // Título principal — H1 institucional
+  // Especificidade superior à regra genérica
+  // .elementor-kit-XX h1, sem usar !important.
+  h1.conferp-page-heading__title {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    color: $institution-heading-color;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    overflow-wrap: anywhere;
+
+    &::after {
+      content: none;
     }
+  }
+
+  // Primeira parte do título e indicador laranja
+  &__primary {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 16px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: $conferp-global-transparency;
+    }
+  }
+
+  // Segunda parte do título em azul
+  &__highlight {
+    color: $institution-secondary;
+  }
+
+  // Descrição opcional do cabeçalho
+  &__description {
+    max-width: 900px;
+    margin: 20px 0 0;
+    color: $institution-heading-color;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+}
+
+/**
+ * RESPONSIVIDADE DO CABEÇALHO
+ *
+ * Desktop: 42px
+ * Tablet:  36px
+ * Mobile:  30px
+ */
+
+// Tablet — abaixo de 992px
+@include media-breakpoint-down(lg) {
+  .conferp-page-heading {
+    padding: 28px 0 36px;
+
+    h1.conferp-page-heading__title {
+      font-size: 36px;
+    }
+  }
+}
+
+// Mobile — abaixo de 768px
+@include media-breakpoint-down(md) {
+  .conferp-page-heading {
+    padding: 24px 0 32px;
 
     .conferp-breadcrumb {
-        margin-bottom: 24px;
+      margin-bottom: 18px;
     }
 
-    &__title {
-        display: block;
-        margin: 0;
-        padding: 0;
-        color: $institution-heading-color;
-        font-family: "Montserrat", Arial, sans-serif;
-        font-size: 42px;
-        font-weight: 700;
-        line-height: 1.15;
-        overflow-wrap: anywhere;
-
-        &::after {
-            content: none;
-        }
-    }
-
-    &__primary {
-        position: relative;
-        display: inline-block;
-        padding-bottom: 16px;
-
-        &::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: $conferp-global-transparency;
-        }
-    }
-
-    &__highlight {
-        color: $institution-secondary;
+    h1.conferp-page-heading__title {
+      font-size: 30px;
+      line-height: 1.2;
     }
 
     &__description {
-        max-width: 900px;
-        margin: 20px 0 0;
-        color: $institution-heading-color;
-        font-size: 15px;
-        line-height: 1.65;
+      margin-top: 16px;
+      font-size: 14px;
     }
+  }
 }
 
-@include media-breakpoint-down(lg) {
-    .conferp-page-heading {
-        padding: 28px 0 36px;
+/**
+ * TÍTULOS SECUNDÁRIOS — H2 / H3
+ *
+ * Classe aplicada ao widget Título do Elementor.
+ * Não interfere nos títulos institucionais H1.
+ */
 
-        &__title {
-            font-size: 36px;
-        }
+.conferp-section-heading {
+  text-align: center;
+
+  .elementor-heading-title {
+    margin: 0;
+    color: #1e284b;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  &__primary {
+    position: relative;
+    display: inline-block;
+    color: #1e284b;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #e3b927;
     }
+  }
+
+  &__highlight {
+    color: #5292cd;
+  }
+
+  @media (max-width: 767.98px) {
+    .elementor-heading-title {
+      font-size: 20px;
+    }
+  }
 }
 
-@include media-breakpoint-down(sm) {
-    .conferp-page-heading {
-        padding: 24px 0 32px;
+/**
+ * DESCRIÇÃO DOS TÍTULOS SECUNDÁRIOS
+ */
 
-        .conferp-breadcrumb {
-            margin-bottom: 18px;
-        }
+.conferp-section-description {
+  max-width: 500px;
+  margin-inline: auto;
+  text-align: center;
 
-        &__title {
-            font-size: 30px;
-        }
+  .elementor-widget-container {
+    color: #1e284b;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.25;
+  }
 
-        &__description {
-            margin-top: 16px;
-            font-size: 14px;
-        }
-    }
+  p:last-child {
+    margin-bottom: 0;
+  }
 }
