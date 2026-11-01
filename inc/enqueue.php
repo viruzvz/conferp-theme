@@ -31,6 +31,7 @@ function conferp_enqueue_assets() {
 	$hero_carousel_js_path     = get_template_directory() . '/assets/js/hero-carousel.js';
 	$load_more_js_path           = get_template_directory() . '/assets/js/load-more.js';
 	$home_conrerps_js_path       = get_template_directory() . '/assets/js/home-conrerps.js';
+	$home_links_js_path          = get_template_directory() . '/assets/js/home-links-institucionais.js';
 
 
 	/**
@@ -162,6 +163,23 @@ function conferp_enqueue_assets() {
 			get_template_directory_uri() . '/assets/js/home-conrerps.js',
 			array(),
 			filemtime( $home_conrerps_js_path ),
+			true
+		);
+	}
+
+	/**
+	 * ======================================================
+	 * Home — Links Institucionais
+	 * ======================================================
+	 * O enqueue.php é o único responsável pelo carregamento do JS.
+	 * O script só inicializa quando encontra o carrossel no DOM.
+	 */
+	if ( is_front_page() && file_exists( $home_links_js_path ) ) {
+		wp_enqueue_script(
+			'conferp-home-links-institucionais',
+			get_template_directory_uri() . '/assets/js/home-links-institucionais.js',
+			array(),
+			filemtime( $home_links_js_path ),
 			true
 		);
 	}
