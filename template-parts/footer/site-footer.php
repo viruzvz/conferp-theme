@@ -202,12 +202,12 @@ $custom_logo_id = get_theme_mod( 'custom_logo' );
 					aria-labelledby="site-footer-menu-1-title"
 				>
 
-					<h2
+					<h5
 						id="site-footer-menu-1-title"
 						class="site-footer__title"
 					>
 						<?php echo esc_html( $footer_menu_1->name ); ?>
-					</h2>
+					</h5>
 
 
 					<?php
@@ -239,12 +239,12 @@ $custom_logo_id = get_theme_mod( 'custom_logo' );
 					aria-labelledby="site-footer-menu-2-title"
 				>
 
-					<h2
+					<h5
 						id="site-footer-menu-2-title"
 						class="site-footer__title"
 					>
 						<?php echo esc_html( $footer_menu_2->name ); ?>
-					</h2>
+					</h5>
 
 
 					<?php
@@ -276,12 +276,12 @@ $custom_logo_id = get_theme_mod( 'custom_logo' );
 					aria-labelledby="site-footer-menu-3-title"
 				>
 
-					<h2
+					<h5
 						id="site-footer-menu-3-title"
 						class="site-footer__title"
 					>
 						<?php echo esc_html( $footer_menu_3->name ); ?>
-					</h2>
+					</h5>
 
 
 					<?php
@@ -312,9 +312,9 @@ $custom_logo_id = get_theme_mod( 'custom_logo' );
 
 					<?php if ( ! empty( $contact_title ) ) : ?>
 
-						<h2 class="site-footer__title">
+						<h5 class="site-footer__title">
 							<?php echo esc_html( $contact_title ); ?>
-						</h2>
+						</h5>
 
 					<?php endif; ?>
 
@@ -386,9 +386,9 @@ $custom_logo_id = get_theme_mod( 'custom_logo' );
 
 					<?php if ( ! empty( $social_title ) ) : ?>
 
-						<h2 class="site-footer__title">
+						<h5 class="site-footer__title">
 							<?php echo esc_html( $social_title ); ?>
-						</h2>
+						</h5>
 
 					<?php endif; ?>
 

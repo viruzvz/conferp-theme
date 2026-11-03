@@ -1185,3 +1185,33 @@
         transition: none !important;
     }
 }
+
+/* ==========================================================
+   CONFERP — HERO CAROUSEL
+   Prevenção de FOUC
+   ========================================================== */
+
+.hero-carousel {
+
+    // O primeiro slide permanece visível antes do JS.
+    > .hero-carousel__slide {
+        display: none;
+    }
+
+    // Primeiro slide visível durante o carregamento.
+    > .hero-carousel__slide:first-child {
+        display: flex;
+    }
+
+    // Após inicialização, o JS controla o slide ativo.
+    &.is-initialized {
+
+        > .hero-carousel__slide {
+            display: none;
+        }
+
+        > .hero-carousel__slide.is-active {
+            display: flex;
+        }
+    }
+}

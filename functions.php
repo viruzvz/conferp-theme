@@ -153,3 +153,4 @@ require_once get_template_directory() . '/inc/links-institucionais/post-type.php
 require_once get_template_directory() . '/inc/links-institucionais/meta-boxes.php';
 require_once get_template_directory() . '/inc/links-institucionais/queries.php';
 require_once get_template_directory() . '/inc/links-institucionais/home-shortcode.php';
+

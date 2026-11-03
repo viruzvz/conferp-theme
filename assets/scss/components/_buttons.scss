@@ -393,3 +393,66 @@
         transition: none;
     }
 }
+
+/* =========================================================
+   CONFERP — BOTÃO INSTITUCIONAL ELEMENTOR
+   Uso: btn-conferp-institutional
+   ========================================================= */
+
+.elementor-widget-button.btn-conferp-institutional {
+    width: auto;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+
+    .elementor-widget-container,
+    .elementor-button-wrapper {
+        width: auto;
+        background: transparent;
+    }
+
+    .elementor-button {
+        display: inline-flex !important;
+        width: auto !important;
+        min-height: 30px;
+        align-items: center;
+        justify-content: center;
+
+        padding: 6px 18px !important;
+
+        border: 1px solid $institution-primary !important;
+        border-radius: 25px !important;
+
+        background: #5292cd !important;
+        color: #fff !important;
+
+        font-family: "Montserrat", Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.2;
+        text-decoration: none !important;
+        box-shadow: none !important;
+
+        transition:
+            background-color .2s ease,
+            border-color .2s ease;
+    }
+
+    .elementor-button-text {
+        color: inherit !important;
+    }
+
+    .elementor-button:hover,
+    .elementor-button:focus-visible {
+        background: $institution-primary !important;
+        border-color: $institution-primary !important;
+        color: #fff !important;
+    }
+
+    .elementor-button:focus-visible {
+        outline: 3px solid rgba(77, 155, 213, .35);
+        outline-offset: 3px;
+    }
+}

@@ -13705,6 +13705,56 @@ html.conferp-high-contrast {
     transition: none;
   }
 }
+/* =========================================================
+   CONFERP — BOTÃO INSTITUCIONAL ELEMENTOR
+   Uso: btn-conferp-institutional
+   ========================================================= */
+.elementor-widget-button.btn-conferp-institutional {
+  width: auto;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.elementor-widget-button.btn-conferp-institutional .elementor-widget-container,
+.elementor-widget-button.btn-conferp-institutional .elementor-button-wrapper {
+  width: auto;
+  background: transparent;
+}
+.elementor-widget-button.btn-conferp-institutional .elementor-button {
+  display: inline-flex !important;
+  width: auto !important;
+  min-height: 30px;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 18px !important;
+  border: 1px solid #205584 !important;
+  border-radius: 25px !important;
+  background: #5292cd !important;
+  color: #fff !important;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.elementor-widget-button.btn-conferp-institutional .elementor-button-text {
+  color: inherit !important;
+}
+.elementor-widget-button.btn-conferp-institutional .elementor-button:hover,
+.elementor-widget-button.btn-conferp-institutional .elementor-button:focus-visible {
+  background: #205584 !important;
+  border-color: #205584 !important;
+  color: #fff !important;
+}
+.elementor-widget-button.btn-conferp-institutional .elementor-button:focus-visible {
+  outline: 3px solid rgba(77, 155, 213, 0.35);
+  outline-offset: 3px;
+}
+
 /**
  * Hero Carousel
  *
@@ -14524,6 +14574,23 @@ html.conferp-high-contrast {
     transition: none !important;
   }
 }
+/* ==========================================================
+   CONFERP — HERO CAROUSEL
+   Prevenção de FOUC
+   ========================================================== */
+.hero-carousel > .hero-carousel__slide {
+  display: none;
+}
+.hero-carousel > .hero-carousel__slide:first-child {
+  display: flex;
+}
+.hero-carousel.is-initialized > .hero-carousel__slide {
+  display: none;
+}
+.hero-carousel.is-initialized > .hero-carousel__slide.is-active {
+  display: flex;
+}
+
 /**
  * CONFERP Breadcrumb
  *

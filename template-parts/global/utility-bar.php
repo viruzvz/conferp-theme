@@ -102,7 +102,7 @@ $conferp_regionals = conferp_get_regionals();
 			<!-- Ouvidoria -->
 
 			<a
-				href="https://www.conferp.org.br/ouvidoria/"
+				href="/ouvidoria/"
 				class="conferp-utility-bar__link"
 			>
 
